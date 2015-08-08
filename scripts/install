@@ -1,0 +1,154 @@
+#!/usr/bin/env zsh
+
+clear
+
+print -P "installing %F{green}.dotfiles%f"
+
+function section () {
+    print -P "\n[ %F{blue}$1%f ] $2"
+}
+
+function ok() {
+    print -P "[ %F{green}OK%f ]\n"
+}
+
+
+# antigen ----------------------------------------------------------------------
+if [ ! -d "~/.antigen" ]; then
+    section "antigen" "already installed"
+else
+    section "antigen"
+
+    cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen
+fi
+
+ok
+
+# brew -------------------------------------------------------------------------
+if test ! "$(which brew)"; then
+    section "brew"
+
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    section "brew" "already installed"
+    print -P "    updating ..."
+
+    brew update && brew cask update > /dev/null 2>&1
+fi
+
+# brews
+BREWS=(
+    brew-cask
+    duck
+    ffmpeg
+    git
+    git-extras
+    git-flow
+    imagemagick
+    node
+    nvm
+    openssl
+    p7zip
+    rename
+    tree
+    wget
+)
+
+for BREW in $BREWS; do
+    if brew list | grep -q "$BREW"; then
+        brew upgrade "$BREW" > /dev/null 2>&1
+        print -P "    upgraded %F{blue}$BREW%f %F{green}✔%f"
+    else
+        brew install "$BREW" > /dev/null 2>&1
+        print -P "    installed %F{blue}$BREW%f %F{green}✔%f"
+    fi
+done
+
+# casks
+CASKS=(
+    alfred
+    caffeine
+    cheatsheet
+    cyberduck
+    diffmerge
+    handbrake
+    iterm2
+    parallels-desktop
+    skype
+    tower
+    vox
+    xampp
+)
+
+for CASK in $CASKS; do
+    if brew cask list | grep -q "$CASK"; then
+        brew cask upgrade "$CASK" > /dev/null 2>&1
+        print -P "    upgraded cask %F{blue}$CASK%f %F{green}✔%f"
+    else
+        print -P "    installing cask %F{blue}$CASK%f %F{green}✔%f"
+        brew cask install "$CASK" > /dev/null 2>&1
+    fi
+done
+
+brew cleanup && brew cask cleanup && brew prune
+
+ok
+
+# symlinks ---------------------------------------------------------------------
+section "symlinks"
+
+test -f ~/.atom         || ln -sf ~/.dotfiles/atom/            ~/.atom
+
+test -f ~/editorconfig  || ln -sf ~/.dotfiles/editorconfig     ~/editorconfig
+
+test -f ~/.gitconfig    || ln -sf ~/.dotfiles/git/gitconfig    ~/.gitconfig
+test -f ~/.gitignore    || ln -sf ~/.dotfiles/git/gitignore    ~/.gitignore
+
+test -f ~/.sencha       || ln -sf ~/.dotfiles/sencha/          ~/.sencha
+
+test -f ~/.eslintrc     || ln -sf ~/.dotfiles/.eslintrc        ~/.eslintrc
+test -f ~/.jshintrc     || ln -sf ~/.dotfiles/.jshintrc        ~/.jshintrc
+
+test -f ~/.zprofile     || ln -sf ~/.dotfiles/zsh/zprofile     ~/.zprofile
+test -f ~/.zshrc        || ln -sf ~/.dotfiles/zsh/zshrc        ~/.zshrc
+
+ok
+
+# node -------------------------------------------------------------------------
+section "node"
+
+nvm="${HOME}/.nvm"
+
+[ ! -d "${nvm}" ] && mkdir "${nvm}"
+[ ! -f ~/.npmrc ] && touch ~/.npmrc     # npm config file
+export NVM_DIR="${nvm}"
+source "$(brew --prefix nvm)/nvm.sh"
+
+nvm install 0.12
+nvm install iojs
+nvm alias default 0.12
+nvm use default
+
+ok
+
+# node_modules -----------------------------------------------------------------
+section "node_modules" "install or update"
+
+npm update -g babel
+npm update -g babel-eslint
+npm update -g bower
+npm update -g cmd-plus
+npm update -g cordova
+npm update -g electron-prebuilt
+npm update -g eslint
+npm update -g grunt-cli
+npm update -g ios-sim
+npm update -g mocha
+npm update -g phonegap
+
+ok
+
+# done & reload ----------------------------------------------------------------
+print -P "\n\nDONE."
+print -P "made with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
+source "$HOME/.zshrc"

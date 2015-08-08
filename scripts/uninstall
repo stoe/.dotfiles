@@ -1,0 +1,73 @@
+#!/usr/bin/env zsh
+
+# disabled
+print -P "\n    %F{red}disabled%f."
+exit 0
+
+clear
+
+print -P "uninstalling %F{red}.dotfiles%f"
+
+function section () {
+    print -P "\n[ %F{blue}$1%f ] $2"
+}
+
+function ok() {
+    print -P "[ %F{green}OK%f ]\n"
+}
+
+function abort {
+  print -P "\n%F{red}> $1%f first!"
+  exit 1
+}
+
+# brew -------------------------------------------------------------------------
+section "brew"
+
+# casks
+for CASK in $(brew cask list); do
+    brew cask zap "$CASK" > /dev/null 2>&1
+    print -P "    %F{red}✗%f cask %F{blue}$CASK%f removed"
+done
+
+# brews
+for BREW in $(brew list); do
+    print -P "    %F{red}✗%f %F{blue}$BREW%f removed"
+    brew uninstall "$BREW" > /dev/null 2>&1
+done
+
+brew prune
+brew cleanup
+
+set -e
+
+/usr/bin/which -s git || abort "brew install git"
+test -d /usr/local/.git || abort "brew update"
+
+cd `brew --prefix`
+git checkout master
+git ls-files -z | pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste | xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions
+test -d Library/LinkedKegs && rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2> /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
+
+ok
+
+# antigen ----------------------------------------------------------------------
+section "antigen"
+
+#[ ! -d "~/.antigen" ] && rm -rf "~/.antigen"
+
+ok
+
+# done & reload ----------------------------------------------------------------
+print -P "\n\nDONE."
+print -P "made with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
+exec $SHELL -l

@@ -1,0 +1,15 @@
+dotfiles:
+  title: "dotfiles"
+  paths: [
+    "/Users/stoe/.dotfiles"
+  ]
+"XAMPP Settings":
+  title: "XAMPP Settings"
+  paths: [
+    "/Users/stoe/code/etc/xampp-settings"
+  ]
+generatedata:
+  title: "generatedata"
+  paths: [
+    "/Applications/XAMPP/xamppfiles/htdocs/generatedata"
+  ]
