@@ -97,20 +97,21 @@ ok
 # symlinks ---------------------------------------------------------------------
 section "symlinks"
 
-test -f ~/.atom         || ln -sf ~/.dotfiles/atom/            ~/.atom
+# directories
+test -h ~/.atom         || ln -s ~/.dotfiles/atom/          ~/.atom
+test -h ~/.sencha       || ln -s ~/.dotfiles/sencha/        ~/.sencha
 
-test -f ~/editorconfig  || ln -sf ~/.dotfiles/editorconfig     ~/editorconfig
+# files
+test -f ~/editorconfig  || ln -s ~/.dotfiles/editorconfig   ~/editorconfig
 
-test -f ~/.gitconfig    || ln -sf ~/.dotfiles/git/gitconfig    ~/.gitconfig
-test -f ~/.gitignore    || ln -sf ~/.dotfiles/git/gitignore    ~/.gitignore
+test -f ~/.gitconfig    || ln -s ~/.dotfiles/git/gitconfig  ~/.gitconfig
+test -f ~/.gitignore    || ln -s ~/.dotfiles/git/gitignore  ~/.gitignore
 
-test -f ~/.sencha       || ln -sf ~/.dotfiles/sencha/          ~/.sencha
+test -f ~/.eslintrc     || ln -s ~/.dotfiles/.eslintrc      ~/.eslintrc
+test -f ~/.jshintrc     || ln -s ~/.dotfiles/.jshintrc      ~/.jshintrc
 
-test -f ~/.eslintrc     || ln -sf ~/.dotfiles/.eslintrc        ~/.eslintrc
-test -f ~/.jshintrc     || ln -sf ~/.dotfiles/.jshintrc        ~/.jshintrc
-
-test -f ~/.zprofile     || ln -sf ~/.dotfiles/zsh/zprofile     ~/.zprofile
-test -f ~/.zshrc        || ln -sf ~/.dotfiles/zsh/zshrc        ~/.zshrc
+test -f ~/.zprofile     || ln -s ~/.dotfiles/zsh/zprofile   ~/.zprofile
+test -f ~/.zshrc        || ln -s ~/.dotfiles/zsh/zshrc      ~/.zshrc
 
 ok
 
@@ -149,6 +150,6 @@ npm update -g phonegap
 ok
 
 # done & reload ----------------------------------------------------------------
-print -P "\n\nDONE."
-print -P "made with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
+print -P "\nDONE."
+print -P "\nmade with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
 source "$HOME/.zshrc"
