@@ -1,0 +1,11 @@
+'dotfiles':
+    title: 'dotfiles'
+    paths: [
+        '/Users/stoe/.dotfiles'
+    ]
+
+'XAMPP Settings':
+    title: 'XAMPP Settings'
+    paths: [
+        '/Applications/XAMPP/xamppfiles/etc'
+    ]
