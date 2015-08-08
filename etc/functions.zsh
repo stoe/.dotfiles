@@ -65,8 +65,17 @@ function mov2gif() {
 }
 
 # screenshot shadows
-function sss() {
-    defaults write com.apple.screencapture disable-shadow -bool "$@"
+function hideshadows() {
+    local disable=false
+
+    if [[ $1 != '' && $1 == 'true' ]]; then
+        print -P "\n%F{red}hiding%f screenshot shadows"
+        disable=true
+    else
+        print -P "\n%F{green}showing%f screenshot shadows"
+    fi
+
+    defaults write com.apple.screencapture disable-shadow -bool $disable
     killall SystemUIServer
 }
 
