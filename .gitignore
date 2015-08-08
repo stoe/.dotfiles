@@ -1,0 +1,12 @@
+.DS_Store
+._*
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# folders
+.idea/
+
+# files
+git/gitconfig

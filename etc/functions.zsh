@@ -1,0 +1,138 @@
+#!/usr/bin/env zsh
+
+# open in Finder.app
+function o() {
+    if [ $# -eq 0 ]; then
+        # no arguments opens current directory
+       open .
+    else
+        # otherwise opens the given location
+       open "$@"
+    fi
+}
+
+# open in Tower.app
+function gt() {
+    if [ $# -eq 0 ]; then
+        # no arguments opens current directory
+       gittower .
+    else
+        # otherwise opens the given location
+       gittower "$@"
+    fi
+}
+
+# NPM cleaned up "ls" (no dependencies)
+function npmls() {
+    npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
+}
+
+# Create a new directory and enter it
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+    tree -aC -I '.git|node_modules|bower_components|.node-gyp|compile-cache' --dirsfirst "$@" | less -FRNX
+}
+
+# .mov -> .gif
+function mov2gif() {
+    local file="${1%.*}"
+    local scale="${2:-600}"
+
+    local tmpFolder=".mov2png"
+
+    clear
+
+    echo "${1} >> ${ORANGE}${file}.gif${RESET} (scale: ${scale})"
+    echo ""
+
+    mkdir "${tmpFolder}"
+
+    ffmpeg -i "${file}.mov" -vf scale="${scale}":-1 -r 10 "${tmpFolder}"/ffout%3d.png -v 0
+
+    convert -delay 8 -loop 0 $tmpFolder/ffout*.png "${file}-${scale}.gif"
+
+    rm -rf "${tmpFolder}"
+
+    echo "${GREEN}done${RESET}."
+    echo ""
+}
+
+# screenshot shadows
+function sss() {
+    defaults write com.apple.screencapture disable-shadow -bool "$@"
+    killall SystemUIServer
+}
+
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+function targz() {
+    local tmpFile="${@%/}.tar"
+    tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1
+
+    size=$(
+       stat -f"%z" "${tmpFile}" 2> /dev/null;   # OS X `stat`
+       stat -c"%s" "${tmpFile}" 2> /dev/null    # GNU `stat`
+    )
+
+    local cmd=""
+
+    if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+        # the .tar file is smaller than 50 MB and Zopfli is available; use it
+        cmd="zopfli"
+    else
+        if hash pigz 2> /dev/null; then
+            cmd="pigz"
+        else
+            cmd="gzip"
+        fi
+    fi
+
+    echo "Compressing .tar using \`${cmd}\`..."
+
+    "${cmd}" -v "${tmpFile}" || return 1
+    [ -f "${tmpFile}" ] && rm "${tmpFile}"
+
+    echo "${tmpFile}.gz created successfully."
+}
+
+# Extract any archive.
+function extract () {
+    if [ $# -ne 1 ]; then
+        echo "Error: No file specified."
+        return 1
+    fi
+
+    if [ -f "${1}" ] ; then
+        case "${1}" in
+            *.tar.bz2) tar xvjf "${1}"   ;;
+            *.tar.gz)  tar xvzf "${1}"   ;;
+            *.bz2)     bunzip2 "${1}"    ;;
+            *.rar)     unrar x "${1}"    ;;
+            *.gz)      gunzip "${1}"     ;;
+            *.tar)     tar xvf "${1}"    ;;
+            *.tbz2)    tar xvjf "${1}"   ;;
+            *.tgz)     tar xvzf "${1}"   ;;
+            *.zip)     unzip "${1}"      ;;
+            *.Z)       uncompress "${1}" ;;
+            *.7z)      7z x "${1}"       ;;
+            *)         echo "'${1}' cannot be extracted via extract" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+    local port="${1:-8000}"
+    sleep 1 && open -a "/Applications/Google Chrome Canary.app/" "http://localhost:${port}/" &
+    # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+    # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}

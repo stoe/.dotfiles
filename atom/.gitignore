@@ -1,0 +1,7 @@
+.apm
+.node-gyp
+compile-cache
+packages
+storage
+
+gist-it.token
