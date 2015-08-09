@@ -58,3 +58,6 @@ export LC_ALL="en_US.UTF-8"
 
 # DONE -------------------------------------------------------------------------
 antigen apply
+
+# always dark mode
+dark-mode --mode Dark

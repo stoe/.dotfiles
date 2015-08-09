@@ -37,7 +37,7 @@ git_dirty() {
 # Display information about the current repository
 #
 repo_information() {
-    echo "%F{blue}${vcs_info_msg_0_%%/.} %F{8}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
+    echo "%F{white}${vcs_info_msg_0_%%/.} %F{8}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
 }
 
 # Displays the exec time of the last command if set threshold was exceeded
@@ -64,8 +64,8 @@ precmd() {
 
 # Define prompts
 #
-PROMPT="%(?.%F{cyan}.%F{red})❯%f " # Display a red prompt char on failure
-RPROMPT="%F{8}${SSH_TTY:+%n@%m}%f"    # Display username if connected via SSH
+PROMPT="%(?.%F{8}.%F{red})❯%f "     # Display a red prompt char on failure
+RPROMPT="%F{8}${SSH_TTY:+%n@%m}%f"  # Display username if connected via SSH
 
 # ------------------------------------------------------------------------------
 #
