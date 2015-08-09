@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 # disabled
 print -P "\n    %F{red}disabled%f."
@@ -63,7 +63,7 @@ ok
 # antigen ----------------------------------------------------------------------
 section "antigen"
 
-#[ ! -d "~/.antigen" ] && rm -rf "~/.antigen"
+[ ! -d "~/.antigen" ] && rm -rf "~/.antigen"
 
 ok
 

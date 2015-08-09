@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/lib:$PATH"
