@@ -1,10 +1,10 @@
 #!/bin/zsh
 
+clear
+
 # disabled
 print -P "\n    %F{red}disabled%f."
 exit 0
-
-clear
 
 print -P "uninstalling %F{red}.dotfiles%f"
 
@@ -32,31 +32,17 @@ done
 
 # brews
 for BREW in $(brew list); do
-    print -P "    %F{red}✗%f %F{blue}$BREW%f removed"
     brew uninstall "$BREW" > /dev/null 2>&1
+    print -P "    %F{red}✗%f %F{blue}$BREW%f removed"
 done
 
 brew prune
 brew cleanup
 
-set -e
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
-/usr/bin/which -s git || abort "brew install git"
-test -d /usr/local/.git || abort "brew update"
-
-cd `brew --prefix`
-git checkout master
-git ls-files -z | pbcopy
-rm -rf Cellar
-bin/brew prune
-pbpaste | xargs -0 rm
-rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions
-test -d Library/LinkedKegs && rm -r Library/LinkedKegs
-rmdir -p bin Library share/man/man1 2> /dev/null
-rm -rf .git
-rm -rf ~/Library/Caches/Homebrew
-rm -rf ~/Library/Logs/Homebrew
-rm -rf /Library/Caches/Homebrew
+sudo chmod 0755 /usr/local
+sudo chgrp wheel /usr/local
 
 ok
 
