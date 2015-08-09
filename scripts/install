@@ -66,17 +66,44 @@ done
 
 # casks
 CASKS=(
+    1password
+    adobe-creative-cloud
     alfred
+    airserver
+    atom
+    avast
+    bartender
     caffeine
     cheatsheet
+    chromium
+    cleanmymac
     cyberduck
+    dash
     diffmerge
+    divvy
+    dropbox
+    evernote
+    firefox
+    google-chrome
+    google-chrome-canary
+    google-drive
     handbrake
+    hipchat
     iterm2
+    opera
     parallels-desktop
+    phpstorm
+    senuti
+    slack
     skype
+    spotify
+    totalfinder
+    totalspaces
     tower
+    tripmode
+    vlc
     vox
+    webstorm-bundled-jdk
     xampp
 )
 
