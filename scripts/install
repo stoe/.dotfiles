@@ -25,13 +25,18 @@ fi
 ok
 
 # brew -------------------------------------------------------------------------
-if test ! "$(which brew)"; then
+if type brew | grep "not found" > /dev/null 2>&1 ; then
     section "brew"
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    # tap
+    brew tap caskroom/cask
+    brew tap caskroom/versions
+    brew tap homebrew/versions
 else
     section "brew" "already installed"
-    print -P "    updating ..."
+    print -P "  updating ..."
 
     brew update && brew cask update > /dev/null 2>&1
 fi
@@ -73,6 +78,7 @@ CASKS=(
     atom
     avast
     bartender
+    battle-net
     caffeine
     cheatsheet
     chromium
@@ -112,8 +118,8 @@ for CASK in $CASKS; do
         brew cask upgrade "$CASK" > /dev/null 2>&1
         print -P "    upgraded cask %F{blue}$CASK%f %F{green}✔%f"
     else
-        print -P "    installing cask %F{blue}$CASK%f %F{green}✔%f"
         brew cask install "$CASK" > /dev/null 2>&1
+        print -P "    installed cask %F{blue}$CASK%f %F{green}✔%f"
     fi
 done
 
@@ -167,6 +173,7 @@ npm update -g babel-eslint
 npm update -g bower
 npm update -g cmd-plus
 npm update -g cordova
+npm update -g dark-mode
 npm update -g electron-prebuilt
 npm update -g eslint
 npm update -g grunt-cli
