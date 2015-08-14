@@ -23,3 +23,8 @@
     depth: true
   "gist-it":
     newGistsDefaultToPrivate: true
+  minimap:
+    scrollAnimation: true
+    plugins:
+      "git-diff": true
+      linter: true
