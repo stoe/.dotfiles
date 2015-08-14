@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 clear
 
@@ -25,13 +25,18 @@ fi
 ok
 
 # brew -------------------------------------------------------------------------
-if test ! "$(which brew)"; then
+if type brew | grep "not found" > /dev/null 2>&1 ; then
     section "brew"
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    # tap
+    brew tap caskroom/cask
+    brew tap caskroom/versions
+    brew tap homebrew/versions
 else
     section "brew" "already installed"
-    print -P "    updating ..."
+    print -P "  updating ..."
 
     brew update && brew cask update > /dev/null 2>&1
 fi
@@ -41,14 +46,12 @@ BREWS=(
     brew-cask
     duck
     ffmpeg
-    git
-    git-extras
-    git-flow
+    git git-extras git-flow
     imagemagick
-    node
-    nvm
+    node nvm
     openssl
     p7zip
+    rbenv ruby-build
     rename
     tree
     wget
@@ -66,17 +69,44 @@ done
 
 # casks
 CASKS=(
+    1password
+    adobe-creative-cloud
     alfred
+    airserver
+    atom
+    avast
+    bartender
+    battle-net
     caffeine
     cheatsheet
+    chromium
+    cleanmymac
     cyberduck
+    dash
     diffmerge
+    divvy
+    dropbox
+    evernote
+    firefox
+    google-chrome google-chrome-canary google-drive
     handbrake
+    hipchat
     iterm2
+    opera
     parallels-desktop
+    phpstorm
+    senuti
+    slack
     skype
+    spotify
+    totalfinder
+    totalspaces
     tower
+    tripmode
+    virtualbox virtualbox-extension-pack
+    vlc
     vox
+    webstorm-bundled-jdk
     xampp
 )
 
@@ -85,8 +115,8 @@ for CASK in $CASKS; do
         brew cask upgrade "$CASK" > /dev/null 2>&1
         print -P "    upgraded cask %F{blue}$CASK%f %F{green}✔%f"
     else
-        print -P "    installing cask %F{blue}$CASK%f %F{green}✔%f"
         brew cask install "$CASK" > /dev/null 2>&1
+        print -P "    installed cask %F{blue}$CASK%f %F{green}✔%f"
     fi
 done
 
@@ -97,20 +127,21 @@ ok
 # symlinks ---------------------------------------------------------------------
 section "symlinks"
 
-test -f ~/.atom         || ln -sf ~/.dotfiles/atom/            ~/.atom
+# directories
+test -h ~/.atom         || ln -s ~/.dotfiles/atom/          ~/.atom
+test -h ~/.sencha       || ln -s ~/.dotfiles/sencha/        ~/.sencha
 
-test -f ~/editorconfig  || ln -sf ~/.dotfiles/editorconfig     ~/editorconfig
+# files
+test -f ~/editorconfig  || ln -s ~/.dotfiles/editorconfig   ~/editorconfig
 
-test -f ~/.gitconfig    || ln -sf ~/.dotfiles/git/gitconfig    ~/.gitconfig
-test -f ~/.gitignore    || ln -sf ~/.dotfiles/git/gitignore    ~/.gitignore
+test -f ~/.gitconfig    || ln -s ~/.dotfiles/git/gitconfig  ~/.gitconfig
+test -f ~/.gitignore    || ln -s ~/.dotfiles/git/gitignore  ~/.gitignore
 
-test -f ~/.sencha       || ln -sf ~/.dotfiles/sencha/          ~/.sencha
+test -f ~/.eslintrc     || ln -s ~/.dotfiles/.eslintrc      ~/.eslintrc
+test -f ~/.jshintrc     || ln -s ~/.dotfiles/.jshintrc      ~/.jshintrc
 
-test -f ~/.eslintrc     || ln -sf ~/.dotfiles/.eslintrc        ~/.eslintrc
-test -f ~/.jshintrc     || ln -sf ~/.dotfiles/.jshintrc        ~/.jshintrc
-
-test -f ~/.zprofile     || ln -sf ~/.dotfiles/zsh/zprofile     ~/.zprofile
-test -f ~/.zshrc        || ln -sf ~/.dotfiles/zsh/zshrc        ~/.zshrc
+test -f ~/.zprofile     || ln -s ~/.dotfiles/zsh/zprofile   ~/.zprofile
+test -f ~/.zshrc        || ln -s ~/.dotfiles/zsh/zshrc      ~/.zshrc
 
 ok
 
@@ -139,6 +170,7 @@ npm update -g babel-eslint
 npm update -g bower
 npm update -g cmd-plus
 npm update -g cordova
+npm update -g dark-mode
 npm update -g electron-prebuilt
 npm update -g eslint
 npm update -g grunt-cli
@@ -149,6 +181,6 @@ npm update -g phonegap
 ok
 
 # done & reload ----------------------------------------------------------------
-print -P "\n\nDONE."
-print -P "made with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
+print -P "\nDONE."
+print -P "\nmade with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
 source "$HOME/.zshrc"
