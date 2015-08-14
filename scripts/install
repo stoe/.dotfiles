@@ -46,14 +46,12 @@ BREWS=(
     brew-cask
     duck
     ffmpeg
-    git
-    git-extras
-    git-flow
+    git git-extras git-flow
     imagemagick
-    node
-    nvm
+    node nvm
     openssl
     p7zip
+    rbenv ruby-build
     rename
     tree
     wget
@@ -90,9 +88,7 @@ CASKS=(
     dropbox
     evernote
     firefox
-    google-chrome
-    google-chrome-canary
-    google-drive
+    google-chrome google-chrome-canary google-drive
     handbrake
     hipchat
     iterm2
@@ -107,6 +103,7 @@ CASKS=(
     totalspaces
     tower
     tripmode
+    virtualbox virtualbox-extension-pack
     vlc
     vox
     webstorm-bundled-jdk
