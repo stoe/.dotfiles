@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 # open in Finder.app
 function o() {
@@ -20,11 +20,6 @@ function gt() {
         # otherwise opens the given location
        gittower "$@"
     fi
-}
-
-# NPM cleaned up "ls" (no dependencies)
-function npmls() {
-    npm ls "$@" | grep "^[└├]" | sed "s/─┬/──/g"
 }
 
 # Create a new directory and enter it
@@ -65,8 +60,17 @@ function mov2gif() {
 }
 
 # screenshot shadows
-function sss() {
-    defaults write com.apple.screencapture disable-shadow -bool "$@"
+function hideshadows() {
+    local disable=false
+
+    if [[ $1 != '' && $1 == 'true' ]]; then
+        print -P "\n%F{red}hiding%f screenshot shadows"
+        disable=true
+    else
+        print -P "\n%F{green}showing%f screenshot shadows"
+    fi
+
+    defaults write com.apple.screencapture disable-shadow -bool $disable
     killall SystemUIServer
 }
 
@@ -128,11 +132,22 @@ function extract () {
     fi
 }
 
-# Start an HTTP server from a directory, optionally specifying the port
-function server() {
-    local port="${1:-8000}"
-    sleep 1 && open -a "/Applications/Google Chrome Canary.app/" "http://localhost:${port}/" &
-    # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-    # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+# cleanup "Open With"
+function lsclean() {
+    clear
+
+    /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+    killall Finder
+
+    print -P "\n%F{cyan}Open With%s has been rebuilt! %F{green}Finder%f relaunched."
+}
+
+# cleanup launchpad
+function lpclean() {
+    clear
+
+    defaults write com.apple.dock ResetLaunchPad -bool true
+    killall Dock
+
+    print -P "\n%F{cyan}Launchpad%f has been rebuilt!"
 }

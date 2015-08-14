@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 source $HOME/.antigen/antigen.zsh
 
@@ -31,6 +31,12 @@ nvm="${HOME}/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
+# RBENV ------------------------------------------------------------------------
+export PATH="$HOME/.rbenv/bin:$PATH"
+if type "rbenv" > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
 # SOURCES ----------------------------------------------------------------------
 for config in $(find ~/.dotfiles/etc -type f -name "*.zsh" -print | sed "s/^\.\///"); do
     #echo $config
@@ -41,8 +47,23 @@ unset config
 # STUFF ------------------------------------------------------------------------
 zstyle ":completion:*" special-dirs true
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# Make Atom.io the default editor
+export EDITOR="atom -w"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+
+# Make some commands not show up in history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+# Prefer US English and use UTF-8
+export LANG="en_AU.UTF-8"
+export LC_ALL="en_AU.UTF-8"
 
 # DONE -------------------------------------------------------------------------
 antigen apply
+
+# always dark mode
+dark-mode --mode Dark
