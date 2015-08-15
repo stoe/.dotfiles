@@ -18,6 +18,8 @@ antigen bundle osx
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
+
 # THEME ------------------------------------------------------------------------
 THEMES_HOME="$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes"
 [ ! -f "$THEMES_HOME/stoe.zsh-theme" ] && ln -sf "$HOME/.dotfiles/zsh/stoe.zsh-theme" "$THEMES_HOME/stoe.zsh-theme"
