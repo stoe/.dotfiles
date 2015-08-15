@@ -20,14 +20,19 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # THEME ------------------------------------------------------------------------
 THEMES_HOME="$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes"
-[ ! -f "$THEMES_HOME/stoe.zsh-theme" ] && ln -sf ~/.dotfiles/zsh/stoe.zsh-theme "$THEMES_HOME/stoe.zsh-theme"
+[ ! -f "$THEMES_HOME/stoe.zsh-theme" ] && ln -sf "$HOME/.dotfiles/zsh/stoe.zsh-theme" "$THEMES_HOME/stoe.zsh-theme"
+
+for font in $HOME/.fonts/*.zsh; do
+    source "$font"
+done
+
 antigen theme stoe
 
 # NODE -------------------------------------------------------------------------
-nvm="${HOME}/.nvm"
+nvm="$HOME/.nvm"
 
 [ ! -d "${nvm}" ] && mkdir "${nvm}"
-[ ! -f ~/.npmrc ] && touch ~/.npmrc     # npm config file
+[ ! -f "$HOME/.npmrc" ] && touch $HOME/.npmrc     # npm config file
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
@@ -38,8 +43,8 @@ if type "rbenv" > /dev/null; then
 fi
 
 # SOURCES ----------------------------------------------------------------------
-for config in $(find ~/.dotfiles/etc -type f -name "*.zsh" -print | sed "s/^\.\///"); do
-    #echo $config
+for config in $(find $HOME/.dotfiles/etc -type f -name "*.zsh" -print | sed "s/^\.\///"); do
+    # print -P "%F{8}$config%f"
     source $config
 done
 unset config
@@ -51,9 +56,20 @@ zstyle ":completion:*" special-dirs true
 export EDITOR="atom -w"
 
 # Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+HISTFILE=$HOME/.zsh_history     # where to store zsh config
+HISTSIZE=1024                   # big history
+SAVEHIST=1024                   # big history
+setopt append_history           # append
+setopt hist_ignore_all_dups     # no duplicate
+unsetopt hist_ignore_space      # ignore space prefixed commands
+setopt hist_reduce_blanks       # trim blanks
+setopt hist_verify              # show before executing history commands
+setopt inc_append_history       # add commands as they are typed, don't wait until shell exit
+setopt share_history            # share hist between sessions
+setopt bang_hist                # !keyword
+# export HISTSIZE=32768
+# export HISTFILESIZE=$HISTSIZE
+# export HISTCONTROL=ignoredups
 
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
