@@ -144,6 +144,7 @@ test -f "$HOME/.jshintrc"       || ln -s "$HOME/.dotfiles/.jshintrc"        "$HO
 
 test -f "$HOME/.zprofile"       || ln -s "$HOME/.dotfiles/zsh/zprofile"     "$HOME/.zprofile"
 test -f "$HOME/.zshrc"          || ln -s "$HOME/.dotfiles/zsh/zshrc"        "$HOME/.zshrc"
+test -f "$HOME/.zshrc_local"    || ln -s "$HOME/.dotfiles/zsh/zshrc_local"  "$HOME/.zshrc_local"
 
 # fontconfig
 fontconf="$HOME/.config/fontconfig"
