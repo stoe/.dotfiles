@@ -2,19 +2,19 @@
 
 clear
 
-print -P "installing %F{green}.dotfiles%f"
+print -P "installing %F{green}~/%f"
 
 function section () {
     print -P "\n[ %F{blue}$1%f ] $2"
 }
 
 function ok() {
-    print -P "[ %F{green}OK%f ]\n"
+    print -P "[ %F{green}%f ]\n"   # U+F23A
 }
 
 
 # antigen ----------------------------------------------------------------------
-if [ ! -d "$HOME/.antigen" ]; then
+if [ ! -h "$HOME/.antigen" ]; then
     section "antigen" "already installed"
 else
     section "antigen"
@@ -51,20 +51,20 @@ BREWS=(
     node nvm
     openssl
     p7zip
-    python fontconfig fontforge
     rbenv ruby-build
     rename
     tree
     wget
 )
+# python fontconfig fontforge
 
-for BREW in "$BREWS"; do
+for BREW in $BREWS; do
     if brew list | grep -q "$BREW"; then
         brew upgrade "$BREW" > /dev/null 2>&1
-        print -P "    upgraded %F{blue}$BREW%f %F{green}✔%f"
+        print -P "    upgraded %F{blue}$BREW%f %F{green}%f"
     else
         brew install "$BREW" > /dev/null 2>&1
-        print -P "    installed %F{blue}$BREW%f %F{green}✔%f"
+        print -P "    installed %F{blue}$BREW%f %F{green}%f"
     fi
 done
 
@@ -80,7 +80,6 @@ CASKS=(
     battle-net
     caffeine
     cheatsheet
-    chromium
     cleanmymac
     cyberduck
     dash
@@ -88,12 +87,10 @@ CASKS=(
     divvy
     dropbox
     evernote
-    firefox
-    google-chrome google-chrome-canary google-drive
+    google-drive
     handbrake
     hipchat
     iterm2
-    opera
     parallels-desktop
     phpstorm
     senuti
@@ -111,13 +108,13 @@ CASKS=(
     xampp
 )
 
-for CASK in "$CASKS"; do
+for CASK in $CASKS; do
     if brew cask list | grep -q "$CASK"; then
         brew cask upgrade "$CASK" > /dev/null 2>&1
-        print -P "    upgraded cask %F{blue}$CASK%f %F{green}✔%f"
+        print -P "    upgraded cask %F{blue}$CASK%f %F{green}%f"
     else
         brew cask install "$CASK" > /dev/null 2>&1
-        print -P "    installed cask %F{blue}$CASK%f %F{green}✔%f"
+        print -P "    installed cask %F{blue}$CASK%f %F{green}%f"
     fi
 done
 
@@ -130,7 +127,7 @@ section "symlinks"
 
 # directories
 test -h "$HOME/.atom"           || ln -s "$HOME/.dotfiles/atom/"            "$HOME/.atom"
-test -h "$HOME/.fonts"          || ln -s "$HOME/.dotfiles/fonts/"           "$HOME/.fonts"
+# test -h "$HOME/.fonts"          || ln -s "$HOME/.dotfiles/fonts/"           "$HOME/.fonts"
 test -h "$HOME/.sencha"         || ln -s "$HOME/.dotfiles/sencha/"          "$HOME/.sencha"
 
 # files
@@ -149,7 +146,6 @@ test -f "$HOME/.zshrc_local"    || ln -s "$HOME/.dotfiles/zsh/zshrc_local"  "$HO
 # fontconfig
 fontconf="$HOME/.config/fontconfig"
 [ ! -d "${fontconf}" ] && mkdir "${fontconf}"
-test -f "${fontconf}/conf.d"    || ln -s "$HOME/.dotfiles/fonts/conf.d"     "${fontconf}/conf.d"
 
 ok
 
@@ -190,5 +186,5 @@ ok
 
 # DONE & RELOAD ----------------------------------------------------------------
 print -P "\nDONE."
-print -P "\nmade with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
+print -P "\n%F{8}  with %F{red}%F{8} by %F{cyan}stoe%F{8} (https://github.com/stoe/.dotfiles)%f"
 source "$HOME/.zshrc"
