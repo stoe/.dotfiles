@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+# open in Atom.app
+function a() {
+    if [ $# -eq 0 ]; then
+        # no arguments opens current directory
+       atom .
+    else
+        # otherwise opens the given location
+       atom "$@"
+    fi
+}
+
 # open in Finder.app
 function o() {
     if [ $# -eq 0 ]; then
@@ -136,8 +147,7 @@ function extract () {
 function lsclean() {
     clear
 
-    /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
-    killall Finder
+    "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister" -kill -r -domain local -domain system -domain user; killall Finder
 
     print -P "\n%F{cyan}Open With%s has been rebuilt! %F{green}Finder%f relaunched."
 }
@@ -146,8 +156,8 @@ function lsclean() {
 function lpclean() {
     clear
 
-    defaults write com.apple.dock ResetLaunchPad -bool true
-    killall Dock
+    # http://nickmanderfield.com/2014/08/ultimate-guide-to-fixing-and-resetting-osx-yosemite-launchpad/
+    defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock;
 
     print -P "\n%F{cyan}Launchpad%f has been rebuilt!"
 }
