@@ -14,12 +14,12 @@ function ok() {
 
 
 # antigen ----------------------------------------------------------------------
-if [ ! -d "~/.antigen" ]; then
+if [ ! -d "$HOME/.antigen" ]; then
     section "antigen" "already installed"
 else
     section "antigen"
 
-    cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen
+    cd "$HOME" && git clone https://github.com/zsh-users/antigen.git .antigen
 fi
 
 ok
@@ -51,13 +51,14 @@ BREWS=(
     node nvm
     openssl
     p7zip
+    python fontconfig fontforge
     rbenv ruby-build
     rename
     tree
     wget
 )
 
-for BREW in $BREWS; do
+for BREW in "$BREWS"; do
     if brew list | grep -q "$BREW"; then
         brew upgrade "$BREW" > /dev/null 2>&1
         print -P "    upgraded %F{blue}$BREW%f %F{green}✔%f"
@@ -110,7 +111,7 @@ CASKS=(
     xampp
 )
 
-for CASK in $CASKS; do
+for CASK in "$CASKS"; do
     if brew cask list | grep -q "$CASK"; then
         brew cask upgrade "$CASK" > /dev/null 2>&1
         print -P "    upgraded cask %F{blue}$CASK%f %F{green}✔%f"
@@ -124,34 +125,40 @@ brew cleanup && brew cask cleanup && brew prune
 
 ok
 
-# symlinks ---------------------------------------------------------------------
+# SYMLINKS ---------------------------------------------------------------------
 section "symlinks"
 
 # directories
-test -h ~/.atom         || ln -s ~/.dotfiles/atom/          ~/.atom
-test -h ~/.sencha       || ln -s ~/.dotfiles/sencha/        ~/.sencha
+test -h "$HOME/.atom"           || ln -s "$HOME/.dotfiles/atom/"            "$HOME/.atom"
+test -h "$HOME/.fonts"          || ln -s "$HOME/.dotfiles/fonts/"           "$HOME/.fonts"
+test -h "$HOME/.sencha"         || ln -s "$HOME/.dotfiles/sencha/"          "$HOME/.sencha"
 
 # files
-test -f ~/editorconfig  || ln -s ~/.dotfiles/editorconfig   ~/editorconfig
+test -f "$HOME/editorconfig"    || ln -s "$HOME/.dotfiles/editorconfig"     "$HOME/editorconfig"
 
-test -f ~/.gitconfig    || ln -s ~/.dotfiles/git/gitconfig  ~/.gitconfig
-test -f ~/.gitignore    || ln -s ~/.dotfiles/git/gitignore  ~/.gitignore
+test -f "$HOME/.gitconfig"      || ln -s "$HOME/.dotfiles/git/gitconfig"    "$HOME/.gitconfig"
+test -f "$HOME/.gitignore"      || ln -s "$HOME/.dotfiles/git/gitignore"    "$HOME/.gitignore"
 
-test -f ~/.eslintrc     || ln -s ~/.dotfiles/.eslintrc      ~/.eslintrc
-test -f ~/.jshintrc     || ln -s ~/.dotfiles/.jshintrc      ~/.jshintrc
+test -f "$HOME/.eslintrc"       || ln -s "$HOME/.dotfiles/.eslintrc"        "$HOME/.eslintrc"
+test -f "$HOME/.jshintrc"       || ln -s "$HOME/.dotfiles/.jshintrc"        "$HOME/.jshintrc"
 
-test -f ~/.zprofile     || ln -s ~/.dotfiles/zsh/zprofile   ~/.zprofile
-test -f ~/.zshrc        || ln -s ~/.dotfiles/zsh/zshrc      ~/.zshrc
+test -f "$HOME/.zprofile"       || ln -s "$HOME/.dotfiles/zsh/zprofile"     "$HOME/.zprofile"
+test -f "$HOME/.zshrc"          || ln -s "$HOME/.dotfiles/zsh/zshrc"        "$HOME/.zshrc"
+
+# fontconfig
+fontconf="$HOME/.config/fontconfig"
+[ ! -d "${fontconf}" ] && mkdir "${fontconf}"
+test -f "${fontconf}/conf.d"    || ln -s "$HOME/.dotfiles/fonts/conf.d"     "${fontconf}/conf.d"
 
 ok
 
-# node -------------------------------------------------------------------------
+# NODE -------------------------------------------------------------------------
 section "node"
 
 nvm="${HOME}/.nvm"
 
 [ ! -d "${nvm}" ] && mkdir "${nvm}"
-[ ! -f ~/.npmrc ] && touch ~/.npmrc     # npm config file
+[ ! -f $HOME/.npmrc ] && touch $HOME/.npmrc     # npm config file
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
@@ -162,7 +169,7 @@ nvm use default
 
 ok
 
-# node_modules -----------------------------------------------------------------
+# node_modules
 section "node_modules" "install or update"
 
 npm update -g babel
@@ -180,7 +187,7 @@ npm update -g phonegap
 
 ok
 
-# done & reload ----------------------------------------------------------------
+# DONE & RELOAD ----------------------------------------------------------------
 print -P "\nDONE."
 print -P "\nmade with %F{red}♥%f by %F{cyan}stoe%f (https://github.com/stoe/.dotfiles)"
 source "$HOME/.zshrc"
