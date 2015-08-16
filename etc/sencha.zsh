@@ -21,10 +21,10 @@ done
 # latest version
 alias sencha="$HOME/bin/Sencha/Cmd/sencha";
 
-# sencha cmd plus
+# sencha cmd plus (https://github.com/elmasse/sencha-cmd-plus)
 alias sc="cmd-plus"
 
-# start a Sencha CMD server
+# start a Sencha Cmd server
 function senchaserver() {
     local ip=localhost          # default host
     local sencha="sencha"
@@ -37,7 +37,7 @@ function senchaserver() {
     # v6 handler
     if [ "${2}" == true -o "${1}" == true ]; then
         fashion="?platformTags=fashion:true"
-        fd="?platformTags=%F{3}fashion:true%f"
+        fd="?platformTags=%F{11}fashion:true%f"
     fi
 
     # port fallback
@@ -45,12 +45,12 @@ function senchaserver() {
         port="1337"
     fi
 
-    local pd="%F{3}$port%f"
+    local pd="%F{11}$port%f"
 
     clear
 
-    print -P "\n  > %F{8}$(pwd)%f\n"
-    print -P "%F{green}sencha server%f started at http://${ip}:${pd}${fd}\n"
+    print -P "\n> %F{8}$(pwd)%f\n"
+    print -P "%F{4}sencha server%f started at http://${ip}:${pd}${fd}\n"
 
     # start server and open location in default browser
     sleep 2 && open -a "/Applications/Google Chrome Canary.app/" "http://${ip}:${port}${fashion}" & ${sencha} -n -q fs web --port "${port}" start -map .
@@ -87,9 +87,9 @@ function wamd {
     clear
 
     if type ios-sim | grep "not found" > /dev/null 2>&1 ; then
-        print -P "\n  > %F{red}npm i -g ios-sim%f first!"
+        print -P "\n  > %F{3}npm i -g ios-sim%f first!"
     else
-        print -P "launching %F{3}Sencha Web App Manager Debug%f on %F{cyan}${device}%f ...\n"
+        print -P "launching %F{4}Sencha Web App Manager Debug%f on %F{11}${device}%f ...\n"
 
         ios-sim launch "${HOME}/code/sencha/_space/space-debug/Sencha Dev.app/" --devicetypeid "com.apple.CoreSimulator.SimDeviceType.${device}"
     fi
