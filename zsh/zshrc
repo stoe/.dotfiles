@@ -1,24 +1,35 @@
 #!/bin/zsh
 
-source $HOME/.antigen/antigen.zsh
+[ -f "$HOME/.zprofile" ]            && source "$HOME/.zprofile"
+[ -f "$HOME/.zshrc_local" ]         && source "$HOME/.zshrc_local"
+
+[ -f "$HOME/.antigen/antigen.zsh" ] && source "$HOME/.antigen/antigen.zsh"
 
 # oh-my-zsh LIBRARY ------------------------------------------------------------
 antigen use oh-my-zsh
 
 # BUNDLES ----------------------------------------------------------------------
-antigen bundle atom
+# brew
 antigen bundle brew
-antigen bundle common-aliases
+antigen bundle brew-cask
+
+# git
 antigen bundle git
 antigen bundle git-extras
 antigen bundle git-flow
+
+# node
 antigen bundle node
 antigen bundle npm
+antigen bundle nvm
+
+# other
+antigen bundle atom
+antigen bundle common-aliases
+antigen bundle grunt
 antigen bundle osx
 
 antigen bundle zsh-users/zsh-syntax-highlighting
-
-[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
 
 # THEME ------------------------------------------------------------------------
 THEMES_HOME="$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes"
@@ -34,18 +45,21 @@ nvm="$HOME/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
+# PHP --------------------------------------------------------------------------
+PHP_AUTOCONF="'$(which autoconf)'"
+
 # RBENV ------------------------------------------------------------------------
-export PATH="$HOME/.rbenv/bin:$PATH"
 if type "rbenv" > /dev/null; then
-  eval "$(rbenv init -)"
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
 fi
 
 # SOURCES ----------------------------------------------------------------------
-for config in $(find $HOME/.dotfiles/etc -type f -name "*.zsh" -print | sed "s/^\.\///"); do
-    # print -P "%F{8}$config%f"
-    source $config
+for _conf in $(find $HOME/.dotfiles/etc -type f -name "*.zsh" -print | sed "s/^\.\///"); do
+    # print -P "%F{8}$_conf%f"
+    source $_conf
 done
-unset config
+unset _conf
 
 # STUFF ------------------------------------------------------------------------
 zstyle ":completion:*" special-dirs true
