@@ -126,9 +126,9 @@ ok
 section "symlinks"
 
 # directories
-test -h "$HOME/.atom"           || ln -sp "$HOME/.dotfiles/atom/"           "$HOME/.atom"
-# test -h "$HOME/.fonts"          || ln -sp "$HOME/.dotfiles/fonts/"          "$HOME/.fonts"
-test -h "$HOME/.sencha"         || ln -sp "$HOME/.dotfiles/sencha/"         "$HOME/.sencha"
+test -h "$HOME/.atom"           || ln -s "$HOME/.dotfiles/atom/"            "$HOME/.atom"
+#test -h "$HOME/.fonts"          || ln -s "$HOME/.dotfiles/fonts/"           "$HOME/.fonts"
+test -h "$HOME/.sencha"         || ln -s "$HOME/.dotfiles/sencha/"          "$HOME/.sencha"
 
 # files
 test -f "$HOME/editorconfig"    || ln -s "$HOME/.dotfiles/editorconfig"     "$HOME/editorconfig"
