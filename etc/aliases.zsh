@@ -8,6 +8,9 @@ alias cls="clear"
 # speedtest
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
+# flush DNS cache
+alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;"
+
 # delete thos .DS_Store files in style
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
