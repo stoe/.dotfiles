@@ -13,8 +13,10 @@
     fontFamily: "Anonymous Pro"
     fontSize: 16
     tabLength: 4
+    preferredLineLength: 120
   "project-manager":
     environmentSpecificProjects: true
+    sortBy: "group"
   "atom-material-ui":
     compactTreeView: true
     altCmdPalette: true
@@ -28,3 +30,14 @@
     plugins:
       "git-diff": true
       linter: true
+  "linter-php":
+    executablePath: "/usr/local/opt/php56/bin/php"
+  "linter-scss-lint":
+    executablePath: "/usr/bin/scss-lint"
+  "minimap-linter": {}
+  "linter-jshint":
+    lintInlineJavaScript: true
+    disableWhenNoJshintrcFileInPath: true
+  linter: {}
+  "linter-shellcheck":
+    shellcheckExecutablePath: "/usr/local/bin/shellcheck"
