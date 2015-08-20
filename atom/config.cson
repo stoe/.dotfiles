@@ -13,7 +13,6 @@
     fontFamily: "Anonymous Pro"
     fontSize: 16
     tabLength: 4
-    preferredLineLength: 120
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
@@ -30,6 +29,8 @@
     plugins:
       "git-diff": true
       linter: true
+    absoluteMode: true
+    displayCodeHighlights: false
   "linter-php":
     executablePath: "/usr/local/opt/php56/bin/php"
   "linter-scss-lint":
