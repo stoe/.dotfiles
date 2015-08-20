@@ -22,14 +22,13 @@ ok() {
 
 formatexec() {
     local _exec="$1"
-    local dry="$2"
 
-    print -P "%F{8}> $1%f %F{1}%f"
+    print -P "%F{8}> $_exec%f"
     # eval "$_exec"
 }
 
 finished() {
     print -P "\nDONE."
     print -P "\n%F{8}✎ with %F{1}♥%F{8} by %F{12}stoe%F{8} (https://github.com/stoe/.dotfiles)%f"
-    exec $SHELL -l
+    source "$HOME/.zshrc"
 }
