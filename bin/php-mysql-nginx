@@ -14,37 +14,18 @@
 #
 # ------------------------------------------------------------------------------
 
+source ../inc/helpers
+
 TMP_DIR="/tmp/php-mysql-nginx-config"
 CODE_ROOT_DIR="$HOME/code"
 GIST_ROOT_DIR="https://gist.githubusercontent.com/stoe/b0c10b29a2ce9ce0ec3b"
 PHPMYADMIN_VERSION="phpMyAdmin-4.4.13.1-all-languages"
 
-clear
-
 print -P "installing %F{11}Nginx, PHP-FPM, MySQL and phpMyAdmin%f"
+print -P "%F{8}inspired by http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/"
 
 # Make sure we have the $HOME/Library/LaunchAgents directory.
 [ ! -d "$HOME/Library/LaunchAgents" ]   && formatexec "mkdir -p $HOME/Library/LaunchAgents"
-
-section () {
-    print -P "\n[ %F{4}$1%f ] $2"
-}
-
-ok() {
-    print -P "[ %F{2}%f ] $1\n"   # U+F23A
-}
-
-abort() {
-    print -P "\n\n[ %F{3}aborting%f ]\n"
-    exit 1
-}
-
-formatexec() {
-    local _exec="$1"
-
-    print -P "%F{8}> $1%f"
-    eval "$_exec"
-}
 
 if type brew | grep "not found" > /dev/null 2>&1 ; then
     section "brew" "required"
@@ -255,7 +236,4 @@ else
 fi
 
 # DONE & RELOAD ----------------------------------------------------------------
-print -P "\nDONE."
-print -P "\n%F{8}  with %F{1}%F{8} by %F{12}stoe%F{8} (https://github.com/stoe/.dotfiles)%f"
-print -P "%F{8}inspired by http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/"
-source "$HOME/.zshrc"
+finished
