@@ -4,7 +4,7 @@ source ../inc/helpers
 
 print -P "installing %F{11}atom.io packages%f\n"
 
-if [ $(which apm) ]; then
+if [ ! $(which apm) ]; then
     print -P "%F{4}atom%f and/or %F{4}apm%f are not installed."
 
     abort
