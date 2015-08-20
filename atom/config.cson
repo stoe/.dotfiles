@@ -13,6 +13,7 @@
     fontFamily: "Anonymous Pro"
     fontSize: 16
     tabLength: 4
+    showIndentGuide: true
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
