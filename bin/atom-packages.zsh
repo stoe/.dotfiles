@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ../inc/helpers
+source "../inc/helpers.zsh"
 
 print -P "installing %F{11}atom.io packages%f\n"
 
@@ -26,8 +26,8 @@ packages=(
 )
 
 for package in $packages; do
-    local install="apm install $package"
-    local update="apm update $package"
+    install="apm install $package"
+    update="apm update $package"
 
     if [ $(apm view $package | grep "Not Found") ]; then
         formatexec $install

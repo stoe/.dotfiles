@@ -14,7 +14,7 @@
 #
 # ------------------------------------------------------------------------------
 
-source ../inc/helpers
+source "../inc/helpers.zsh"
 
 TMP_DIR="/tmp/php-mysql-nginx-config"
 CODE_ROOT_DIR="$HOME/code"
