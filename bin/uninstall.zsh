@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ../inc/helpers
+source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
 # disabled

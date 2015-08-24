@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ../inc/helpers
+source "../inc/helpers.zsh"
 
 source "$(brew --prefix nvm)/nvm.sh"
 
@@ -10,7 +10,7 @@ VERSION="v$(cat ${FILE})"
 SRC=$(nvm which $VERSION)
 DEST="${HOME}/bin/node"
 
-# formatexec "$SRC"
+formatexec "$SRC"
 
 # define SOURCE and TARGET
 if [ -f "$SRC" ]; then
