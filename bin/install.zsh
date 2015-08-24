@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ../inc/helpers
+source "../inc/helpers.zsh"
 
 print -P "installing %F{11}~/%f"
 
