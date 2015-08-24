@@ -43,3 +43,6 @@
   linter: {}
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
+  "linter-eslint":
+    globalNodePath: "/Users/stoe/bin/node"
+    disableWhenNoEslintrcFileInPath: true
