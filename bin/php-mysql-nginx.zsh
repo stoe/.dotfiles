@@ -214,7 +214,8 @@ else
          [ ! -d "/usr/local/etc/nginx/ssl" ] && formatexec "mkdir -p /usr/local/etc/nginx/ssl"
 
         if [ -d "/usr/local/etc/nginx/ssl/" ]; then
-             [ ! -f "/usr/local/etc/nginx/ssl/localhost.crt" ]  && openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=State/L=Town/O=Office/CN=localhost" -keyout /usr/local/etc/nginx/ssl/localhost.key -out /usr/local/etc/nginx/ssl/localhost.crt
+            #  [ ! -f "/usr/local/etc/nginx/ssl/localhost.crt" ]  && openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=State/L=Town/O=Office/CN=localhost" -keyout /usr/local/etc/nginx/ssl/localhost.key -out /usr/local/etc/nginx/ssl/localhost.crt
+             [ ! -f "/usr/local/etc/nginx/ssl/local.dev.crt" ]  && openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=State/L=Town/O=Office/CN=local.dev" -keyout /usr/local/etc/nginx/ssl/local.dev.key -out /usr/local/etc/nginx/ssl/local.dev.crt
              [ ! -f "/usr/local/etc/nginx/ssl/phpmyadmin.crt" ] && openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=State/L=Town/O=Office/CN=phpmyadmin" -keyout /usr/local/etc/nginx/ssl/phpmyadmin.key -out /usr/local/etc/nginx/ssl/phpmyadmin.crt
          fi
 
