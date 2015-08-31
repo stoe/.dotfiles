@@ -79,7 +79,7 @@
         "no-dupe-keys":                2,
         "no-duplicate-case":           2,
         "no-empty-character-class":    2,
-        "no-empty":                    2,
+        "no-empty":                    0,
         "no-ex-assign":                2,
         "no-extra-boolean-cast":       1,
         "no-extra-parens":             [ 2, "all" ],
@@ -187,7 +187,7 @@
 
         // Stylistic Issues --------------------------------------------------------------------------------------------
         // These rules are purely matters of style and are quite subjective.
-        "array-bracket-spacing":       [ 2, "always" ],
+        "array-bracket-spacing":       [ 2, "always", { "objectsInArrays": false } ],
         "block-spacing":               [ 2, "always" ],
         "brace-style":                 [ 2, "1tbs", { "allowSingleLine": false } ],
         "camelcase":                   [ 2, { "properties": "always" } ],
@@ -198,7 +198,7 @@
         "eol-last":                    2,
         "func-names":                  0,
         "func-style":                  [ 2, "declaration" ], // "declaration" || "expression"
-        "id-length":                   [ 1, { "min": 2, "max": 10, "exceptions": [ "i", "x", "y" ] } ],
+        "id-length":                   [ 1, { "min": 2, "max": 10, "exceptions": [ "e", "i", "x", "y" ] } ],
         "id-match":                    [ 2, "^[a-z]+([A-Z][a-z]+)*$", { "properties": true } ],
         "indent":                      [ 2, 4, { "VariableDeclarator": 1 } ],
         "key-spacing":                 [ 2, { "align": "value" } ],
