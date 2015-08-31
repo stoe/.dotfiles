@@ -30,8 +30,9 @@
     plugins:
       "git-diff": true
       linter: true
+      bookmarks: true
+      "minimap-autohide": true
     absoluteMode: true
-    displayCodeHighlights: false
   "linter-php":
     executablePath: "/usr/local/opt/php56/bin/php"
   "linter-scss-lint":
@@ -43,6 +44,3 @@
   linter: {}
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
-  "linter-eslint":
-    globalNodePath: "/Users/stoe/bin/node"
-    disableWhenNoEslintrcFileInPath: true
