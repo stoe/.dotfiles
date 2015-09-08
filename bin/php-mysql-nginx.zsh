@@ -16,6 +16,9 @@
 
 source "../inc/helpers.zsh"
 
+# DISABLED ---------------------------------------------------------------------
+disabled
+
 TMP_DIR="/tmp/php-mysql-nginx-config"
 CODE_ROOT_DIR="$HOME/code"
 GIST_ROOT_DIR="https://gist.githubusercontent.com/stoe/b0c10b29a2ce9ce0ec3b"

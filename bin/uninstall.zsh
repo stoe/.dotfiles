@@ -3,7 +3,7 @@
 source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
-# disabled
+disabled
 
 print -P "uninstalling %F{11}~/%f"
 

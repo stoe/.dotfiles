@@ -2,6 +2,9 @@
 
 source "../inc/helpers.zsh"
 
+# DISABLED ---------------------------------------------------------------------
+disabled
+
 print -P "installing %F{11}atom.io packages%f\n"
 
 if [ ! $(which apm) ]; then
@@ -10,32 +13,37 @@ if [ ! $(which apm) ]; then
     abort
 fi
 
-packages=(
+pkgs=(
     atom-material-syntax atom-material-ui
+    editorconfig
+    file-type-icons
     gist-it
     language-apache language-ini language-nginx
     linter
     linter-csslint linter-scss-lint linter-less
-    linter-eslint linter-jshint linter-coffeelint linter-jsonlint
+    linter-eslint linter-jshint
+    linter-jsonlint linter-coffeelint
     linter-php
     linter-shellcheck
     merge-conflicts
-    minimap minimap-git-diff minimap-linter
+    minimap
+    minimap-autohide minimap-git-diff minimap-linter
     pigments
     project-manager
 )
 
-for package in $packages; do
-    install="apm install $package"
-    update="apm update $package"
+for pkg in $pkgs; do
+    install="apm install $pkg"
+    update="apm update $pkg"
 
-    if [ $(apm view $package | grep "Not Found") ]; then
+    if [ $(apm view $pkg | grep "Not Found") ]; then
         formatexec $install
     else
         formatexec $update
     fi
 done
 
+echo ""
 formatexec "apm dedupe"
 formatexec "apm clean"
 
