@@ -2,6 +2,9 @@
 
 source "../inc/helpers.zsh"
 
+# DISABLED ---------------------------------------------------------------------
+disabled
+
 print -P "installing %F{11}~/%f"
 
 # antigen ----------------------------------------------------------------------
@@ -136,6 +139,7 @@ nvm="${HOME}/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
+formatexec "nvm install 0.10"
 formatexec "nvm install 0.12"
 formatexec "nvm install iojs"
 formatexec "nvm alias default 0.12"
@@ -146,18 +150,29 @@ ok
 # node_modules
 section "node_modules" "install || update"
 
-formatexec "npm update -g babel"
-formatexec "npm update -g babel-eslint"
-formatexec "npm update -g bower"
-formatexec "npm update -g cmd-plus"
-formatexec "npm update -g cordova"
-formatexec "npm update -g dark-mode"
-formatexec "npm update -g electron-prebuilt"
-formatexec "npm update -g eslint"
-formatexec "npm update -g grunt-cli"
-formatexec "npm update -g ios-sim"
-formatexec "npm update -g mocha"
-formatexec "npm update -g phonegap"
+MODS=(
+    babel
+    babel-eslint
+    bower
+    cmd-plus
+    coffee-script
+    dark-mode
+    electron-prebuilt
+    eslint
+    generator-reveal
+    grunt-cli
+    gulp
+    ios-sim
+    jscs
+    jscs-jsdoc
+    mocha
+    phonegap
+    yo
+)
+
+for MOD in $MODS; do
+    formatexec "npm update -g $MOD"
+done
 
 ok
 

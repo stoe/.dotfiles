@@ -2,6 +2,9 @@
 
 source "../inc/helpers.zsh"
 
+# DISABLED ---------------------------------------------------------------------
+disabled
+
 source "$(brew --prefix nvm)/nvm.sh"
 
 # get default version
