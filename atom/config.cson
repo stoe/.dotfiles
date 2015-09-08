@@ -8,6 +8,17 @@
       "atom-material-ui"
       "atom-material-syntax"
     ]
+    disabledPackages: [
+      "linter-eslint"
+      "linter-csslint"
+      "linter-jshint"
+      "linter-jsonlint"
+      "linter-less"
+      "linter-scss-lint"
+      "linter-shellcheck"
+      "linter-coffeelint"
+      "linter-php"
+    ]
   editor:
     invisibles: {}
     fontFamily: "Anonymous Pro"
