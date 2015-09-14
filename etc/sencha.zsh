@@ -8,6 +8,7 @@ if [ -d "$HOME/bin/Sencha/Cmd/" ]; then
         5.0.3.324
         5.1.3.61
         6.0.0.202
+        6.0.1.76
     )
     for v in $vs; do
         p="$HOME/bin/Sencha/Cmd/$v"
