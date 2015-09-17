@@ -46,20 +46,20 @@
 [apply]
     whitespace = nowarn
 
-[mergetool]
-    keepBackup = false
-[merge]
-    tool = wstorm
-[mergetool "wstorm"]
-    cmd = /Applications/WebStorm.app/Contents/MacOS/webstorm merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-    trustExitCode = true
-
-[difftool]
-    prompt = false
 [diff]
     tool = wstorm
-[difftool "wstorm"]
-    cmd = /Applications/WebStorm.app/Contents/MacOS/webstorm diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+[difftool]
+    prompt = false
+[difftool.wstorm]
+    cmd = /usr/local/bin/wstorm diff "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = wstorm
+[mergetool]
+    keepBackup = false
+[mergetool.wstorm]
+    cmd = /usr/local/bin/wstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    trustExitCode = true
 
 [help]
     autocorrect = 1
