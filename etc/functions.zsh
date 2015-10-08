@@ -75,10 +75,10 @@ function hideshadows() {
     local disable=false
 
     if [[ $1 != '' && $1 == 'true' ]]; then
-        print -P "\n%F{red}hiding%f screenshot shadows"
+        print -P "\n%F{1}hiding%f screenshot shadows"
         disable=true
     else
-        print -P "\n%F{green}showing%f screenshot shadows"
+        print -P "\n%F{2}showing%f screenshot shadows"
     fi
 
     defaults write com.apple.screencapture disable-shadow -bool $disable
@@ -149,7 +149,7 @@ function lsclean() {
 
     "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister" -kill -r -domain local -domain system -domain user; killall Finder
 
-    print -P "\n%F{cyan}Open With%s has been rebuilt! %F{green}Finder%f relaunched."
+    print -P "\n%F{4}Open With%s has been rebuilt! %F{2}Finder%f relaunched."
 }
 
 # cleanup launchpad
@@ -159,5 +159,26 @@ function lpclean() {
     # http://nickmanderfield.com/2014/08/ultimate-guide-to-fixing-and-resetting-osx-yosemite-launchpad/
     defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock;
 
-    print -P "\n%F{cyan}Launchpad%f has been rebuilt!"
+    print -P "\n%F{4}Launchpad%f has been rebuilt!"
+}
+
+# speedtest (https://github.com/sivel/speedtest-cli)
+function speedtest() {
+    clear
+
+    if brew list | grep -q speedtest_cli; then
+        print -P "\n  %F{8}> speedtest_cli --simple%f"
+        print -P "  via %F{6}https://github.com/sivel/speedtest-cli%f\n"
+
+        speedtest_cli --simple
+    else
+        print -P "\n  [ %F{1}✗%f ] %F{8}speedtest_cli%f not found"
+        print -P "  install via %F{8}> brew install speedtest_cli%f"
+
+        print -P "\n  %F{8}> wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip%f\n"
+
+        wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
+    fi
+
+    print -P "\n  [ %F{2}✔%f ] done"
 }
