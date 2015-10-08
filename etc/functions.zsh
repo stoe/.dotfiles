@@ -182,3 +182,22 @@ function speedtest() {
 
     print -P "\n  [ %F{2}✔%f ] done"
 }
+
+# show available color list
+function colorlist() {
+    # see https://github.com/sykora/etc/blob/master/zsh/functions/spectrum/
+
+    local SUPPORT
+
+    # Optionally handle impoverished terminals.
+    if (( $# == 0 )); then
+        SUPPORT=256
+    else
+        SUPPORT=$1
+    fi
+
+    for COLOR in {000..$SUPPORT}; do
+        # http://www.pirateipsum.me/
+        print -P "  [ $COLOR ] %F{$COLOR}Walking the plank, arg!%f"
+    done
+}
