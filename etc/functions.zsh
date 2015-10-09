@@ -168,11 +168,11 @@ function speedtest() {
 
     if brew list | grep -q speedtest_cli; then
         print -P "\n  %F{8}> speedtest_cli --simple%f"
-        print -P "  via %F{6}https://github.com/sivel/speedtest-cli%f\n"
+        print -P "  via %F{4}https://github.com/sivel/speedtest-cli%f\n"
 
         speedtest_cli --simple
     else
-        print -P "\n  [ %F{1}✗%f ] %F{8}speedtest_cli%f not found"
+        print -P "\n  %F{1}✗%f %F{8}speedtest_cli%f not found"
         print -P "  install via %F{8}> brew install speedtest_cli%f"
 
         print -P "\n  %F{8}> wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip%f\n"
@@ -180,7 +180,7 @@ function speedtest() {
         wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
     fi
 
-    print -P "\n  [ %F{2}✔%f ] done"
+    print -P "\n  %F{2}✔%f done"
 }
 
 # show available color list
