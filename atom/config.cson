@@ -18,6 +18,9 @@
       "linter-shellcheck"
       "linter-coffeelint"
       "linter-php"
+      "minimap-autohide"
+      "minimap-linter"
+      "pigments"
     ]
   editor:
     invisibles: {}
@@ -28,12 +31,6 @@
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
-  "atom-material-ui":
-    compactTreeView: true
-    altCmdPalette: true
-    panelContrast: true
-    slimScrollbar: true
-    depth: true
   "gist-it":
     newGistsDefaultToPrivate: true
   minimap:
