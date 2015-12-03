@@ -7,3 +7,10 @@ Thumbs.db
 
 # folders
 .idea/
+
+# Sencha
+build/
+bootstrap.*
+!**/sass/**/bootstrap.*
+modern.*
+classic.*
