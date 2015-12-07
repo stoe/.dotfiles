@@ -36,7 +36,7 @@
   minimap:
     scrollAnimation: true
     plugins:
-      "git-diff": true
+      "git-diff": false
       linter: true
       bookmarks: true
       "minimap-autohide": true
