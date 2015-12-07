@@ -8,7 +8,7 @@ disabled() {
 }
 
 abort() {
-    print -P "\n✗ %F{3}aborting%f ✗\n"
+    print -P "\n\u${CODEPOINT_OF_ANONYMICE_UNIF468} %F{3}aborting%f \u${CODEPOINT_OF_ANONYMICE_UNIF468}\n"
     exit 1
 }
 
@@ -17,7 +17,7 @@ section () {
 }
 
 ok() {
-    print -P "[ %F{2}✔%f ] $1\n"
+    print -P "[ %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f ] $1\n"
 }
 
 formatexec() {

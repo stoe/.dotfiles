@@ -47,22 +47,31 @@ BREWS=(
     node nvm
     openssl
     p7zip
+    python
     rbenv ruby-build
     rename
     tree
     wget
 )
-# python fontconfig fontforge
 
 for BREW in $BREWS; do
     if brew list | grep -q "$BREW"; then
         formatexec "brew upgrade $BREW > /dev/null 2>&1"
-        print -P "upgraded %F{4}$BREW%f %F{2}%f"
+        print -P "upgraded %F{4}$BREW%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
     else
         formatexec "brew install $BREW > /dev/null 2>&1"
-        print -P "installed %F{4}$BREW%f %F{2}%f"
+        print -P "installed %F{4}$BREW%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
     fi
 done
+
+# fontforge
+if brew list | grep -q "fontforge"; then
+    formatexec "brew upgrade fontforge --HEAD > /dev/null 2>&1"
+    print -P "upgraded %F{4}fontforge --HEAD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+else
+    formatexec "brew install fontforge --HEAD > /dev/null 2>&1"
+    print -P "installed %F{4}fontforge --HEAD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+fi
 
 # casks
 CASKS=(
@@ -94,10 +103,10 @@ CASKS=(
 for CASK in $CASKS; do
     if brew cask list | grep -q "$CASK"; then
         formatexec "brew cask upgrade $CASK > /dev/null 2>&1"
-        print -P "upgraded cask %F{4}$CASK%f %F{2}%f"
+        print -P "upgraded cask %F{4}$CASK%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
     else
         formatexec "brew cask install $CASK > /dev/null 2>&1"
-        print -P "installed cask %F{4}$CASK%f %F{2}%f"
+        print -P "installed cask %F{4}$CASK%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
     fi
 done
 
