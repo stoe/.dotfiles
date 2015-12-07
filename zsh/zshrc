@@ -39,6 +39,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 THEMES_HOME="$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes"
 [ ! -f "$THEMES_HOME/stoe.zsh-theme" ] && ln -sf "$HOME/.dotfiles/zsh/stoe.zsh-theme" "$THEMES_HOME/stoe.zsh-theme"
 
+for map in ~/.fonts/*.zsh; do source $map; done
+
 antigen theme stoe
 
 # NODE -------------------------------------------------------------------------
