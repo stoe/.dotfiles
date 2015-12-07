@@ -2,10 +2,8 @@
 
 # clear
 #
-# source ../fonts/octicons-regular.zsh
-#
 # for font in $(env | grep "CODEPOINT"); do
-#     # print -P "$font"
+#     print -P "$font"
 #
 #     local var=${font[(ws:=:)0]}
 #     local symbol=${font[(ws:=:)2]}

@@ -8,10 +8,10 @@
 
 
 # VARIABLES --------------------------------------------------------------------
-ICON_GIT_REPO=""       # U+F20C
-ICON_GIT_DIRTY=""      # U+F201
+ICON_GIT_REPO="\u${CODEPOINT_OF_ANONYMICE_UNIF408}"
+ICON_GIT_DIRTY="\u${CODEPOINT_OF_ANONYMICE_UNIF418}"
 ICON_GIT_UNTRACKED=""  # U+F22A
-ICON_PROMPT=""         # U+F278
+ICON_PROMPT="\u${CODEPOINT_OF_ANONYMICE_UNIF461}"
 
 # OPTIONS ----------------------------------------------------------------------
 setopt prompt_subst
@@ -88,7 +88,7 @@ precmd() {
     RPROMPT="$(git_prompt_info)"
 }
 
-PROMPT="%(?.%F{8}.%F{red})$ICON_PROMPT%f "
+PROMPT="%(?.%F{8}.%F{red})>%f "
 RPROMPT=""
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{8}$ICON_GIT_REPO  "
