@@ -42,7 +42,7 @@ BREWS=(
     brew-cask
     duck
     ffmpeg
-    git git-extras git-flow
+    git git-extras git-flow git-lfs
     imagemagick
     node nvm
     openssl
