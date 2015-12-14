@@ -1,16 +1,5 @@
 #!/bin/zsh
 
-# open in Atom.app
-function a() {
-    if [ $# -eq 0 ]; then
-        # no arguments opens current directory
-       atom .
-    else
-        # otherwise opens the given location
-       atom "$@"
-    fi
-}
-
 # open in Finder.app
 function o() {
     if [ $# -eq 0 ]; then
