@@ -11,6 +11,7 @@
 #
 # TODO phpmyadmin `pma`
 # TODO phpmyadmin `config.inc.php`
+# TODO upgrade to PHP 7
 #
 # ------------------------------------------------------------------------------
 
