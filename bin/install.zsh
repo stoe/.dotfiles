@@ -7,7 +7,7 @@ disabled
 
 print -P "installing %F{11}~/%f"
 
-# antigen ----------------------------------------------------------------------
+# ANTIGEN ----------------------------------------------------------------------
 if [ ! -h "$HOME/.antigen" ]; then
     section "antigen" "already installed"
 else
@@ -19,7 +19,7 @@ fi
 
 ok
 
-# brew -------------------------------------------------------------------------
+# BREW -------------------------------------------------------------------------
 if type brew | grep "not found" > /dev/null 2>&1 ; then
     section "brew"
 
@@ -85,7 +85,7 @@ CASKS=(
     caffeine
     cheatsheet
     cleanmymac
-    cyberduck
+    commander-one
     dash
     diffmerge
     divvy
@@ -94,11 +94,12 @@ CASKS=(
     google-drive
     iterm2
     skype
-    totalfinder
-    totalspaces
     tower
     virtualbox virtualbox-extension-pack
 )
+
+    # *** old casks
+    # cyberduck totalfinder totalspaces
 
 for CASK in $CASKS; do
     if brew cask list | grep -q "$CASK"; then
@@ -148,10 +149,9 @@ nvm="${HOME}/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
-formatexec "nvm install 0.10"
-formatexec "nvm install 0.12"
-formatexec "nvm install iojs"
-formatexec "nvm alias default 0.12"
+formatexec "nvm install iojs"       # install latest io.js version
+formatexec "nvm install node"       # install latest node.js version
+formatexec "nvm alias default node"
 formatexec "nvm use default"
 
 ok
@@ -160,28 +160,29 @@ ok
 section "node_modules" "install || update"
 
 MODS=(
-    babel
-    babel-eslint
-    bower
-    cmd-plus
+    cordova phonegap ios-sim
+    eslint babel babel-eslint
+    jscs jscs-jsdoc
+    bower yo
+    grunt-cli gulp
+    mocha jasmine
     coffee-script
+    cmd-plus
     dark-mode
     electron-prebuilt
-    eslint
-    generator-reveal
-    grunt-cli
-    gulp
-    ios-sim
-    jscs
-    jscs-jsdoc
-    mocha
-    phonegap
-    yo
 )
 
 for MOD in $MODS; do
-    formatexec "npm update -g $MOD"
+    if $(npm -g ls | grep "$MOD@[0-9\.]*$" > /dev/null 2>&1); then
+            formatexec "npm upgrade -g $MOD"
+            print -P "upgraded %F{4}$MOD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        else
+            formatexec "npm install -g $MOD > /dev/null 2>&1"
+            print -P "installed %F{4}$MOD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        fi
 done
+
+formatexec "npm ls -g | grep "^[└├]" | sed "s/─┬/──/g""
 
 ok
 
