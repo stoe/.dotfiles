@@ -52,3 +52,26 @@
   linter: {}
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
+  "atom-material-ui":
+    fonts: {}
+    treeView:
+      compactList: true
+    tabs:
+      tintedTabBar: true
+    ui:
+      panelShadows: true
+      panelContrast: true
+    colors:
+      genAccent: true
+  "markdown-preview": {}
+  "autocomplete-plus": {}
+  "tree-view":
+    squashDirectoryNames: true
+  tabs:
+    enableVcsColoring: true
+  "status-bar": {}
+  "spell-check": {}
+  "package-generator":
+    createInDevMode: true
+  autosave:
+    enabled: true
