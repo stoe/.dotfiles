@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 clear
+for map in ~/.fonts/*.zsh; do source $map; done
 
 disabled() {
     print -P "\n%F{1}disabled%f."
