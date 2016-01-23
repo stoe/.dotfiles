@@ -3,7 +3,7 @@
 source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
-disabled
+# disabled
 
 print -P "installing %F{11}~/%f"
 
@@ -57,20 +57,20 @@ BREWS=(
 for BREW in $BREWS; do
     if brew list | grep -q "$BREW"; then
         formatexec "brew upgrade $BREW > /dev/null 2>&1"
-        print -P "upgraded %F{4}$BREW%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        print -P "upgraded %F{4}$BREW%f %F{2}✓%f"
     else
         formatexec "brew install $BREW > /dev/null 2>&1"
-        print -P "installed %F{4}$BREW%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        print -P "installed %F{4}$BREW%f %F{2}✓%f"
     fi
 done
 
 # fontforge
 if brew list | grep -q "fontforge"; then
     formatexec "brew upgrade fontforge --HEAD > /dev/null 2>&1"
-    print -P "upgraded %F{4}fontforge --HEAD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+    print -P "upgraded %F{4}fontforge --HEAD%f %F{2}✓%f"
 else
     formatexec "brew install fontforge --HEAD > /dev/null 2>&1"
-    print -P "installed %F{4}fontforge --HEAD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+    print -P "installed %F{4}fontforge --HEAD%f %F{2}✓%f"
 fi
 
 # casks
@@ -104,10 +104,10 @@ CASKS=(
 for CASK in $CASKS; do
     if brew cask list | grep -q "$CASK"; then
         formatexec "brew cask upgrade $CASK > /dev/null 2>&1"
-        print -P "upgraded cask %F{4}$CASK%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        print -P "upgraded cask %F{4}$CASK%f %F{2}✓%f"
     else
         formatexec "brew cask install $CASK > /dev/null 2>&1"
-        print -P "installed cask %F{4}$CASK%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+        print -P "installed cask %F{4}$CASK%f %F{2}✓%f"
     fi
 done
 
@@ -175,10 +175,10 @@ MODS=(
 for MOD in $MODS; do
     if $(npm -g ls | grep "$MOD@[0-9\.]*$" > /dev/null 2>&1); then
             formatexec "npm upgrade -g $MOD"
-            print -P "upgraded %F{4}$MOD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+            print -P "upgraded %F{4}$MOD%f %F{2}✓%f"
         else
             formatexec "npm install -g $MOD > /dev/null 2>&1"
-            print -P "installed %F{4}$MOD%f %F{2}\u${CODEPOINT_OF_ANONYMICE_UNIF42E}%f"
+            print -P "installed %F{4}$MOD%f %F{2}✓%f"
         fi
 done
 

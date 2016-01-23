@@ -27,7 +27,7 @@ antigen bundle npm
 antigen bundle nvm
 
 # other
-antigen bundle atom
+# antigen bundle atom
 antigen bundle common-aliases
 antigen bundle grunt
 antigen bundle osx

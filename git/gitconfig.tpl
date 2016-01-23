@@ -11,6 +11,11 @@
     username = AUTHORNAME
     token = THAT_TOKEN_YOU_GOT
 
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+
 [credential]
     helper = GIT_CREDENTIAL_HELPER
 
