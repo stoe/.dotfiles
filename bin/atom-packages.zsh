@@ -3,7 +3,7 @@
 source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
-disabled
+# disabled
 
 print -P "installing %F{11}atom.io packages%f\n"
 
