@@ -8,10 +8,10 @@
 
 
 # VARIABLES --------------------------------------------------------------------
-ICON_GIT_REPO="\u${CODEPOINT_OF_ANONYMICE_UNIF408}"
-ICON_GIT_DIRTY="\u${CODEPOINT_OF_ANONYMICE_UNIF418}"
-ICON_GIT_UNTRACKED=""  # U+F22A
-ICON_PROMPT="\u${CODEPOINT_OF_ANONYMICE_UNIF461}"
+ICON_GIT_REPO=""
+ICON_GIT_DIRTY="★"
+ICON_GIT_UNTRACKED="⊙"
+ICON_PROMPT=""
 
 # OPTIONS ----------------------------------------------------------------------
 setopt prompt_subst
@@ -68,7 +68,7 @@ preexec() {
 
 git_repo() {
     if [ $vcs_info_msg_1_ ]; then
-        echo "%F{8}$ICON_GIT_REPO  "
+        echo "%F{8}$ICON_GIT_REPO"
     fi
 }
 
