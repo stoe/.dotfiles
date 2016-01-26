@@ -1,13 +1,25 @@
 "*":
-  "exception-reporting":
-    userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
-  welcome:
-    showOnStartup: false
+  "atom-material-ui":
+    colors:
+      genAccent: true
+    fonts: {}
+    panels:
+      panelContrast: true
+    tabs:
+      rippleAccentColor: true
+      tintedTabBar: true
+    treeView:
+      compactList: true
+      compactTreeView: true
+    ui:
+      disableAnimations: true
+      panelContrast: true
+      panelShadows: true
+      slimScrollbar: true
+  "autocomplete-plus": {}
+  autosave:
+    enabled: true
   core:
-    themes: [
-      "atom-material-ui"
-      "atom-material-syntax"
-    ]
     disabledPackages: [
       "linter-eslint"
       "linter-csslint"
@@ -18,60 +30,56 @@
       "linter-shellcheck"
       "linter-coffeelint"
       "linter-php"
-      "minimap-autohide"
-      "minimap-linter"
       "pigments"
     ]
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
   editor:
-    invisibles: {}
     fontFamily: "Anonymous Pro"
-    fontSize: 16
-    tabLength: 4
+    invisibles: {}
     showIndentGuide: true
-  "project-manager":
-    environmentSpecificProjects: true
-    sortBy: "group"
+    softWrapHangingIndent: 2
+    tabLength: 4
+  "exception-reporting":
+    userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
   "gist-it":
     newGistsDefaultToPrivate: true
-  minimap:
-    scrollAnimation: true
-    plugins:
-      "git-diff": false
-      linter: true
-      bookmarks: true
-      "minimap-autohide": true
-    absoluteMode: true
+  linter: {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+    lintInlineJavaScript: true
   "linter-php":
     executablePath: "/usr/local/opt/php56/bin/php"
   "linter-scss-lint":
     executablePath: "/usr/bin/scss-lint"
-  "minimap-linter": {}
-  "linter-jshint":
-    lintInlineJavaScript: true
-    disableWhenNoJshintrcFileInPath: true
-  linter: {}
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
-  "atom-material-ui":
-    fonts: {}
-    treeView:
-      compactList: true
-    tabs:
-      tintedTabBar: true
-    ui:
-      panelShadows: true
-      panelContrast: true
-    colors:
-      genAccent: true
   "markdown-preview": {}
-  "autocomplete-plus": {}
-  "tree-view":
-    squashDirectoryNames: true
-  tabs:
-    enableVcsColoring: true
-  "status-bar": {}
-  "spell-check": {}
+  minimap:
+    absoluteMode: true
+    plugins:
+      bookmarks: true
+      "git-diff": true
+      linter: true
+      "minimap-autohide": true
+      "minimap-hide": true
+    scrollAnimation: true
+  "minimap-linter": {}
   "package-generator":
     createInDevMode: true
-  autosave:
-    enabled: true
+  "project-manager":
+    environmentSpecificProjects: true
+    sortBy: "group"
+  "spell-check": {}
+  "status-bar": {}
+  tabs:
+    enableVcsColoring: true
+  "tree-view":
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false
+".ini.source":
+  editor:
+    softWrapHangingIndent: 2
