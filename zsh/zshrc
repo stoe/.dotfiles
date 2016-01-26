@@ -19,7 +19,7 @@ antigen bundle brew-cask
 # git
 antigen bundle git
 antigen bundle git-extras
-antigen bundle git-flow
+# antigen bundle git-flow
 
 # node
 antigen bundle node
@@ -41,7 +41,8 @@ THEMES_HOME="$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-rob
 
 for map in ~/.fonts/*.zsh; do source $map; done
 
-antigen theme stoe
+# antigen theme stoe
+antigen theme af-magic
 
 # NODE -------------------------------------------------------------------------
 nvm="$HOME/.nvm"
