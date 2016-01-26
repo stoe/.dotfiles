@@ -25,7 +25,7 @@ formatexec() {
     local _exec="$1"
 
     print -P "%F{8}> $_exec%f"
-    eval "$_exec"
+    # eval "$_exec"
 }
 
 finished() {

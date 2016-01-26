@@ -1,0 +1,11 @@
+dotfiles:
+  title: "dotfiles"
+  icon: "icon-terminal"
+  group: "development"
+  paths: [
+    "/Users/stoe/.dotfiles"
+  ]
+  settings:
+    'editor.tabLength': 4
+    'editor.preferredLineLength': 80
+    'project-manager.showPath': true

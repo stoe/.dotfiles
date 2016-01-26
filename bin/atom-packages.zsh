@@ -3,7 +3,7 @@
 source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
-# disabled
+disabled
 
 print -P "installing %F{11}atom.io packages%f\n"
 
@@ -14,7 +14,7 @@ if [ ! $(which apm) ]; then
 fi
 
 pkgs=(
-    atom-material-syntax atom-material-ui
+    atom-material-ui atom-material-syntax atom-material-syntax-light
     editorconfig
     file-type-icons
     gist-it
@@ -24,6 +24,7 @@ pkgs=(
     linter-eslint linter-jshint
     linter-jsonlint linter-coffeelint
     linter-php
+    linter-ruby
     linter-shellcheck
     merge-conflicts
     minimap
