@@ -103,7 +103,6 @@ if [ "${DO_CASKS}" = 'casks' ]; then
         atom
         avast
         bartender
-        caffeine
         cheatsheet
         cleanmymac
         commander-one
@@ -114,13 +113,14 @@ if [ "${DO_CASKS}" = 'casks' ]; then
         evernote
         google-drive
         iterm2
+        keepingyouawake
         skype
         tower
         virtualbox virtualbox-extension-pack
     )
 
         # *** old casks
-        # cyberduck totalfinder totalspaces
+        # caffeine cyberduck totalfinder totalspaces
 
     for CASK in $CASKS; do
         if brew cask list | grep -q "$CASK"; then
