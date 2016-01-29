@@ -158,6 +158,8 @@ test -f "$HOME/.gitignore"      || formatexec "ln -s $HOME/.dotfiles/git/gitigno
 test -f "$HOME/.eslintrc"       || formatexec "ln -s $HOME/.dotfiles/.eslintrc          $HOME/.eslintrc"
 test -f "$HOME/.jshintrc"       || formatexec "ln -s $HOME/.dotfiles/.jshintrc          $HOME/.jshintrc"
 
+test -f "$HOME/.slate"          || formatexec "ln -s $HOME/.dotfiles/.slate             $HOME/.slate"
+
 test -f "$HOME/.zprofile"       || formatexec "ln -s $HOME/.dotfiles/zsh/zprofile       $HOME/.zprofile"
 test -f "$HOME/.zshrc"          || formatexec "ln -s $HOME/.dotfiles/zsh/zshrc          $HOME/.zshrc"
 test -f "$HOME/.zshrc_local"    || formatexec "ln -s $HOME/.dotfiles/zsh/zshrc_local    $HOME/.zshrc_local"

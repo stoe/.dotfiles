@@ -1,0 +1,88 @@
+# GLOBAL CONFIGURATIONS
+# -------------------------------------------------------------------
+# See https://github.com/jigish/slate/wiki/Global-Configs
+
+config defaultToCurrentScreen true
+config secondsBeforeRepeat 0.4
+config secondsBetweenRepeat 0.1
+config keyboardLayout "qwerty"
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+
+# HYPER KEY
+# -------------------------------------------------------------------
+# The "hyper" key is a shortcut for CTRL + ALT + CMD
+
+alias hyper ctrl;alt;cmd
+
+
+# MONITOR ALIASES
+# -------------------------------------------------------------------
+
+
+# APPLICATION ALIASES AND BINDINGS
+# -------------------------------------------------------------------
+
+
+# SLATE FEATURES
+# -------------------------------------------------------------------
+
+# Show quick key overlays for each window
+# config windowHintsShowIcons true
+# config windowHintsSpread true
+# config windowHintsIgnoreHiddenWindows false
+# bind h:cmd;shift hint ASDFHJKLQWERTYUIOPCVBNG
+
+# Show a positioning grid for each monitor
+# bind g:cmd grid padding:5 0:6,2 1:8,3
+
+# Better application switcher
+# bind tab:cmd switch
+
+# Reload Slate configuration file
+bind s:${hyper} relaunch
+
+
+# GENERAL POSITION ALIASES AND BINDINGS
+# -------------------------------------------------------------------
+# These positions are not tied to any screen. Each position gets an
+# alias and then a keybinding. The keybindings are all mapped to the
+# numberpad, with each row grouping a denominator.
+
+
+# BINDINGS
+# -------------------------------------------------------------------
+# Mostly taken from
+# https://github.com/jigish/slate/blob/master/Slate/default.slate
+
+# Focus
+# bind right:cmd;ctrl    focus right
+# bind left:cmd;ctrl     focus left
+# bind up:cmd;ctrl       focus behind
+# bind down:cmd;ctrl     focus behind
+# bind ]:alt;shift       focus right
+# bind [:alt;shift       focus left
+# bind =:alt;shift       focus behind
+
+# Throw
+# bind ]:${hyper} throw right resize full
+# bind [:${hyper}  throw left resize full
+
+# Resize
+bind right:alt;cmd       resize +5% +0
+bind left:alt;cmd        resize -5% +0
+bind up:alt;cmd          resize +0   -5%
+bind down:alt;cmd        resize +0   +5%
+
+# Nudge
+bind right:${hyper} nudge +10% +0
+bind left:${hyper}  nudge -10% +0
+bind up:${hyper}    nudge +0   -10%
+bind down:${hyper}  nudge +0   +10%
+
+# Push
+bind right:ctrl;cmd  push right bar-resize:screenSizeX/2
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/2
+bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
