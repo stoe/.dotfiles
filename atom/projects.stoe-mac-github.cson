@@ -6,6 +6,15 @@ dotfiles:
     "/Users/stoe/.dotfiles"
   ]
   settings:
-    'editor.tabLength': 4
-    'editor.preferredLineLength': 80
-    'project-manager.showPath': true
+    "editor.tabLength": 4
+    "editor.preferredLineLength": 80
+    "project-manager.showPath": true
+alfred:
+  title: "alfred"
+  paths: [
+    "/Users/stoe/code/private/alfred"
+  ]
+  settings:
+    "editor.tabLength": 4
+    "editor.preferredLineLength": 80
+    "project-manager.showPath": true
