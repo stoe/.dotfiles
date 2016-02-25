@@ -1,21 +1,5 @@
 "*":
-  "atom-material-ui":
-    colors:
-      genAccent: true
-    fonts: {}
-    panels:
-      panelContrast: true
-    tabs:
-      rippleAccentColor: true
-      tintedTabBar: true
-    treeView:
-      compactList: true
-      compactTreeView: true
-    ui:
-      disableAnimations: true
-      panelContrast: true
-      panelShadows: true
-      slimScrollbar: true
+  "atom-pair": {}
   "autocomplete-plus": {}
   autosave:
     enabled: true
@@ -41,22 +25,26 @@
     invisibles: {}
     showIndentGuide: true
     softWrapHangingIndent: 2
-    tabLength: 4
+    zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
   "gist-it":
     newGistsDefaultToPrivate: true
+    openAfterCreate: true
   linter: {}
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
     lintInlineJavaScript: true
   "linter-php":
     executablePath: "/usr/local/opt/php56/bin/php"
+  "linter-ruby": {}
   "linter-scss-lint":
     executablePath: "/usr/bin/scss-lint"
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
-  "markdown-preview": {}
+  "markdown-preview":
+    useGitHubStyle: true
+  "merge-conflicts": {}
   minimap:
     absoluteMode: true
     plugins:
