@@ -3,7 +3,7 @@
 source "../inc/helpers.zsh"
 
 # DISABLED ---------------------------------------------------------------------
-# disabled
+disabled
 
 DO_CASKS="${1:0}"
 DO_NPM="${2:0}"
@@ -63,13 +63,12 @@ BREWS=(
     openssl
     p7zip
     python
-    rbenv ruby-build
     rename
     tree
     wget
 )
 
-# git-flow
+# git-flow rbenv ruby-build
 
 for BREW in $BREWS; do
     if brew list | grep -q "$BREW"; then
@@ -158,8 +157,9 @@ test -f "$HOME/.gitignore"      || formatexec "ln -s $HOME/.dotfiles/git/gitigno
 test -f "$HOME/.eslintrc"       || formatexec "ln -s $HOME/.dotfiles/.eslintrc          $HOME/.eslintrc"
 test -f "$HOME/.jshintrc"       || formatexec "ln -s $HOME/.dotfiles/.jshintrc          $HOME/.jshintrc"
 
-test -f "$HOME/.slate"          || formatexec "ln -s $HOME/.dotfiles/.slate             $HOME/.slate"
+# test -f "$HOME/.slate"          || formatexec "ln -s $HOME/.dotfiles/.slate             $HOME/.slate"
 
+test -f "$HOME/.zlogin"         || formatexec "ln -s $HOME/.dotfiles/zsh/zlogin         $HOME/.zlogin"
 test -f "$HOME/.zprofile"       || formatexec "ln -s $HOME/.dotfiles/zsh/zprofile       $HOME/.zprofile"
 test -f "$HOME/.zshrc"          || formatexec "ln -s $HOME/.dotfiles/zsh/zshrc          $HOME/.zshrc"
 test -f "$HOME/.zshrc_local"    || formatexec "ln -s $HOME/.dotfiles/zsh/zshrc_local    $HOME/.zshrc_local"
@@ -201,6 +201,8 @@ if [ "${DO_NPM}" = 'npm' ]; then
         cmd-plus
         dark-mode
         electron-prebuilt
+        tldr
+        doctoc
     )
 
     for MOD in $MODS; do
