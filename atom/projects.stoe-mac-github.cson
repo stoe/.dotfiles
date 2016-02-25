@@ -6,7 +6,7 @@ dotfiles:
     "/Users/stoe/.dotfiles"
   ]
   settings:
-    "editor.tabLength": 4
+    "editor.tabLength": 2
     "editor.preferredLineLength": 80
     "project-manager.showPath": true
 alfred:
@@ -15,6 +15,28 @@ alfred:
     "/Users/stoe/code/private/alfred"
   ]
   settings:
-    "editor.tabLength": 4
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 80
+    "project-manager.showPath": true
+services:
+  title: "Services"
+  icon: "icon-squirell"
+  group: "GitHub"
+  paths: [
+      "/Users/stoe/code/github/services"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 80
+    "project-manager.showPath": true
+githubdocs:
+  title: "Docs"
+  icon: "icon-squirell"
+  group: "GitHub"
+  paths: [
+    "/Users/stoe/code/github/docs"
+  ]
+  settings:
+    "editor.tabLength": 2
     "editor.preferredLineLength": 80
     "project-manager.showPath": true
