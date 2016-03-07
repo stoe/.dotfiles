@@ -18,13 +18,13 @@
       - @${4:GitHub}
 
       ## Objectives
-      - $5
+      - ${5:[placeholder]}
 
       ## Discussed topics
-      - foo
+      - ${6:[placeholder]}
 
       ## Next steps
-      - [ ] foo
+      - [ ] ${7:[placeholder]}
     """
 
   'Services Engineer Engagement Template':
@@ -38,14 +38,14 @@
       | ---- | ---- | ---- |
 
       #### Feature Requests & Enhancements:
-      - $5
+      - ${5:[placeholder]}
 
       #### Bugs
-      - $6
+      - ${6:[placeholder]}
 
       #### Services Engineer's follow up tasks
-      - [ ] $7
+      - [ ] ${7:[placeholder]}
 
       #### Follow up for sales (@${8:SalesRep})
-      - [ ] $9
+      - [ ] ${9:[placeholder]}
     """

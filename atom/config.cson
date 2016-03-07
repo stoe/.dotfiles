@@ -11,7 +11,6 @@
       "linter-jsonlint"
       "linter-less"
       "linter-scss-lint"
-      "linter-shellcheck"
       "linter-coffeelint"
       "linter-php"
       "pigments"
@@ -23,14 +22,20 @@
   editor:
     fontFamily: "Anonymous Pro"
     invisibles: {}
+    preferredLineLength: 120
     showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
+  "file-icons":
+    onChanges: true
   "gist-it":
     newGistsDefaultToPrivate: true
     openAfterCreate: true
+  "git-plus": {}
   linter: {}
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
@@ -64,10 +69,16 @@
   "status-bar": {}
   tabs:
     enableVcsColoring: true
+  "tool-bar":
+    position: "Left"
+  "tool-bar-almighty": {}
   "tree-view":
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
+".diff.source":
+  editor:
+    softWrapHangingIndent: 2
 ".ini.source":
   editor:
     softWrapHangingIndent: 2
