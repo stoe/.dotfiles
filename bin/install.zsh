@@ -156,6 +156,7 @@ test -f "$HOME/.gitignore"      || formatexec "ln -s $HOME/.dotfiles/git/gitigno
 
 test -f "$HOME/.eslintrc"       || formatexec "ln -s $HOME/.dotfiles/.eslintrc          $HOME/.eslintrc"
 test -f "$HOME/.jshintrc"       || formatexec "ln -s $HOME/.dotfiles/.jshintrc          $HOME/.jshintrc"
+test -f "$HOME/.pryrc"          || formatexec "ln -s $HOME/.dotfiles/.pryrc             $HOME/.pryrc"   
 
 # test -f "$HOME/.slate"          || formatexec "ln -s $HOME/.dotfiles/.slate             $HOME/.slate"
 
