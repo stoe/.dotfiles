@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-[ -f "$HOME/.zprofile" ]            && source "$HOME/.zprofile"
-[ -f "$HOME/.zshrc_local" ]         && source "$HOME/.zshrc_local"
+test -f "$HOME/.zprofile"             && source "$HOME/.zprofile"
+test -f "$HOME/.zshrc_local"          && source "$HOME/.zshrc_local"
 
-[ -f "$HOME/.antigen/antigen.zsh" ] && source "$HOME/.antigen/antigen.zsh"
+test -f "$HOME/.antigen/antigen.zsh"  && source "$HOME/.antigen/antigen.zsh"
 
 # iTerm integration
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
