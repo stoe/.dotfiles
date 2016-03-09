@@ -7,7 +7,7 @@ dotfiles:
   ]
   settings:
     "editor.tabLength": 2
-    "editor.preferredLineLength": 80
+    "editor.preferredLineLength": 120
     "project-manager.showPath": true
 alfred:
   title: "alfred"
@@ -16,27 +16,38 @@ alfred:
   ]
   settings:
     "editor.tabLength": 2
-    "editor.preferredLineLength": 80
+    "editor.preferredLineLength": 120
     "project-manager.showPath": true
 services:
   title: "Services"
-  icon: "icon-squirell"
+  icon: "icon-octoface"
   group: "GitHub"
   paths: [
-      "/Users/stoe/code/github/services"
+    "/Users/stoe/code/github/services"
   ]
   settings:
     "editor.tabLength": 2
-    "editor.preferredLineLength": 80
+    "editor.preferredLineLength": 120
     "project-manager.showPath": true
 githubdocs:
   title: "Docs"
-  icon: "icon-squirell"
+  icon: "icon-octoface"
   group: "GitHub"
   paths: [
     "/Users/stoe/code/github/docs"
   ]
   settings:
     "editor.tabLength": 2
-    "editor.preferredLineLength": 80
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+"upstairs-renovation":
+  title: "upstairs-renovation"
+  icon: "icon-home"
+  group: "private"
+  paths: [
+    "/Users/stoe/Documents/Umbau"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
     "project-manager.showPath": true
