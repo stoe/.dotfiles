@@ -55,9 +55,13 @@
     plugins:
       bookmarks: true
       "git-diff": true
+      "git-diffDecorationsZIndex": 0
       linter: true
+      linterDecorationsZIndex: 0
       "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
       "minimap-hide": true
+      "minimap-hideDecorationsZIndex": 0
     scrollAnimation: true
   "minimap-linter": {}
   "package-generator":
