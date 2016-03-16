@@ -57,13 +57,14 @@ BREWS=(
     brew-cask
     duck
     ffmpeg
-    git git-extras git-lfs
+    git git-extras git-lfs go hub
     imagemagick
     node nvm
     openssl
     p7zip
     python
     rename
+    speedtest_cli switchaudio-osx
     tree
     wget
 )
@@ -102,12 +103,9 @@ if [ "${DO_CASKS}" = 'casks' ]; then
         atom
         avast
         bartender
-        cheatsheet
         cleanmymac
-        commander-one
         dash
         diffmerge
-        divvy
         dropbox
         evernote
         google-drive
@@ -115,11 +113,10 @@ if [ "${DO_CASKS}" = 'casks' ]; then
         keepingyouawake
         skype
         tower
-        virtualbox virtualbox-extension-pack
     )
 
         # *** old casks
-        # caffeine cyberduck totalfinder totalspaces
+        # caffeine cyberduck totalfinder totalspaces commander-one virtualbox virtualbox-extension-pack cheatsheet divvy
 
     for CASK in $CASKS; do
         if brew cask list | grep -q "$CASK"; then
