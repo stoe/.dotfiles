@@ -1,9 +1,9 @@
 dotfiles:
   title: "dotfiles"
   icon: "icon-terminal"
-  group: "development"
+  group: "private"
   paths: [
-    "/Users/stoe/.dotfiles"
+    "/Users/stoe/code/dotfiles"
   ]
   settings:
     "editor.tabLength": 2
@@ -11,8 +11,9 @@ dotfiles:
     "project-manager.showPath": true
 alfred:
   title: "alfred"
+  group: "private"
   paths: [
-    "/Users/stoe/code/private/alfred"
+    "/Users/stoe/code/alfred"
   ]
   settings:
     "editor.tabLength": 2
@@ -23,7 +24,7 @@ services:
   icon: "icon-octoface"
   group: "GitHub"
   paths: [
-    "/Users/stoe/code/github/services"
+    "/Users/stoe/GitHub/services"
   ]
   settings:
     "editor.tabLength": 2
@@ -34,7 +35,7 @@ githubdocs:
   icon: "icon-octoface"
   group: "GitHub"
   paths: [
-    "/Users/stoe/code/github/docs"
+    "/Users/stoe/GitHub/docs"
   ]
   settings:
     "editor.tabLength": 2
