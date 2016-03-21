@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
+# thanks https://github.com/fvdm
+
 brew=$(which brew)
 
 if [ "$1" = "-h" ]; then
