@@ -14,6 +14,7 @@
       "linter-coffeelint"
       "linter-php"
       "pigments"
+      "atom-pair"
     ]
     themes: [
       "atom-material-ui"
