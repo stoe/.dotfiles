@@ -3,12 +3,14 @@
 # see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
 # thanks https://github.com/fvdm
 
+source "$HOME/.dotfiles/inc/helpers.zsh"
+
 brew=$(which brew)
 
 if [ "$1" = "-h" ]; then
-  echo "Colorful Homebrew update script"
+  section "Colorful Homebrew update script"
   echo
-  echo "USAGE: update [-y]"
+  echo "USAGE: brewup [-y]"
   echo
   echo "   -y  skip questions"
   echo "   -h  display this help"
@@ -16,26 +18,32 @@ if [ "$1" = "-h" ]; then
   exit 0
 fi
 
-echo "\033[93mFetching packages list:\033[0m"
+section "Fetching packages list"
 $brew update
 brewsy=`$brew outdated | wc -l | awk {'print $1'}`
 
 if [ $brewsy != 0 ]; then
-  echo "\033[93mOutdated packages:\033[0m" $brewsy
+  print -P "%F{3}Outdated packages:%f" $brewsy
   echo
   $brew outdated
-  echo
 
   if [ "$1" != "-y" ]; then
-    ask=$(echo "\033[93mUpdate the these packages?\033[92m [yn] \033[0m")
-    read -p "$ask" yn
+    question "Update the these packages?" "yn"
+    read -rs -k 1 ask
   fi
 
-  if [ "$yn" = "y" ]; then
-    $brew upgrade --all && $brew cleanup
+  if [ "$ask" = "y" ]; then
+    $brew upgrade --all
   else
-    echo "\033[93mOK, not doing anything\033[0m\n"
+    ok "OK, not doing anything"
   fi
 else
-  echo "\033[93mNothing to do\033[0m"
+  ok "Nothing to do"
 fi
+
+section "Doctor & Cleanup"
+$brew doctor
+$brew cleanup
+
+echo
+ok "DONE"
