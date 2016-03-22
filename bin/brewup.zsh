@@ -20,16 +20,17 @@ fi
 
 section "Fetching packages list"
 $brew update
-brewsy=`$brew outdated | wc -l | awk {'print $1'}`
+brewsy=$($brew outdated | wc -l | awk \{"print $1"\})
 
-if [ $brewsy != 0 ]; then
-  print -P "%F{3}Outdated packages:%f" $brewsy
+if [ "$brewsy" != 0 ]; then
+  print -P "%F{3}Outdated packages:%f" "$brewsy"
   echo
   $brew outdated
 
   if [ "$1" != "-y" ]; then
     question "Update the these packages?" "yn"
     read -rs -k 1 ask
+    print -P "%F{8}> $ask%f"
   fi
 
   if [ "$ask" = "y" ]; then
