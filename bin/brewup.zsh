@@ -20,7 +20,7 @@ fi
 
 section "Fetching packages list"
 $brew update
-brewsy=$($brew outdated | wc -l | awk \{"print $1"\})
+brewsy=$($brew outdated | wc -l | awk '{print $1}')
 
 if [ "$brewsy" != 0 ]; then
   print -P "%F{3}Outdated packages:%f" "$brewsy"
