@@ -64,8 +64,8 @@ BREWS=(
     p7zip
     python
     rename
-    speedtest_cli switchaudio-osx
-    tree
+    shellcheck speedtest_cli switchaudio-osx
+    tmux tree
     wget
 )
 
@@ -111,6 +111,7 @@ if [ "${DO_CASKS}" = 'casks' ]; then
         google-drive
         iterm2
         keepingyouawake
+        nylas-n1
         skype
         tower
     )
