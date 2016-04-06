@@ -571,6 +571,11 @@ sudo mdutil -E / > /dev/null
 # Terminal & iTerm 2                                                          #
 ###############################################################################
 
+# Secure Input for Terminal.app
+$ defaults write com.apple.terminal SecureKeyboardEntry 1
+# Secure Input for iTerm2
+$ defaults write com.googlecode.iterm2 "Secure Input" 1
+
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
