@@ -26,6 +26,7 @@
       "atom-material-ui"
       "atom-material-syntax"
     ]
+  date: {}
   editor:
     fontFamily: "Anonymous Pro"
     fontSize: 16
