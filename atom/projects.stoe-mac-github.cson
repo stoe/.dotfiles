@@ -1,14 +1,14 @@
 dotfiles:
   title: "dotfiles"
-  icon: "icon-terminal"
-  group: "private"
   paths: [
     "/Users/stoe/code/dotfiles"
   ]
+  icon: "icon-terminal"
   settings:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
+  group: "private"
 alfred:
   title: "alfred"
   group: "private"
