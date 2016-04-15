@@ -1,0 +1,65 @@
+dotfiles:
+  title: "dotfiles"
+  icon: "icon-terminal"
+  group: "private"
+  paths: [
+    "/Users/stoe/code/dotfiles"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+dotfilesnew:
+  title: "dotfiles (new)"
+  icon: "icon-terminal"
+  group: "private"
+  paths: [
+    "/Users/stoe/code/new-dotfiles"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+alfred:
+  title: "alfred"
+  group: "private"
+  paths: [
+    "/Users/stoe/code/alfred"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+services:
+  title: "Services"
+  icon: "icon-octoface"
+  group: "GitHub"
+  paths: [
+    "/Users/stoe/GitHub/services"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+githubdocs:
+  title: "Docs"
+  icon: "icon-octoface"
+  group: "GitHub"
+  paths: [
+    "/Users/stoe/GitHub/docs"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+"upstairs-renovation":
+  title: "upstairs-renovation"
+  icon: "icon-home"
+  group: "private"
+  paths: [
+    "/Users/stoe/Documents/Umbau"
+  ]
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true

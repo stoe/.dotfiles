@@ -8,7 +8,3 @@ Thumbs.db
 
 # folders
 .idea/
-
-# files
-git/gitconfig.local.symlink
-zsh/zshrc_local.symlink

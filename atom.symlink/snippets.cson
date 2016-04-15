@@ -1,0 +1,51 @@
+'.source.gfm':
+  'Under Construction':
+    'prefix': ';uct:'
+    'body': """
+      \:warning\: \:construction\: Under Construction \:construction\: \:warning\:
+
+      $1
+    """
+
+  'Call Notes Template':
+    'prefix': ';cnt:'
+    'body': """
+      # Call Notes - ${1:Customer}
+      :calendar: ${2:Date}
+
+      ## Participants
+      - ${3:Customer}
+      - @${4:GitHub}
+
+      ## Objectives
+      - ${5:[placeholder]}
+
+      ## Discussed topics
+      - ${6:[placeholder]}
+
+      ## Next steps
+      - [ ] ${7:[placeholder]}
+    """
+
+  'Services Engineer Engagement Template':
+    'prefix': ';seet:'
+    'body': """
+      ## Follow-up items for our ${1:Customer} engagement
+      **On-site engagement:** ${2:Location} | ${3:Date(s)}
+      Provider: @${4:Provider}
+
+      | [:grey_exclamation: Engagement Issue (#xxxx)](https://github.com/github/services/issues/#) | [:question: Original Halp thread](https://halp.githubapp.com/#) | :memo: [Retrospective (WIP)](https://github.com/github/services/pull/#) |
+      | ---- | ---- | ---- |
+
+      #### Feature Requests & Enhancements:
+      - ${5:[placeholder]}
+
+      #### Bugs
+      - ${6:[placeholder]}
+
+      #### Services Engineer's follow up tasks
+      - [ ] ${7:[placeholder]}
+
+      #### Follow up for sales (@${8:SalesRep})
+      - [ ] ${9:[placeholder]}
+    """
