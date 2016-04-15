@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # open in Atom.app
 function a() {
     if [ $# -eq 0 ]; then
@@ -20,17 +18,6 @@ function o() {
     else
         # otherwise opens the given location
        open "$@"
-    fi
-}
-
-# open in Tower.app
-function gt() {
-    if [ $# -eq 0 ]; then
-        # no arguments opens current directory
-       gittower .
-    else
-        # otherwise opens the given location
-       gittower "$@"
     fi
 }
 

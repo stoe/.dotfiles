@@ -1,0 +1,11 @@
+[user]
+    name = AUTHORNAME
+    email = AUTHOREMAIL
+    signingkey = SIGNINGKEY
+
+[gist]
+    username = USERNAME
+    token = GISTTOKEN
+
+[credential]
+    helper = GIT_CREDENTIAL_HELPER
