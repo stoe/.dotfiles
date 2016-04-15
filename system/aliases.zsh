@@ -1,6 +1,13 @@
-#!/bin/zsh
-
-alias reload="clear && source ~/.zshrc"
+# grc overides for ls
+#   Made possible through contributions from generous benefactors like
+#   `brew install coreutils`
+# if $(gls &>/dev/null)
+# then
+#   alias l="gls -lAh --color"
+#   alias ll="gls -l --color"
+#   alias la='gls -A --color'
+#   alias ls="gls -F --color"
+# fi
 
 # DOS style clear
 alias cls="clear"

@@ -17,11 +17,14 @@
       - ${3:Customer}
       - @${4:GitHub}
 
-      ## Quick Notes
+      ## Objectives
       - ${5:[placeholder]}
 
+      ## Discussed topics
+      - ${6:[placeholder]}
+
       ## Next steps
-      - [ ] ${6:[placeholder]}
+      - [ ] ${7:[placeholder]}
     """
 
   'Services Engineer Engagement Template':
