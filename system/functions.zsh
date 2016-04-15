@@ -9,7 +9,6 @@ function a() {
     fi
 }
 
-
 # open in Finder.app
 function o() {
     if [ $# -eq 0 ]; then
