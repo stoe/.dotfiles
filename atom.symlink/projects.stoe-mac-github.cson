@@ -9,17 +9,6 @@ dotfiles:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
-dotfilesnew:
-  title: "dotfiles (new)"
-  icon: "icon-terminal"
-  group: "private"
-  paths: [
-    "/Users/stoe/code/new-dotfiles"
-  ]
-  settings:
-    "editor.tabLength": 2
-    "editor.preferredLineLength": 120
-    "project-manager.showPath": true
 alfred:
   title: "alfred"
   group: "private"
