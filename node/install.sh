@@ -1,4 +1,5 @@
 #!/bin/zsh
+source "$HOME/.dotfiles/inc/helpers.sh"
 
 nvm="${HOME}/.nvm"
 
@@ -7,23 +8,30 @@ nvm="${HOME}/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
-printf "\rinstalling \033[00;34mnode version\033[0m\n"
-nvm install iojs  # install latest io.js version
-nvm install node  # install latest node.js version
-nvm alias default node
-nvm use default
+# node versions
+section "node version"
+
+formatexec "nvm install iojs"  # install latest io.js version
+formatexec "npm install -g npm@latest"
+
+formatexec "nvm install node"  # install latest node.js version
+formatexec "npm install -g npm@latest"
+
+formatexec "nvm alias default node"
+formatexec "nvm use default"
+
+section "installed node versions"
+formatexec "nvm ls"
+echo
 
 # install dependencies
-printf "\n\rinstalling \033[00;34mnode modules\033[0m\n"
+section "node modules"
 MODS=(
-    cordova phonegap ios-sim
     eslint babel babel-cli babel-eslint
-    jscs jscs-jsdoc
     bower yo
     grunt-cli gulp
     mocha jasmine
     coffee-script
-    cmd-plus
     dark-mode
     electron-prebuilt
     tldr
@@ -32,12 +40,16 @@ MODS=(
 
 for MOD in $MODS; do
   if $(npm -g ls | grep "$MOD@[0-9\.]*$" > /dev/null 2>&1); then
-      npm upgrade -g "$MOD"
-      printf "└ upgraded \033[00;32m%s\033[0m\n" "$MOD"
+      formatexec "npm upgrade -g $MOD"
+      print -P "  └ %F{3}upgraded%f"
   else
-      npm install -g "$MOD" > /dev/null 2>&1
-      printf  "└ installed \033[00;32m%s\033[0m\n" "$MOD"
+      formatexec "npm install -g $MOD > /dev/null 2>&1"
+      print -P "  └ %F{2}installed%f"
   fi
 done
 
-npm ls -g | grep "^[└├]" | sed "s/─┬/──/g"
+echo
+
+formatexec "npm ls -g | grep \"^[└├]|\" | sed \"s/─┬/──/g\""
+
+ok
