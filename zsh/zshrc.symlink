@@ -34,6 +34,14 @@ done
 
 unset config_files
 
+# load nvm
+nvm="$HOME/.nvm"
+
+[ ! -d "${nvm}" ] && mkdir "${nvm}"
+[ ! -f "$HOME/.npmrc" ] && touch $HOME/.npmrc     # npm config file
+export NVM_DIR="${nvm}"
+source "$(brew --prefix nvm)/nvm.sh"
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -65,3 +73,6 @@ EOPLUGINS
     # save all to init script
     zgen save
 fi
+
+# always dark mode
+dark-mode --mode Dark
