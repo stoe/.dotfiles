@@ -21,15 +21,15 @@ alfred:
     "project-manager.showPath": true
 services:
   title: "Services"
-  icon: "icon-octoface"
-  group: "GitHub"
   paths: [
     "/Users/stoe/GitHub/services"
   ]
+  icon: "icon-octoface"
   settings:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
+  group: "GitHub"
 githubdocs:
   title: "Docs"
   icon: "icon-octoface"
