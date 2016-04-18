@@ -1,5 +1,8 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+# shortcut to this dotfiles path is $DFH
+export DFH=$HOME/.dotfiles
+
+autoload -Uz colors && colors
+source "$DFH/inc/helpers.sh"
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -8,7 +11,7 @@ test -f "$HOME/.zshrc_local" && source "$HOME/.zshrc_local"
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($DFH/**/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
