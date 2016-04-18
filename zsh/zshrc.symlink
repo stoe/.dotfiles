@@ -45,6 +45,9 @@ nvm="$HOME/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
+# load rbenv
+eval "$(rbenv init -)"
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -59,14 +62,13 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/nvm
+    # zgen oh-my-zsh plugins/bundler
+    # zgen oh-my-zsh plugins/gem
+    # zgen oh-my-zsh plugins/rbenv
+    zgen oh-my-zsh plugins/brew
 
     zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
-
-    # bulk load
-    zgen loadall <<EOPLUGINS
-EOPLUGINS
-    # ^ can't indent this EOPLUGINS
 
     # completions
 
