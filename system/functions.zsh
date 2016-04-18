@@ -1,28 +1,28 @@
 # open in Atom.app
 function a() {
-    if [ $# -eq 0 ]; then
-        # no arguments opens current directory
-        atom .
-    else
-        # otherwise opens the given location
-        atom "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    # no arguments opens current directory
+    atom .
+  else
+    # otherwise opens the given location
+    atom "$@"
+  fi
 }
 
 # open in Finder.app
 function o() {
-    if [ $# -eq 0 ]; then
-        # no arguments opens current directory
-       open .
-    else
-        # otherwise opens the given location
-       open "$@"
-    fi
+  if [ $# -eq 0 ]; then
+    # no arguments opens current directory
+    open .
+  else
+    # otherwise opens the given location
+    open "$@"
+  fi
 }
 
 # Create a new directory and enter it
 function mkd() {
-    mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@"
 }
 
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
@@ -30,161 +30,177 @@ function mkd() {
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 function tre() {
-    tree -aC -I '.git|node_modules|bower_components|.node-gyp|compile-cache' --dirsfirst "$@" | less -FRNX
+  tree -aC -I '.git|node_modules|bower_components|.node-gyp|compile-cache' --dirsfirst "$@" | less -FRNX
 }
 
 # .mov -> .gif
 function mov2gif() {
-    local file="${1%.*}"
-    local scale="${2:-600}"
+  local file="$1"
+  local filename=$(basename "$file")
+  local extension="${filename##*.}"
+  local filename="${filename%.*}"
+  local scale="${2:-600}"
 
-    local tmpFolder=".mov2png"
+  local tmpFolder=".mov2png"
 
-    clear
+  clear
 
-    echo "${1} >> ${ORANGE}${file}.gif${RESET} (scale: ${scale})"
-    echo ""
+  section "${file} >> ${ORANGE}${filename}.gif${RESET} (scale: ${scale})"
 
-    mkdir "${tmpFolder}"
+  mkdir "${tmpFolder}"
 
-    ffmpeg -i "${file}.mov" -vf scale="${scale}":-1 -r 10 "${tmpFolder}"/ffout%3d.png -v 0
+  formatexec "ffmpeg -i ${file} -vf scale=${scale}:-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
 
-    convert -delay 8 -loop 0 $tmpFolder/ffout*.png "${file}-${scale}.gif"
+  formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${filename}-${scale}.gif"
 
-    rm -rf "${tmpFolder}"
+  rm -rf "${tmpFolder}"
 
-    echo "${GREEN}done${RESET}."
-    echo ""
+  ok
 }
 
 # screenshot shadows
 function hideshadows() {
-    local disable=false
+  local disable=false
 
-    if [[ $1 != '' && $1 == 'true' ]]; then
-        print -P "\n%F{1}hiding%f screenshot shadows"
-        disable=true
-    else
-        print -P "\n%F{2}showing%f screenshot shadows"
-    fi
+  if [[ $1 != '' && $1 == 'true' ]]; then
+    print -P "\n%F{1}hiding%f screenshot shadows"
+    disable=true
+  else
+    print -P "\n%F{2}showing%f screenshot shadows"
+  fi
 
-    defaults write com.apple.screencapture disable-shadow -bool $disable
-    killall SystemUIServer
+  formatexec "defaults write com.apple.screencapture disable-shadow -bool $disable"
+  formatexec "killall SystemUIServer"
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
-    local tmpFile="${@%/}.tar"
-    tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1
+  local tmpFile="${@%/}.tar"
 
-    size=$(
-       stat -f"%z" "${tmpFile}" 2> /dev/null;   # OS X `stat`
-       stat -c"%s" "${tmpFile}" 2> /dev/null    # GNU `stat`
-    )
+  formatexec "tar -cvf ${tmpFile} --exclude=.DS_Store ${@} || return 1"
 
-    local cmd=""
+  size=$(
+    stat -f"%z" "${tmpFile}" 2> /dev/null;   # OS X `stat`
+    stat -c"%s" "${tmpFile}" 2> /dev/null    # GNU `stat`
+  )
 
-    if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
-        # the .tar file is smaller than 50 MB and Zopfli is available; use it
-        cmd="zopfli"
+  local cmd=""
+
+  if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+    # the .tar file is smaller than 50 MB and Zopfli is available; use it
+    cmd="zopfli"
+  else
+    if hash pigz 2> /dev/null; then
+      cmd="pigz"
     else
-        if hash pigz 2> /dev/null; then
-            cmd="pigz"
-        else
-            cmd="gzip"
-        fi
+      cmd="gzip"
     fi
+  fi
 
-    echo "Compressing .tar using \`${cmd}\`..."
+  section "Compressing .tar using ${cmd}"
 
-    "${cmd}" -v "${tmpFile}" || return 1
-    [ -f "${tmpFile}" ] && rm "${tmpFile}"
+  formatexec "${cmd} -v ${tmpFile} || return 1"
+  [ -f "${tmpFile}" ] && rm "${tmpFile}"
 
-    echo "${tmpFile}.gz created successfully."
+  ok "${tmpFile}.gz created successfully."
 }
 
 # Extract any archive.
 function extract () {
-    if [ $# -ne 1 ]; then
-        echo "Error: No file specified."
-        return 1
-    fi
+  if [ $# -ne 1 ]; then
+    abort "Error: No file specified."
+    return 1
+  fi
 
-    if [ -f "${1}" ] ; then
-        case "${1}" in
-            *.tar.bz2) tar xvjf "${1}"   ;;
-            *.tar.gz)  tar xvzf "${1}"   ;;
-            *.bz2)     bunzip2 "${1}"    ;;
-            *.rar)     unrar x "${1}"    ;;
-            *.gz)      gunzip "${1}"     ;;
-            *.tar)     tar xvf "${1}"    ;;
-            *.tbz2)    tar xvjf "${1}"   ;;
-            *.tgz)     tar xvzf "${1}"   ;;
-            *.zip)     unzip "${1}"      ;;
-            *.Z)       uncompress "${1}" ;;
-            *.7z)      7z x "${1}"       ;;
-            *)         echo "'${1}' cannot be extracted via extract" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+  if [ -f "${1}" ] ; then
+    case "${1}" in
+      *.tar.bz2) formatexec "tar xvjf ${1}"   ;;
+      *.tar.gz)  formatexec "tar xvzf ${1}"   ;;
+      *.bz2)     formatexec "bunzip2 ${1}"    ;;
+      *.rar)     formatexec "unrar x ${1}"    ;;
+      *.gz)      formatexec "gunzip ${1}"     ;;
+      *.tar)     formatexec "tar xvf ${1}"    ;;
+      *.tbz2)    formatexec "tar xvjf ${1}"   ;;
+      *.tgz)     formatexec "tar xvzf ${1}"   ;;
+      *.zip)     formatexec "unzip ${1}"      ;;
+      *.Z)       formatexec "uncompress ${1}" ;;
+      *.7z)      formatexec "7z x ${1}"       ;;
+      *)         abort "'${1}' cannot be extracted via extract" ;;
+    esac
+  else
+    abort "'$1' is not a valid file"
+  fi
 }
 
 # cleanup "Open With"
 function lsclean() {
-    clear
+  clear
 
-    "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister" -kill -r -domain local -domain system -domain user; killall Finder
+  "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister" -kill -r -domain local -domain system -domain user; killall Finder
 
-    print -P "\n%F{4}Open With%s has been rebuilt! %F{2}Finder%f relaunched."
+  ok "%F{4}Open With%s has been rebuilt! %F{2}Finder%f relaunched."
 }
 
 # cleanup launchpad
 function lpclean() {
-    clear
+  clear
 
-    # http://nickmanderfield.com/2014/08/ultimate-guide-to-fixing-and-resetting-osx-yosemite-launchpad/
-    defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock;
+  # http://nickmanderfield.com/2014/08/ultimate-guide-to-fixing-and-resetting-osx-yosemite-launchpad/
+  defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock;
 
-    print -P "\n%F{4}Launchpad%f has been rebuilt!"
+  ok "%F{4}Launchpad%f has been rebuilt!"
 }
 
 # speedtest (https://github.com/sivel/speedtest-cli)
 function speedtest() {
-    clear
+  clear
 
-    if brew list | grep -q speedtest_cli; then
-        print -P "\n  %F{8}> speedtest_cli --simple%f"
-        print -P "  via %F{4}https://github.com/sivel/speedtest-cli%f\n"
+  if brew list | grep -q speedtest_cli; then
+    print -P "\n  %F{8}> speedtest_cli --simple%f"
+    print -P "  via %F{4}https://github.com/sivel/speedtest-cli%f\n"
 
-        speedtest_cli --simple
-    else
-        print -P "\n  %F{1}✗%f %F{8}speedtest_cli%f not found"
-        print -P "  install via %F{8}> brew install speedtest_cli%f"
+    speedtest_cli --simple
+  else
+    print -P "\n  %F{1}✗%f %F{8}speedtest_cli%f not found"
+    print -P "  install via %F{8}> brew install speedtest_cli%f"
 
-        print -P "\n  %F{8}> wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip%f\n"
+    print -P "\n  %F{8}> wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip%f\n"
 
-        wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
-    fi
+    wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
+  fi
 
-    print -P "\n  %F{2}✔%f done"
+  print -P "\n  %F{2}✔%f done"
 }
 
 # show available color list
 function colorlist() {
-    # see https://github.com/sykora/etc/blob/master/zsh/functions/spectrum/
+  # see https://github.com/sykora/etc/blob/master/zsh/functions/spectrum/
 
-    local SUPPORT
+  local SUPPORT
 
-    # Optionally handle impoverished terminals.
-    if (( $# == 0 )); then
-        SUPPORT=256
-    else
-        SUPPORT=$1
-    fi
+  # Optionally handle impoverished terminals.
+  if (( $# == 0 )); then
+    SUPPORT=256
+  else
+    SUPPORT=$1
+  fi
 
-    for COLOR in {000..$SUPPORT}; do
-        # http://www.pirateipsum.me/
-        print -P "  [ $COLOR ] %F{$COLOR}Walking the plank, arg!%f"
-    done
+  for COLOR in {000..$SUPPORT}; do
+    # http://www.pirateipsum.me/
+    print -P "  [ $COLOR ] %F{$COLOR}Walking the plank, arg!%f"
+  done
+}
+
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh#L110
+function pfd() {
+  osascript 2>/dev/null <<EOF
+    tell application "Finder"
+      return POSIX path of (target of window 1 as alias)
+    end tell
+EOF
+}
+
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh#L131
+function cdf() {
+  cd "$(pfd)"
 }
