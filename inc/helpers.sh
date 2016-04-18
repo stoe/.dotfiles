@@ -13,6 +13,7 @@ disabled() {
 finished() {
   print -P "\nDONE."
   print -P "\n%F{8}✎ with %F{1}♥%F{8} by %F{12}stoe%F{8} (https://github.com/stoe/.dotfiles)%f"
+
   source "$HOME/.zshrc"
 }
 
@@ -20,11 +21,11 @@ formatexec() {
   local _exec="$1"
 
   print -P "%F{8}> $_exec%f"
-  # eval "$_exec"
+  eval "$_exec"
 }
 
 ok() {
-  print -P "[ %F{2}✓%f ] $1\n"
+  print -P "\n[ %F{2}✓%f ] $1\n"
 }
 
 question() {
