@@ -70,3 +70,7 @@ cask 'keepingyouawake'
 cask 'rubymine'
 cask 'webstorm'
 cask 'phpstorm'
+
+# iTerm2 & sudolikeaboss
+# tap 'ravenac95/sudolikeaboss'
+# brew 'sudolikeaboss'
