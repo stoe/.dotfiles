@@ -5,23 +5,10 @@ function brewup() {
   # thanks https://github.com/fvdm
 
   local _brew=$(which brew)
-
-  # if [ "$1" = "-h" ]; then
-  #   section "Colorful Homebrew update script"
-  #   echo
-  #   echo "USAGE: brewup [-y]"
-  #   echo
-  #   echo "   -y  skip questions"
-  #   echo "   -h  display this help"
-  #   echo
-  #   exit 0
-  # fi
-
-  echo $_brew
+  local _brewsy=$($_brew outdated | wc -l | awk '{print $1}')
 
   section "Fetching packages list"
   formatexec "$_brew update"
-  local _brewsy=$($_brew outdated | wc -l | awk '{print $1}')
 
   if [ "$_brewsy" != 0 ]; then
     print -P "%F{3}Outdated packages:%f" "$_brewsy"
