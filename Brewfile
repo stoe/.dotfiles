@@ -2,14 +2,14 @@ cask_args appdir: '/Applications'
 
 # taps
 tap 'caskroom/cask'
+tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'homebrew/versions'
-
-# brews
-brew 'brew-cask'
+# tap 'homebrew/versions'
+# tap 'homebrew/php'
 
 # dependencies
+brew 'brew-cask'
 brew 'go'
 brew 'coreutils'
 
@@ -22,8 +22,10 @@ brew 'git'
 brew 'git-extras'
 brew 'git-lfs'
 brew 'hub'
+cask 'tower'
 
 # gpg
+brew 'openssl'
 brew 'gpg'
 brew 'gpg2'
 brew 'keybase'
@@ -40,8 +42,6 @@ brew 'nvm'
 brew 'ruby-build'
 brew 'rbenv'
 
-
-brew 'openssl'
 brew 'p7zip'
 brew 'python'
 brew 'rename'
@@ -52,7 +52,7 @@ brew 'tmux'
 brew 'tree'
 brew 'wget'
 
-# casks
+# /Applications
 cask 'dropbox'
 cask 'alfred'
 cask 'airserver'
@@ -65,8 +65,10 @@ cask 'google-chrome'
 cask 'google-drive'
 cask 'iterm2-beta'
 cask 'keepingyouawake'
-
-# JetBrains
+cask 'spotify'
+cask 'screenflow'
+cask 'slack'
+cask 'screenhero'
 cask 'rubymine'
 cask 'webstorm'
 cask 'phpstorm'
