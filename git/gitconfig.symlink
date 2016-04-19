@@ -70,13 +70,18 @@
 
 [alias]
     # View abbreviated SHA, description, and history graph of the latest 20 commits
-    l = log --oneline --decorate --graph --abbrev-commit --all -n 20
-    # View the current working tree status using the short format
-    s = status -s
+    l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 32
+    lo = log --graph --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset: %s -%C(red)%d%Creset %C(green)(%cr)%Creset' --abbrev-commit --date=relative
+    # View the current working tree status using the short format w/ branch info
+    # upgrade your git if -sb breaks for you. it's fun.
+    s = status -sb
     # Show verbose output about tags, branches or remotes
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+    # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
+    co = checkout
+    ec = config --global -e
 
 [filter "lfs"]
   	required = true
