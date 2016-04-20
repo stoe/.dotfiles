@@ -44,18 +44,18 @@
     whitespace = nowarn
 
 [diff]
-    tool = wstorm
+    tool = Kaleidoscope
 [difftool]
     prompt = false
-[difftool.wstorm]
-    cmd = /usr/local/bin/wstorm diff "$LOCAL" "$REMOTE"
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-    tool = wstorm
+    tool = Kaleidoscope
 [mergetool]
-    keepBackup = false
-[mergetool.wstorm]
-    cmd = /usr/local/bin/wstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
     trustExitCode = true
 
 [help]
