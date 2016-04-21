@@ -13,7 +13,7 @@ alfred:
   title: "alfred"
   group: "private"
   paths: [
-    "/Users/stoe/code/alfred"
+    "/Users/stoe/code/private/alfred"
   ]
   settings:
     "editor.tabLength": 2
@@ -22,7 +22,7 @@ alfred:
 services:
   title: "Services"
   paths: [
-    "/Users/stoe/GitHub/services"
+    "/Users/stoe/code/github/services"
   ]
   icon: "icon-octoface"
   settings:
@@ -35,7 +35,7 @@ githubdocs:
   icon: "icon-octoface"
   group: "GitHub"
   paths: [
-    "/Users/stoe/GitHub/docs"
+    "/Users/stoe/code/github/docs"
   ]
   settings:
     "editor.tabLength": 2
