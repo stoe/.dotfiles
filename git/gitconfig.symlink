@@ -44,18 +44,19 @@
     whitespace = nowarn
 
 [diff]
-    tool = Kaleidoscope
+	tool = Kaleidoscope
 [difftool]
-    prompt = false
-[difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	prompt = false
+[difftool.wstorm]
+    cmd = /usr/local/bin/wstorm diff "$LOCAL" "$REMOTE"
 
 [merge]
-    tool = Kaleidoscope
+	tool = Kaleidoscope
 [mergetool]
-    prompt = false
-[mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    keepBackup = false
+	prompt = false
+[mergetool.wstorm]
+    cmd = /usr/local/bin/wstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
     trustExitCode = true
 
 [help]
@@ -69,9 +70,9 @@
     default = simple
 
 [alias]
-    # View abbreviated SHA, description, and history graph of the latest 20 commits
-    l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 32
-    lo = log --graph --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset: %s -%C(red)%d%Creset %C(green)(%cr)%Creset' --abbrev-commit --date=relative
+    # View abbreviated SHA, description, and history graph
+    l = log --oneline --decorate --graph --abbrev-commit --all --date=relative
+    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     # View the current working tree status using the short format w/ branch info
     # upgrade your git if -sb breaks for you. it's fun.
     s = status -sb
