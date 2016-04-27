@@ -55,6 +55,8 @@
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "markdown-preview":
+    breakOnSingleNewline: true
+    liveUpdate: true
     useGitHubStyle: true
   "markdown-table-formatter": {}
   "merge-conflicts": {}
@@ -78,6 +80,11 @@
     environmentSpecificProjects: true
     sortBy: "group"
   "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
   "status-bar": {}
   tabs:
     enableVcsColoring: true

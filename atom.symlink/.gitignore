@@ -2,6 +2,7 @@
 .node-gyp
 blob-store
 compile-cache
+git-time-machine
 packages
 storage
 
