@@ -155,21 +155,13 @@ function lpclean() {
 function speedtest() {
   clear
 
-  if brew list | grep -q speedtest_cli; then
-    print -P "\n  %F{8}> speedtest_cli --simple%f"
-    print -P "  via %F{4}https://github.com/sivel/speedtest-cli%f\n"
-
-    speedtest_cli --simple
-  else
-    print -P "\n  %F{1}✗%f %F{8}speedtest_cli%f not found"
-    print -P "  install via %F{8}> brew install speedtest_cli%f"
-
-    print -P "\n  %F{8}> wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip%f\n"
-
-    wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
+  if ! $(npm -g ls | grep "speed-test@[0-9\.]*$" > /dev/null 2>&1); then
+    # install if not not globally available
+    formatexec "npm install -g speed-test > /dev/null 2>&1"
   fi
 
-  print -P "\n  %F{2}✔%f done"
+  formatexec "speed-test --verbose --bytes"
+  echo
 }
 
 # show available color list
