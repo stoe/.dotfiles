@@ -73,6 +73,7 @@ cask 'rubymine'
 cask 'webstorm'
 cask 'phpstorm'
 cask 'evernote'
+cask 'tripmode'
 
 # iTerm2 & sudolikeaboss
 # tap 'ravenac95/sudolikeaboss'
