@@ -39,6 +39,7 @@
   attributesfile = ~/.gitattributes
   editor = atom --wait
 	autocrlf = input
+  pager = ""
 
 [apply]
   whitespace = nowarn
