@@ -28,7 +28,7 @@
     ]
   editor:
     fontFamily: "Anonymous Pro"
-    fontSize: 16
+    fontSize: 18
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
@@ -42,6 +42,8 @@
   "gist-it":
     newGistsDefaultToPrivate: true
     openAfterCreate: true
+  "git-control":
+    showGitFlowButton: false
   "git-plus": {}
   linter: {}
   "linter-jshint":
@@ -92,6 +94,7 @@
     position: "Left"
   "tool-bar-almighty": {}
   "tree-view":
+    hideIgnoredNames: true
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
