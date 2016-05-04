@@ -5,6 +5,9 @@
 [hub]
   protocol = https
 
+[remote "origin"]
+	prune = true
+
 [gpg]
   program = gpg
 
