@@ -1,90 +1,90 @@
 # Local/private config goes in the include
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 
 [hub]
-    protocol = https
+  protocol = https
 
 [gpg]
-    program = gpg
+  program = gpg
 
 [commit]
-    gpgsign = false
+  gpgsign = false
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-    added = green
-    changed = yellow
-    untracked = cyan
+  added = green
+  changed = yellow
+  untracked = cyan
 
 [core]
-    # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = ~/.gitignore
-    attributesfile = ~/.gitattributes
-    editor = atom --wait
-    autocrlf = input
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+  editor = atom --wait
+	autocrlf = input
 
 [apply]
-    whitespace = nowarn
+  whitespace = nowarn
 
 [diff]
 	tool = Kaleidoscope
 [difftool]
 	prompt = false
 [difftool.wstorm]
-    cmd = /usr/local/bin/wstorm diff "$LOCAL" "$REMOTE"
+  cmd = /usr/local/bin/wstorm diff "$LOCAL" "$REMOTE"
 
 [merge]
 	tool = Kaleidoscope
 [mergetool]
-    keepBackup = false
+  keepBackup = false
 	prompt = false
 [mergetool.wstorm]
-    cmd = /usr/local/bin/wstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
-    trustExitCode = true
+  cmd = /usr/local/bin/wstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  trustExitCode = true
 
 [help]
-    autocorrect = 1
+  autocorrect = 1
 
 [push]
-    # See `git help config` (search for push.default)
-    # for more information on different options of the below setting.
-    #
-    # Setting to git 2.0 default to surpress warning message
-    default = simple
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to surpress warning message
+	default = simple
 
 [alias]
-    # View abbreviated SHA, description, and history graph
-    l = log --oneline --decorate --graph --abbrev-commit --all --date=relative
-    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    # View the current working tree status using the short format w/ branch info
-    # upgrade your git if -sb breaks for you. it's fun.
-    s = status -sb
-    # Show verbose output about tags, branches or remotes
-    tags = tag -l
-    branches = branch -a
-    remotes = remote -v
-    # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
-    co = checkout
-    ec = config --global -e
+  # View abbreviated SHA, description, and history graph
+  l = log --oneline --decorate --graph --abbrev-commit --all --date=relative
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  # View the current working tree status using the short format w/ branch info
+  # upgrade your git if -sb breaks for you. it's fun.
+  s = status -sb
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
+  co = checkout
+  ec = config --global -e
 
 [filter "lfs"]
-  	required = true
-  	clean = git-lfs clean %f
-  	smudge = git-lfs smudge %f
+  required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
