@@ -18,7 +18,7 @@
   diff = auto
   status = auto
   branch = auto
-  ui = true
+  ui = auto
 
 [color "branch"]
   current = yellow reverse
@@ -86,7 +86,9 @@
   remotes = remote -v
   # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
   co = checkout
+  cob = checkout -b
   ec = config --global -e
+  bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
 
 [filter "lfs"]
   required = true
