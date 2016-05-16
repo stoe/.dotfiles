@@ -12,7 +12,7 @@
   program = gpg
 
 [commit]
-  gpgsign = false
+  gpgsign = true
 
 [color]
   diff = auto
