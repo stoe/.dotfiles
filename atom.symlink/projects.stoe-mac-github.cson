@@ -52,3 +52,14 @@ githubdocs:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
+githubdocuments:
+  title: "GitHub Documents"
+  paths: [
+    "/Users/stoe/Documents/_ GitHub"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub"
