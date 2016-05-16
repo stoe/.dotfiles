@@ -89,6 +89,9 @@
   cob = checkout -b
   ec = config --global -e
   bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+  # show who you are committing as
+  # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
+  me = !git config --get user.name && git config --get user.email
 
 [filter "lfs"]
   required = true
