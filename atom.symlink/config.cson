@@ -94,7 +94,6 @@
     position: "Left"
   "tool-bar-almighty": {}
   "tree-view":
-    hideIgnoredNames: true
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
