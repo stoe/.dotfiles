@@ -13,6 +13,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
+# https://www.branah.com/ascii-converter
+# 0x73746f65 → stoe
 # sudo scutil --set ComputerName "0x73746f65"
 # sudo scutil --set HostName "0x73746f65"
 # sudo scutil --set LocalHostName "0x73746f65"
