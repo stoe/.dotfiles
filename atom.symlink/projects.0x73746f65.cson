@@ -1,7 +1,7 @@
 dotfiles:
   title: "dotfiles"
   paths: [
-    "/Users/stoe/code/dotfiles"
+    "/Users/stoe/.dotfiles"
   ]
   icon: "icon-terminal"
   settings:
@@ -13,7 +13,7 @@ alfred:
   title: "alfred"
   group: "private"
   paths: [
-    "/Users/stoe/code/private/alfred"
+    "/Users/stoe/private/alfred"
   ]
   settings:
     "editor.tabLength": 2
@@ -22,7 +22,7 @@ alfred:
 services:
   title: "Services"
   paths: [
-    "/Users/stoe/code/github/services"
+    "/Users/stoe/github/services"
   ]
   icon: "icon-octoface"
   settings:
@@ -35,7 +35,7 @@ githubdocs:
   icon: "icon-octoface"
   group: "GitHub"
   paths: [
-    "/Users/stoe/code/github/docs"
+    "/Users/stoe/github/docs"
   ]
   settings:
     "editor.tabLength": 2
