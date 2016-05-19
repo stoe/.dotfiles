@@ -37,3 +37,33 @@ function git-ci-add-status {
     "https://api.github.com/repos/${CICD_DEMO_URL}/statuses/$1" \
     -d '{"state": "failure", "target_url": "https://google.com", "description": "example", "context": "demo statuses failure"}'
 }
+
+# update all work folders
+function githubup {
+  local _PWD=$(pwd)
+  local SERVICES_HOME="$HOME/github"
+
+  clear
+
+  # use global var `export GITHUB_PERSONAL_WORK_FOLDERS="..."`
+  folders=(${=GITHUB_PERSONAL_WORK_FOLDERS})
+
+  for folder in ${folders}; do
+    local DIR="${SERVICES_HOME}/${folder}"
+
+    if [ -d ${DIR} ]; then
+      section "${folder}"
+
+      cd "${DIR}"
+
+      formatexec "git pull"
+      echo
+    fi
+  done
+
+  unset folders
+  unset folder
+  unset DIR
+
+  cd ${_PWD}
+}
