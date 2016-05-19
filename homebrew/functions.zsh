@@ -1,9 +1,6 @@
-#!/bin/zsh
-
+# see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
+# thanks https://github.com/fvdm
 function brewup() {
-  # see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
-  # thanks https://github.com/fvdm
-
   local _brew=$(which brew)
   local _brewsy=$($_brew outdated | wc -l | awk '{print $1}')
 
@@ -32,6 +29,7 @@ function brewup() {
 
   section "Doctor & Cleanup"
   formatexec "$_brew doctor"
+  formatexec "$_brew cask cleanup"
   formatexec "$_brew cleanup"
 
   echo
