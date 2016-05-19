@@ -26,3 +26,14 @@ function gitbe {
     echo "Your local configuration has been modified."
     echo "You are now committing as: $name <$email>."
 }
+
+# Usage: git-ci-add-status <sha>
+function git-ci-add-status {
+  curl -H "Authorization: token ${CICD_DEMO_TOKEN}" \
+    "https://api.github.com/repos/${CICD_DEMO_URL}/statuses/$1" \
+    -d '{"state": "pending", "target_url": "https://google.com", "description": "example", "context": "demo statuses pending"}'
+
+  curl -H "Authorization: token ${CICD_DEMO_TOKEN}" \
+    "https://api.github.com/repos/${CICD_DEMO_URL}/statuses/$1" \
+    -d '{"state": "failure", "target_url": "https://google.com", "description": "example", "context": "demo statuses failure"}'
+}
