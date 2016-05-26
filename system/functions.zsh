@@ -155,12 +155,24 @@ function lpclean() {
 function speedtest() {
   clear
 
-  if ! $(npm -g ls | grep "speed-test@[0-9\.]*$" > /dev/null 2>&1); then
-    # install if not not globally available
-    formatexec "npm install -g speed-test > /dev/null 2>&1"
+  local _cmd="${1:-f}"
+
+  if [ ${_cmd} == 's' ]; then
+    if ! $(npm -g ls | grep "speed-test@[0-9\.]*$" > /dev/null 2>&1); then
+      # install if not not globally available
+      formatexec "npm install -g speed-test > /dev/null 2>&1"
+    fi
+
+    formatexec "speed-test --verbose --bytes"
+  else
+    if ! $(npm -g ls | grep "fast-cli@[0-9\.]*$" > /dev/null 2>&1); then
+      # install if not not globally available
+      formatexec "npm install -g fast-cli > /dev/null 2>&1"
+    fi
+
+    formatexec "fast"
   fi
 
-  formatexec "speed-test --verbose --bytes"
   echo
 }
 

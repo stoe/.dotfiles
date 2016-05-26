@@ -27,6 +27,7 @@ echo
 # install dependencies
 section "node modules"
 MODS=(
+    azure-cli
     eslint babel babel-cli babel-eslint
     bower yo
     grunt-cli gulp
@@ -34,6 +35,7 @@ MODS=(
     coffee-script
     dark-mode
     electron-prebuilt
+    speed-test fast-cli
     tldr
     doctoc
 )
