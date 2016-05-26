@@ -1,3 +1,69 @@
+services:
+  title: "Services"
+  paths: [
+    "/Users/stoe/github/services"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub Services"
+servicesengineering:
+  title: "Services Engineering"
+  paths: [
+    "/Users/stoe/github/services-engineering"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub Services"
+servicesoperations:
+  title: "Services Operations"
+  paths: [
+    "/Users/stoe/github/services-operations"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub Services"
+servicestraining:
+  title: "Services Training"
+  paths: [
+    "/Users/stoe/github/services-training"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub Services"
+githubdocs:
+  title: "GitHubber Docs"
+  paths: [
+    "/Users/stoe/github/docs"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub"
+githubdocuments:
+  title: "GitHub Documents"
+  paths: [
+    "/Users/stoe/Documents/_ GitHub"
+  ]
+  icon: "icon-octoface"
+  settings:
+    "editor.tabLength": 2
+    "editor.preferredLineLength": 120
+    "project-manager.showPath": true
+  group: "GitHub"
 dotfiles:
   title: "dotfiles"
   paths: [
@@ -19,28 +85,6 @@ alfred:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
-services:
-  title: "Services"
-  paths: [
-    "/Users/stoe/github/services"
-  ]
-  icon: "icon-octoface"
-  settings:
-    "editor.tabLength": 2
-    "editor.preferredLineLength": 120
-    "project-manager.showPath": true
-  group: "GitHub"
-githubdocs:
-  title: "Docs"
-  icon: "icon-octoface"
-  group: "GitHub"
-  paths: [
-    "/Users/stoe/github/docs"
-  ]
-  settings:
-    "editor.tabLength": 2
-    "editor.preferredLineLength": 120
-    "project-manager.showPath": true
 "upstairs-renovation":
   title: "upstairs-renovation"
   icon: "icon-home"
@@ -52,14 +96,3 @@ githubdocs:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
-githubdocuments:
-  title: "GitHub Documents"
-  paths: [
-    "/Users/stoe/Documents/_ GitHub"
-  ]
-  icon: "icon-octoface"
-  settings:
-    "editor.tabLength": 2
-    "editor.preferredLineLength": 120
-    "project-manager.showPath": true
-  group: "GitHub"
