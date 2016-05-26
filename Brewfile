@@ -42,8 +42,14 @@ brew 'nvm'
 brew 'ruby-build'
 brew 'rbenv'
 
-brew 'p7zip'
+# java
+cask 'java'
+
+# python
 brew 'python'
+
+# tools
+brew 'p7zip'
 brew 'rename'
 brew 'shellcheck'
 brew 'speedtest_cli'
@@ -74,7 +80,3 @@ cask 'webstorm'
 cask 'phpstorm'
 cask 'evernote'
 cask 'tripmode'
-
-# iTerm2 & sudolikeaboss
-# tap 'ravenac95/sudolikeaboss'
-# brew 'sudolikeaboss'
