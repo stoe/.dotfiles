@@ -47,9 +47,12 @@ function githubup {
 
   # use global var `export GITHUB_PERSONAL_WORK_FOLDERS="..."`
   folders=(${=GITHUB_PERSONAL_WORK_FOLDERS})
+  # repositories where gh-pages is the default branch
+  ghpages=('training-web')
 
   for folder in ${folders}; do
     local DIR="${SERVICES_HOME}/${folder}"
+    local _branch="master"
 
     if [ -d ${DIR} ]; then
       section "${folder}"
@@ -57,6 +60,12 @@ function githubup {
       cd "${DIR}"
 
       formatexec "git pull"
+
+      if [[ " ${ghpages[@]} " =~ " ${folder} " ]]; then
+          _branch="gh-pages"
+      fi
+
+      formatexec "git bclean ${_branch}"
       echo
     fi
   done
