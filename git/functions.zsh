@@ -40,39 +40,44 @@ function git-ci-add-status {
 
 # update all work folders
 function githubup {
-  local _PWD=$(pwd)
+  local _pwd=$(pwd)
   local SERVICES_HOME="$HOME/github"
 
   clear
 
   # use global var `export GITHUB_PERSONAL_WORK_FOLDERS="..."`
-  folders=(${=GITHUB_PERSONAL_WORK_FOLDERS})
-  # repositories where gh-pages is the default branch
-  ghpages=('training-web')
+  _folders=(${=GITHUB_PERSONAL_WORK_FOLDERS})
 
-  for folder in ${folders}; do
-    local DIR="${SERVICES_HOME}/${folder}"
+  # repositories w/ gh-pages as the default branch
+  _ghpages=('training-web')
+
+  for _folder in ${_folders}; do
+    local _dir="${SERVICES_HOME}/${_folder}"
     local _branch="master"
 
-    if [ -d ${DIR} ]; then
-      section "${folder}"
+    if [ -d ${_dir} ]; then
+      section "${_folder}"
+      echo
 
-      cd "${DIR}"
+      cd "${_dir}"
 
-      formatexec "git pull"
-
-      if [[ " ${ghpages[@]} " =~ " ${folder} " ]]; then
+      if [[ " ${_ghpages[@]} " =~ " ${_folder} " ]]; then
           _branch="gh-pages"
       fi
 
+      formatexec "git checkout ${_branch} && git pull"
+      echo
       formatexec "git bclean ${_branch}"
       echo
     fi
   done
 
-  unset folders
-  unset folder
-  unset DIR
+  cd ${_pwd}
 
-  cd ${_PWD}
+  unset _folders
+  unset _folder
+  unset _ghpages
+  unset _branch
+  unset _dir
+  unset _pwd
 }
