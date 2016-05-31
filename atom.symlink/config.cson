@@ -1,24 +1,8 @@
 "*":
-  "atom-pair": {}
-  "atom-terminal":
-    app: "/Applications/iTerm.app"
-    surpressDirectoryArgument: false
   "autocomplete-plus": {}
   autosave:
     enabled: true
   core:
-    disabledPackages: [
-      "linter-eslint"
-      "linter-csslint"
-      "linter-jshint"
-      "linter-jsonlint"
-      "linter-less"
-      "linter-scss-lint"
-      "linter-coffeelint"
-      "linter-php"
-      "pigments"
-      "atom-pair"
-    ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
     ]
@@ -30,7 +14,7 @@
     fontFamily: "Anonymous Pro"
     fontSize: 18
     invisibles: {}
-    preferredLineLength: 120
+    preferredLineLength: 80
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
@@ -38,24 +22,12 @@
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
-  "file-icons": {}
   "gist-it":
     newGistsDefaultToPrivate: true
     openAfterCreate: true
   "git-control":
     showGitFlowButton: false
   "git-plus": {}
-  linter: {}
-  "linter-jshint":
-    disableWhenNoJshintrcFileInPath: true
-    lintInlineJavaScript: true
-  "linter-php":
-    executablePath: "/usr/local/opt/php56/bin/php"
-  "linter-ruby": {}
-  "linter-scss-lint":
-    executablePath: "/usr/bin/scss-lint"
-  "linter-shellcheck":
-    shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
@@ -64,18 +36,12 @@
   "merge-conflicts": {}
   minimap:
     absoluteMode: true
+    displayPluginsControls: false
     plugins:
       bookmarks: true
       "git-diff": true
       "git-diffDecorationsZIndex": 0
-      linter: true
-      linterDecorationsZIndex: 0
-      "minimap-autohide": true
-      "minimap-autohideDecorationsZIndex": 0
-      "minimap-hide": true
-      "minimap-hideDecorationsZIndex": 0
     scrollAnimation: true
-  "minimap-linter": {}
   "package-generator":
     createInDevMode: true
   "project-manager":
@@ -90,9 +56,6 @@
   "status-bar": {}
   tabs:
     enableVcsColoring: true
-  "tool-bar":
-    position: "Left"
-  "tool-bar-almighty": {}
   "tree-view":
     squashDirectoryNames: true
   welcome:
