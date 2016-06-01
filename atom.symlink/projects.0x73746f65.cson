@@ -72,7 +72,7 @@ dotfiles:
   icon: "icon-terminal"
   settings:
     "editor.tabLength": 2
-    "editor.preferredLineLength": 120
+    "editor.preferredLineLength": 80
     "project-manager.showPath": true
   group: "private"
 alfred:
