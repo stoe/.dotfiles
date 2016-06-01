@@ -98,12 +98,12 @@ alfred:
     "project-manager.showPath": true
 atomlinkwrap:
   title: "Atom Linkwrap"
-  icon: "icon-rocket"
-  group: "atom"
   paths: [
-      "/Users/stoe/github/atom-linkwrap"
+    "/Users/stoe/github/atom-linkwrap"
   ]
+  icon: "icon-rocket"
   settings:
     "editor.tabLength": 2
     "editor.preferredLineLength": 80
     "project-manager.showPath": true
+  group: "atom"
