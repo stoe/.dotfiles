@@ -5,8 +5,6 @@ tap 'caskroom/cask'
 tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-# tap 'homebrew/versions'
-# tap 'homebrew/php'
 
 # dependencies
 brew 'brew-cask'
