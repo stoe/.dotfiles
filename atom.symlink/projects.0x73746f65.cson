@@ -109,12 +109,12 @@ atomlinkwrap:
   group: "atom"
 devenv:
   title: "Dev Env"
-  icon: "icon-home"
-  group: "private"
   paths: [
     "/Users/stoe/private/dev-configs"
   ]
+  icon: "icon-home"
   settings:
     "editor.tabLength": 2
     "editor.preferredLineLength": 120
     "project-manager.showPath": true
+  group: "private"

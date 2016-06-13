@@ -1,4 +1,5 @@
 "*":
+  "autocomplete-emojis": {}
   "autocomplete-plus": {}
   autosave:
     enabled: true
@@ -14,6 +15,7 @@
     fontFamily: "Anonymous Pro"
     fontSize: 18
     invisibles: {}
+    preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
