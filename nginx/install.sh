@@ -17,7 +17,7 @@
 source "$HOME/.dotfiles/inc/helpers.sh"
 
 # DISABLED ---------------------------------------------------------------------
-# disabled
+disabled
 
 clear
 echo
