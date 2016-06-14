@@ -74,7 +74,6 @@ cask 'jetbrains-toolbox'
 cask 'kaleidoscope'
 cask 'keepingyouawake'
 cask 'lastpass'
-cask 'moom'
 cask 'screenflow'
 cask 'screenhero'
 cask 'slack'
@@ -88,6 +87,7 @@ cask 'zoomus'
 
 # Mac App Store
 mas 'Denied', id: 909257784
+mas 'Moom', id: 419330170
 mas 'Mousepose', id: 405904955
 mas 'Gifwit', id: 871200983
 mas 'iConvert Icons', id: 515197296
