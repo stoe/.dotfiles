@@ -86,9 +86,16 @@ cask 'visual-studio-code'
 cask 'zoomus'
 
 # Mac App Store
+mas 'Airmail 2', id: 918858936
 mas 'Denied', id: 909257784
-mas 'Moom', id: 419330170
+mas 'Keynote', id: 409183694
 mas 'Mousepose', id: 405904955
+mas 'YubiKey Personalization Tool', id: 638161122
 mas 'Gifwit', id: 871200983
 mas 'iConvert Icons', id: 515197296
 mas 'Simplify', id: 448003584
+mas 'Pages', id: 409201541
+mas 'Lingon 3', id: 450201424
+mas 'Electron APIs', id: 1119345146
+mas 'Numbers', id: 409203825
+mas 'LastPass', id: 926036361
