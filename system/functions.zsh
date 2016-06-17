@@ -122,7 +122,7 @@ function extract () {
       *.tar)     formatexec "tar xvf ${1}"    ;;
       *.tbz2)    formatexec "tar xvjf ${1}"   ;;
       *.tgz)     formatexec "tar xvzf ${1}"   ;;
-      *.zip)     formatexec "unzip ${1}"      ;;
+      *.zip)     formatexec "7z x ${1}"       ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
       *.Z)       formatexec "uncompress ${1}" ;;
       *.7z)      formatexec "7z x ${1}"       ;;
       *)         abort "'${1}' cannot be extracted via extract" ;;
