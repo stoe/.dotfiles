@@ -2,10 +2,11 @@
 # thanks https://github.com/fvdm
 function brewup() {
   local _brew=$(which brew)
-  local _brewsy=$($_brew outdated | wc -l | awk '{print $1}')
 
   section "Fetching packages list"
   formatexec "$_brew update"
+
+  local _brewsy=`$_brew outdated | wc -l | awk '{print $1}'`
 
   if [ "$_brewsy" != 0 ]; then
     print -P "%F{3}Outdated packages:%f" "$_brewsy"
@@ -29,10 +30,9 @@ function brewup() {
 
   section "Doctor & Cleanup"
   formatexec "$_brew doctor"
-  formatexec "$_brew cask cleanup"
-  formatexec "$_brew cleanup"
+  echo
+  formatexec "$_brew cask cleanup && $_brew cleanup"
 
   echo
   ok "DONE"
-
 }
