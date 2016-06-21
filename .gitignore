@@ -10,5 +10,6 @@ Thumbs.db
 .idea/
 
 # files
+atom.symlink/projects*.cson
 git/gitconfig.local.symlink
 zsh/zshrc_local.symlink
