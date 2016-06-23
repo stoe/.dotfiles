@@ -4,7 +4,7 @@ export DFH=$HOME/.dotfiles
 autoload -Uz colors && colors
 source "$DFH/inc/helpers.sh"
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
+# Stash your environment variables in ~/.zshrc_local. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
 test -f "$HOME/.zshrc_local" && source "$HOME/.zshrc_local"
