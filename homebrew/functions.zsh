@@ -14,7 +14,7 @@ function brewup() {
     formatexec "$_brew outdated"
 
     if [ "$1" != "-y" ]; then
-      question "Update the these packages?" "yn"
+      question "Update these packages?" "yn"
       read -rs -k 1 ask
       print -P "%F{8}> $ask%f"
     fi
