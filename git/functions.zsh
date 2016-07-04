@@ -29,13 +29,31 @@ function gitbe {
 
 # Usage: git-ci-add-status <sha>
 function git-ci-add-status {
-  curl -H "Authorization: token ${CICD_DEMO_TOKEN}" \
-    "https://api.github.com/repos/${CICD_DEMO_URL}/statuses/$1" \
-    -d '{"state": "pending", "target_url": "https://google.com", "description": "example", "context": "demo statuses pending"}'
 
-  curl -H "Authorization: token ${CICD_DEMO_TOKEN}" \
-    "https://api.github.com/repos/${CICD_DEMO_URL}/statuses/$1" \
-    -d '{"state": "failure", "target_url": "https://google.com", "description": "example", "context": "demo statuses failure"}'
+  if [[ ! -z "$1" && ! -z "$2" ]]; then
+    section "pending"
+
+    curl -H "Authorization: token ${STOE_SCRIPT_TOKEN}" \
+      "https://api.github.com/repos/$2/statuses/$1" \
+      -d '{"state": "pending", "target_url": "https://github.com", "description": "example pending", "context": "demo statuses pending"}'
+
+    section "failure"
+
+    curl -H "Authorization: token ${STOE_SCRIPT_TOKEN}" \
+      "https://api.github.com/repos/$2/statuses/$1" \
+      -d '{"state": "failure", "target_url": "https://github.com", "description": "example failure", "context": "demo statuses failure"}'
+
+    section "success"
+
+    curl -H "Authorization: token ${STOE_SCRIPT_TOKEN}" \
+      "https://api.github.com/repos/$2/statuses/$1" \
+      -d '{"state": "success", "target_url": "https://github.com", "description": "example success", "context": "demo statuses success"}'
+
+    ok
+  else
+    echo "Usage: $0 <sha1> <user/rept>"
+  fi
+
 }
 
 # update all work folders
