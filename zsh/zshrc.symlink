@@ -100,3 +100,6 @@ if test gls; then
   alias la='gls -A --color'
   alias ls="gls -F --color"
 fi
+
+# added by travis gem
+[ -f /Users/stoe/.travis/travis.sh ] && source /Users/stoe/.travis/travis.sh
