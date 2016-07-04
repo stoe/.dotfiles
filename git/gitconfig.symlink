@@ -94,6 +94,6 @@
   me = !git config --get user.name && git config --get user.email
 
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
