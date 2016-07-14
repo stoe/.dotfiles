@@ -24,31 +24,44 @@ section "installed node versions"
 formatexec "nvm ls"
 echo
 
-# install dependencies
+# modules
 section "node modules"
-MODS=(
-    azure-cli
-    eslint babel babel-cli babel-eslint
-    bower yo
-    grunt-cli gulp
-    mocha jasmine
-    coffee-script
-    dark-mode
-    electron-prebuilt
-    speed-test fast-cli
-    tldr
-    doctoc
-)
 
-for MOD in $MODS; do
-  if $(npm -g ls | grep "$MOD@[0-9\.]*$" > /dev/null 2>&1); then
-      formatexec "npm upgrade -g $MOD"
-      print -P "  └ %F{3}upgraded%f"
-  else
-      formatexec "npm install -g $MOD > /dev/null 2>&1"
-      print -P "  └ %F{2}installed%f"
-  fi
-done
+question "Do you want to reinstall prior packages?" "Yn"
+read _reinstall
+
+if [[ "$_reinstall" == "y" || "$_reinstall" == "" ]]; then
+  # reinstall packages
+  question "From which version?"
+  read _NODE_VERSION
+
+  formatexec "nvm reinstall-packages v${_NODE_VERSION}"
+else
+  # install dependencies
+  MODS=(
+      azure-cli
+      eslint babel babel-cli babel-eslint
+      bower yo
+      grunt-cli gulp
+      mocha jasmine
+      coffee-script
+      dark-mode
+      electron-prebuilt
+      speed-test fast-cli
+      tldr
+      doctoc
+  )
+
+  for MOD in $MODS; do
+    if $(npm -g ls | grep "$MOD@[0-9\.]*$" > /dev/null 2>&1); then
+        formatexec "npm upgrade -g $MOD"
+        print -P "  └ %F{3}upgraded%f"
+    else
+        formatexec "npm install -g $MOD > /dev/null 2>&1"
+        print -P "  └ %F{2}installed%f"
+    fi
+  done
+fi
 
 echo
 
