@@ -32,8 +32,8 @@ question() {
   local question="$1"
   local options="$2"
 
-  print -P "%F{4}$question%f"
-  print -P "%F{2}[$options]%f"
+  print -P "%F{3}$question%f"
+  [ "$options" != "" ] && print -P "%F{2}[$options]%f"
 }
 
 section () {
