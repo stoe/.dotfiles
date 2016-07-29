@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # open in gittower.app
 function gt() {
     if [ $# -eq 0 ]; then
@@ -17,14 +19,39 @@ function gt() {
 # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
 
 function gitbe {
-    echo "Looking up $1 on GitHub.com..."
-    data=$(curl -s https://api.github.com/users/$1)
-    name=$(echo $data | grep name\": | sed 's/  \"name\": \"\(.*\)\",/\1/')
-    email=$(echo $data | grep email\": | sed 's/  \"email\": \"\(.*\)\",/\1/')
+  local _signkey=""
+
+  if [ -z "$1" ]; then
+    echo "Usage: $0 <username>" >&2
+  else
+    if [ $1 == 'private' ]; then
+      name="Stefan Stölzle"
+      email="stefan@stoelzle.me"
+
+      _signkey="$GITHUB_PERSONAL_SIGNKEY"
+    else
+      echo "Looking up $1 on GitHub.com..."
+      data=$(curl -s https://api.github.com/users/$1)
+
+      name=$(echo $data | grep name\": | sed 's/  \"name\": \"\(.*\)\",/\1/')
+      email=$(echo $data | grep email\": | sed 's/  \"email\": \"\(.*\)\",/\1/')
+
+      if [ $1 == 'stoe' ]; then
+            _signkey="$GITHUB_SIGNKEY"
+      fi
+    fi
+
     git config --local user.name "$name"
     git config --local user.email $email
+
+    if [ "$_signkey" != "" ]; then
+      git config --local user.signingkey "$_signkey"
+      git config --local commit.gpgsign true
+    fi
+
     echo "Your local configuration has been modified."
     echo "You are now committing as: $name <$email>."
+  fi
 }
 
 # Usage: git-ci-add-status <sha>
