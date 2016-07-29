@@ -1,0 +1,37 @@
+module.exports = {
+  config: {
+    fontSize: 16,
+    fontFamily: '"Anonymous Pro", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    cursorShape: 'UNDERLINE',
+    termCSS: '::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }',
+    windowSize: [1024, 600],
+    tabIcons: {
+      activeStyle: {
+        color: '#000',
+        opacity: 0.64
+      },
+      inactiveStyle: {
+        color: '#000',
+        opacity: 0.32
+      },
+      mapColors: {
+        bash: '#000',
+        docker: '#000',
+        'docker-compose': '#000',
+        fish: '#000',
+        nodejs: '#000',
+        node: '#000',
+        ruby: '#000',
+        shell: '#000',
+        zsh: '#000',
+      }
+    }
+  },
+  plugins: [
+    "hyperterm-snazzy",
+    "hyperterm-mactabs",
+    "hyperterm-tab-icons",
+    "hyperterm-1password"
+  ],
+  localPlugins: []
+};
