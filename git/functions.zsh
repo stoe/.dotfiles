@@ -94,7 +94,7 @@ function githubup {
   _folders=(${=GITHUB_PERSONAL_WORK_FOLDERS})
 
   # repositories w/ gh-pages as the default branch
-  _ghpages=('services-web training-on-demand')
+  _ghpages=(${=GITHUB_PERSONAL_GHPAGES_FOLDERS})
 
   for _folder in ${_folders}; do
     local _dir="${SERVICES_HOME}/${_folder}"
