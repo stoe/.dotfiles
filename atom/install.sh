@@ -3,7 +3,7 @@ source "$HOME/.dotfiles/inc/helpers.sh"
 
 section "atom packages"
 PACKAGES=(
-  atom-linkwrap
+  atom-markdown-wrapper
   atom-material-syntax
   atom-material-syntax-light
   atom-material-ui
