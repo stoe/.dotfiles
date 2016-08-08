@@ -12,11 +12,13 @@ PACKAGES=(
   date
   editorconfig
   gist-it
+  git-log
   git-plus
   language-apache
   language-ini
   language-nginx
   markdown-table-formatter
+  markdown-toc
   merge-conflicts
   minimap
   minimap-git-diff
