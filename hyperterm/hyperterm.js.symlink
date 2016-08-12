@@ -29,6 +29,7 @@ module.exports = {
   },
   plugins: [
     "hyperterm-snazzy",
+    // "hyperterm-duotone-light",
     "hyperterm-mactabs",
     "hyperterm-tab-icons",
     "hyperterm-1password"
