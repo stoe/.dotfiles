@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: '"Anonymous Pro", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     cursorShape: 'UNDERLINE',
     termCSS: '::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }',
