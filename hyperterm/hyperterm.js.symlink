@@ -39,8 +39,7 @@ module.exports = {
     // "hyperterm-duotone-light",
     "hyperlinks",
     "hyperterm-mactabs",
-    "hyperterm-tab-icons",
-    "hyperterm-1password"
+    "hyperterm-tab-icons"
   ],
   localPlugins: []
 };
