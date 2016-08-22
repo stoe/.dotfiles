@@ -25,24 +25,25 @@ function gitbe {
     echo "Usage: $0 <username>" >&2
   else
     if [ $1 == 'private' ]; then
-      name="Stefan Stölzle"
-      email="stefan@stoelzle.me"
+      _name="Stefan Stölzle"
+      _email="stefan@stoelzle.me"
 
       _signkey="$GITHUB_PERSONAL_SIGNKEY"
     else
       echo "Looking up $1 on GitHub.com..."
-      data=$(curl -s https://api.github.com/users/$1)
+      _data=$(curl -s https://api.github.com/users/$1)
 
-      name=$(echo $data | grep name\": | sed 's/  \"name\": \"\(.*\)\",/\1/')
-      email=$(echo $data | grep email\": | sed 's/  \"email\": \"\(.*\)\",/\1/')
+      _name=$(echo $_data | grep name\": | sed 's/  \"name\": \"\(.*\)\",/\1/')
+      _email=$(echo $_data | grep email\": | sed 's/  \"email\": \"\(.*\)\",/\1/')
 
       if [ $1 == 'stoe' ]; then
+            _email="stoe@github.com"
             _signkey="$GITHUB_SIGNKEY"
       fi
     fi
 
-    git config --local user.name "$name"
-    git config --local user.email $email
+    git config --local user.name "$_name"
+    git config --local user.email $_email
 
     if [ "$_signkey" != "" ]; then
       git config --local user.signingkey "$_signkey"
@@ -50,7 +51,7 @@ function gitbe {
     fi
 
     echo "Your local configuration has been modified."
-    echo "You are now committing as: $name <$email>."
+    echo "You are now committing as: $_name <$_email>."
   fi
 }
 
