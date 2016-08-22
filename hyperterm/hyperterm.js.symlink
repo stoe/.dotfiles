@@ -38,7 +38,8 @@ module.exports = {
     // "hyperterm-snazzy",
     "hyperlinks",
     "hyperterm-mactabs",
-    "hyperterm-tab-icons"
+    "hyperterm-tab-icons",
+    "hyperterm-1password"
   ],
   localPlugins: []
 };
