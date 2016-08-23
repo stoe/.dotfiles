@@ -11,6 +11,7 @@ tap 'youtux/livecheck'
 brew 'coreutils'
 brew 'go'
 brew 'mas'
+brew 'doxygen'
 
 # ftp
 brew 'duck'
