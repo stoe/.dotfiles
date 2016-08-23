@@ -5,7 +5,7 @@ tap 'caskroom/cask'
 tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'youtux/livecheck'
+# tap 'youtux/livecheck'
 
 # dependencies
 brew 'coreutils'
