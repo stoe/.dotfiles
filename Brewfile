@@ -26,6 +26,7 @@ brew 'openssl'
 brew 'gpg'
 brew 'gpg2'
 brew 'keybase'
+brew 'pinentry-mac'
 
 # image
 brew 'ffmpeg'
