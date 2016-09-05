@@ -4,6 +4,10 @@
   autosave:
     enabled: true
   core:
+    disabledPackages: [
+      "language-asciidoc"
+      "language-applescript"
+    ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
     ]
@@ -17,6 +21,7 @@
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
+    showInvisibles: true
     softWrap: true
     softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
