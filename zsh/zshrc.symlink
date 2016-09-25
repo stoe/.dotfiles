@@ -58,14 +58,15 @@ if ! zgen saved; then
     zgen oh-my-zsh
 
     # plugins
+    zgen oh-my-zsh plugins/bundler
+    zgen oh-my-zsh plugins/brew
+    zgen oh-my-zsh plugins/colored-man-pages
+    zgen oh-my-zsh plugins/gem
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/nvm
-    # zgen oh-my-zsh plugins/bundler
-    # zgen oh-my-zsh plugins/gem
-    # zgen oh-my-zsh plugins/rbenv
-    zgen oh-my-zsh plugins/brew
+    zgen oh-my-zsh plugins/rbenv
 
     zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
