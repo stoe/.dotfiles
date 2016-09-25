@@ -21,20 +21,20 @@
   ui = auto
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+  current = cyan reverse
+  local = yellow bold
+  remote = green bold
 
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
-  old = red strike bold
+  old = red bold
   new = green bold
 
 [color "status"]
-  added = green
-  changed = yellow
-  untracked = cyan
+  added = green bold
+  changed = yellow bold
+  untracked = cyan bold
 
 [core]
   # Use custom `.gitignore` and `.gitattributes`
