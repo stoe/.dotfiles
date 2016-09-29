@@ -7,7 +7,7 @@ module.exports = {
       ::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }
       x-screen a { color: rgba(233, 44, 108, 1.0); }
       `,
-    windowSize: [1280, 768],
+    windowSize: [1706, 1062],
     tabIcons: {
       activeStyle: {
         color: '#000',
