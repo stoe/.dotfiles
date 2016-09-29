@@ -7,6 +7,8 @@
     disabledPackages: [
       "language-asciidoc"
       "language-applescript"
+      "markdown-preview-plus"
+      "markdown-writer"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
@@ -38,7 +40,12 @@
     breakOnSingleNewline: true
     liveUpdate: true
     useGitHubStyle: true
+  "markdown-preview-plus":
+    useGitHubStyle: true
   "markdown-table-formatter": {}
+  "markdown-writer":
+    tableAlignment: "left"
+    tableExtraPipes: true
   "merge-conflicts": {}
   minimap:
     absoluteMode: true
