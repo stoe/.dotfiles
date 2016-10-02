@@ -45,6 +45,10 @@ brew 'rbenv'
 # python
 brew 'python'
 
+# aws
+brew 'awscli'
+brew 'amazon-ecs-cli'
+
 # tools
 brew 'p7zip'
 brew 'rename'
