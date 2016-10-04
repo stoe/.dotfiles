@@ -84,6 +84,7 @@ cask 'keepingyouawake'
 # cask 'keybase'
 cask 'lastpass'
 cask 'ngrok'
+cask 'nylas-n1'
 cask 'screenflow'
 cask 'screenhero'
 cask 'slack'
@@ -96,7 +97,7 @@ cask 'visual-studio-code'
 cask 'zoomus'
 
 # Mac App Store
-mas 'Airmail 2', id: 918858936
+# mas 'Airmail 2', id: 918858936
 mas 'Denied', id: 909257784
 mas 'Keynote', id: 409183694
 mas 'Mousepose', id: 405904955
