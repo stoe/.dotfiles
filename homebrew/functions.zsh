@@ -20,7 +20,7 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      formatexec "$_brew upgrade --all"
+      formatexec "$_brew upgrade"
     else
       ok "OK, not doing anything"
     fi
