@@ -13,6 +13,7 @@
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
     ]
+    telemetryConsent: "limited"
     themes: [
       "atom-material-ui"
       "atom-material-syntax"
