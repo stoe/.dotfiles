@@ -80,4 +80,5 @@
     softWrapHangingIndent: 2
 ".ini.source":
   editor:
+    preferredLineLength: 120
     softWrapHangingIndent: 2
