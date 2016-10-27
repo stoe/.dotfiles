@@ -6,8 +6,6 @@ tap 'caskroom/versions'
 tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'homebrew/php'
-# tap 'youtux/livecheck'
 
 # dependencies
 brew 'coreutils'
