@@ -20,8 +20,8 @@
       "atom-material-syntax"
     ]
   editor:
-    fontFamily: "Anonymous Pro"
-    fontSize: 18
+    fontFamily: "Menlo"
+    fontSize: 16
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
