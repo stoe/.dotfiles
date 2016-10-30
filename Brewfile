@@ -110,3 +110,4 @@ mas 'Lingon 3', id: 450201424
 mas 'Electron APIs', id: 1119345146
 mas 'Numbers', id: 409203825
 mas 'LastPass', id: 926036361
+mas 'Xcode', id: 497799835
