@@ -10,6 +10,7 @@
       "markdown-preview-plus"
       "markdown-writer"
       "editorconfig"
+      "language-apache"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
