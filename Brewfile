@@ -20,6 +20,7 @@ brew 'duck'
 brew 'git'
 brew 'git-extras'
 brew 'git-lfs'
+brew 'gist'
 brew 'hub'
 
 # gpg
