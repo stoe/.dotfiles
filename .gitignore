@@ -8,9 +8,10 @@ Thumbs.db
 
 # folders
 .idea/
+config.symlink/
+docker.symlink/
 
 # files
 atom.symlink/projects*.cson
-docker.symlink/
 git/gitconfig.local.symlink
 zsh/zshrc_local.symlink
