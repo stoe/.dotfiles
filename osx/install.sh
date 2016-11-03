@@ -7,4 +7,5 @@ source "$HOME/.dotfiles/inc/helpers.sh"
 # yeah, let's do that.
 
 section "Update Mac App Store apps"
-formatexec "sudo softwareupdate -i -a"
+# formatexec "sudo softwareupdate -i -a"
+formatexec "mas upgrade"
