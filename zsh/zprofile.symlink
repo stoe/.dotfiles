@@ -5,4 +5,4 @@ export PATH="/usr/local/sbin:$PATH"
 #
 export PATH="$HOME/bin:$PATH"
 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$HOME/github/shell/bin:$PATH"
