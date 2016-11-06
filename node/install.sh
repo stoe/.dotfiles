@@ -42,7 +42,7 @@ else
       azure-cli
       eslint babel babel-cli babel-eslint
       bower yo
-      grunt-cli gulp
+      grunt-cli gulp yarn
       mocha jasmine
       coffee-script
       dark-mode
