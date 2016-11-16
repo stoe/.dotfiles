@@ -58,6 +58,7 @@ brew 'switchaudio-osx'
 brew 'tmux'
 brew 'tree'
 brew 'wget'
+brew 'yarn'
 
 # /Applications
 cask '1password'
