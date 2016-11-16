@@ -45,6 +45,9 @@ nvm="$HOME/.nvm"
 export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 
+# load yarn
+export PATH="$PATH:$HOME/.yarn/bin"
+
 # load rbenv
 eval "$(rbenv init -)"
 
