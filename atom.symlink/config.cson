@@ -20,6 +20,7 @@
       "atom-material-ui"
       "atom-material-syntax"
     ]
+    useCustomTitleBar: true
   editor:
     fontFamily: "Menlo"
     fontSize: 16
