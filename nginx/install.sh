@@ -116,15 +116,15 @@ else
 
     if [ ! $(brew list | grep mysql) ]; then
         # Install MySQL.
-        formatexec "brew install mysql"
+        formatexec "brew install mysql@5.6"
 
         # Setup auto start ...
-        if [ ! -f "~/Library/LaunchAgents/homebrew.mxcl.mysql.plist" ]; then
-            formatexec "ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents"
+        if [ ! -f "~/Library/LaunchAgents/homebrew.mxcl.mysql56.plist" ]; then
+            formatexec "ln -sfv /usr/local/opt/mysql@5.6/*.plist ~/Library/LaunchAgents"
         fi
 
         # ... and start.
-        formatexec "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+        formatexec "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql56.plist"
 
         print -P "run the following two separately:"
         print -P "  1. %F{3}mysql_secure_installation%f to secure the installation"
