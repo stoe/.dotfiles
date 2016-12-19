@@ -5,9 +5,8 @@ PWD=$(pwd -P)
 
 cd "${HOME}/.yarn-config/global"
 
-section "installing..."
+section "installing modules..."
 formatexec "yarn global add"
-formatexec "yarn global ls"
 ok
 
 cd "${PWD}"
