@@ -10,9 +10,9 @@ Thumbs.db
 .idea/
 config.symlink/
 docker.symlink/
-yarn*.symlink/
 
 # files
 atom.symlink/projects*.cson
 git/gitconfig.local.symlink
+yarn-config.symlink/**/*
 zsh/zshrc_local.symlink
