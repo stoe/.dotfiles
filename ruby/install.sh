@@ -4,6 +4,7 @@ source "$HOME/.dotfiles/inc/helpers.sh"
 # install dependencies
 GEMS=(
   bundler
+  octokit
   pry
 )
 
