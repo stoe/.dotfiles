@@ -46,9 +46,6 @@ export NVM_DIR="${nvm}"
 source "$(brew --prefix nvm)/nvm.sh"
 eval "$(nodenv init -)"
 
-# load rbenv
-eval "$(rbenv init -)"
-
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
