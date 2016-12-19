@@ -14,6 +14,9 @@ section "node version"
 formatexec "nvm install iojs"  # install latest io.js version
 formatexec "npm install -g npm@latest"
 
+formatexec "nvm install --lts node"  # install latest lts version
+formatexec "npm install -g npm@latest"
+
 formatexec "nvm install node"  # install latest node.js version
 formatexec "npm install -g npm@latest"
 
@@ -41,7 +44,6 @@ else
   MODS=(
       azure-cli
       tldr
-      yarn
   )
 
   for MOD in $MODS; do
