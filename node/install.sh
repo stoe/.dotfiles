@@ -40,16 +40,7 @@ else
   # install dependencies
   MODS=(
       azure-cli
-      eslint babel babel-cli babel-eslint
-      bower yo
-      grunt-cli gulp yarn
-      mocha jasmine
-      coffee-script
-      dark-mode
-      electron-prebuilt
-      speed-test fast-cli
-      tldr
-      doctoc
+      yarn
   )
 
   for MOD in $MODS; do
