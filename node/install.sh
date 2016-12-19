@@ -40,6 +40,7 @@ else
   # install dependencies
   MODS=(
       azure-cli
+      tldr
       yarn
   )
 
