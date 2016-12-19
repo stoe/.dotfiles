@@ -49,9 +49,6 @@ eval "$(nodenv init -)"
 # load yarn
 export PATH="$PATH:$HOME/.yarn/bin"
 
-# load rbenv
-eval "$(rbenv init -)"
-
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
