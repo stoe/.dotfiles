@@ -31,7 +31,10 @@ module.exports = {
       }
     },
     // materialTheme: 'teal',
-    materialSyntax: 'dark'
+    materialSyntax: 'dark',
+    hyperStatusLine: {
+      footerTransparent: false
+    }
   },
   plugins: [
     "hyperterm-material-theme",
@@ -39,7 +42,8 @@ module.exports = {
     "hyperlinks",
     "hyperterm-mactabs",
     "hyperterm-tab-icons",
-    "hyperterm-1password"
+    "hyperterm-1password",
+    "hyper-statusline",
   ],
   localPlugins: []
 };
