@@ -3,10 +3,11 @@ source "${HOME}/.dotfiles/inc/helpers.sh"
 
 PWD=$(pwd -P)
 
-cd "${HOME}/.yarn-config/global"
+cd "${HOME}/.config/yarn/global"
 
 section "installing modules..."
 formatexec "yarn global add"
+formatexec "yarn global ls"
 ok
 
 cd "${PWD}"
