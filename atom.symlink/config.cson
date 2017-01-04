@@ -39,7 +39,9 @@
     openAfterCreate: true
   "git-control":
     showGitFlowButton: false
-  "git-plus": {}
+  "git-plus":
+    general:
+      analytics: false
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
