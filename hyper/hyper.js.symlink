@@ -37,8 +37,8 @@ module.exports = {
     }
   },
   plugins: [
-    "hyperterm-material-theme",
-    // "hyper-snazzy",
+    // "hyperterm-material-theme",
+    "hyper-snazzy",
     "hyperlinks",
     "hyperterm-mactabs",
     "hyperterm-tab-icons",
