@@ -18,7 +18,7 @@
     telemetryConsent: "limited"
     themes: [
       "atom-material-ui"
-      "atom-material-syntax"
+      "atom-snazzy-clear-syntax"
     ]
     useCustomTitleBar: true
   editor:
