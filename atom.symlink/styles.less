@@ -1,9 +1,9 @@
-@import "colors";
+@my-dark-gray: #555555;
 
 [data-grammar*="gfm"]::shadow {
     .markup.strike {
         position: relative;
-        color: fade(@dark-gray, 50%);
+        color: fade(@my-dark-gray, 50%);
 
         &::after {
             content: "";
@@ -12,10 +12,10 @@
             left: 0;
             right: 0;
             height: 1px;
-            background-color: fade(@dark-gray, 20%);
+            background-color: fade(@my-dark-gray, 20%);
         }
     }
     .table .border {
-        color: fade(@dark-gray, 50%);
+        color: fade(@my-dark-gray, 50%);
     }
 }
