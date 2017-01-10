@@ -52,6 +52,9 @@ function gitbe {
 
     echo "Your local configuration has been modified."
     echo "You are now committing as: $_name <$_email>."
+    if [ "$_signkey" != "" ]; then
+      echo "You are signing commits using GPG: ****************."
+    fi
   fi
 }
 
