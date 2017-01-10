@@ -112,6 +112,7 @@ mas 'Mousepose', id: 405904955
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Simplify', id: 448003584
+mas 'Speedtest by Ookla', id: 1153157709
 mas 'The Unarchiver', id: 425424353
 mas 'Xcode', id: 497799835
 mas 'YubiKey Personalization Tool', id: 638161122
