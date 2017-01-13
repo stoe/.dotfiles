@@ -1,21 +1,25 @@
 @my-dark-gray: #555555;
 
-[data-grammar*="gfm"]::shadow {
-    .markup.strike {
+[data-grammar*="gfm"] {
+    .syntax--markup.syntax--strike {
         position: relative;
-        color: fade(@my-dark-gray, 50%);
+        color: fade(@my-dark-gray, 80%);
 
         &::after {
             content: "";
             position: absolute;
-            top: calc(50% + 4px);
+            top: calc(50% - 2px);
             left: 0;
             right: 0;
-            height: 1px;
-            background-color: fade(@my-dark-gray, 20%);
+            height: 2px;
+            background-color: fade(darkred, 32%);
         }
     }
-    .table .border {
-        color: fade(@my-dark-gray, 50%);
+    .syntax--table .syntax--border {
+        color: fade(@my-dark-gray, 80%);
     }
+}
+
+span.invisible-character, span.indent-guide {
+  color: fade(@my-dark-gray, 32%);
 }
