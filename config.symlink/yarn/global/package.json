@@ -4,21 +4,20 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
+    "babel-preset-env": "^1.1.8",
     "bower": "^1.8.0",
     "coffee-script": "^1.12.2",
     "dark-mode": "^2.0.0",
     "doctoc": "^1.2.0",
-    "electron-prebuilt": "^1.4.13",
+    "electron": "^1.4.14",
     "eslint": "^3.12.2",
     "fast-cli": "^0.2.1",
-    "grunt-cli": "^1.2.0",
-    "gulp": "^3.9.1",
+    "global": "^4.3.1",
     "hpm-cli": "^1.4.0",
     "jasmine": "^2.5.2",
     "mocha": "^3.2.0",
     "npms-cli": "^1.5.1",
     "speed-test": "^1.7.1",
-    "xo": "^0.17.1",
-    "yo": "^1.8.5"
+    "xo": "^0.17.1"
   }
 }
