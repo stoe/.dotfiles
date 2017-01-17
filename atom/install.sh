@@ -3,18 +3,22 @@ source "$HOME/.dotfiles/inc/helpers.sh"
 
 section "atom packages"
 PACKAGES=(
+  atom/github
   atom-markdown-wrapper
   atom-material-syntax
   atom-material-syntax-light
   atom-material-ui
+  atom-snazzy-clear-syntax
   atomic-chrome
   autocomplete-emojis
   date
   editorconfig
+  es6-javascript
   gist-it
   git-log
   git-plus
   language-apache
+  language-babel
   language-ini
   language-nginx
   markdown-table-formatter
@@ -23,6 +27,7 @@ PACKAGES=(
   minimap
   minimap-git-diff
   project-manager
+  turbo-javascript
 )
 
 for PACKAGE in $PACKAGES; do
