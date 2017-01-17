@@ -101,6 +101,7 @@ cask 'zoomus'
 
 # Mac App Store
 # mas 'Airmail 2', id: 918858936
+mas 'Bear', id: 1091189122
 mas 'Denied', id: 909257784
 mas 'Electron APIs', id: 1119345146
 mas 'Gifwit', id: 871200983
