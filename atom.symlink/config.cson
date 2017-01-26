@@ -63,6 +63,8 @@
     scrollAnimation: true
   "package-generator":
     createInDevMode: true
+  "prettier-atom":
+    singleQuote: true
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
