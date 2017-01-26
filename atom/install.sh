@@ -22,6 +22,7 @@ PACKAGES=(
   language-babel
   language-ini
   language-nginx
+  language-pug
   linter
   linter-xo
   markdown-table-formatter
