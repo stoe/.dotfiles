@@ -31,8 +31,8 @@ brew 'keybase'
 brew 'pinentry-mac'
 
 # image
-brew 'ffmpeg'
-brew 'imagemagick'
+brew 'ffmpeg', args: ['with-libass', 'with-fontconfig']
+brew 'imagemagick', args: ['with-fontconfig']
 
 # node
 brew 'node'
