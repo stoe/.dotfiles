@@ -17,6 +17,7 @@ PACKAGES=(
   gist-it
   git-log
   git-plus
+  import-sf-mono
   language-apache
   language-babel
   language-ini
