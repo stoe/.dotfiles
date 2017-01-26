@@ -27,6 +27,7 @@ PACKAGES=(
   merge-conflicts
   minimap
   minimap-git-diff
+  prettier-atom
   project-manager
   turbo-javascript
 )
