@@ -11,6 +11,7 @@
       "markdown-writer"
       "editorconfig"
       "language-apache"
+      "linter-xo"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"

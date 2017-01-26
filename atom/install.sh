@@ -22,6 +22,8 @@ PACKAGES=(
   language-babel
   language-ini
   language-nginx
+  linter
+  linter-xo
   markdown-table-formatter
   markdown-toc
   merge-conflicts
