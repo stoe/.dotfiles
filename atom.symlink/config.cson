@@ -22,7 +22,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "SF Mono"
     fontSize: 16
     invisibles: {}
     preferredLineLength: 120
