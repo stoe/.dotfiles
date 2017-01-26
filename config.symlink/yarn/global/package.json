@@ -12,6 +12,7 @@
     "electron": "^1.4.14",
     "eslint": "^3.12.2",
     "fast-cli": "^0.2.1",
+    "generator-nm": "^3.2.0",
     "hpm-cli": "^1.4.0",
     "jasmine": "^2.5.2",
     "mocha": "^3.2.0",
