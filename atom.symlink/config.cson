@@ -76,7 +76,7 @@
   tabs:
     enableVcsColoring: true
   "tree-view":
-    hideVcsIgnoredFiles: false
+    hideIgnoredNames: true
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
