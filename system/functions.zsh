@@ -134,8 +134,6 @@ function extract () {
 
 # cleanup "Open With"
 function lsclean() {
-  clear
-
   "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister" -kill -r -domain local -domain system -domain user; killall Finder
 
   ok "%F{4}Open With%s has been rebuilt! %F{2}Finder%f relaunched."
@@ -143,8 +141,6 @@ function lsclean() {
 
 # cleanup launchpad
 function lpclean() {
-  clear
-
   # http://nickmanderfield.com/2014/08/ultimate-guide-to-fixing-and-resetting-osx-yosemite-launchpad/
   defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock;
 
@@ -153,8 +149,6 @@ function lpclean() {
 
 # speedtest (https://github.com/sivel/speedtest-cli)
 function speedtest() {
-  clear
-
   local _cmd="${1:-f}"
 
   if [ ${_cmd} == 's' ]; then
