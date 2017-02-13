@@ -43,7 +43,6 @@ else
   # install dependencies
   MODS=(
       azure-cli
-      tldr
   )
 
   for MOD in $MODS; do
