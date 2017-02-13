@@ -5,3 +5,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # user `bin/`
 export PATH="$HOME/bin:$PATH"
+
+# PHP
+export PATH="$(brew --prefix php56)/bin:$PATH"
+export PHP_INI_SCAN_DIR="/usr/local/etc/php/5.6/"

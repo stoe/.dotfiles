@@ -72,7 +72,7 @@ else
 
     if [ ! $(brew list | grep ^php56$) ]; then
         # Install PHP-FPM (download and compile).
-        formatexec "brew install --without-apache --with-fpm --with-mysql php56"
+        formatexec "brew install --without-apache --with-pear --with-fpm --with-mysql php56"
 
         # install PEAR if not available first
         if type pear | grep "not found" > /dev/null 2>&1 ; then
@@ -90,7 +90,7 @@ else
         fi
 
         # PEAR permissions.
-        formatexec "chmod -R ug+w /usr/local/Cellar/php56/5.6.22/lib/php"
+        formatexec "chmod -R ug+w /usr/local/Cellar/php56/5.6.29_5/lib/php"
         formatexec "pear config-set php_ini /usr/local/etc/php/5.6/php.ini system"
 
         # Setup auto start ...
