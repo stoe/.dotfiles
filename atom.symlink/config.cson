@@ -69,7 +69,6 @@
       bracketSpacing: false
       printWidth: 120
       singleQuote: true
-      tabWidth: 2
     useEslint: true
   "project-manager":
     environmentSpecificProjects: true
