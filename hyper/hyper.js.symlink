@@ -8,42 +8,18 @@ module.exports = {
       x-screen a { color: rgba(233, 44, 108, 1.0); }
       `,
     windowSize: [1706, 1062],
-    tabIcons: {
-      activeStyle: {
-        color: '#000',
-        opacity: 0.64
-      },
-      inactiveStyle: {
-        color: '#000',
-        opacity: 0.32
-      },
-      mapColors: {
-        bash: 'rgba(0, 0, 0, 0.8)',
-        docker: 'rgba(0, 0, 0, 0.8)',
-        'docker-compose': 'rgba(0, 0, 0, 0.8)',
-        fish: 'rgba(0, 0, 0, 0.8)',
-        nodejs: 'rgba(0, 0, 0, 0.8)',
-        node: 'rgba(0, 0, 0, 0.8)',
-        npm: 'rgba(0, 0, 0, 0.8)',
-        ruby: 'rgba(0, 0, 0, 0.8)',
-        shell: 'rgba(0, 0, 0, 0.8)',
-        zsh: 'rgba(0, 0, 0, 0.8)',
-      }
-    },
     // materialTheme: 'teal',
-    materialSyntax: 'dark',
+    // materialSyntax: 'dark',
     hyperStatusLine: {
       footerTransparent: false
     }
   },
   plugins: [
-    // "hyperterm-material-theme",
+    "hyperterm-material-theme",
     "hyper-snazzy",
     "hyperlinks",
-    "hyperterm-mactabs",
-    "hyperterm-tab-icons",
-    "hyperterm-1password",
     "hyper-statusline",
+    "hyper-hide-title"
   ],
   localPlugins: []
 };
