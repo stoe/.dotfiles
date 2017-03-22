@@ -65,7 +65,12 @@
   "package-generator":
     createInDevMode: true
   "prettier-atom":
-    singleQuote: true
+    prettierOptions:
+      bracketSpacing: false
+      printWidth: 120
+      singleQuote: true
+      tabWidth: 2
+    useEslint: true
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
