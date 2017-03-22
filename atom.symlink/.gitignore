@@ -7,3 +7,4 @@ packages
 storage
 
 gist-it.token
+*.json
