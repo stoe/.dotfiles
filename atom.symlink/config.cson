@@ -43,6 +43,8 @@
   "git-plus":
     general:
       analytics: false
+  github:
+    gitDiagnostics: true
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
