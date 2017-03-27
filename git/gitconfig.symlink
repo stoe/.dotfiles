@@ -92,6 +92,7 @@
   # show who you are committing as
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
   me = !git config --get user.name && git config --get user.email
+  pr = pull-request
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
