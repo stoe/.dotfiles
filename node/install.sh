@@ -43,6 +43,7 @@ else
   # install dependencies
   MODS=(
       azure-cli
+      pdfify-node
   )
 
   for MOD in $MODS; do
