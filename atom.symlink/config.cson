@@ -18,7 +18,7 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "atom-material-ui"
+      "one-dark-ui"
       "atom-snazzy-clear-syntax"
     ]
     useCustomTitleBar: true
@@ -85,7 +85,6 @@
   tabs:
     enableVcsColoring: true
   "tree-view":
-    hideIgnoredNames: true
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
