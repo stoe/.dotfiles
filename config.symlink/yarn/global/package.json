@@ -5,7 +5,7 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
-    "babel-preset-env": "^1.1.8",
+    "babel-preset-env": "^1.3.2",
     "bower": "^1.8.0",
     "coffee-script": "^1.12.2",
     "dark-mode": "^2.0.0",
@@ -15,10 +15,9 @@
     "fast-cli": "^0.2.1",
     "grunt": "^1.0.1",
     "jasmine": "^2.5.2",
-    "mdpdf": "^1.1.1",
     "mocha": "^3.2.0",
     "npms-cli": "^1.5.1",
-    "snyk": "^1.26.0",
+    "snyk": "^1.26.1",
     "speed-test": "^1.7.1",
     "xo": "^0.17.1"
   }
