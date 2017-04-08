@@ -11,7 +11,6 @@
       "markdown-writer"
       "editorconfig"
       "language-apache"
-      "linter-xo"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
@@ -45,6 +44,8 @@
       analytics: false
   github:
     gitDiagnostics: true
+  "linter-ui-default":
+    showPanel: true
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
@@ -67,10 +68,12 @@
   "package-generator":
     createInDevMode: true
   "prettier-atom":
+    formatOnSaveOptions: {}
     prettierOptions:
       bracketSpacing: false
       printWidth: 120
       singleQuote: true
+    silenceErrors: true
     useEslint: true
   "project-manager":
     environmentSpecificProjects: true
