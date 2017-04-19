@@ -9,8 +9,8 @@
       "language-applescript"
       "markdown-preview-plus"
       "markdown-writer"
-      "editorconfig"
       "language-apache"
+      "merge-conflicts"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
