@@ -20,7 +20,7 @@
       "one-dark-ui"
       "atom-snazzy-clear-syntax"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   editor:
     fontFamily: "SF Mono"
     fontSize: 16
