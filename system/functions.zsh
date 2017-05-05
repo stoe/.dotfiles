@@ -114,17 +114,17 @@ function extract () {
 
   if [ -f "${1}" ] ; then
     case "${1}" in
-      *.tar.bz2) formatexec "tar xvjf ${1}"   ;;
-      *.tar.gz)  formatexec "tar xvzf ${1}"   ;;
-      *.bz2)     formatexec "bunzip2 ${1}"    ;;
-      *.rar)     formatexec "unrar x ${1}"    ;;
-      *.gz)      formatexec "gunzip ${1}"     ;;
-      *.tar)     formatexec "tar xvf ${1}"    ;;
-      *.tbz2)    formatexec "tar xvjf ${1}"   ;;
-      *.tgz)     formatexec "tar xvzf ${1}"   ;;
-      *.zip)     formatexec "7z x ${1}"       ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
-      *.Z)       formatexec "uncompress ${1}" ;;
-      *.7z)      formatexec "7z x ${1}"       ;;
+      *.tar.bz2) formatexec "pv ${1} | tar xjf -" ;;
+      *.tar.gz)  formatexec "pv ${1} | tar xzf -" ;;
+      *.bz2)     formatexec "bunzip2 ${1}"        ;;
+      *.rar)     formatexec "unrar x ${1}"        ;;
+      *.gz)      formatexec "gunzip ${1}"         ;;
+      *.tar)     formatexec "pv ${1} | tar xf -"  ;;
+      *.tbz2)    formatexec "pv ${1} | tar xjf -" ;;
+      *.tgz)     formatexec "pv ${1} | tar xzf -" ;;
+      *.zip)     formatexec "7z x ${1}" ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
+      *.Z)       formatexec "uncompress ${1}"     ;;
+      *.7z)      formatexec "7z x ${1}"           ;;
       *)         abort "'${1}' cannot be extracted via extract" ;;
     esac
   else
