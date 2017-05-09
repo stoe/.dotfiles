@@ -11,6 +11,20 @@
       "markdown-writer"
       "language-apache"
       "merge-conflicts"
+      "busy-signal"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      ".pioenvs"
+      ".piolibdeps"
+      ".clang_complete"
+      ".gcc-flags.json"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
@@ -35,6 +49,7 @@
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
   "file-icons":
+    coloured: false
     onChanges: true
   "gist-it":
     newGistsDefaultToPrivate: true
@@ -46,8 +61,11 @@
       analytics: false
   github:
     gitDiagnostics: true
+  "linter-gcc":
+    gccSuppressWarnings: true
   "linter-ui-default":
     showPanel: true
+    useBusySignal: false
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
@@ -69,6 +87,12 @@
     scrollAnimation: true
   "package-generator":
     createInDevMode: true
+  "platformio-ide":
+    advanced:
+      customPATH: "/usr/local/bin/platformio"
+      showPlatformIOFiles: true
+    autoUpdateIDE: false
+    showPIOHome: false
   "prettier-atom":
     formatOnSaveOptions: {}
     prettierOptions:
@@ -89,6 +113,8 @@
   "status-bar": {}
   tabs:
     enableVcsColoring: true
+  "tool-bar":
+    position: "Left"
   "tree-view":
     squashDirectoryNames: true
   welcome:
