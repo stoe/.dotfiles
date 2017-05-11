@@ -12,14 +12,14 @@ module.exports = {
     // materialTheme: 'teal',
     // materialSyntax: 'dark',
     hyperStatusLine: {
-      footerTransparent: false,
+      footerTransparent: false
     },
     hyperTabs: {
       border: true,
       tabIconsColored: true,
       activityColor: 'rgb(90, 247, 142)',
-      activityPulse: false,
-    },
+      activityPulse: false
+    }
   },
   plugins: [
     'hyperterm-material-theme',
@@ -27,7 +27,7 @@ module.exports = {
     'hyperlinks',
     'hyper-statusline',
     'hyper-hide-title',
-    'hyper-tabs-enhanced',
+    'hyper-tabs-enhanced'
   ],
-  localPlugins: [],
+  localPlugins: []
 };
