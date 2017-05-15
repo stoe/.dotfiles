@@ -12,6 +12,9 @@
       "language-apache"
       "merge-conflicts"
       "busy-signal"
+      "platformio-ide"
+      "platformio-ide-debugger"
+      "platformio-ide-terminal"
     ]
     ignoredNames: [
       ".git"
