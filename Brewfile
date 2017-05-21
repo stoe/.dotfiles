@@ -1,59 +1,52 @@
 cask_args appdir: '/Applications'
 
-# taps
+# taps -------------------------------------------------------------------------
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 
-# dependencies
+# dependencies -----------------------------------------------------------------
 brew 'coreutils'
 brew 'go'
 brew 'mas'
-brew 'doxygen'
 
-# ftp
-brew 'duck'
-
-# git
-brew 'git'
-brew 'git-extras'
-brew 'git-lfs'
-brew 'gist'
-brew 'hub'
-
-# gpg
+# gpg --------------------------------------------------------------------------
 brew 'openssl'
 brew 'gpg'
 brew 'gpg2'
-brew 'keybase'
+brew 'gpg-agent'
+brew 'pinentry'
 brew 'pinentry-mac'
+brew 'gnupg'
+brew 'gnupg2'
 
-# image
+# image ------------------------------------------------------------------------
 brew 'ffmpeg', args: ['with-libass', 'with-fontconfig']
 brew 'imagemagick', args: ['with-fontconfig']
 
-# node
+# node -------------------------------------------------------------------------
 brew 'node'
+brew 'node-build'
 brew 'nvm'
+brew 'nodenv'
 
-# ruby
+# ruby -------------------------------------------------------------------------
 brew 'ruby-build'
 brew 'rbenv'
+brew 'rbenv-default-gems'
 
-# python
+# python -----------------------------------------------------------------------
 brew 'python'
 
-# aws
-brew 'awscli'
-brew 'amazon-ecs-cli'
-
-# tools
+# other brews ------------------------------------------------------------------
+brew 'duck'
+brew 'heroku'
+brew 'jq'
 brew 'p7zip'
 brew 'rename'
 brew 'shellcheck'
-brew 'speedtest_cli'
 brew 'switchaudio-osx'
 brew 'tldr'
 brew 'tmux'
@@ -61,12 +54,33 @@ brew 'tree'
 brew 'wget'
 brew 'yarn'
 
-# /Applications
+# aws --------------------------------------------------------------------------
+brew 'awscli'
+brew 'amazon-ecs-cli'
+
+# docker -----------------------------------------------------------------------
+cask 'docker'
+cask 'docker-toolbox'
+cask 'kitematic'
+
+# git --------------------------------------------------------------------------
+brew 'git'
+brew 'hub'
+brew 'git-lfs'
+brew 'git-extras'
+brew 'gist'
+brew 'bfg'
+
+# /Applications ----------------------------------------------------------------
 cask '1password'
+cask 'aerial'
 cask 'airserver'
 cask 'alfred'
 cask 'atom'
+cask 'avast'
 cask 'bartender'
+cask 'battle-net'
+cask 'box-sync'
 cask 'cleanmymac'
 cask 'cloak'
 cask 'cyberduck'
@@ -74,34 +88,56 @@ cask 'dash'
 cask 'dropbox'
 cask 'evernote'
 cask 'fantastical'
-# cask 'github-desktop'
+cask 'firefox'
+cask 'github-desktop'
 cask 'gitkraken'
 cask 'google-chrome'
 cask 'google-chrome-canary'
 cask 'google-drive'
+cask 'graphiql'
 cask 'hyper'
-cask 'iterm2-beta'
+cask 'jasper'
 cask 'java' unless system '/usr/libexec/java_home --failfast'
 cask 'jetbrains-toolbox'
 cask 'kaleidoscope'
+cask 'kap'
 cask 'keepingyouawake'
-# cask 'keybase'
 cask 'lastpass'
+cask 'moom'
+cask 'mousepose'
 cask 'ngrok'
 cask 'nylas-n1'
+cask 'opera'
+cask 'qlcolorcode'
+cask 'qlimagesize'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
 cask 'screenflow'
 cask 'screenhero'
+cask 'send-to-kindle'
+cask 'simplifyextras'
+cask 'sketch'
+cask 'skitch'
+cask 'skype'
 cask 'slack'
+cask 'sonos'
 cask 'spotify'
 cask 'simplifyextras'
+cask 'steam'
 cask 'tower'
 cask 'tripmode'
 cask 'vmware-fusion'
+cask 'ubersicht'
+cask 'unity'
 cask 'visual-studio-code'
 cask 'zoomus'
+cask 'vmware-fusion'
+cask 'xquartz'
 
-# Mac App Store
-# mas 'Airmail 2', id: 918858936
+# Mac App Store ----------------------------------------------------------------
 mas 'Bear', id: 1091189122
 mas 'Denied', id: 909257784
 mas 'Electron APIs', id: 1119345146
