@@ -4,6 +4,7 @@
   autosave:
     enabled: true
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "language-asciidoc"
       "language-applescript"
