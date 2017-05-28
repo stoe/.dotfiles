@@ -67,8 +67,10 @@
   "linter-gcc":
     gccSuppressWarnings: true
   "linter-ui-default":
+    panelHeight: 69
+    panelRepresents: "Current Line"
     showPanel: true
-    useBusySignal: false
+    showProviderName: true
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
