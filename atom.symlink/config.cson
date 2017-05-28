@@ -15,6 +15,7 @@
       "platformio-ide"
       "platformio-ide-debugger"
       "platformio-ide-terminal"
+      "linter-xo"
     ]
     ignoredNames: [
       ".git"
