@@ -82,7 +82,7 @@
 [alias]
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
-  lg = log --pretty='format:%C(red bold)%h%Creset %C(magenta bold)%G?%Creset %Cblue%an%Creset (%cd) %C(yellow bold)%s%Creset%Creset' --date=short -n 10
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(magenta bold)%G?%Creset % -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --date=short -n 10
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
