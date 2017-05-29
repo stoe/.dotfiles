@@ -53,6 +53,9 @@
 	prompt = false
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "icdiff"]
+  # https://github.com/jeffkaufman/icdiff
+  cmd = icdiff -N -U 2 $LOCAL $REMOTE
 
 [diff "zip"]
   textconv = unzip -c -a
@@ -96,6 +99,7 @@
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
   me = !git config --get user.name && git config --get user.email
   pr = pull-request
+  idiff = difftool -t icdiff
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
