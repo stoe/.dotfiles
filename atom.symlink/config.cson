@@ -36,8 +36,8 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "atom-snazzy-clear-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     titleBar: "custom"
   editor:
