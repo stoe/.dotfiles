@@ -9,6 +9,5 @@
   "dependencies": {
     "hyperlinks": "latest",
     "hyper-one-light": "latest"
-  },
-  "false": {}
+  }
 }
