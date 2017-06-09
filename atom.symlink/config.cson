@@ -72,6 +72,11 @@
     panelRepresents: "Current Line"
     showPanel: true
     showProviderName: true
+  "markdown-deluxe":
+    fontFamily: "SF UI Text"
+    fontSize: "18px/1.8"
+    scopes: "source.gfm"
+    width: "60em"
   "markdown-preview":
     breakOnSingleNewline: true
     liveUpdate: true
@@ -132,3 +137,6 @@
   editor:
     preferredLineLength: 120
     softWrapHangingIndent: 2
+"source.gfm":
+  editor:
+    softWrap: true
