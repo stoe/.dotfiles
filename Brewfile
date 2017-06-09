@@ -52,7 +52,6 @@ brew 'tldr'
 brew 'tmux'
 brew 'tree'
 brew 'wget'
-brew 'yarn'
 
 # aws --------------------------------------------------------------------------
 brew 'awscli'
