@@ -75,6 +75,7 @@
   "markdown-deluxe":
     fontFamily: "SF UI Text"
     fontSize: "18px/1.8"
+    scopes: "source.gfm"
     width: "60em"
   "markdown-preview":
     breakOnSingleNewline: true
