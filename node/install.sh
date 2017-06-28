@@ -42,8 +42,33 @@ if [[ "$_reinstall" == "y" || "$_reinstall" == "" ]]; then
 else
   # install dependencies
   MODS=(
-      azure-cli
-      pdfify-node
+    alfred-fkill
+    alfred-npms
+    ava
+    azure-cli
+    babel-cli
+    coffee-script
+    dark-mode
+    doctoc
+    electron
+    eslint
+    fast-cli
+    generator-alfred
+    generator-appveyor
+    generator-electron
+    generator-hubot
+    generator-nm
+    generator-uebersicht
+    grunt
+    hpm-cli
+    jasmine
+    mocha
+    npm
+    npms-cli
+    snyk
+    speed-test
+    xo
+    yo
   )
 
   for MOD in $MODS; do
@@ -59,6 +84,6 @@ fi
 
 echo
 
-formatexec "npm ls -g | grep \"^[└├]|\" | sed \"s/─┬/──/g\""
+formatexec "npm ls --depth=0"
 
 ok
