@@ -1,33 +1,14 @@
 module.exports = {
   config: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     cursorShape: 'BLOCK',
     cursorBlink: true,
-    termCSS: `
-      ::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }
-      x-screen a { color: rgba(233, 44, 108, 1.0); }
-      `,
     windowSize: [1706, 1062],
-    // materialTheme: 'teal',
-    // materialSyntax: 'dark',
-    hyperStatusLine: {
-      footerTransparent: false
-    },
-    hyperTabs: {
-      border: true,
-      tabIconsColored: true,
-      activityColor: 'rgb(90, 247, 142)',
-      activityPulse: false
-    }
   },
   plugins: [
-    'hyperterm-material-theme',
-    'hyper-snazzy',
     'hyperlinks',
-    'hyper-statusline',
-    'hyper-hide-title',
-    'hyper-tabs-enhanced'
+    'hyper-one-light'
   ],
   localPlugins: []
 };
