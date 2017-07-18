@@ -1,4 +1,11 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#3e82c7"
+    tabs:
+      compactTabs: true
+    ui:
+      panelContrast: true
   "autocomplete-emojis": {}
   "autocomplete-plus": {}
   autosave:
@@ -37,8 +44,8 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
-      "one-light-syntax"
+      "atom-material-ui"
+      "atom-snazzy-clear-syntax"
     ]
     titleBar: "custom"
   editor:
