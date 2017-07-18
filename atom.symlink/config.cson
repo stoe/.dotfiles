@@ -1,4 +1,11 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#3e82c7"
+    tabs:
+      compactTabs: true
+    ui:
+      panelContrast: true
   "autocomplete-emojis": {}
   "autocomplete-plus": {}
   autosave:
