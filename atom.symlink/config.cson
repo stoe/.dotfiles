@@ -25,6 +25,7 @@
       "platformio-ide-terminal"
       "linter-xo"
       "markdown-toc"
+      "markdown-deluxe"
     ]
     ignoredNames: [
       ".git"
