@@ -25,7 +25,8 @@
       "platformio-ide-terminal"
       "linter-xo"
       "markdown-toc"
-      "markdown-deluxe"
+      "minimap"
+      "minimap-git-diff"
     ]
     ignoredNames: [
       ".git"
