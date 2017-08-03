@@ -6,6 +6,8 @@
       compactTabs: true
     ui:
       panelContrast: true
+  "atom-notes":
+    directory: "/Users/stoe/Google Drive/atom-notes"
   "autocomplete-emojis": {}
   "autocomplete-plus": {}
   autosave:
@@ -25,6 +27,8 @@
       "platformio-ide-terminal"
       "linter-xo"
       "markdown-toc"
+      "minimap"
+      "minimap-git-diff"
       "markdown-deluxe"
     ]
     ignoredNames: [
@@ -85,9 +89,18 @@
     fontFamily: "SF UI Text"
     fontSize: "18px/1.8"
     scopes: "source.gfm"
-    width: "60em"
+    width: "80em"
   "markdown-preview":
     breakOnSingleNewline: true
+    grammars: [
+      "source.gfm"
+      "source.litcoffee"
+      "text.html.basic"
+      "text.md"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.gfm.notes"
+    ]
     liveUpdate: true
     useGitHubStyle: true
   "markdown-preview-plus":
