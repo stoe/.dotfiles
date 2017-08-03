@@ -92,6 +92,15 @@
     width: "80em"
   "markdown-preview":
     breakOnSingleNewline: true
+    grammars: [
+      "source.gfm"
+      "source.litcoffee"
+      "text.html.basic"
+      "text.md"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.gfm.notes"
+    ]
     liveUpdate: true
     useGitHubStyle: true
   "markdown-preview-plus":
