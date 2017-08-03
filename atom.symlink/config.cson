@@ -6,6 +6,8 @@
       compactTabs: true
     ui:
       panelContrast: true
+  "atom-notes":
+    directory: "/Users/stoe/Google Drive/atom-notes"
   "autocomplete-emojis": {}
   "autocomplete-plus": {}
   autosave:
