@@ -8,26 +8,21 @@ module.exports = {
       ::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }
       x-screen a { color: rgba(233, 44, 108, 1.0); }
       `,
-    windowSize: [1706, 1062],
-    // materialTheme: 'teal',
-    // materialSyntax: 'dark',
-    hyperStatusLine: {
-      footerTransparent: false
+    colors: {},
+    materialBox: {
+      scheme: 'snazzy',
+      autoHideTitle: true,
+      closeOnTheLeft: true
     },
-    hyperTabs: {
-      border: true,
-      tabIconsColored: true,
-      activityColor: 'rgb(90, 247, 142)',
-      activityPulse: false
+    windowSize: [1706, 1062],
+    hyperStatusLine: {
+      footerTransparent: true
     }
   },
   plugins: [
-    'hyperterm-material-theme',
-    'hyper-snazzy',
     'hyperlinks',
-    'hyper-statusline',
-    'hyper-hide-title',
-    'hyper-tabs-enhanced'
+    'hyper-material-box',
+    'hyper-statusline'
   ],
   localPlugins: []
 };
