@@ -8,6 +8,7 @@
   "homepage": "https://hyper.is",
   "dependencies": {
     "hyperlinks": "latest",
-    "hyper-one-light": "latest"
+    "hyper-material-box": "latest",
+    "hyper-statusline": "latest"
   }
 }
