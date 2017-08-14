@@ -9,3 +9,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 
 alias allup="githubup; brewup; apm update"
 alias allclean="emptytrash; cleanup; lsclean; lpclean; flushdns"
+
+# GitHub Professional Services PDFify
+alias ghpdf="pdfify --header ~/github/pdfify-node/assets/header.hbs --style ~/github/pdfify-node/assets/style.css"
