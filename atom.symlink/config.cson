@@ -1,4 +1,7 @@
 "*":
+  "atom-clock":
+    dateFormat: "HH:mm"
+    tooltipDateFormat: "dddd, MM.DD.YYYY HH:mm"
   "atom-material-ui":
     colors:
       abaseColor: "#3e82c7"
@@ -62,6 +65,7 @@
     showInvisibles: true
     softWrap: true
     softWrapHangingIndent: 2
+    tabType: "soft"
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
