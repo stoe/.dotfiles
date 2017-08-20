@@ -65,6 +65,7 @@
     showInvisibles: true
     softWrap: true
     softWrapHangingIndent: 2
+    tabType: "soft"
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
