@@ -1,4 +1,7 @@
 "*":
+  "atom-clock":
+    dateFormat: "HH:mm"
+    tooltipDateFormat: "dddd, MM.DD.YYYY HH:mm"
   "atom-material-ui":
     colors:
       abaseColor: "#3e82c7"
