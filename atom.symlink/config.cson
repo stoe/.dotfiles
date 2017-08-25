@@ -33,6 +33,7 @@
       "minimap"
       "minimap-git-diff"
       "markdown-deluxe"
+      "atom-notes"
     ]
     ignoredNames: [
       ".git"
