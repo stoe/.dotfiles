@@ -87,7 +87,6 @@
   "linter-ui-default":
     panelHeight: 69
     panelRepresents: "Current Line"
-    showPanel: true
     showProviderName: true
   "markdown-deluxe":
     fontFamily: "SF UI Text"
