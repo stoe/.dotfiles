@@ -139,6 +139,7 @@ cask 'xquartz'
 
 # Mac App Store ----------------------------------------------------------------
 mas 'Bear', id: 1091189122
+# mas 'Boxy', id: 1053031090
 mas 'Denied', id: 909257784
 mas 'Electron APIs', id: 1119345146
 mas 'Gifwit', id: 871200983

@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     cursorShape: 'BLOCK',
     cursorBlink: true,
@@ -10,7 +10,7 @@ module.exports = {
       `,
     colors: {},
     materialBox: {
-      scheme: 'snazzy',
+      scheme: 'one-light',
       autoHideTitle: true,
       closeOnTheLeft: true
     },
