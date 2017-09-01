@@ -53,8 +53,8 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "atom-material-ui"
-      "atom-snazzy-clear-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     titleBar: "custom"
   editor:
