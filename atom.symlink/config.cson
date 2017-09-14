@@ -59,7 +59,7 @@
     titleBar: "custom"
   editor:
     fontFamily: "SF Mono"
-    fontSize: 18
+    fontSize: 16
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
