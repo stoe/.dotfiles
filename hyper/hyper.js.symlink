@@ -9,12 +9,16 @@ module.exports = {
       x-screen a { color: rgba(233, 44, 108, 1.0); }
       `,
     colors: {},
+    windowSize: [1706, 1062],
+    hyperlinks: {
+      clickAction: 'open',
+      defaultBrowser: true
+    },
     materialBox: {
       scheme: 'snazzy',
       autoHideTitle: true,
       closeOnTheLeft: true
     },
-    windowSize: [1706, 1062],
     hyperStatusLine: {
       footerTransparent: true
     }
