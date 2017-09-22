@@ -33,7 +33,6 @@
       "minimap"
       "minimap-git-diff"
       "markdown-deluxe"
-      "atom-notes"
     ]
     ignoredNames: [
       ".git"
@@ -53,13 +52,13 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "atom-material-ui"
-      "atom-snazzy-clear-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     titleBar: "custom"
   editor:
     fontFamily: "SF Mono"
-    fontSize: 16
+    fontSize: 18
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
