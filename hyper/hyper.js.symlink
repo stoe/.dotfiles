@@ -15,7 +15,7 @@ module.exports = {
       defaultBrowser: true
     },
     materialBox: {
-      scheme: 'snazzy',
+      scheme: 'one-light',
       autoHideTitle: true,
       closeOnTheLeft: true
     },
