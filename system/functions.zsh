@@ -202,12 +202,3 @@ EOF
 function cdf() {
   cd "$(pfd)"
 }
-
-# delete those temp (.DS_Store, MS Word) files in style
-function cleanup() {
-  section "macOS"
-  find . -type f -name '*.DS_Store' -ls -delete
-
-  section "MS Office"
-  find . -type f -name '\~\$*.*' -ls -delete
-}
