@@ -203,11 +203,24 @@ function cdf() {
   cd "$(pfd)"
 }
 
-# delete those temp (.DS_Store, MS Word) files in style
-function cleanup() {
-  section "macOS"
-  find . -type f -name '*.DS_Store' -ls -delete
+### Functions for setting and getting environment variables from the OSX keychain ###
+### Adapted from https://www.netmeister.org/blog/keychain-passwords.html ###
 
-  section "MS Office"
-  find . -type f -name '\~\$*.*' -ls -delete
+### from https://gist.github.com/bmhatfield/f613c10e360b4f27033761bbee4404fd ###
+
+# Use: keychain-environment-variable SECRET_ENV_VAR
+function keychain-environment-variable () {
+  security find-generic-password -w -a ${USER} -D "environment variable" -s "${1}"
+}
+
+# Use: set-keychain-environment-variable SECRET_ENV_VAR
+#   provide: super_secret_key_abc123
+function set-keychain-environment-variable () {
+  [ -n "$1" ] || print "Missing environment variable name"
+
+  # Note: if using bash, use `-p` to indicate a prompt string, rather than the leading `?`
+  read -s -p "Enter Value for ${1}: " secret
+
+  ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
+  security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
 }
