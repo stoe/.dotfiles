@@ -21,6 +21,7 @@ brew 'pinentry'
 brew 'pinentry-mac'
 brew 'gnupg'
 brew 'gnupg2'
+# cask 'gpgtool'
 
 # image ------------------------------------------------------------------------
 brew 'ffmpeg', args: ['with-libass', 'with-fontconfig']
@@ -138,7 +139,7 @@ cask 'vmware-fusion'
 cask 'xquartz'
 
 # Mac App Store ----------------------------------------------------------------
-mas 'Bear', id: 1091189122
+# mas 'Bear', id: 1091189122
 # mas 'Boxy', id: 1053031090
 mas 'Denied', id: 909257784
 mas 'Electron APIs', id: 1119345146
@@ -146,7 +147,7 @@ mas 'Gifwit', id: 871200983
 mas 'iConvert Icons', id: 515197296
 mas 'Keynote', id: 409183694
 mas 'LastPass', id: 926036361
-mas 'Lingon 3', id: 450201424
+# mas 'Lingon 3', id: 450201424
 mas 'Mousepose', id: 405904955
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
