@@ -1,40 +1,13 @@
 "*":
-  "atom-clock":
-    dateFormat: "HH:mm"
-    tooltipDateFormat: "dddd, MM.DD.YYYY HH:mm"
-  "atom-material-ui":
-    colors:
-      abaseColor: "#3e82c7"
-    tabs:
-      compactTabs: true
-    ui:
-      panelContrast: true
-  "atom-notes":
-    directory: "/Users/stoe/Google Drive/atom-notes"
-  "autocomplete-emojis": {}
+  "atom-package-deps":
+    ignored: []
+  "autocomplete-emojis":
+    enableUnicodeEmojis: false
   "autocomplete-plus": {}
   autosave:
     enabled: true
   core:
     automaticallyUpdate: false
-    disabledPackages: [
-      "language-asciidoc"
-      "language-applescript"
-      "markdown-preview-plus"
-      "markdown-writer"
-      "language-apache"
-      "merge-conflicts"
-      "busy-signal"
-      "platformio-ide"
-      "platformio-ide-debugger"
-      "platformio-ide-terminal"
-      "linter-xo"
-      "markdown-toc"
-      "minimap"
-      "minimap-git-diff"
-      "markdown-deluxe"
-      "atom-notes"
-    ]
     ignoredNames: [
       ".git"
       ".hg"
@@ -50,10 +23,11 @@
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
+      "ava"
     ]
     telemetryConsent: "limited"
     themes: [
-      "atom-material-ui"
+      "one-dark-ui"
       "atom-snazzy-clear-syntax"
     ]
     titleBar: "custom"
@@ -70,30 +44,11 @@
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
     userId: "264f4e4f-4a7c-fed3-4527-a6dd33fc6c30"
-  "file-icons":
-    coloured: false
-    onChanges: true
-  "gist-it":
-    newGistsDefaultToPrivate: true
-    openAfterCreate: true
-  "git-control":
-    showGitFlowButton: false
-  "git-plus":
-    general:
-      analytics: false
-  github:
-    gitDiagnostics: true
-  "linter-gcc":
-    gccSuppressWarnings: true
+  github: {}
   "linter-ui-default":
     panelHeight: 69
     panelRepresents: "Current Line"
     showProviderName: true
-  "markdown-deluxe":
-    fontFamily: "SF UI Text"
-    fontSize: "18px/1.8"
-    scopes: "source.gfm"
-    width: "80em"
   "markdown-preview":
     breakOnSingleNewline: true
     grammars: [
@@ -107,29 +62,8 @@
     ]
     liveUpdate: true
     useGitHubStyle: true
-  "markdown-preview-plus":
-    useGitHubStyle: true
-  "markdown-table-formatter": {}
-  "markdown-writer":
-    tableAlignment: "left"
-    tableExtraPipes: true
-  "merge-conflicts": {}
-  minimap:
-    absoluteMode: true
-    displayPluginsControls: false
-    plugins:
-      bookmarks: true
-      "git-diff": true
-      "git-diffDecorationsZIndex": 0
-    scrollAnimation: true
-  "package-generator":
-    createInDevMode: true
-  "platformio-ide":
-    advanced:
-      customPATH: "/usr/local/bin/platformio"
-      showPlatformIOFiles: true
-    autoUpdateIDE: false
-    showPIOHome: false
+  "markdown-table-formatter":
+    formatOnSave: false
   "prettier-atom":
     formatOnSaveOptions: {}
     prettierOptions:
@@ -141,19 +75,10 @@
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
-  "spell-check": {}
-  "split-diff":
-    diffWords: true
-    ignoreWhitespace: true
-    leftEditorColor: "red"
-    rightEditorColor: "green"
-  "status-bar": {}
   tabs:
     enableVcsColoring: true
-  "tool-bar":
-    position: "Left"
   "tree-view":
-    squashDirectoryNames: true
+    squashDirectoryNames: false
   welcome:
     showOnStartup: false
 ".diff.source":
