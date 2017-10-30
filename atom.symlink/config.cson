@@ -31,6 +31,9 @@
       "atom-snazzy-clear-syntax"
     ]
     titleBar: "custom"
+  date:
+    dateFormat: "YYYY-MM-DD"
+    dateTimeFormat: "Date Format"
   editor:
     fontFamily: "SF Mono"
     fontSize: 16
