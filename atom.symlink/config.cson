@@ -66,8 +66,7 @@
     ]
     liveUpdate: true
     useGitHubStyle: true
-  "markdown-table-formatter":
-    formatOnSave: false
+  "markdown-table-formatter": {}
   "prettier-atom":
     formatOnSaveOptions: {}
     prettierOptions:
