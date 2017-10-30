@@ -68,7 +68,9 @@
     useGitHubStyle: true
   "markdown-table-formatter": {}
   "prettier-atom":
-    formatOnSaveOptions: {}
+    formatOnSaveOptions:
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
     prettierOptions:
       bracketSpacing: false
       printWidth: 120
