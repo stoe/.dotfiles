@@ -31,6 +31,9 @@
       "one-light-syntax"
     ]
     titleBar: "custom"
+  date:
+    dateFormat: "YYYY-MM-DD"
+    dateTimeFormat: "Date Format"
   editor:
     fontFamily: "SF Mono"
     fontSize: 18
@@ -48,6 +51,7 @@
   "linter-ui-default":
     panelHeight: 69
     panelRepresents: "Current Line"
+    showPanel: true
     showProviderName: true
   "markdown-preview":
     breakOnSingleNewline: true
@@ -62,10 +66,11 @@
     ]
     liveUpdate: true
     useGitHubStyle: true
-  "markdown-table-formatter":
-    formatOnSave: false
+  "markdown-table-formatter": {}
   "prettier-atom":
-    formatOnSaveOptions: {}
+    formatOnSaveOptions:
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
     prettierOptions:
       bracketSpacing: false
       printWidth: 120
