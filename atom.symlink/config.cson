@@ -68,6 +68,8 @@
     liveUpdate: true
     useGitHubStyle: true
   "markdown-table-formatter": {}
+  "pdf-view":
+    fitToWidthOnOpen: true
   "prettier-atom":
     formatOnSaveOptions:
       isDisabledIfNotInPackageJson: true
