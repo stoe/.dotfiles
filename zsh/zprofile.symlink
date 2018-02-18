@@ -12,3 +12,6 @@ export PHP_INI_SCAN_DIR="/usr/local/etc/php/5.6/"
 
 # Go
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
+
+# Python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
