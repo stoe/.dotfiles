@@ -42,6 +42,7 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
+    softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
     tabType: "soft"
     zoomFontWhenCtrlScrolling: true
@@ -67,6 +68,8 @@
     liveUpdate: true
     useGitHubStyle: true
   "markdown-table-formatter": {}
+  "pdf-view":
+    fitToWidthOnOpen: true
   "prettier-atom":
     formatOnSaveOptions:
       isDisabledIfNotInPackageJson: true
