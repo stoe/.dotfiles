@@ -100,12 +100,12 @@
   me = !git config --get user.name && git config --get user.email
   pr = pull-request
   idiff = difftool -t icdiff
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  pc = !git pull && git bclean
 
 [log]
   showSignature = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
