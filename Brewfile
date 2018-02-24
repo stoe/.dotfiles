@@ -146,6 +146,7 @@ cask 'zoomus'
 # mas 'Boxy', id: 1053031090
 mas 'Denied', id: 909257784
 mas 'Electron APIs', id: 1119345146
+mas 'Gifski', id: 1351639930
 mas 'Gifwit', id: 871200983
 mas 'iConvert Icons', id: 515197296
 mas 'Keynote', id: 409183694
