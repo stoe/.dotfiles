@@ -23,7 +23,8 @@ brew 'gnupg'
 brew 'gnupg2'
 
 # image ------------------------------------------------------------------------
-brew 'ffmpeg', args: ['with-libass', 'with-fontconfig']
+brew 'libvpx'
+brew 'ffmpeg', args: ['with-libass', 'with-fontconfig', 'with-libvpx', 'with-libvorbis', 'with-openssl']
 brew 'imagemagick', args: ['with-fontconfig']
 
 # node -------------------------------------------------------------------------
