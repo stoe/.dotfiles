@@ -23,10 +23,6 @@ module.exports = {
       footerTransparent: true
     }
   },
-  plugins: [
-    'hyperlinks',
-    'hyper-material-box',
-    'hyper-statusline'
-  ],
+  plugins: ['hyperlinks', 'hyper-material-box', 'hyper-statusline'],
   localPlugins: []
 };
