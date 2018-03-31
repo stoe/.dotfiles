@@ -41,8 +41,7 @@
     preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
-    softWrapAtPreferredLineLength: true
+    softTabs: false
     softWrapHangingIndent: 2
     tabType: "soft"
     zoomFontWhenCtrlScrolling: true
@@ -87,6 +86,8 @@
     sortBy: "group"
   tabs:
     enableVcsColoring: true
+  "tabs-to-spaces":
+    onSave: "untabify"
   "tree-view":
     squashDirectoryNames: false
   welcome:
@@ -94,6 +95,9 @@
 ".diff.source":
   editor:
     softWrapHangingIndent: 2
+".editorconfig.source":
+  editor:
+    tabType: "auto"
 ".ini.source":
   editor:
     preferredLineLength: 120
