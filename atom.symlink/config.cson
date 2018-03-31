@@ -8,6 +8,9 @@
     enabled: true
   core:
     automaticallyUpdate: false
+    disabledPackages: [
+      "vim-mode-plus"
+    ]
     ignoredNames: [
       ".git"
       ".hg"
