@@ -8,6 +8,9 @@
     enabled: true
   core:
     automaticallyUpdate: false
+    disabledPackages: [
+      "vim-mode-plus"
+    ]
     ignoredNames: [
       ".git"
       ".hg"
@@ -41,8 +44,7 @@
     preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
-    softWrapAtPreferredLineLength: true
+    softTabs: false
     softWrapHangingIndent: 2
     tabType: "soft"
     zoomFontWhenCtrlScrolling: true
@@ -72,12 +74,14 @@
     fitToWidthOnOpen: true
   "prettier-atom":
     formatOnSaveOptions:
-      isDisabledIfNotInPackageJson: true
       showInStatusBar: true
+    prettierEslintOptions:
+      prettierLast: true
     prettierOptions:
       bracketSpacing: false
       printWidth: 120
       singleQuote: true
+      trailingComma: "es5"
     silenceErrors: true
     useEslint: true
   "project-manager":
@@ -85,6 +89,8 @@
     sortBy: "group"
   tabs:
     enableVcsColoring: true
+  "tabs-to-spaces":
+    onSave: "untabify"
   "tree-view":
     squashDirectoryNames: false
   welcome:
@@ -92,6 +98,9 @@
 ".diff.source":
   editor:
     softWrapHangingIndent: 2
+".editorconfig.source":
+  editor:
+    tabType: "auto"
 ".ini.source":
   editor:
     preferredLineLength: 120
