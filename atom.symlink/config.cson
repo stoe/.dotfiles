@@ -72,12 +72,14 @@
     fitToWidthOnOpen: true
   "prettier-atom":
     formatOnSaveOptions:
-      isDisabledIfNotInPackageJson: true
       showInStatusBar: true
+    prettierEslintOptions:
+      prettierLast: true
     prettierOptions:
       bracketSpacing: false
       printWidth: 120
       singleQuote: true
+      trailingComma: "es5"
     silenceErrors: true
     useEslint: true
   "project-manager":
