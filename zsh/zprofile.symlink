@@ -7,8 +7,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # PHP
-export PATH="$(brew --prefix php56)/bin:$PATH"
-export PHP_INI_SCAN_DIR="/usr/local/etc/php/5.6/"
+# export PATH="$(brew --prefix php56)/bin:$PATH"
+# export PHP_INI_SCAN_DIR="/usr/local/etc/php/5.6/"
 
 # Go
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
