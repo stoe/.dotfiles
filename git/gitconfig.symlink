@@ -6,7 +6,7 @@
   protocol = ssh
 
 [remote "origin"]
-	prune = true
+  prune = true
 
 [gpg]
   program = gpg
@@ -41,16 +41,16 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   editor = atom --wait
-	autocrlf = input
+  autocrlf = input
   pager = ""
 
 [apply]
   whitespace = nowarn
 
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "icdiff"]
@@ -61,10 +61,10 @@
   textconv = unzip -c -a
 
 [merge]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool]
   keepBackup = false
-	prompt = false
+  prompt = false
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
@@ -77,7 +77,7 @@
   # for more information on different options of the below setting.
   #
   # Setting to git 2.0 default to surpress warning message
-	default = simple
+  default = simple
 
 [alias]
   # View abbreviated SHA, description, and history graph
@@ -105,7 +105,7 @@
 [log]
   showSignature = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
