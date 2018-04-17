@@ -10,6 +10,10 @@
     automaticallyUpdate: false
     disabledPackages: [
       "vim-mode-plus"
+      "atomic-chrome"
+      "dash"
+      "language-terra"
+      "print-atom"
     ]
     ignoredNames: [
       ".git"
