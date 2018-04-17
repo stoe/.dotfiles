@@ -14,17 +14,15 @@ module.exports = {
       clickAction: 'open',
       defaultBrowser: true,
     },
+    materialBox: {
+      scheme: 'one-light',
+      autoHideTitle: true,
+      closeOnTheLeft: true,
+    },
     hyperStatusLine: {
       footerTransparent: true,
     },
   },
-  plugins: [
-    'hyper-snazzy',
-    'hyper-statusline',
-    'hyperlinks',
-    'hyper-pane',
-    'hyper-tabs-enhanced',
-    'hypercwd'
-  ],
+  plugins: ['hyper-statusline', 'hyperlinks', 'hyper-pane', 'hyper-tabs-enhanced', 'hypercwd', 'hyper-material-box'],
   localPlugins: [],
 };
