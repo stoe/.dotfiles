@@ -16,8 +16,7 @@ module.exports = {
     },
     materialBox: {
       scheme: 'one-light',
-      autoHideTitle: true,
-      closeOnTheLeft: true,
+      autoHideTitle: true
     },
     hyperStatusLine: {
       footerTransparent: true,
