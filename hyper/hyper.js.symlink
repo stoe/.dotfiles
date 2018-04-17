@@ -12,17 +12,19 @@ module.exports = {
     windowSize: [1706, 1062],
     hyperlinks: {
       clickAction: 'open',
-      defaultBrowser: true
-    },
-    materialBox: {
-      scheme: 'one-light',
-      autoHideTitle: true,
-      closeOnTheLeft: true
+      defaultBrowser: true,
     },
     hyperStatusLine: {
-      footerTransparent: true
-    }
+      footerTransparent: true,
+    },
   },
-  plugins: ['hyperlinks', 'hyper-material-box', 'hyper-statusline'],
-  localPlugins: []
+  plugins: [
+    'hyper-snazzy',
+    'hyper-statusline',
+    'hyperlinks',
+    'hyper-pane',
+    'hyper-tabs-enhanced',
+    'hypercwd'
+  ],
+  localPlugins: [],
 };

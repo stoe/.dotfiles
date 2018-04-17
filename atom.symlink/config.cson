@@ -10,6 +10,10 @@
     automaticallyUpdate: false
     disabledPackages: [
       "vim-mode-plus"
+      "atomic-chrome"
+      "dash"
+      "language-terra"
+      "print-atom"
     ]
     ignoredNames: [
       ".git"
@@ -45,6 +49,8 @@
     showIndentGuide: true
     showInvisibles: true
     softTabs: false
+    softWrap: true
+    softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
     tabType: "soft"
     zoomFontWhenCtrlScrolling: true
