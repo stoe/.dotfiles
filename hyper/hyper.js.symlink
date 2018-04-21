@@ -21,9 +21,6 @@ module.exports = {
       trafficButtons: true,
       tabIconsColored: true,
     },
-    materialBox: {
-      scheme: 'snazzy',
-    },
   },
   plugins: ['hyper-statusline', 'hyperlinks', 'hyper-pane', 'hypercwd', 'hyper-material-box', 'hyper-tabs-enhanced'],
   localPlugins: [],
