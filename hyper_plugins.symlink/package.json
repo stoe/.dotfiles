@@ -10,8 +10,8 @@
     "hyper-statusline": "latest",
     "hyperlinks": "latest",
     "hyper-pane": "latest",
-    "hyper-tabs-enhanced": "latest",
     "hypercwd": "latest",
-    "hyper-material-box": "latest"
+    "hyper-material-box": "latest",
+    "hyper-tabs-enhanced": "latest"
   }
 }
