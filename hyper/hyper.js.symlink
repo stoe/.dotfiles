@@ -4,10 +4,6 @@ module.exports = {
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     cursorShape: 'BLOCK',
     cursorBlink: true,
-    termCSS: `
-      ::selection { background-color: rgba(233, 44, 108, 0.8); color: #fcfcfc; }
-      x-screen a { color: rgba(233, 44, 108, 1.0); }
-      `,
     colors: {},
     windowSize: [1706, 1062],
     hyperlinks: {
@@ -21,7 +17,14 @@ module.exports = {
     hyperStatusLine: {
       footerTransparent: true,
     },
+    hyperTabs: {
+      trafficButtons: true,
+      tabIconsColored: true,
+    },
+    materialBox: {
+      scheme: 'snazzy',
+    },
   },
-  plugins: ['hyper-statusline', 'hyperlinks', 'hyper-pane', 'hyper-tabs-enhanced', 'hypercwd', 'hyper-material-box'],
+  plugins: ['hyper-statusline', 'hyperlinks', 'hyper-pane', 'hypercwd', 'hyper-material-box', 'hyper-tabs-enhanced'],
   localPlugins: [],
 };
