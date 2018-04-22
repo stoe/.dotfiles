@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 abort() {
-  print -P "\n✘ %F{3}aborting%f ✘\n"
-  exit 1
+  print -P "\n✘ %F{3}aborting%f $1\n"
+  return
 }
 
 disabled() {
