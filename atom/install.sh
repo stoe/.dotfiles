@@ -3,36 +3,40 @@ source "$HOME/.dotfiles/inc/helpers.sh"
 
 section "atom packages"
 PACKAGES=(
-  atom/github
   atom-markdown-wrapper
-  atom-material-syntax
-  atom-material-syntax-light
-  atom-material-ui
   atom-snazzy-clear-syntax
   atomic-chrome
   autocomplete-emojis
+  ava
+  busy-signal
+  carbon-now-sh
+  dash
   date
   editorconfig
-  es6-javascript
-  gist-it
-  git-log
-  git-plus
+  focus-dark
+  focus-light
   import-sf-mono
-  language-apache
+  intentions
   language-babel
-  language-ini
-  language-nginx
-  language-pug
+  language-csv
+  language-docker
+  language-dotenv
+  language-graphql
+  language-terra
+  language-terraform
   linter
+  linter-terraform-semantics
+  linter-terraform-syntax
+  linter-ui-default
   linter-xo
   markdown-table-formatter
   markdown-toc
-  merge-conflicts
-  minimap
-  minimap-git-diff
+  pdf-view
   prettier-atom
+  print-atom
   project-manager
-  turbo-javascript
+  tabs-to-spaces
+  teletype
 )
 
 for PACKAGE in $PACKAGES; do
