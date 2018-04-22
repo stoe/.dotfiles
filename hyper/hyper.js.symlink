@@ -11,7 +11,7 @@ module.exports = {
       defaultBrowser: true,
     },
     materialBox: {
-      scheme: 'one-light',
+      scheme: 'snazzy',
       autoHideTitle: true
     },
     hyperStatusLine: {
