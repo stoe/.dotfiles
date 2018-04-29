@@ -76,6 +76,9 @@
     liveUpdate: true
     useGitHubStyle: true
   "markdown-table-formatter": {}
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   "pdf-view":
     fitToWidthOnOpen: true
   "prettier-atom":
