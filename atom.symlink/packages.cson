@@ -13,6 +13,7 @@ packages: [
   "intentions"
   "language-babel"
   "language-csv"
+  "language-diff"
   "language-docker"
   "language-dotenv"
   "language-graphql"
