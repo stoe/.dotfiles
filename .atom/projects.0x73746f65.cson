@@ -1,0 +1,140 @@
+[
+  {
+    title: "dotfiles"
+    group: "private"
+    color: "#badc58"
+    paths: [
+      "/Users/stoe/private/dotfiles"
+    ]
+    icon: "icon-terminal"
+    color: "#7ed6df"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Ansible Macos Playbook"
+    paths: [
+      "/Users/stoe/private/ansible-macos-playbook"
+    ]
+    icon: "icon-terminal"
+    color: "#7ed6df"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "stefan.stoelzle.me"
+    group: "private"
+    color: "#badc58"
+    paths: [
+      "/Users/stoe/private/stefan.stoelzle.me"
+      "/Users/stoe/private/old.stefan.stoelzle.me"
+    ]
+    icon: "icon-home"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Uebersicht Widget"
+    group: "private"
+    color: "#badc58"
+    paths: [
+      "/Users/stoe/private/simple-clock.widget"
+      "/Users/stoe/private/uebersicht-spotify.widget"
+      "/Users/stoe/private/uebersicht-worldclock.widget"
+    ]
+    icon: "icon-settings"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Services Engagements"
+    group: "github"
+    paths: [
+      "/Users/stoe/github/services/engagements"
+    ]
+    icon: "icon-mark-github"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "DOCXify"
+    group: "opensource"
+    paths: [
+      "/Users/stoe/github/docxify-node"
+      "/Users/stoe/github/docxify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#f9ca24"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "MDify"
+    group: "opensource"
+    paths: [
+      "/Users/stoe/github/mdify-node"
+      "/Users/stoe/github/mdify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#f9ca24"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "PDFify"
+    group: "opensource"
+    paths: [
+      "/Users/stoe/github/pdfify-node"
+      "/Users/stoe/github/pdfify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#f9ca24"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Alfred Workflows"
+    group: "opensource"
+    paths: [
+      "/Users/stoe/github/dotfiles"
+      "/Users/stoe/Library/Application Support/Alfred 3/Workflow Data/me.stoelzle.alfred.github.tools"
+      "/Users/stoe/github/alfred-gitio"
+      "/Users/stoe/Library/Application Support/Alfred 3/Workflow Data/me.stoelzle.alfred.gitio"
+    ]
+    icon: "icon-hubot"
+    color: "#f9ca24"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Atom Packages"
+    group: "opensource"
+    paths: [
+      "/Users/stoe/github/atom-markdown-wrapper"
+    ]
+    icon: "icon-hubot"
+    color: "#f9ca24"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+]

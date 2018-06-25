@@ -1,0 +1,28 @@
+@my-dark-gray: #555555;
+
+[data-grammar*='gfm'] {
+  .syntax--markup.syntax--strike {
+    position: relative;
+    color: fade(@my-dark-gray, 96%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 2px);
+      left: 0;
+      right: 0;
+      height: 2px;
+      margin: 0 16px;
+      background-color: fade(#cc0033, 32%);
+    }
+  }
+
+  .syntax--table .syntax--border {
+    color: fade(@my-dark-gray, 80%);
+  }
+}
+
+span.invisible-character,
+span.indent-guide {
+  color: fade(@my-dark-gray, 32%);
+}

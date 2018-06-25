@@ -8,11 +8,3 @@ Thumbs.db
 
 # folders
 .idea/
-config.symlink/
-docker.symlink/
-
-# files
-atom.symlink/projects*.cson
-git/gitconfig.local.symlink
-yarn-config.symlink/**/*
-zsh/zshrc_local.symlink
