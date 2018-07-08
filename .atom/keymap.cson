@@ -1,0 +1,2 @@
+'atom-text-editor':
+  'shift-cmd-j': 'atom-notes:toggle'

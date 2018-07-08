@@ -1,0 +1,157 @@
+[
+  {
+    title: "DOCXify"
+    group: "opensource"
+    paths: [
+      "~/private/docxify-node"
+      "~/private/docxify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#ffea7f"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "MDify"
+    group: "opensource"
+    paths: [
+      "~/private/mdify-node"
+      "~/private/mdify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#ffea7f"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "PDFify"
+    group: "opensource"
+    paths: [
+      "~/private/pdfify-node"
+      "~/private/pdfify-alfred"
+    ]
+    icon: "icon-hubot"
+    color: "#ffea7f"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Alfred Workflows"
+    group: "opensource"
+    paths: [
+      "~/private/alfred-gemoji"
+      "~/private/alfred-github-team-snippets"
+      "~/private/alfred-github-tools"
+      "~/Library/Application Support/Alfred 3/Workflow Data/me.stoelzle.alfred.github.tools"
+      "~/private/alfred-gitio"
+      "~/Library/Application Support/Alfred 3/Workflow Data/me.stoelzle.alfred.gitio"
+    ]
+    icon: "icon-hubot"
+    color: "#ffea7f"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Atom Packages"
+    group: "opensource"
+    paths: [
+      "~/private/atom-markdown-wrapper"
+    ]
+    icon: "icon-hubot"
+    color: "#ffea7f"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "dotfiles"
+    group: "private"
+    paths: [
+      "~/private/dotfiles"
+      "~/private/df"
+    ]
+    icon: "icon-terminal"
+    color: "#79b8ff"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "stefan.stoelzle.me"
+    group: "private"
+    paths: [
+      "~/private/stefan.stoelzle.me"
+    ]
+    icon: "icon-home"
+    color: "#85e89d"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "Uebersicht Widget"
+    group: "private"
+    paths: [
+      "~/private/uebersicht-simple-clock.widget"
+      "~/private/uebersicht-spotify.widget"
+      "~/private/uebersicht-worldclock.widget"
+    ]
+    icon: "icon-home"
+    color: "#85e89d"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "github-actions"
+    group: "github"
+    paths: [
+      "~/private/actions"
+      "~/private/actions-tester"
+    ]
+    icon: "icon-mark-github"
+    color: "#ffffff"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "ansible"
+    group: "ansible"
+    paths: [
+      "~/github/ghe-playbooks"
+    ]
+    icon: "icon-terminal"
+    color: "#79b8ff"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+  {
+    title: "ansible-playbook-macos"
+    group: "ansible"
+    paths: [
+      "~/private/ansible-playbook-macos"
+    ]
+    icon: "icon-terminal"
+    color: "#79b8ff"
+    settings:
+      "editor.tabLength": 2
+      "editor.preferredLineLength": 120
+      "project-manager.showPath": true
+  }
+]
