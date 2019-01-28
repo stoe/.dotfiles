@@ -1,0 +1,44 @@
+@my-dark-gray: #555555;
+
+[data-grammar*='gfm'] {
+  .syntax--markup.syntax--strike {
+    position: relative;
+    color: fade(@my-dark-gray, 80%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 2px);
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: fade(darkred, 32%);
+    }
+  }
+  .syntax--table .syntax--border {
+    color: fade(@my-dark-gray, 80%);
+  }
+}
+
+span.invisible-character,
+span.indent-guide {
+  color: fade(@my-dark-gray, 32%);
+}
+
+[data-grammar*='git-commit'] {
+  .wrap-guide::before,
+  .wrap-guide::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    left: -22ch;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: fade(@text-color-warning, 32%);
+  }
+  .wrap-guide::after {
+    left: -0ch;
+    background-color: fade(@background-color-error, 32%);
+  }
+}

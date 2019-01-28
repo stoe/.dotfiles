@@ -1,3 +1,6 @@
+.gitconfig.local
+.zshrc_local
+
 .DS_Store
 ._*
 *~
@@ -5,14 +8,3 @@ Desktop.ini
 Thumbs.db
 .Spotlight-V100
 .Trashes
-
-# folders
-.idea/
-config.symlink/
-docker.symlink/
-
-# files
-atom.symlink/projects*.cson
-git/gitconfig.local.symlink
-yarn-config.symlink/**/*
-zsh/zshrc_local.symlink
