@@ -1,4 +1,4 @@
-## stoe ❤ ~/
+## stoe :green_heart: ~/
 
 ~~Stolen~~ Adopted from [various dotfiles](#thanks), changed and extended to my needs.
 
