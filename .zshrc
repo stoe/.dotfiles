@@ -75,3 +75,10 @@ if test gls; then
   alias la='gls -A --color'
   alias ls="gls -F --color"
 fi
+
+# BEGIN ANSIBLE MANAGED BLOCK
+# added by https://github.com/stoe/ansible-macos-playbook
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -r $NVM_DIR/bash_completion ]] && source $NVM_DIR/bash_completion
+# END ANSIBLE MANAGED BLOCK

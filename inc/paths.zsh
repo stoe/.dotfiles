@@ -1,10 +1,6 @@
 # user `bin/`
 export PATH="${HOME}/bin:${PATH}"
 
-# Node
-export NVM_DIR="${HOME}/.nvm"
-[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
-
 # Ruby
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
