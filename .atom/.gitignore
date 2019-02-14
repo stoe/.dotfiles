@@ -6,4 +6,5 @@ packages/
 recovery/
 storage/
 
+projects.*.cson
 *.json
