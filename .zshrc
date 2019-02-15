@@ -42,6 +42,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/nvm
+    zgen load pbar1/zsh-terraform
 
     # zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
