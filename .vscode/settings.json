@@ -1,0 +1,90 @@
+{
+  "atomKeymap.promptV3Features": true,
+  "debug.console.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "debug.console.fontSize": 16,
+  "editor.cursorStyle": "block",
+  "editor.detectIndentation": false,
+  "editor.fontSize": 16,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnType": false,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "[git-commit]": {
+    "editor.rulers": [
+      72,
+      50
+    ],
+    "editor.wordWrap": "off"
+  },
+  "editor.scrollBeyondLastLine": false,
+  "editor.selectionHighlight": false,
+  "editor.tabSize": 4,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editor.wrappingIndent": "indent",
+  "files.autoSave": "afterDelay",
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.shellArgs.osx": [
+    "-l"
+  ],
+  "todohighlight.keywords": [
+    {
+      "backgroundColor": "none",
+      "color": "#bd2c00",
+      "text": "DEBUG:"
+    },
+    {
+      "backgroundColor": "none",
+      "color": "#bd2c00",
+      "text": "FIXME:"
+    },
+    {
+      "backgroundColor": "none",
+      "color": "#6e5494",
+      "text": "REVIEW:"
+    },
+    {
+      "backgroundColor": "none",
+      "color": "#4078c0",
+      "text": "NOTE:"
+    },
+    {
+      "backgroundColor": "none",
+      "color": "#6cc644",
+      "text": "TODO:"
+    }
+  ],
+  "window.newWindowDimensions": "inherit",
+  "window.zoomLevel": 0.6,
+  "workbench.colorTheme": "Nord",
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.tabCloseButton": "left",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.feedback.visible": false,
+  "files.associations": {
+    ".env": "dotenv",
+    "credentials": "properties"
+},
+"vsicons.projectDetection.disableDetect": true
+}
