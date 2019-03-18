@@ -20,6 +20,21 @@ function o() {
   fi
 }
 
+# open in Tower.app
+function gt() {
+  if ! $(which gittower &>/dev/null); then
+    abort "Please install Tower.app first"
+  else
+    if [ $# -eq 0 ]; then
+      # no arguments opens current directory
+      gittower .
+    else
+      # otherwise opens the given location
+      gittower "$@"
+    fi
+  fi
+}
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$@"
