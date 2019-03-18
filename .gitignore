@@ -1,4 +1,7 @@
 .gitconfig.local
+.npm*
+.nvm*
+.ssh
 .zshrc_local
 
 .DS_Store

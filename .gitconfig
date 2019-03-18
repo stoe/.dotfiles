@@ -5,6 +5,9 @@
 [hub]
   protocol = ssh
 
+# [http]
+#   sslVerify = false
+
 [protocol]
   version = 2
 
@@ -47,7 +50,8 @@
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-  editor = atom --wait
+  # editor = atom --wait
+  editor = code --wait
   autocrlf = input
   pager = ""
 
@@ -103,6 +107,7 @@
   branches = branch -avv
   remotes = remote -v
   # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
+  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
   co = checkout
   cob = checkout -b
   ec = config --global -e
@@ -112,7 +117,7 @@
   me = !git config --get user.name && git config --get user.email
   pr = pull-request
   idiff = difftool -t icdiff
-  pc = !git pull && git bclean
+  pc = !git up && git bclean
 
 [log]
   showSignature = false
