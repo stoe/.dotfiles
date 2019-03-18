@@ -1,2 +1,4 @@
 'atom-text-editor':
   'shift-cmd-j': 'atom-notes:toggle'
+'atom-workspace':
+  'ctrl-cmd-p': 'project-viewer:toggleSelectList'

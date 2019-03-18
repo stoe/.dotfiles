@@ -12,7 +12,9 @@
     automaticallyUpdate: false
     disabledPackages: [
       "vim-mode-plus"
+      "project-manager"
     ]
+    excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
       ".hg"
@@ -82,7 +84,6 @@
     accessibility: {}
   "nord-atom-ui":
     darkerFormFocusEffect: true
-    tabSizing: false
   "package-sync":
     createOnChange: true
     forceOverwrite: true
@@ -90,7 +91,6 @@
     fitToWidthOnOpen: true
   "prettier-atom":
     formatOnSaveOptions:
-      enabled: true
       isDisabledIfNotInPackageJson: true
       showInStatusBar: true
     prettierEslintOptions:
@@ -105,6 +105,18 @@
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "group"
+  "project-viewer":
+    customHoverColor: "#4078C0"
+    customSelectedColor: "#6CC644"
+    customWidth: 483
+    disclaimer:
+      v131: false
+    hideHeader: true
+    keepWindowSize: true
+    onlyIcons: false
+    rootSortBy: "alphabetically"
+    statusBar: true
+    visibilityActive: false
   tabs:
     enableVcsColoring: true
   "tabs-to-spaces":
@@ -122,10 +134,7 @@
     tabType: "auto"
 ".gfm.source":
   editor:
-    fontSize: 14
-    preferredLineLength: 180
     softWrap: true
 ".ini.source":
   editor:
-    preferredLineLength: 120
     softWrapHangingIndent: 2
