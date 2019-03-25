@@ -35,6 +35,11 @@
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "indent",
+  "files.associations": {
+    ".env": "dotenv",
+    "credentials": "properties",
+    "*.tf": "terraform"
+  },
   "files.autoSave": "afterDelay",
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
@@ -50,29 +55,30 @@
     {
       "backgroundColor": "none",
       "color": "#bd2c00",
-      "text": "DEBUG:"
+      "text": "DEBUG"
     },
     {
       "backgroundColor": "none",
       "color": "#bd2c00",
-      "text": "FIXME:"
+      "text": "FIXME"
     },
     {
       "backgroundColor": "none",
       "color": "#6e5494",
-      "text": "REVIEW:"
+      "text": "REVIEW"
     },
     {
       "backgroundColor": "none",
       "color": "#4078c0",
-      "text": "NOTE:"
+      "text": "NOTE"
     },
     {
       "backgroundColor": "none",
       "color": "#6cc644",
-      "text": "TODO:"
+      "text": "TODO"
     }
   ],
+  "vsicons.projectDetection.disableDetect": true,
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.6,
   "workbench.colorTheme": "Nord",
@@ -81,10 +87,5 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.feedback.visible": false,
-  "files.associations": {
-    ".env": "dotenv",
-    "credentials": "properties"
-},
-"vsicons.projectDetection.disableDetect": true
+  "workbench.statusBar.feedback.visible": false
 }
