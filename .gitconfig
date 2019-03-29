@@ -107,7 +107,7 @@
   branches = branch -avv
   remotes = remote -v
   # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
-  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  up = !git pull --rebase --prune $@
   co = checkout
   cob = checkout -b
   ec = config --global -e
