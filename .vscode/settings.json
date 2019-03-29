@@ -38,7 +38,16 @@
   "files.associations": {
     ".env": "dotenv",
     "credentials": "properties",
-    "*.tf": "terraform"
+    "*.tf": "terraform",
+    "**/defaults/**/*": "ansible",
+    "**/tasks/**/*.yml": "ansible",
+    "**/handler/*.yml": "ansible",
+    "**/*_vars/**/*.yml": "ansible",
+    "**/roles/**/*.yml": "ansible",
+    "**/playbooks/**/*.yml": "ansible",
+    "**/*ansible*/**/*.yml": "ansible",
+    "**/vars/**/*.yml": "ansible",
+    "**/inventory/*/*": "ansible"
   },
   "files.autoSave": "afterDelay",
   "prettier.eslintIntegration": true,
