@@ -50,6 +50,7 @@
     "**/inventory/*/*": "ansible"
   },
   "files.autoSave": "afterDelay",
+  "git.confirmSync": false,
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "telemetry.enableCrashReporter": false,
