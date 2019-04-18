@@ -9,6 +9,17 @@ function a() {
   fi
 }
 
+# open in Visual Studio Code.app
+function c() {
+  if [ $# -eq 0 ]; then
+    # no arguments opens current directory
+    code .
+  else
+    # otherwise opens the given location
+    code "$@"
+  fi
+}
+
 # open in Finder.app
 function o() {
   if [ $# -eq 0 ]; then

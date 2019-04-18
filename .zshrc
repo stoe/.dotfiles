@@ -9,7 +9,7 @@ export DFH=$HOME/private/dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
-export EDITOR='atom'
+export EDITOR='code'
 
 autoload -Uz colors && colors
 
