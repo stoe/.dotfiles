@@ -11,6 +11,10 @@ export DFH=$HOME/private/dotfiles
 
 export EDITOR='code'
 
+setopt HIST_IGNORE_ALL_DUPS    # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_IGNORE_SPACE       # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS       # Don't write duplicate entries in the history file.
+
 autoload -Uz colors && colors
 
 # Stash your environment variables in ~/.zshrc_local. This means they'll stay out
