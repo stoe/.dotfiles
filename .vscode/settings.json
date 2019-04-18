@@ -31,7 +31,7 @@
   },
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "indent",
@@ -47,12 +47,15 @@
     "**/playbooks/**/*.yml": "ansible",
     "**/*ansible*/**/*.yml": "ansible",
     "**/vars/**/*.yml": "ansible",
-    "**/inventory/*/*": "ansible"
+    "**/inventory/*/*": "ansible",
+    "*.workflow": "hcl"
   },
   "files.autoSave": "afterDelay",
   "git.confirmSync": false,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
+  "prettier.bracketSpacing": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
@@ -88,9 +91,9 @@
       "text": "TODO"
     }
   ],
-  "vsicons.projectDetection.disableDetect": true,
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.6,
+  "workbench.activityBar.visible": true,
   "workbench.colorTheme": "Nord",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
