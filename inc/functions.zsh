@@ -114,10 +114,10 @@ function dclean() {
   read -rs -k 1 ask
   print -P "%F{8}> $ask%f"
 
-  dockerps=`docker ps -a -q`
+  dockerps=`docker ps -a -q --filter='name=!splunk'`
 
   if [ "$ask" = "y" ] && [ "${dockerps}" != "" ]; then
-    docker rm `docker ps -a -q` --force
+    docker rm `docker ps -a -q --filter='name=!splunk'` --force
   else
     abort "no docker containers to clean"
   fi
@@ -128,10 +128,10 @@ function dclean() {
   read -rs -k 1 ask
   print -P "%F{8}> $ask%f"
 
-  dockerimages=`docker images -q`
+  dockerimages=`docker images -q --filter='reference=!splunk/splunk:latest'`
 
   if [ "$ask" = "y" ] && [ "${dockerimages}" != "" ]; then
-    docker rmi `docker images -q` --force
+    docker rmi `docker images -q --filter='reference=!splunk/splunk:latest'` --force
   else
     abort "no docker images to clean"
   fi
