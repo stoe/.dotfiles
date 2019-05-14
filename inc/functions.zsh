@@ -110,28 +110,24 @@ function dstop() {
 }
 
 function dclean() {
-  question "Do you really want to delete all 🐳  docker containers and images?" "yn"
+  question "Do you really want to delete all stopped 🐳  docker containers?" "yn"
   read -rs -k 1 ask
   print -P "%F{8}> $ask%f"
 
-  dockerps=`docker ps -a -q --filter='name=!splunk'`
-
-  if [ "$ask" = "y" ] && [ "${dockerps}" != "" ]; then
-    docker rm `docker ps -a -q --filter='name=!splunk'` --force
+  if [ "$ask" = "y" ]; then
+    docker container prune --filter 'label=name!=splunk' --force
   else
     abort "no docker containers to clean"
   fi
 
   unset $ask;
 
-  question "Do you really want to delete all 🐳  docker images?" "yn"
+  question "Do you really want to delete all untagged 🐳  docker images?" "yn"
   read -rs -k 1 ask
   print -P "%F{8}> $ask%f"
 
-  dockerimages=`docker images -q --filter='reference=!splunk/splunk:latest'`
-
-  if [ "$ask" = "y" ] && [ "${dockerimages}" != "" ]; then
-    docker rmi `docker images -q --filter='reference=!splunk/splunk:latest'` --force
+  if [ "$ask" = "y" ]; then
+    docker image prune --force
   else
     abort "no docker images to clean"
   fi
