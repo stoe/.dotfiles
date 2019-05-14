@@ -11,6 +11,9 @@ alias reload!='. ~/.zshrc'
 # Limit `ping` to 5
 alias ping='ping -c 5'
 
+# Only show TL;DR relevant to OSX
+alias tldr='tldr -p osx'
+
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
 alias grep='grep --color=auto'
