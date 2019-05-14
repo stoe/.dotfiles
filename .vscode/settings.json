@@ -52,6 +52,9 @@
   },
   "files.autoSave": "afterDelay",
   "git.confirmSync": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false
+  },
   "gitlens.blame.avatars": false,
   "gitlens.blame.highlight.locations": [
     "gutter",
