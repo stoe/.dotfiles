@@ -19,3 +19,6 @@ export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 
 # GitHub Services Training
 test -f "${HOME}/.trainingmanualrc" && source "${HOME}/.trainingmanualrc"
+
+# terraform
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
