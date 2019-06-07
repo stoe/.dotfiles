@@ -7,12 +7,6 @@
   "editor.fontSize": 16,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.formatOnSave": true
-  },
   "editor.formatOnType": false,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
@@ -22,13 +16,6 @@
     80,
     120
   ],
-  "[git-commit]": {
-    "editor.rulers": [
-      72,
-      50
-    ],
-    "editor.wordWrap": "off"
-  },
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
@@ -48,7 +35,8 @@
     "**/*ansible*/**/*.yml": "ansible",
     "**/vars/**/*.yml": "ansible",
     "**/inventory/*/*": "ansible",
-    "*.workflow": "hcl"
+    "*.workflow": "hcl",
+    "*.config": "ssh_config"
   },
   "files.autoSave": "afterDelay",
   "git.confirmSync": false,
@@ -70,7 +58,26 @@
   "gitlens.views.search.enabled": false,
   "gitlens.views.lineHistory.enabled": false,
   "gitlens.views.repositories.enabled": false,
+  "[git-commit]": {
+    "editor.rulers": [
+      72,
+      50
+    ],
+    "editor.wordWrap": "off"
+  },
   "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "markdownTableFormatter.enable": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "prettier.bracketSpacing": false,
