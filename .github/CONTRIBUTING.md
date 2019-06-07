@@ -1,7 +1,7 @@
 ## Contributing
 
-[fork]: https://github.com/stoe/ansible-macos-playbook/fork
-[pr]: https://github.com/stoe/ansible-macos-playbook/compare
+[fork]: /fork
+[pr]: /compare
 [code-of-conduct]: CODE_OF_CONDUCT.md
 
 Hi there! I'm thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
@@ -26,3 +26,4 @@ Work in Progress pull request are also welcome to get feedback early on, or if t
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Help](https://help.github.com)
+
