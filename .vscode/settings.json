@@ -116,6 +116,10 @@
       "text": "TODO"
     }
   ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.6,
   "workbench.activityBar.visible": true,
