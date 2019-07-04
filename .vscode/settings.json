@@ -22,6 +22,7 @@
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "indent",
+  "extensions.showRecommendationsOnlyOnDemand": true,
   "files.associations": {
     ".env": "dotenv",
     "credentials": "properties",
@@ -121,13 +122,14 @@
     "editor.formatOnSave": true
   },
   "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0.6,
+  "window.zoomLevel": 1.15,
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "Nord",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
+  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.feedback.visible": false
 }
