@@ -98,6 +98,9 @@
   # Setting to git 2.0 default to surpress warning message
   default = simple
 
+[rebase]
+  autoStash = true
+
 [alias]
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
