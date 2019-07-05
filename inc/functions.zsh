@@ -179,7 +179,7 @@ function brewup() {
 function targz() {
   local tmpFile="${@%/}.tar"
 
-  formatexec "tar -cvf ${tmpFile} --exclude=.DS_Store ${@} || return 1"
+  formatexec "tar -cvf ${tmpFile} --exclude=.DS_Store --exclude=node_modules ${@} || return 1"
 
   size=$(
     stat -f"%z" "${tmpFile}" 2> /dev/null;   # OS X `stat`
