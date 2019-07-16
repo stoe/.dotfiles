@@ -15,7 +15,7 @@
   prune = true
 
 [gpg]
-  program = gpg
+  program = gpg2
   # format = x509
 
 [gpg "x509"]
