@@ -12,10 +12,7 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
@@ -40,16 +37,15 @@
     "*.config": "ssh_config"
   },
   "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/.git": false
+  },
   "git.confirmSync": false,
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
   "gitlens.blame.avatars": false,
-  "gitlens.blame.highlight.locations": [
-    "gutter",
-    "line",
-    "overview"
-  ],
+  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
@@ -60,10 +56,7 @@
   "gitlens.views.lineHistory.enabled": false,
   "gitlens.views.repositories.enabled": false,
   "[git-commit]": {
-    "editor.rulers": [
-      72,
-      50
-    ],
+    "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
   "javascript.updateImportsOnFileMove.enabled": "prompt",
@@ -75,6 +68,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "markdownTableFormatter.enable": true,
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
@@ -82,14 +79,15 @@
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "prettier.bracketSpacing": false,
+  "search.exclude": {
+    "**/.git": true
+  },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.shellArgs.osx": [
-    "-l"
-  ],
+  "terminal.integrated.shellArgs.osx": ["-l"],
   "todohighlight.keywords": [
     {
       "backgroundColor": "none",
