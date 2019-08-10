@@ -38,7 +38,7 @@
   },
   "files.autoSave": "afterDelay",
   "files.exclude": {
-    "**/.git": false
+    "**/.git": true
   },
   "git.confirmSync": false,
   "gitlens.advanced.messages": {
