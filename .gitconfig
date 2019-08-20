@@ -15,7 +15,7 @@
   prune = true
 
 [gpg]
-  program = gpg2
+  program = /usr/local/bin/gpg
   # format = x509
 
 [gpg "x509"]
@@ -125,6 +125,7 @@
   pr = pull-request
   idiff = difftool -t icdiff
   pc = !git up && git bclean
+  issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
 
 [log]
   showSignature = false
