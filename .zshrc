@@ -1,5 +1,5 @@
-export LC_CTYPE=en_AU.UTF-8
-export LC_ALL=en_AU.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # shortcut to this dotfiles path is $DFH
 export DFH=$HOME/private/dotfiles
