@@ -41,7 +41,7 @@ alias lpclean="defaults write com.apple.dock ResetLaunchPad -bool true; killall 
 alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # GitHub Professional Services PDFify
-alias ghpdf="pdfify --header ~/private/pdfify-node/assets/header.hbs --style ~/private/pdfify-node/assets/style.css"
+alias ghpdf="pdfify --header ~/private/xify-old/pdfify-node/assets/header.hbs --style ~/private/xify-old/pdfify-node/assets/style.css"
 
 # Pipe my public key to my clipboard.
 alias pubkey-stoe="more ~/.ssh/id_rsa_stoe.pub | pbcopy | echo '=> stoe public key copied to pasteboard'"
