@@ -9,7 +9,7 @@ export DFH=$HOME/private/dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
-export EDITOR="code --wait"
+export EDITOR="${DFH}/.editor"
 export GIT_EDITOR="code --wait"
 
 setopt HIST_IGNORE_ALL_DUPS    # Delete old recorded entry if new entry is a duplicate.
