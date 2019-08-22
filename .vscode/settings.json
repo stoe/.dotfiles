@@ -1,5 +1,7 @@
 {
   "atomKeymap.promptV3Features": true,
+  "cSpell.enabled": true,
+  "cSpell.language": "en,de",
   "debug.console.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
@@ -76,7 +78,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "markdownTableFormatter.enable": true,
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
