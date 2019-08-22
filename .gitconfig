@@ -124,7 +124,7 @@
   me = !git config --get user.name && git config --get user.email
   pr = pull-request
   idiff = difftool -t icdiff
-  pc = !git up && git bclean
+  pc = !git pull && git bclean
   issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
 
 [log]
