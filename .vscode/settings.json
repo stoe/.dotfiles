@@ -94,6 +94,19 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "enabled": false,
+    "args": []
+  },
   "todohighlight.keywords": [
     {
       "backgroundColor": "none",
