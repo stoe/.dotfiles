@@ -46,16 +46,16 @@
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
-  "gitlens.blame.avatars": false,
+  "gitlens.blame.avatars": true,
   "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
-  "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.enabled": true,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
-  "gitlens.hovers.enabled": false,
+  "gitlens.hovers.enabled": true,
   "gitlens.settings.mode": "advanced",
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
-  "gitlens.views.lineHistory.enabled": false,
+  "gitlens.views.lineHistory.enabled": true,
   "gitlens.views.repositories.enabled": false,
   "[git-commit]": {
     "editor.rulers": [72, 50],
