@@ -96,6 +96,7 @@
     "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
+  "go.gopath": "/Users/stoe/.go",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
