@@ -7,7 +7,7 @@ eval "$(rbenv init -)"
 
 # Go
 export PATH="/usr/local/opt/go/libexec/bin:${PATH}"
-export GOPATH=$(go env GOPATH)
+export GOPATH="${HOME}/.go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 # Python
