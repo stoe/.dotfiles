@@ -37,11 +37,12 @@
     "yaml",
     "yml"
   ],
-  "debug.console.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
+  "editor.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
