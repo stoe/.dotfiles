@@ -1,14 +1,14 @@
 module.exports = {
   config: {
-    shell: "/bin/zsh",
+    shell: '/bin/zsh',
     fontSize: 16,
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
-    cursorShape: "BEAM",
+    fontFamily: "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+    cursorShape: 'BEAM',
     cursorBlink: false,
     colors: {},
     windowSize: [1706, 1062],
     hyperlinks: {
-      clickAction: "open",
+      clickAction: 'open',
       defaultBrowser: true
     },
     hyperStatusLine: {
@@ -19,6 +19,6 @@ module.exports = {
       tabIconsColored: true
     }
   },
-  plugins: ["hyperlinks", "hyper-pane", "hyper-tabs-enhanced", "nord-hyper"],
+  plugins: ['hyperlinks', 'hyper-pane', 'hyper-tabs-enhanced', 'hyper-nord'],
   localPlugins: []
 };
