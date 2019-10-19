@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -27,10 +29,6 @@ test -f "$HOME/.zshrc_local" && source "$HOME/.zshrc_local"
 autoload -U compinit
 compinit
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -43,11 +41,15 @@ if ! zgen saved; then
     # plugins
     zgen oh-my-zsh plugins/brew
     zgen oh-my-zsh plugins/colored-man-pages
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/gitignore
+    zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/nvm
+    zgen oh-my-zsh plugins/terraform
     zgen load pbar1/zsh-terraform
 
     # zgen oh-my-zsh plugins/command-not-found
@@ -63,6 +65,8 @@ if ! zgen saved; then
     # save all to init script
     zgen save
 fi
+
+test -f "$HOME/.zsh-theme" && source "$HOME/.zsh-theme"
 
 # https://github.com/pstadler/keybase-gpg-github
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
