@@ -126,6 +126,8 @@
   "search.exclude": {
     "**/.git": true
   },
+  "shellcheck.exclude": [1071],
+  "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
