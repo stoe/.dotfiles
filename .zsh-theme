@@ -22,13 +22,16 @@ if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$red%}%? ↵%{$reset_color%})"
 
 function tf_prompt_info() {
-    # dont show 'default' workspace in home dir
-    [[ "$PWD" == ~ ]] && return
-    # check if in terraform dir
-    if [ -d .terraform ]; then
-      workspace=$(terraform workspace show 2> /dev/null) || return
-      echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
-    fi
+  [[ $(which terraform &> /dev/null) == "" ]] || return
+
+  # dont show 'default' workspace in home dir
+  [[ "$PWD" == ~ ]] && return
+
+  # check if in terraform dir
+  if [ -d .terraform ]; then
+    workspace=$(terraform workspace show 2> /dev/null) || return
+    echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
+  fi
 }
 
 function virtualenv_prompt_info(){
@@ -36,10 +39,9 @@ function virtualenv_prompt_info(){
   echo "%{$grey%}venv(%{$magenta%}${VIRTUAL_ENV:t}%{$grey%})%{$reset_color%} "
 }
 
-# disables prompt mangling in virtual_env/bin/activate
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 function golang_prompt_info {
+  [[ $(which go &> /dev/null) == "" ]] || return
+
   setopt local_options BASH_REMATCH
 
   local version=$(go version)
@@ -49,6 +51,9 @@ function golang_prompt_info {
     echo "%{$grey%}go(%{$cyan%}${BASH_REMATCH[1]}%{$grey%})%{$reset_color%} "
   fi
 }
+
+# disables prompt mangling in virtual_env/bin/activate
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
