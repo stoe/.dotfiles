@@ -71,8 +71,11 @@
     "**/*ansible*/**/*.yml": "ansible",
     "**/vars/**/*.yml": "ansible",
     "**/inventory/*/*": "ansible",
+    "**/ansible/hosts": "ansible",
     "*.workflow": "hcl",
-    "*.config": "ssh_config"
+    "*.config": "ssh_config",
+    "config": "ssh_config",
+    "known_hosts": "ssh_config"
   },
   "files.autoSave": "afterDelay",
   "files.exclude": {
@@ -120,9 +123,6 @@
     "editor.formatOnSave": false
   },
   "polacode.transparentBackground": true,
-  "prettier.eslintIntegration": true,
-  "prettier.singleQuote": true,
-  "prettier.bracketSpacing": false,
   "search.exclude": {
     "**/.git": true
   },
