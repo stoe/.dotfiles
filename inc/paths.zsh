@@ -1,24 +1,23 @@
+export PATH="/usr/local/bin:${PATH}"
+export PATH="/usr/local/lib:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
+
 # user `bin/`
 export PATH="${HOME}/bin:${PATH}"
+
+# Go
+export GOPATH="${HOME}/.go"
+export GOBIN="${GOPATH}/bin"
+
+export PATH="/usr/local/opt/go/libexec/bin:${PATH}"
+export PATH="${GOBIN}:${PATH}"
+
+# Python
+export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 
 # Ruby
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
 
-# Go
-export PATH="/usr/local/opt/go/libexec/bin:${PATH}"
-export GOPATH="${HOME}/.go"
-export PATH="${GOPATH}/bin:${PATH}"
-
-# Python
-export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
-
-# Travis CI
-# added by travis gem
-[ -f "${HOME}/.travis/travis.sh" ] && source "${HOME}/.travis/travis.sh"
-
-# GitHub Services Training
-test -f "${HOME}/.trainingmanualrc" && source "${HOME}/.trainingmanualrc"
-
-# terraform
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+# Terraform
+export PATH="/usr/local/opt/terraform@0.11/bin:${PATH}"
