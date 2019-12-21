@@ -1,6 +1,6 @@
 {
   "atomKeymap.promptV3Features": true,
-  "cSpell.enabled": true,
+  "cSpell.enabled": false,
   "cSpell.language": "en,de",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -50,7 +50,10 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
@@ -75,9 +78,13 @@
     "*.workflow": "hcl",
     "*.config": "ssh_config",
     "config": "ssh_config",
-    "known_hosts": "ssh_config"
+    "known_hosts": "ssh_config",
+    "*.ndjson": "ndjson",
+    "*.scpt": "applescript"
   },
   "files.autoSave": "afterDelay",
+  "files.defaultLanguage": "markdown",
+  "files.eol": "\n",
   "files.exclude": {
     "**/.git": true
   },
@@ -86,7 +93,11 @@
     "suppressCommitHasNoPreviousCommitWarning": false
   },
   "gitlens.blame.avatars": true,
-  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
+  "gitlens.blame.highlight.locations": [
+    "gutter",
+    "line",
+    "overview"
+  ],
   "gitlens.codeLens.enabled": true,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
@@ -97,10 +108,28 @@
   "gitlens.views.lineHistory.enabled": true,
   "gitlens.views.repositories.enabled": false,
   "[git-commit]": {
-    "editor.rulers": [72, 50],
+    "editor.rulers": [
+      72,
+      50
+    ],
     "editor.wordWrap": "off"
   },
   "go.gopath": "/Users/stoe/.go",
+  "go.useLanguageServer": false,
+  "[go]": {
+    "editor.snippetSuggestions": "none",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "gopls": {
+    "usePlaceholders": true, // add parameter placeholders when completing a function
+    // Experimental settings
+    "completeUnimported": true, // autocomplete unimported packages
+    "watchFileChanges": true, // watch file changes outside of the editor
+    "deepCompletion": true // enable deep completion
+  },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -126,22 +155,29 @@
   "search.exclude": {
     "**/.git": true
   },
-  "shellcheck.exclude": [1071],
+  "shellcheck.exclude": [
+    1071
+  ],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.shellArgs.osx": ["-l"],
+  "terminal.integrated.shellArgs.osx": [
+    "-l"
+  ],
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
     "delay": 500,
-    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
   },
   "terraform.languageServer": {
-    "enabled": false,
+    "enabled": true,
     "args": []
   },
   "todohighlight.keywords": [
