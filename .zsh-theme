@@ -52,12 +52,25 @@ function golang_prompt_info {
   fi
 }
 
+function gitversion_prompt_info {
+  [[ $(which git &> /dev/null) == "" ]] || return
+
+  setopt local_options BASH_REMATCH
+
+  local version=$(git --version)
+  local regex="([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})"
+
+  if [[ $version =~ $regex ]]; then
+    echo "%{$grey%}git(%{$blue%}${BASH_REMATCH[1]}%{$grey%})%{$reset_color%} "
+  fi
+}
+
 # disables prompt mangling in virtual_env/bin/activate
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
-$(nvm_prompt_info)$(golang_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)$(git_prompt_info)
+$(gitversion_prompt_info)$(nvm_prompt_info)$(golang_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)$(git_prompt_info)
 \
 %{$blue%}%~%{$reset_color%} $grey%(!.#.»)%{$reset_color%} '
 
@@ -68,11 +81,11 @@ RPS1='${return_code}'
 RPROMPT='%{$grey%}%n@%m%{$reset_color%}%'
 
 # git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}git(%{$green%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}[%{$yellow%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$orange%}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$grey%})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$grey%}]%{$reset_color%}"
 
 # nvm settings
-ZSH_THEME_NVM_PROMPT_PREFIX="%{$grey%}nvm(%{$yellow%}"
+ZSH_THEME_NVM_PROMPT_PREFIX="%{$grey%}nvm(%{$green%}"
 ZSH_THEME_NVM_PROMPT_SUFFIX="%{$grey%})%{$reset_color%} "
