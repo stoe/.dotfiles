@@ -18,6 +18,7 @@ export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 # Ruby
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Terraform
 export PATH="/usr/local/opt/terraform@0.11/bin:${PATH}"
