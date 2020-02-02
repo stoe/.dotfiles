@@ -50,10 +50,7 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
@@ -93,11 +90,7 @@
     "suppressCommitHasNoPreviousCommitWarning": false
   },
   "gitlens.blame.avatars": true,
-  "gitlens.blame.highlight.locations": [
-    "gutter",
-    "line",
-    "overview"
-  ],
+  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
   "gitlens.codeLens.enabled": true,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
@@ -108,10 +101,7 @@
   "gitlens.views.lineHistory.enabled": true,
   "gitlens.views.repositories.enabled": false,
   "[git-commit]": {
-    "editor.rulers": [
-      72,
-      50
-    ],
+    "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
   "go.gopath": "/Users/stoe/.go",
@@ -130,6 +120,7 @@
     "watchFileChanges": true, // watch file changes outside of the editor
     "deepCompletion": true // enable deep completion
   },
+  "javascript.referencesCodeLens.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -155,31 +146,28 @@
   "search.exclude": {
     "**/.git": true
   },
-  "shellcheck.exclude": [
-    1071
-  ],
+  "shellcheck.exclude": [1071],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.shellArgs.osx": [
-    "-l"
-  ],
+  "terminal.integrated.shellArgs.osx": ["-l"],
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
     "delay": 500,
-    "exclude": [
-      ".terraform/**/*",
-      "**/.terraform/**/*"
-    ]
+    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
   },
   "terraform.languageServer": {
-    "enabled": true,
+    "enabled": false,
     "args": []
   },
+  "terraform.telemetry.enabled": false,
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.general.tags": ["DEBUG", "FIXME", "REVIEW", "NOTE", "TODO"],
+  "todo-tree.highlights.enabled": false,
   "todohighlight.keywords": [
     {
       "backgroundColor": "none",
