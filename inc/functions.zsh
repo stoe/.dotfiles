@@ -174,13 +174,15 @@ function brewup() {
     ok "Nothing to do"
   fi
 
-  section "Doctor & Cleanup"
-  formatexec "$_brew doctor"
-  echo
+  section "Cleanup"
   formatexec "$_brew cleanup"
 
-  echo
+  section "Doctor"
+  formatexec "$_brew doctor"
+
   ok "DONE"
+
+  unset $ask;
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
