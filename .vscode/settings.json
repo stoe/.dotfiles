@@ -105,7 +105,7 @@
     "editor.wordWrap": "off"
   },
   "go.gopath": "/Users/stoe/.go",
-  "go.useLanguageServer": false,
+  "go.useLanguageServer": true,
   "[go]": {
     "editor.snippetSuggestions": "none",
     "editor.formatOnSave": true,
@@ -117,7 +117,6 @@
     "usePlaceholders": true, // add parameter placeholders when completing a function
     // Experimental settings
     "completeUnimported": true, // autocomplete unimported packages
-    "watchFileChanges": true, // watch file changes outside of the editor
     "deepCompletion": true // enable deep completion
   },
   "javascript.referencesCodeLens.enabled": false,
@@ -138,6 +137,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "markdown.extension.toc.levels": "3..4",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
@@ -168,6 +168,7 @@
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.general.tags": ["DEBUG", "FIXME", "REVIEW", "NOTE", "TODO"],
   "todo-tree.highlights.enabled": false,
+  "todo-tree.tree.showScanModeButton": false,
   "todohighlight.keywords": [
     {
       "backgroundColor": "none",
