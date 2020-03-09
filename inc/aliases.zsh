@@ -52,3 +52,6 @@ alias pubkey="pubkey-stoe"
 alias npmla="npm la --depth=0"
 alias npmll="npm ll --depth=0"
 alias npmls="npm ls --depth=0"
+
+# https://www.martin-brennan.com/set-timezone-from-terminal-osx/
+alias settz="sudo systemsetup -settimezone $@"
