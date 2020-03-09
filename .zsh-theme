@@ -2,7 +2,6 @@
 
 # based on
 #   - https://github.com/andyfleming/oh-my-zsh/blob/master/themes/af-magic.zsh-theme
-#   - https://github.com/andyfleming/oh-my-zsh/blob/master/themes/af-magic.zsh-theme
 
 # color vars
 eval red='$fg[red]'
@@ -45,7 +44,7 @@ function golang_prompt_info {
   setopt local_options BASH_REMATCH
 
   local version=$(go version)
-  local regex="([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})"
+  local regex="([0-9]{1,2}.[0-9]{1,2}[.[0-9]{1,2}]*)"
 
   if [[ $version =~ $regex ]]; then
     echo "%{$grey%}go(%{$cyan%}${BASH_REMATCH[1]}%{$grey%})%{$reset_color%} "
@@ -58,7 +57,7 @@ function gitversion_prompt_info {
   setopt local_options BASH_REMATCH
 
   local version=$(git --version)
-  local regex="([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})"
+  local regex="([0-9]{1,2}.[0-9]{1,2}[.[0-9]{1,2}]*)"
 
   if [[ $version =~ $regex ]]; then
     echo "%{$grey%}git(%{$blue%}${BASH_REMATCH[1]}%{$grey%})%{$reset_color%} "
@@ -70,7 +69,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
-$(gitversion_prompt_info)$(nvm_prompt_info)$(golang_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)$(git_prompt_info)
+$(gitversion_prompt_info)$(golang_prompt_info)$(nvm_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)$(git_prompt_info)
 \
 %{$blue%}%~%{$reset_color%} $grey%(!.#.»)%{$reset_color%} '
 
