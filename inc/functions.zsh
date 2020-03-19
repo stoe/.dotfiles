@@ -185,36 +185,34 @@ function brewup() {
   unset $ask;
 }
 
-# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+# Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
-  local tmpFile="${@%/}.tar"
+  section "Compressing ${@} ..."
 
-  formatexec "tar -cvf ${tmpFile} --exclude=.DS_Store --exclude=node_modules --exclude=.git ${@} || return 1"
-
-  size=$(
-    stat -f"%z" "${tmpFile}" 2> /dev/null;   # OS X `stat`
-    stat -c"%s" "${tmpFile}" 2> /dev/null    # GNU `stat`
-  )
-
+  local size=$(du -ck ${@} | tail -n 1 | awk '{print $1}')
   local cmd=""
+  local progress=""
 
-  if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
-    # the .tar file is smaller than 50 MB and Zopfli is available; use it
+  if (( size < 51200 )) && hash zopfli 2> /dev/null; then
+    # the content is less than 50 MB and zopfli is available; use it
     cmd="zopfli"
   else
     if hash pigz 2> /dev/null; then
+      # pigz is available; use it
       cmd="pigz"
     else
       cmd="gzip"
     fi
   fi
 
-  section "Compressing .tar using ${cmd}"
+  if (( size > 524288 )); then
+    # the content is greater than 0.5GB; show a progress bar
+    progress="pv -s $((${size} * 1024)) | "
+  fi
 
-  formatexec "${cmd} -v ${tmpFile} || return 1"
-  [ -f "${tmpFile}" ] && rm "${tmpFile}"
+  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tgz || return 1"
 
-  ok "${tmpFile}.gz created successfully."
+  ok "${@}.tgz created successfully."
 }
 
 # Extract any archive.
