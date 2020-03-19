@@ -1,42 +1,5 @@
 {
   "atomKeymap.promptV3Features": true,
-  "cSpell.enabled": false,
-  "cSpell.language": "en,de",
-  "cSpell.enabledLanguageIds": [
-    "asciidoc",
-    "c",
-    "cpp",
-    "csharp",
-    "css",
-    "git-commit",
-    "go",
-    "handlebars",
-    "haskell",
-    "html",
-    "jade",
-    "java",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "jsonc",
-    "latex",
-    "less",
-    "markdown",
-    "php",
-    "plaintext",
-    "pug",
-    "python",
-    "restructuredtext",
-    "rust",
-    "scala",
-    "scss",
-    "shellscript",
-    "text",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-    "yml"
-  ],
   "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
@@ -62,22 +25,12 @@
     ".env": "dotenv",
     "credentials": "properties",
     "*.tf": "terraform",
-    "**/defaults/**/*": "ansible",
-    "**/tasks/**/*.yml": "ansible",
-    "**/handler/*.yml": "ansible",
-    "**/*_vars/**/*.yml": "ansible",
-    "**/roles/**/*.yml": "ansible",
-    "**/playbooks/**/*.yml": "ansible",
-    "**/*ansible*/**/*.yml": "ansible",
-    "**/vars/**/*.yml": "ansible",
-    "**/inventory/*/*": "ansible",
-    "**/ansible/hosts": "ansible",
-    "*.workflow": "hcl",
     "*.config": "ssh_config",
     "config": "ssh_config",
     "known_hosts": "ssh_config",
     "*.ndjson": "ndjson",
-    "*.scpt": "applescript"
+    "*.scpt": "applescript",
+    ".github/workflows/*.yml": "yaml"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -113,12 +66,6 @@
       "source.organizeImports": true
     }
   },
-  "gopls": {
-    "usePlaceholders": true, // add parameter placeholders when completing a function
-    // Experimental settings
-    "completeUnimported": true, // autocomplete unimported packages
-    "deepCompletion": true // enable deep completion
-  },
   "javascript.referencesCodeLens.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
@@ -142,7 +89,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "polacode.transparentBackground": true,
   "search.exclude": {
     "**/.git": true
   },
@@ -211,7 +157,6 @@
   "workbench.panel.defaultLocation": "right",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.feedback.visible": false,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
