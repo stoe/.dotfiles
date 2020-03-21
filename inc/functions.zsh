@@ -147,15 +147,16 @@ function dclean() {
 # thanks https://github.com/fvdm
 function brewup() {
   local _brew=$(which brew)
+  local _mas=$(which mas)
 
   formatexec "$_brew update"
 
   section "Fetching packages list"
 
-  local _brewsy=`$_brew outdated | wc -l | awk '{print $1}'`
+  local _brews=`$_brew outdated | wc -l | awk '{print $1}'`
 
-  if [ "$_brewsy" != 0 ]; then
-    print -P "%F{3}Outdated packages:%f" "$_brewsy"
+  if [ "$_brews" != 0 ]; then
+    print -P "%F{3}Outdated packages:%f" "$_brews"
     echo
     formatexec "$_brew outdated"
 
@@ -167,6 +168,54 @@ function brewup() {
 
     if [ "$ask" = "y" ]; then
       formatexec "$_brew upgrade"
+    else
+      ok "OK, not doing anything"
+    fi
+  else
+    ok "Nothing to do"
+  fi
+
+  section "Fetching cask list"
+
+  local _casks=`$_brew cask outdated | wc -l | awk '{print $1}'`
+
+  if [ "$_casks" != 0 ]; then
+    print -P "%F{3}Outdated casks:%f" "$_casks"
+    echo
+    formatexec "$_brew cask outdated"
+
+    if [ "$1" != "-y" ]; then
+      question "Update these casks?" "yn"
+      read -rs -k 1 ask
+      print -P "%F{8}> $ask%f"
+    fi
+
+    if [ "$ask" = "y" ]; then
+      formatexec "$_brew cask upgrade"
+    else
+      ok "OK, not doing anything"
+    fi
+  else
+    ok "Nothing to do"
+  fi
+
+  section "Fetching mas list"
+
+  local _apps=`$_mas outdated | wc -l | awk '{print $1}'`
+
+  if [ "$_apps" != 0 ]; then
+    print -P "%F{3}Outdated casks:%f" "$_apps"
+    echo
+    formatexec "$_mas outdated"
+
+    if [ "$1" != "-y" ]; then
+      question "Update these apps?" "yn"
+      read -rs -k 1 ask
+      print -P "%F{8}> $ask%f"
+    fi
+
+    if [ "$ask" = "y" ]; then
+      formatexec "$_mas upgrade"
     else
       ok "OK, not doing anything"
     fi
