@@ -126,6 +126,15 @@
   idiff = difftool -t icdiff
   pc = !git pull && git bclean
   issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
+  # https://github.com/ahmadawais/Emoji-Log
+  new = "!f() { git commit -m \"📦 NEW: $@\"; }; f"
+  imp = "!f() { git commit -m \"🤘 IMPROVE: $@\"; }; f"
+  fix = "!f() { git commit -m \"🐛 FIX: $@\"; }; f"
+  rlz = "!f() { git commit -m \"🚀 RELEASE: $@\"; git tag \"$@\"; }; f"
+  doc = "!f() { git commit -m \"📖 DOC: $@\"; }; f"
+  tst = "!f() { git commit -m \"🤖 TEST: $@\"; }; f"
+  brk = "!f() { git commit -m \"!! BREAKING: $@\"; }; f"
+
 
 [log]
   showSignature = false
