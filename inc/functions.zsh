@@ -259,7 +259,7 @@ function targz() {
     progress="pv -s $((${size} * 1024)) | "
   fi
 
-  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tgz || return 1"
+  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tgz || return 1"
 
   ok "${@}.tgz created successfully."
 }
