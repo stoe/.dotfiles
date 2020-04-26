@@ -18,9 +18,9 @@
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
-  "editor.wrappingIndent": "indent",
+  "editor.wrappingIndent": "deepIndent",
   "extensions.showRecommendationsOnlyOnDemand": true,
   "files.associations": {
     ".env": "dotenv",
@@ -92,6 +92,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..4",
   "prettier.arrowParens": "always",
   "prettier.printWidth": 120,
@@ -181,5 +183,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
+  },
+  "yaml.schemas": {
+    "file:///Users/stoe/private/dotfiles/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/workflow.schema.json": "/.github/workflows/*.yml",
+    "file:///Users/stoe/private/dotfiles/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/action.schema.json": "/action.yml"
   }
 }
