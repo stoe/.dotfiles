@@ -31,7 +31,8 @@
     "known_hosts": "ssh_config",
     "*.ndjson": "ndjson",
     "*.scpt": "applescript",
-    ".github/workflows/*.yml": "yaml"
+    ".github/workflows/*.yml": "yaml",
+    "azure-pipelines.yml": "azure-pipelines"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
