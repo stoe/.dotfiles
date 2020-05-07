@@ -1,18 +1,3 @@
-# open in Atom.app
-function a() {
-  if ! $(which atom &>/dev/null); then
-    abort "Please install Atom.app first"
-  else
-    if [ $# -eq 0 ]; then
-      # no arguments opens current directory
-      atom .
-    else
-      # otherwise opens the given location
-      atom "$@"
-    fi
-  fi
-}
-
 # open in Visual Studio Code.app
 function c() {
   if ! $(which code &>/dev/null); then
