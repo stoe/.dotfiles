@@ -16,14 +16,3 @@ compinit
 if [[ $OSTYPE =~ "darwin" ]]; then
   source $(pwd)/.zshrc.macos
 fi
-
-# grc overides for ls
-#   Made possible through contributions from generous benefactors like
-#   `brew install coreutils`
-# !! moved here as otherwise it didn't work ¯\_(ツ)_/¯
-if test gls; then
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-  alias ls="gls -F --color"
-fi
