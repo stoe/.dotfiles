@@ -14,5 +14,5 @@ autoload -U compinit
 compinit
 
 if [[ $OSTYPE =~ "darwin" ]]; then
-  source $(pwd)/.zshrc.macos
+  source $HOME/.zshrc.macos
 fi
