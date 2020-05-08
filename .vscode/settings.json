@@ -1,5 +1,4 @@
 {
-  "atomKeymap.promptV3Features": true,
   "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
@@ -50,7 +49,6 @@
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
   "gitlens.hovers.enabled": true,
-  "gitlens.settings.mode": "advanced",
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
   "gitlens.views.lineHistory.enabled": true,
@@ -177,16 +175,11 @@
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
-  // "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
-  "yaml.schemas": {
-    "file:///Users/stoe/private/dotfiles/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/workflow.schema.json": "/.github/workflows/*.yml",
-    "file:///Users/stoe/private/dotfiles/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/action.schema.json": "/action.yml"
   }
 }
