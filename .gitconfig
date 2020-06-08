@@ -5,6 +5,10 @@
 [hub]
   protocol = ssh
 
+# Enforce SSH
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
 # [http]
 #   sslVerify = false
 
@@ -97,6 +101,9 @@
   # Setting to git 2.0 default to surpress warning message
   default = simple
 
+[pull]
+  rebase = true
+
 [rebase]
   autoStash = true
 
@@ -108,7 +115,8 @@
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
   # Show verbose output about tags, branches or remotes
-  tags = tag -l
+  # tags = tag -l
+  tags = log --no-walk --tags --pretty=format:'%C(auto)%h %G? %d %s' --decorate=full
   tag = tag -s
   branches = branch -avv
   remotes = remote -v
@@ -129,7 +137,7 @@
   new = "!f() { git commit -m \"📦 $@\"; }; f"
   imp = "!f() { git commit -m \"🤘 $@\"; }; f"
   fix = "!f() { git commit -m \"🐛 $@\"; }; f"
-  rlz = "!f() { git commit -m \"🚀 $@\" --allow-empty; git tag -s \"$@\" -m \"$@\"; }; f"
+  rlz = "!f() { git commit -m \"🚀 $1\" --allow-empty; git tag \"$1\" -m \"$2\" -s; }; f"
   brk = "!f() { git commit -m \"‼ $@\"; }; f"
   doc = "!f() { git commit -m \"📖 $@\"; }; f"
   tst = "!f() { git commit -m \"🤖 $@\"; }; f"
