@@ -94,6 +94,7 @@
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..4",
+  "polacode.shadow": "rgba(31, 36, 40, 0.32) 0px 20px 68px",
   "prettier.arrowParens": "always",
   "prettier.printWidth": 120,
   "prettier.proseWrap": "preserve",
