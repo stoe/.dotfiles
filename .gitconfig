@@ -25,9 +25,6 @@
 [gpg "x509"]
   program = smimesign
 
-[commit]
-  gpgsign = true
-
 [tag]
   forceSignAnnotated = true
 
@@ -94,12 +91,16 @@
 [help]
   autocorrect = 1
 
+[commit]
+  gpgsign = true
+
 [push]
   # See `git help config` (search for push.default)
   # for more information on different options of the below setting.
   #
   # Setting to git 2.0 default to surpress warning message
   default = simple
+  gpgsign = if-asked
 
 [pull]
   rebase = true
@@ -107,16 +108,20 @@
 [rebase]
   autoStash = true
 
+[pretty]
+  changelog = * %h %s
+  info = %C(auto)%h %G? %d %s
+
 [alias]
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
-  lg = log --pretty=format:'%C(auto)%h %G? %d %s' --graph --all -n 10
+  lg = log --pretty=info --graph --all -n 10
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
   # Show verbose output about tags, branches or remotes
   # tags = tag -l
-  tags = log --no-walk --tags --pretty=format:'%C(auto)%h %G? %d %s' --decorate=full
+  tags = log --no-walk --tags --pretty=info --decorate=full
   tag = tag -s
   branches = branch -avv
   remotes = remote -v
