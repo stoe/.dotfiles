@@ -129,8 +129,9 @@
     "exclude": [".terraform/**/*", "**/.terraform/**/*"]
   },
   "terraform.languageServer": {
-    "enabled": false,
-    "args": []
+    "external": false,
+    "pathToBinary": "/usr/local/bin/terraform",
+    "trace.server": "off"
   },
   "terraform.telemetry.enabled": false,
   "todo-tree.filtering.ignoreGitSubmodules": true,

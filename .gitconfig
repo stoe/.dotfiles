@@ -6,7 +6,7 @@
   protocol = ssh
 
 # Enforce SSH
-[url "ssh://git@github.com/"]
+[url "git@github.com:"]
   insteadOf = https://github.com/
 
 # [http]
@@ -111,11 +111,13 @@
 [pretty]
   changelog = * %h %s
   info = %C(auto)%h %G? %d %s
+  json = {\"sha\":\"%H\",\"author\":{\"userid\":\"%aN\",\"email\":\"%aE\",\"date\":%at},\"commiter\":{\"userid\":\"%cN\",\"email\":\"%cE\",\"date\":%ct},\"message\":\"%s\",\"tree_sha\":\"%T\",\"parents\":\"%P\"}
 
 [alias]
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
   lg = log --pretty=info --graph --all -n 10
+  lj = "!f() { git log --pretty=json -n \"${1:-5}\" | jq -c; }; f"
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
