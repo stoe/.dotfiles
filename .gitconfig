@@ -89,7 +89,7 @@
   trustExitCode = true
 
 [help]
-  autocorrect = 1
+  autocorrect = 50
 
 [commit]
   gpgsign = true
@@ -114,6 +114,7 @@
   json = {\"sha\":\"%H\",\"author\":{\"userid\":\"%aN\",\"email\":\"%aE\",\"date\":%at},\"commiter\":{\"userid\":\"%cN\",\"email\":\"%cE\",\"date\":%ct},\"message\":\"%s\",\"tree_sha\":\"%T\",\"parents\":\"%P\"}
 
 [alias]
+  main = "!f() { git init; git checkout -b main; }; f"
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
   lg = log --pretty=info --graph --all -n 10

@@ -10,7 +10,7 @@ export DFH=$HOME/private/dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
-export EDITOR="${DFH}/.editor"
+export EDITOR="code --wait"
 export GIT_EDITOR="code --wait"
 
 # Stash your environment variables in ~/.zshrc_local. This means they'll stay out
