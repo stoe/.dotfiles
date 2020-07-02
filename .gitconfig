@@ -94,6 +94,12 @@
 [commit]
   gpgsign = true
 
+[fetch]
+  prune = true
+
+[pull]
+  rebase = true
+
 [push]
   # See `git help config` (search for push.default)
   # for more information on different options of the below setting.
@@ -101,9 +107,6 @@
   # Setting to git 2.0 default to surpress warning message
   default = simple
   gpgsign = if-asked
-
-[pull]
-  rebase = true
 
 [rebase]
   autoStash = true
@@ -133,13 +136,11 @@
   co = checkout
   cob = checkout -b
   ec = config --global -e
-  bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
   # show who you are committing as
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
   me = !git config --get user.name && git config --get user.email
   pr = pull-request
   idiff = difftool -t icdiff
-  pc = !git pull && git bclean
   issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
   # https://github.com/ahmadawais/Emoji-Log
   new = "!f() { git commit -m \"📦 $@\"; }; f"
