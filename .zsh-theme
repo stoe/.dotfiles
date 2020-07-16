@@ -79,9 +79,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
-$(gitversion_prompt_info)$(golang_prompt_info)$(nvm_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)$(git_prompt_info)
+$(gitversion_prompt_info)$(golang_prompt_info)$(nvm_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
 \
-%{$blue%}%~%{$reset_color%} $grey%(!.#.»)%{$reset_color%} '
+%{$blue%}%1~%{$reset_color%}$(git_prompt_info) $grey%(!.#.$)%{$reset_color%} '
 
 PROMPT2='%{$red%}\ %{$reset_color%}'
 RPS1='${return_code}'

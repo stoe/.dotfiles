@@ -42,6 +42,7 @@ alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # GitHub Professional Services PDFify
 alias ghpdf="pdfify --header ~/private/xify-old/pdfify-node/assets/header.hbs --style ~/private/xify-old/pdfify-node/assets/style.css"
+alias pdfplain="pdfify --header ~/private/xify-old/pdfify-node/assets/header-default.hbs --style ~/private/xify-old/pdfify-node/assets/style.css"
 
 # Pipe my public key to my clipboard.
 alias pubkey-stoe="more ~/.ssh/id_rsa_stoe.pub | pbcopy | echo '=> stoe public key copied to pasteboard'"
@@ -55,3 +56,6 @@ alias npmls="npm ls --depth=0"
 
 # https://www.martin-brennan.com/set-timezone-from-terminal-osx/
 alias settz="sudo systemsetup -settimezone $@"
+
+alias shadowon="defaults write com.apple.screencapture disable-shadow -bool false ; killall SystemUIServer"
+alias shadowoff="defaults write com.apple.screencapture disable-shadow -bool true ; killall SystemUIServer"

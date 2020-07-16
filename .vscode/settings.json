@@ -53,6 +53,34 @@
   "gitlens.views.search.enabled": false,
   "gitlens.views.lineHistory.enabled": true,
   "gitlens.views.repositories.enabled": false,
+  "githubIssues.queries": [
+    {
+      "label": "Assigned To Me",
+      "query": "assignee:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Created By Me",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Issues",
+      "query": "state:open repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
+  "githubPullRequests.queries": [
+    {
+      "label": "Waiting For My Review",
+      "query": "review-requested:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Assigned To Me",
+      "query": "assignee:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Created By Me",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
   "[git-commit]": {
     "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
