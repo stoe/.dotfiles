@@ -2,6 +2,9 @@
 [include]
   path = ~/.gitconfig.local
 
+[init]
+  defaultBranch = main
+
 [hub]
   protocol = ssh
 
