@@ -24,3 +24,7 @@ export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 # Ruby
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# MySQL
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
