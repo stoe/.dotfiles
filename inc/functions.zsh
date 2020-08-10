@@ -275,3 +275,22 @@ function extract () {
     abort "'$1' is not a valid file"
   fi
 }
+
+# .mov -> .gif
+function mov2gif() {
+    local file="${1%.*}"
+    local scale="${2:-600}"
+    local tmpFolder=".mov2png"
+
+    section "${1} >> ${file}.gif (scale: ${scale})"
+
+    rm -rf "${tmpFolder}" &>/dev/null
+    mkdir "${tmpFolder}" &>/dev/null
+
+    formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
+    formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
+
+    rm -rf "${tmpFolder}" &>/dev/null
+
+    ok "$(pwd)/${yellow}${file}.gif${reset_color} saved"
+}
