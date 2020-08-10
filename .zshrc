@@ -16,3 +16,5 @@ compinit
 if [[ $OSTYPE =~ "darwin" ]]; then
   source $HOME/.zshrc.macos
 fi
+
+# eval "$(starship init zsh)"

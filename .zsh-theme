@@ -79,7 +79,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
-$(gitversion_prompt_info)$(golang_prompt_info)$(nvm_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
+%{$grey%}%n@%m%{$reset_color%} $(gitversion_prompt_info)$(golang_prompt_info)$(nvm_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
 \
 %{$blue%}%1~%{$reset_color%}$(git_prompt_info) $grey%(!.#.$)%{$reset_color%} '
 
@@ -87,7 +87,7 @@ PROMPT2='%{$red%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
 # right prompt
-RPROMPT='%{$grey%}%n@%m%{$reset_color%}%'
+# RPROMPT='%{$grey%}%n@%m%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}[%{$yellow%}"

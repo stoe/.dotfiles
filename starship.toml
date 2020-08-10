@@ -1,0 +1,42 @@
+[character]
+symbol = "➜"
+error_symbol = "✗"
+use_symbol_for_status = true
+
+[aws]
+disabled = true
+symbol = " "
+
+[docker]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_status]
+prefix = ""
+suffix = " "
+
+[golang]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[terraform]
+symbol = " "
