@@ -2,7 +2,8 @@ module.exports = {
   config: {
     shell: "/bin/zsh",
     fontSize: 16,
-    fontFamily: "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+    fontFamily:
+      "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
     cursorShape: "BEAM",
     cursorBlink: false,
     colors: {},
