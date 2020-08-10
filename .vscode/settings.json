@@ -1,5 +1,5 @@
 {
-  "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -147,7 +147,7 @@
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
