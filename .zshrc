@@ -14,12 +14,11 @@ autoload -U compinit
 compinit
 
 if [[ $OSTYPE =~ "darwin" ]]; then
-  source $HOME/.zshrc.macos
+  source $HOME/.zshrc
 fi
 
 if [[ $CODESPACES ]]; then
-  # TODO
-  echo "Hello stoe"
+  source $HOME/.zshrc.codespaces
 fi
 
 # eval "$(starship init zsh)"

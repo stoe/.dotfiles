@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+[[ ! $CODESPACES ]] && return
+
+echo "hello from codespaces"
+
+alias g="git"
