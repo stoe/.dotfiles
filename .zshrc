@@ -17,4 +17,9 @@ if [[ $OSTYPE =~ "darwin" ]]; then
   source $HOME/.zshrc.macos
 fi
 
+if [[ $CODESPACES ]]; then
+  # TODO
+  echo "Hello stoe"
+fi
+
 # eval "$(starship init zsh)"
