@@ -105,4 +105,3 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 # END ANSIBLE MANAGED BLOCK
-
