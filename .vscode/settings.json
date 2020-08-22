@@ -95,15 +95,15 @@
   },
   "go.gopath": "/Users/stoe/.go",
   "go.useLanguageServer": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
   "javascript.suggest.includeAutomaticOptionalChainCompletions": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
@@ -116,13 +116,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.toc.githubCompatibility": true,
+  "markdown.extension.toc.levels": "2..4",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "markdown.extension.italic.indicator": "_",
-  "markdown.extension.toc.githubCompatibility": true,
-  "markdown.extension.toc.levels": "2..4",
   "polacode.shadow": "rgba(31, 36, 40, 0.32) 0px 20px 68px",
   "prettier.arrowParens": "always",
   "prettier.printWidth": 120,
@@ -133,6 +133,9 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  },
   "ruby.format": false,
   "ruby.lint": {
     "rubocop": {
@@ -151,6 +154,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
+  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
@@ -194,14 +198,14 @@
       "text": "TODO"
     }
   ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
   "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 1.05,
+  "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.labelFormat": "short",
