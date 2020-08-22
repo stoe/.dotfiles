@@ -49,7 +49,7 @@ if ! zgen saved; then
     # completions
 
     # theme
-    zgen oh-my-zsh themes/af-magic
+    # zgen oh-my-zsh themes/af-magic
 
     # save all to init script
     zgen save

@@ -14,7 +14,7 @@ autoload -U compinit
 compinit
 
 if [[ $OSTYPE =~ "darwin" ]]; then
-  source $HOME/.zshrc
+  source $HOME/.zshrc.macos
 fi
 
 if [[ $CODESPACES ]]; then
