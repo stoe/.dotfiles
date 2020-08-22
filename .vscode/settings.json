@@ -148,6 +148,18 @@
   },
   "shellcheck.exclude": [1071],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
+  "shellLauncher.shells.osx": [
+    {
+      "shell": "zsh"
+    },
+    {
+      "shell": "bash"
+    },
+    {
+      "shell": "pwsh",
+      "label": "powershell"
+    }
+  ],
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
