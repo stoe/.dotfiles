@@ -152,6 +152,7 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
+  "terminal.integrated.shell.linux": "/bin/zsh",
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
