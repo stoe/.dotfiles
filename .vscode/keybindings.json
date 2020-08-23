@@ -1,0 +1,40 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "cmd+b",
+        "command": "markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+t",
+      "command": "shellLauncher.launch"
+    },
+    {
+      "key": "cmd+k",
+      "command": "workbench.action.terminal.clear",
+      "when": "terminalFocus"
+    },
+    {
+      "key": "ctrl+cmd+t",
+      "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+      "key": "ctrl+alt+t",
+      "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+      "key": "shift+cmd+d",
+      "command": "workbench.action.terminal.split",
+      "when": "terminalFocus"
+    },
+    {
+      "key": "cmd+\\",
+      "command": "-workbench.action.terminal.split",
+      "when": "terminalFocus"
+    }
+]
