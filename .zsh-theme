@@ -21,7 +21,7 @@ if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$red%}%? ↵%{$reset_color%})"
 
 function tf_prompt_info() {
-  [[ $(which terraform &> /dev/null) == "" ]] || return
+  [[ $(which terraform) =~ "not found" ]] && return
 
   # dont show 'default' workspace in home dir
   [[ "$PWD" == ~ ]] && return
@@ -49,7 +49,7 @@ function virtualenv_prompt_info(){
 }
 
 function golang_prompt_info {
-  [[ $(which go &> /dev/null) == "" ]] || return
+  [[ $(which go) =~ "not found" ]] && return
 
   setopt local_options BASH_REMATCH
 
@@ -62,7 +62,7 @@ function golang_prompt_info {
 }
 
 function gitversion_prompt_info {
-  [[ $(which git &> /dev/null) == "" ]] || return
+  [[ $(which git) =~ "not found" ]] && return
 
   setopt local_options BASH_REMATCH
 
