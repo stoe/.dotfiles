@@ -95,6 +95,7 @@
     }
   },
   "go.gopath": "/Users/stoe/.go",
+  "go.formatTool": "gofmt",
   "go.useLanguageServer": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
@@ -147,7 +148,7 @@
   "search.exclude": {
     "**/.git": true
   },
-  "shellcheck.exclude": [1071],
+  "shellcheck.exclude": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellLauncher.shells.osx": [
     {
