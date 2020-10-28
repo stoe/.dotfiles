@@ -156,7 +156,7 @@
   brk = "!f() { git commit -m \"‼ $@\"; }; f"
   doc = "!f() { git commit -m \"📖 $@\"; }; f"
   tst = "!f() { git commit -m \"🤖 $@\"; }; f"
-  dep = "!f() { git commit -m \"🆙 Update dependencies\"; }; f"
+  dep = "!f() { git commit -m \"🆙 ${@:-Update dependencies}\"; }; f"
   typo = "!f() { git commit -m \"🔡 ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree
