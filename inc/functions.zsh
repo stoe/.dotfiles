@@ -131,43 +131,15 @@ function dclean() {
 # see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
 # thanks https://github.com/fvdm
 function brewup() {
-  local _brew=$(which brew)
-  local _mas=$(which mas)
-
-  formatexec "$_brew update"
-
-  section "Fetching packages list"
-
-  local _brews=`$_brew outdated | wc -l | awk '{print $1}'`
-
-  if [ "$_brews" != 0 ]; then
-    print -P "%F{3}Outdated packages:%f" "$_brews"
-    echo
-    formatexec "$_brew outdated"
-
-    if [ "$1" != "-y" ]; then
-      question "Update these packages?" "yn"
-      read -rs -k 1 ask
-      print -P "%F{8}> $ask%f"
-    fi
-
-    if [ "$ask" = "y" ]; then
-      formatexec "$_brew upgrade"
-    else
-      ok "OK, not doing anything"
-    fi
-  else
-    ok "Nothing to do"
-  fi
+  formatexec "brew update"
 
   section "Fetching cask list"
 
-  local _casks=`$_brew cask outdated | wc -l | awk '{print $1}'`
+  local _casks=$(brew outdated --cask | wc -l | awk '{print $1}')
 
   if [ "$_casks" != 0 ]; then
     print -P "%F{3}Outdated casks:%f" "$_casks"
-    echo
-    formatexec "$_brew cask outdated"
+    brew outdated --cask --verbose | grep -v '(latest)' | awk '{print $1}'
 
     if [ "$1" != "-y" ]; then
       question "Update these casks?" "yn"
@@ -176,7 +148,7 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      formatexec "$_brew cask upgrade"
+      brew outdated --cask --verbose | grep -v '(latest)' | awk '{print $1}' | xargs brew upgrade --cask
     else
       ok "OK, not doing anything"
     fi
@@ -186,12 +158,11 @@ function brewup() {
 
   section "Fetching mas list"
 
-  local _apps=`$_mas outdated | wc -l | awk '{print $1}'`
+  local _apps=`mas outdated | wc -l | awk '{print $1}'`
 
   if [ "$_apps" != 0 ]; then
     print -P "%F{3}Outdated casks:%f" "$_apps"
-    echo
-    formatexec "$_mas outdated"
+    mas outdated
 
     if [ "$1" != "-y" ]; then
       question "Update these apps?" "yn"
@@ -200,7 +171,30 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      formatexec "$_mas upgrade"
+      mas upgrade
+    else
+      ok "OK, not doing anything"
+    fi
+  else
+    ok "Nothing to do"
+  fi
+
+  section "Fetching packages list"
+
+  local _brews=`brew outdated --formula | wc -l | awk '{print $1}'`
+
+  if [ "$_brews" != 0 ]; then
+    print -P "%F{3}Outdated packages:%f" "$_brews"
+    brew outdated --formula --verbose | grep -v '(latest)' | awk '{print $1}'
+
+    if [ "$1" != "-y" ]; then
+      question "Update these packages?" "yn"
+      read -rs -k 1 ask
+      print -P "%F{8}> $ask%f"
+    fi
+
+    if [ "$ask" = "y" ]; then
+      brew outdated --formula --verbose | grep -v '(latest)' | awk '{print $1}' | xargs brew upgrade --formula
     else
       ok "OK, not doing anything"
     fi
@@ -209,14 +203,12 @@ function brewup() {
   fi
 
   section "Cleanup"
-  formatexec "$_brew cleanup"
+  formatexec "brew cleanup"
 
   section "Doctor"
-  formatexec "$_brew doctor"
+  formatexec "brew doctor"
 
   ok "DONE"
-
-  unset $ask;
 }
 
 # Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
