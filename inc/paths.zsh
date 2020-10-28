@@ -18,7 +18,7 @@ export NODE_ENV=development
 export GOPATH="${HOME}/.go"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
-export GOROOT="$(brew --prefix)/opt/go/libexec"
+export GOROOT="/usr/local/opt/go/libexec"
 export PATH="${PATH}:${GOROOT}/bin"
 
 # Python
