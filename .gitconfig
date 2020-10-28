@@ -160,6 +160,9 @@
   typo = "!f() { git commit -m \"🔡 ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree
+  # https://stackoverflow.com/a/25387310
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
 
 [log]
   showSignature = false
