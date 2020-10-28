@@ -1,5 +1,13 @@
 {
+  "azureFunctions.showProjectWarning": false,
+  "azureFunctions.validateFuncCoreTools": false,
   "codespaces.accountProvider": "GitHub",
+  "cSpell.language": "en-gb,de",
+  "cSpell.enabledLanguageIds": [
+    "markdown"
+  ],
+  "cSpell.userWords": [
+  ],
   "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.cursorStyle": "block",
@@ -33,7 +41,17 @@
     "*.ndjson": "ndjson",
     "*.scpt": "applescript",
     ".github/workflows/*.yml": "yaml",
-    "azure-pipelines.yml": "azure-pipelines"
+    "azure-pipelines.yml": "azure-pipelines",
+    "**/defaults/**/*": "ansible",
+    "**/tasks/**/*.yml" : "ansible",
+    "**/handler/*.yml" : "ansible",
+    "**/*_vars/**/*.yml" : "ansible",
+    "**/roles/**/*.yml" : "ansible",
+    "**/playbooks/**/*.yml" : "ansible",
+    "**/*ansible*/**/*.yml" : "ansible",
+    "**/vars/**/*.yml": "ansible",
+    "**/inventory/*/*": "ansible",
+    "*.rb.j2": "ruby"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -87,6 +105,10 @@
     "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
+  "go.formatTool": "gofmt",
+  "go.gopath": "~/.go",
+  "go.goroot": "~/.go",
+  "go.useLanguageServer": true,
   "[go]": {
     "editor.snippetSuggestions": "none",
     "editor.formatOnSave": false,
@@ -94,9 +116,6 @@
       "source.organizeImports": true
     }
   },
-  "go.gopath": "/Users/stoe/.go",
-  "go.formatTool": "gofmt",
-  "go.useLanguageServer": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -131,6 +150,7 @@
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
   "prettier.semi": false,
+  "prettier.resolveGlobalModules": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
@@ -170,18 +190,14 @@
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
-    "delay": 500,
-    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
-  },
   "terraform.languageServer": {
     "external": false,
     "pathToBinary": "/usr/local/bin/terraform",
     "trace.server": "off"
   },
-  "terraform.telemetry.enabled": false,
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.general.tags": ["DEBUG", "FIXME", "REVIEW", "NOTE", "TODO"],
   "todo-tree.highlights.enabled": false,
