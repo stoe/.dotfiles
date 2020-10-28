@@ -32,7 +32,7 @@ function tf_prompt_info() {
 
     setopt local_options BASH_REMATCH
 
-    local version=$(terraform version)
+    local version=$(terraform version | awk 'NR==1{print $2}')
     local regex="([0-9]{1,2}.[0-9]{1,2}[.[0-9]{1,3}]?)"
 
     if [[ $version =~ $regex ]]; then

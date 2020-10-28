@@ -76,6 +76,9 @@ if test gls; then
   alias ls="gls -F --color"
 fi
 
+if test gh; then
+  eval "$(gh completion -s zsh)"
+fi
 
 # BEGIN ANSIBLE MANAGED BLOCK
 # added by https://github.com/stoe/ansible-macos-playbook
