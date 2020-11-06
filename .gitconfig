@@ -9,9 +9,6 @@
 [init]
   defaultBranch = main
 
-[hub]
-  protocol = ssh
-
 # Enforce SSH
 [url "git@github.com:"]
   insteadOf = https://github.com/
