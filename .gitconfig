@@ -81,6 +81,10 @@
 [diff "zip"]
   textconv = unzip -c -a
 
+[diff "pandoc"]
+  textconv=pandoc --to=markdown
+  prompt = false
+
 [merge]
   tool = Kaleidoscope
 
