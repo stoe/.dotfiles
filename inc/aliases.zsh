@@ -42,6 +42,8 @@ alias pubkey-stoe="more ~/.ssh/id_rsa_stoe.pub | pbcopy | echo '=> stoe public k
 alias pubkey-git="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> GitHub public key copied to pasteboard'"
 alias pubkey="pubkey-stoe"
 
+alias gpgkey="gpg --armor --export $(git config user.signingkey) | pbcopy | echo '=> stoe gpg key copied to pasteboard'"
+
 # npm
 alias npmla="npm la --depth=0"
 alias npmll="npm ll --depth=0"
@@ -55,3 +57,4 @@ alias shadowoff="defaults write com.apple.screencapture disable-shadow -bool tru
 
 # https://github.com/sindresorhus/trash-cli
 alias rm=trash
+alias rm!=rm
