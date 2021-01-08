@@ -14,6 +14,10 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
+if type gh &>/dev/null; then
+  eval "$(gh completion -s zsh)"
+fi
+
 autoload -Uz compinit
 compinit
 

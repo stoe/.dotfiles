@@ -76,10 +76,6 @@ if test gls; then
   alias ls="gls -F --color"
 fi
 
-if test gh; then
-  eval "$(gh completion -s zsh)"
-fi
-
 PAGER=
 
 # BEGIN ANSIBLE MANAGED BLOCK
