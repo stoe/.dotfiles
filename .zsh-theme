@@ -30,16 +30,7 @@ function tf_prompt_info() {
   if [ -d .terraform ]; then
     workspace=$(terraform workspace show 2> /dev/null) || return
 
-    setopt local_options BASH_REMATCH
-
-    local version=$(terraform version | awk 'NR==1{print $2}')
-    local regex="([0-9]{1,2}.[0-9]{1,2}[.[0-9]{1,3}]?)"
-
-    if [[ $version =~ $regex ]]; then
-      echo "%{$grey%}tfw(%{$purple%}${BASH_REMATCH[1]}%{$grey%},%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
-    else
-      echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
-    fi
+    echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
   fi
 }
 

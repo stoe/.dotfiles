@@ -36,7 +36,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/gitignore
     zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/node
-    zgen oh-my-zsh plugins/npm
+    # zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/nvm
     zgen oh-my-zsh plugins/terraform
     zgen load pbar1/zsh-terraform
@@ -79,6 +79,8 @@ fi
 if test gh; then
   eval "$(gh completion -s zsh)"
 fi
+
+PAGER=
 
 # BEGIN ANSIBLE MANAGED BLOCK
 # added by https://github.com/stoe/ansible-macos-playbook

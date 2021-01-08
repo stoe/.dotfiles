@@ -10,15 +10,15 @@ setopt HIST_SAVE_NO_DUPS       # Don't write duplicate entries in the history fi
 autoload -Uz colors && colors
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -Uz compinit
 compinit
 
 if [[ $OSTYPE =~ "darwin" ]]; then
   source $HOME/.zshrc.macos
 fi
 
-if [[ $CODESPACES ]]; then
-  source $HOME/.zshrc.codespaces
-fi
-
-# eval "$(starship init zsh)"
+source <(npx --shell-auto-fallback zsh)

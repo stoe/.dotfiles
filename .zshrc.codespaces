@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-echo "hello from codespaces"
-
-alias g="git"
