@@ -11,7 +11,7 @@
         "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
     },
     {
-      "key": "ctrl+shift+t",
+      "key": "shift+alt+t",
       "command": "shellLauncher.launch"
     },
     {
@@ -30,11 +30,6 @@
     {
       "key": "shift+cmd+d",
       "command": "workbench.action.terminal.split",
-      "when": "terminalFocus"
-    },
-    {
-      "key": "cmd+\\",
-      "command": "-workbench.action.terminal.split",
       "when": "terminalFocus"
     }
 ]

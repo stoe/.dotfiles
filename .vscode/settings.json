@@ -1,6 +1,11 @@
 {
   "azureFunctions.showProjectWarning": false,
   "azureFunctions.validateFuncCoreTools": false,
+  "codesnap.showWindowControls": false,
+  "codesnap.transparentBackground": true,
+  "codesnap.boxShadow": "rgba(0, 0, 0, 0.) 0px 20px 68px",
+  "codesnap.containerPadding": "1em",
+  "codesnap.showLineNumbers": false,
   "codespaces.accountProvider": "GitHub",
   "cSpell.language": "en-gb,de",
   "cSpell.enabledLanguageIds": [
@@ -137,6 +142,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "markdown.previewFrontMatter": "show",
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..4",
@@ -144,7 +150,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "polacode.shadow": "rgba(31, 36, 40, 0.32) 0px 20px 68px",
   "prettier.arrowParens": "always",
   "prettier.printWidth": 120,
   "prettier.proseWrap": "preserve",
@@ -198,10 +203,6 @@
   "[terraform]": {
     "editor.formatOnSave": true
   },
-  "todo-tree.filtering.ignoreGitSubmodules": true,
-  "todo-tree.general.tags": ["DEBUG", "FIXME", "REVIEW", "NOTE", "TODO"],
-  "todo-tree.highlights.enabled": false,
-  "todo-tree.tree.showScanModeButton": false,
   "todohighlight.keywords": [
     {
       "backgroundColor": "none",
@@ -236,16 +237,42 @@
     "editor.formatOnSave": false
   },
   "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 0.1,
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.panel.defaultLocation": "right",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  }
+    "editor.formatOnSave": false
+  },
+  "keyboard.layout": "com.apple.keylayout.USInternational-PC",
+  "settingsSync.ignoredExtensions": [
+    "idleberg.applescript",
+    "bungcip.better-toml",
+    "adpyke.codesnap",
+    "dotjoshjohnson.xml",
+    "wingrunr21.vscode-ruby",
+    "adrieankhisbe.vscode-ndjson",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "hbenl.vscode-test-explorer",
+    "jasonnutter.search-node-modules",
+    "rebornix.ruby",
+    "humao.rest-client",
+    "mechatroner.rainbow-csv",
+    "ms-python.python",
+    "ms-vscode.powershell",
+    "arcticicestudio.nord-visual-studio-code",
+    "waderyan.nodejs-extension-pack",
+    "shanoor.vscode-nginx",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "yzhang.markdown-all-in-one",
+    "randomchance.logstash",
+    "ms-toolsai.jupyter",
+    "wholroyd.jinja"
+  ]
 }
