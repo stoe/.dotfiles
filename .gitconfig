@@ -150,7 +150,7 @@
   idiff = difftool -t icdiff
   issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
   # https://github.com/ahmadawais/Emoji-Log
-  new = "!f() { git commit -m \"📦 $@\"; }; f"
+  new = "!f() { git commit -m \"📦 ${@:-Init}\"; }; f"
   imp = "!f() { git commit -m \"🤘 $@\"; }; f"
   fix = "!f() { git commit -m \"🐛 $@\"; }; f"
   rlz = "!f() { git commit -m \"🚀 $1\" --allow-empty; git tag \"$1\" -m \"$2\" -s; }; f"
