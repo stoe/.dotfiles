@@ -56,7 +56,8 @@
     "**/*ansible*/**/*.yml" : "ansible",
     "**/vars/**/*.yml": "ansible",
     "**/inventory/*/*": "ansible",
-    "*.rb.j2": "ruby"
+    "*.rb.j2": "ruby",
+    "**/logstash/**/*.conf*": "logstash"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
