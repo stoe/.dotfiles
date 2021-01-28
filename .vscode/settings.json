@@ -1,4 +1,6 @@
 {
+  "aws.telemetry": false,
+  "aws.profile": "profile:default",
   "azureFunctions.showProjectWarning": false,
   "azureFunctions.validateFuncCoreTools": false,
   "codesnap.showWindowControls": false,
@@ -112,6 +114,10 @@
     "editor.wordWrap": "off"
   },
   "go.formatTool": "gofmt",
+  "go.lintTool":"golangci-lint",
+  "go.lintFlags": [
+    "--fast"
+  ],
   "go.gopath": "~/.go",
   "go.goroot": "~/.go",
   "go.useLanguageServer": true,
