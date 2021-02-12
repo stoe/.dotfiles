@@ -31,5 +31,10 @@
       "key": "shift+cmd+d",
       "command": "workbench.action.terminal.split",
       "when": "terminalFocus"
+    },
+    {
+      "key": "shift+alt+cmd+k",
+      "command": "workbench.action.closeFolder",
+      "when": "emptyWorkspaceSupport"
     }
 ]

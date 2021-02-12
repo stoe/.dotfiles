@@ -155,10 +155,9 @@
   "markdown.extension.toc.levels": "2..4",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "prettier.arrowParens": "always",
-  "prettier.printWidth": 120,
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
   "prettier.semi": false,
@@ -180,6 +179,9 @@
   "search.exclude": {
     "**/.git": true
   },
+  "search.mode": "reuseEditor",
+  "search.searchEditor.reusePriorSearchConfiguration": true,
+  "search.useGlobalIgnoreFiles": true,
   "shellcheck.exclude": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellLauncher.shells.osx": [
