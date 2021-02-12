@@ -21,17 +21,13 @@ if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$red%}%? ↵%{$reset_color%})"
 
 function tf_prompt_info() {
-  [[ $(which terraform) =~ "not found" ]] && return
-
-  # dont show 'default' workspace in home dir
-  [[ "$PWD" == ~ ]] && return
-
-  # check if in terraform dir
-  if [ -d .terraform ]; then
-    workspace=$(terraform workspace show 2> /dev/null) || return
-
-    echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
-  fi
+    # dont show 'default' workspace in home dir
+    [[ "$PWD" == ~ ]] && return
+    # check if in terraform dir
+    if [ -d .terraform ]; then
+      workspace=$(terraform workspace show 2> /dev/null) || return
+      echo "%{$grey%}tfw(%{$purple%}${workspace}%{$grey%})%{$reset_color%} "
+    fi
 }
 
 function virtualenv_prompt_info(){
@@ -83,7 +79,7 @@ RPS1='${return_code}'
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$grey%}]"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$grey%}|"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$yellow%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$orange%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✗%G%}"
