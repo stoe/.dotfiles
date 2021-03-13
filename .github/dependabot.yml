@@ -7,7 +7,5 @@ updates:
       day: 'saturday'
       time: '09:00'
       timezone: 'Europe/Berlin'
-    commit-message:
-      prefix: 'action'
     labels:
       - 'github-action :robot:'
