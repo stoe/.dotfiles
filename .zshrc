@@ -22,7 +22,7 @@ autoload -Uz compinit
 compinit
 
 # shortcut to this dotfiles path is $DFH
-export DFH=$HOME/private/dotfiles
+export DFH=$HOME/repos/_private/dotfiles
 
 [ -f "${DFH}/inc/paths.zsh" ] && source "${DFH}/inc/paths.zsh"
 [ -f "${DFH}/inc/helpers.zsh" ] && source "${DFH}/inc/helpers.zsh"
@@ -96,3 +96,8 @@ if test gls; then
 fi
 
 PAGER=
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
