@@ -1,27 +1,13 @@
 {
-  "aws.telemetry": false,
-  "aws.profile": "profile:default",
-  "azureFunctions.showProjectWarning": false,
-  "azureFunctions.validateFuncCoreTools": false,
-  "codesnap.showWindowControls": false,
-  "codesnap.transparentBackground": true,
-  "codesnap.boxShadow": "rgba(0, 0, 0, 0.) 0px 20px 68px",
-  "codesnap.containerPadding": "1em",
-  "codesnap.showLineNumbers": false,
-  "codespaces.accountProvider": "GitHub",
-  "cSpell.language": "en-gb,de",
-  "cSpell.enabledLanguageIds": [
-    "markdown"
-  ],
-  "cSpell.userWords": [
-  ],
+  "atomKeymap.promptV3Features": true,
+
   "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
+
   "editor.cursorStyle": "block",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.detectIndentation": false,
-  "editor.fontSize": 16,
   "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "editor.fontSize": 16,
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
@@ -37,7 +23,7 @@
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
-  "extensions.showRecommendationsOnlyOnDemand": true,
+
   "files.associations": {
     ".env": "dotenv",
     "credentials": "properties",
@@ -45,10 +31,7 @@
     "*.config": "ssh_config",
     "config": "ssh_config",
     "known_hosts": "ssh_config",
-    "*.ndjson": "ndjson",
-    "*.scpt": "applescript",
     ".github/workflows/*.yml": "yaml",
-    "azure-pipelines.yml": "azure-pipelines",
     "**/defaults/**/*": "ansible",
     "**/tasks/**/*.yml": "ansible",
     "**/handler/*.yml": "ansible",
@@ -58,8 +41,6 @@
     "**/*ansible*/**/*.yml": "ansible",
     "**/vars/**/*.yml": "ansible",
     "**/inventory/*/*": "ansible",
-    "*.rb.j2": "ruby",
-    "**/logstash/**/*.conf*": "logstash",
     "*.md": "markdown"
   },
   "files.autoSave": "afterDelay",
@@ -68,7 +49,13 @@
   "files.exclude": {
     "**/.git": true
   },
+
   "git.confirmSync": false,
+  "[git-commit]": {
+    "editor.rulers": [72, 50],
+    "editor.wordWrap": "off"
+  },
+
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
@@ -80,55 +67,7 @@
   "gitlens.hovers.enabled": true,
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
-  "gitlens.views.lineHistory.enabled": true,
-  "gitlens.views.repositories.enabled": false,
-  "githubIssues.queries": [
-    {
-      "label": "Assigned To Me",
-      "query": "assignee:${user} state:open repo:${owner}/${repository} sort:created-desc"
-    },
-    {
-      "label": "Created By Me",
-      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
-    },
-    {
-      "label": "Issues",
-      "query": "state:open repo:${owner}/${repository} sort:created-desc"
-    }
-  ],
-  "githubPullRequests.queries": [
-    {
-      "label": "Waiting For My Review",
-      "query": "review-requested:${user} state:open repo:${owner}/${repository} sort:created-desc"
-    },
-    {
-      "label": "Assigned To Me",
-      "query": "assignee:${user} state:open repo:${owner}/${repository} sort:created-desc"
-    },
-    {
-      "label": "Created By Me",
-      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
-    }
-  ],
-  "[git-commit]": {
-    "editor.rulers": [72, 50],
-    "editor.wordWrap": "off"
-  },
-  "go.formatTool": "gofmt",
-  "go.lintTool":"golangci-lint",
-  "go.lintFlags": [
-    "--fast"
-  ],
-  "go.gopath": "~/.go",
-  "go.goroot": "~/.go",
-  "go.useLanguageServer": true,
-  "[go]": {
-    "editor.snippetSuggestions": "none",
-    "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
-  },
+
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -136,7 +75,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -144,12 +83,9 @@
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
+
   "markdown.previewFrontMatter": "show",
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.githubCompatibility": true,
@@ -158,6 +94,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
@@ -167,71 +104,23 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-  "[powershell]": {
-    "editor.defaultFormatter": "ms-vscode.powershell"
-  },
-  "ruby.format": false,
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": true
-    }
-  },
-  "ruby.useBundler": true,
+
   "search.exclude": {
     "**/.git": true
   },
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
-  "settingsSync.ignoredExtensions": [
-    "idleberg.applescript",
-    "bungcip.better-toml",
-    "adpyke.codesnap",
-    "dotjoshjohnson.xml",
-    "wingrunr21.vscode-ruby",
-    "adrieankhisbe.vscode-ndjson",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "hbenl.vscode-test-explorer",
-    "jasonnutter.search-node-modules",
-    "rebornix.ruby",
-    "humao.rest-client",
-    "mechatroner.rainbow-csv",
-    "ms-python.python",
-    "ms-vscode.powershell",
-    "arcticicestudio.nord-visual-studio-code",
-    "waderyan.nodejs-extension-pack",
-    "shanoor.vscode-nginx",
-    "ms-edgedevtools.vscode-edge-devtools",
-    "yzhang.markdown-all-in-one",
-    "randomchance.logstash",
-    "ms-toolsai.jupyter",
-    "wholroyd.jinja"
-  ],
-  "shellcheck.exclude": [],
-  "shellcheck.executablePath": "/usr/local/bin/shellcheck",
-  "shellLauncher.shells.osx": [
-    {
-      "shell": "zsh"
-    },
-    {
-      "shell": "bash"
-    },
-    {
-      "shell": "pwsh",
-      "label": "powershell"
-    }
-  ],
+
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+
   "terminal.external.osxExec": "Hyper.app",
-  "terminal.explorerKind": "external",
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
-  "terminal.integrated.shell.linux": "/bin/zsh",
-  "terminal.integrated.shellArgs.linux": ["-l"],
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.shellArgs.osx": ["-l"],
-  "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+
   "terraform.languageServer": {
     "external": false,
     "pathToBinary": "/usr/local/bin/terraform",
@@ -240,51 +129,14 @@
   "[terraform]": {
     "editor.formatOnSave": true
   },
-  "todohighlight.keywords": [
-    {
-      "backgroundColor": "none",
-      "color": "#bd2c00",
-      "text": "DEBUG"
-    },
-    {
-      "backgroundColor": "none",
-      "color": "#bd2c00",
-      "text": "FIXME"
-    },
-    {
-      "backgroundColor": "none",
-      "color": "#6e5494",
-      "text": "REVIEW"
-    },
-    {
-      "backgroundColor": "none",
-      "color": "#4078c0",
-      "text": "NOTE"
-    },
-    {
-      "backgroundColor": "none",
-      "color": "#6cc644",
-      "text": "TODO"
-    }
-  ],
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
+
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.1,
+
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.panel.defaultLocation": "right",
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  }
+  "workbench.startupEditor": "newUntitledFile"
 }
