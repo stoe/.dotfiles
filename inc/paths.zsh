@@ -34,7 +34,4 @@ export PATH="${PATH}:$(brew --prefix)/opt/mysql@5.7/bin"
 
 # Azure
 export PATH="${PATH}:$(brew --prefix)/bin/func"
-
-# Google Cloud
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
