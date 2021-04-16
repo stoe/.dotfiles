@@ -1,7 +1,12 @@
 {
   "atomKeymap.promptV3Features": true,
 
-  "debug.console.fontFamily": "Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "bookmarks.label.suggestion": "suggestWhenSelected",
+  "bookmarks.saveBookmarksInProject": true,
+  "bookmarks.sideBar.expanded": true,
+  "bookmarks.useWorkaroundForFormatters": true,
+
+  "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
 
   "editor.cursorStyle": "block",
@@ -25,22 +30,22 @@
   "editor.wrappingIndent": "deepIndent",
 
   "files.associations": {
-    ".env": "dotenv",
+    ".env*": "dotenv",
     "credentials": "properties",
     "*.tf": "terraform",
     "*.config": "ssh_config",
     "config": "ssh_config",
     "known_hosts": "ssh_config",
     ".github/workflows/*.yml": "yaml",
-    "**/defaults/**/*": "ansible",
-    "**/tasks/**/*.yml": "ansible",
-    "**/handler/*.yml": "ansible",
-    "**/*_vars/**/*.yml": "ansible",
-    "**/roles/**/*.yml": "ansible",
-    "**/playbooks/**/*.yml": "ansible",
-    "**/*ansible*/**/*.yml": "ansible",
-    "**/vars/**/*.yml": "ansible",
-    "**/inventory/*/*": "ansible",
+    "**/defaults/**/*": "yaml",
+    "**/tasks/**/*.yml": "yaml",
+    "**/handler/*.yml": "yaml",
+    "**/*_vars/**/*.yml": "yaml",
+    "**/roles/**/*.yml": "yaml",
+    "**/playbooks/**/*.yml": "yaml",
+    "**/*ansible*/**/*.yml": "yaml",
+    "**/vars/**/*.yml": "yaml",
+    "**/inventory/*/*": "yaml",
     "*.md": "markdown"
   },
   "files.autoSave": "afterDelay",
@@ -64,6 +69,8 @@
   "gitlens.codeLens.enabled": true,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
+  "gitlens.defaultTimeFormat": "HH:mm ",
+  "gitlens.defaultDateFormat": "MMMM D, YYYY HH:mm",
   "gitlens.hovers.enabled": true,
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
@@ -105,6 +112,8 @@
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
 
+  "python.showStartPage": false,
+
   "search.exclude": {
     "**/.git": true
   },
@@ -130,13 +139,58 @@
     "editor.formatOnSave": true
   },
 
-  "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0.1,
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules", "**/bundle/**"],
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "DEBUG": {
+      "foreground": "#bd2c00",
+      "fontWeight": 800
+    },
+    "FIXME": {
+      "foreground": "#bd2c00",
+      "fontWeight": 800
+    },
+    "REVIEW": {
+      "foreground": "#6e5494",
+      "fontWeight": 800
+    },
+    "NOTE": {
+      "foreground": "#4078c0",
+      "fontWeight": 800
+    },
+    "TODO": {
+      "foreground": "#6cc644",
+      "fontWeight": 800
+    },
+    "[ ]": {
+      "background": "#bd2c0032"
+    },
+    "[x]": {
+      "background": "#6cc64432"
+    }
+  },
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.tree.showScanModeButton": false,
 
-  "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "window.newWindowDimensions": "inherit",
+  "window.zoomLevel": 0.15,
+  "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }
