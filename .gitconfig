@@ -3,7 +3,7 @@
   path = ~/.gitconfig.local
 
 [user]
-  name = Stefan Stölzle
+  name = Stefan Stölzle
   email = stoe@github.com
 
 [init]
@@ -146,9 +146,7 @@
   # show who you are committing as
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
   me = !git config --get user.name && git config --get user.email
-  pr = pull-request
   idiff = difftool -t icdiff
-  issues = issue -f '%sC%<(8)%i%Creset %t %n%l %n%U %n%n'
   # https://github.com/ahmadawais/Emoji-Log
   new = "!f() { git commit -m \"📦 ${@:-Init}\"; }; f"
   imp = "!f() { git commit -m \"🤘 $@\"; }; f"
