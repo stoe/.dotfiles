@@ -29,6 +29,8 @@
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
 
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+
   "files.associations": {
     ".env*": "dotenv",
     "credentials": "properties",
@@ -55,6 +57,7 @@
     "**/.git": true
   },
 
+  "git.autofetch": false,
   "git.confirmSync": false,
   "[git-commit]": {
     "editor.rulers": [72, 50],
@@ -75,6 +78,8 @@
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
 
+  "go.gopath": "~/.go",
+
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -88,6 +93,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+
+  "json.schemaDownload.enable": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -101,6 +108,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+
+  "npm.fetchOnlinePackageInfo": false,
 
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
@@ -127,8 +136,16 @@
   "terminal.external.osxExec": "Hyper.app",
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.shellArgs.osx": ["-l"],
+  "terminal.integrated.profiles.osx": {
+    "zsh (login)": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "bash (login)": {
+      "path": "bash",
+      "args": ["-l"]
+    }
+  },
 
   "terraform.languageServer": {
     "external": false,
@@ -192,5 +209,10 @@
       "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
-  ]
-}
+  ],
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+
+  "update.mode": "start",
+  "prettier.prettierPath": "/usr/local/opt/prettier"
+  }
