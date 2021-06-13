@@ -5,9 +5,7 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'saturday'
-      time: '09:00'
-      timezone: 'Europe/Berlin'
     commit-message:
-      prefix: 'action'
+      prefix: '🆙 action'
     labels:
       - 'github-action :robot:'
