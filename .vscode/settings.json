@@ -204,12 +204,9 @@
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
 
