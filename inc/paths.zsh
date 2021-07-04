@@ -34,3 +34,6 @@ export PATH="${PATH}:$(brew --prefix)/opt/mysql@5.7/bin"
 # Azure
 export PATH="${PATH}:$(brew --prefix)/bin/func"
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+
+# Terraform
+export PATH="${PATH}:/usr/local/opt/terraform@0.13/bin"
