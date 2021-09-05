@@ -10,13 +10,13 @@
   "debug.console.fontSize": 16,
 
   "editor.cursorStyle": "block",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "editor.fontSize": 16,
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
+  "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -64,6 +64,13 @@
     "editor.wordWrap": "off"
   },
 
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
@@ -99,6 +106,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 
   "markdown.previewFrontMatter": "show",
   "markdown.extension.italic.indicator": "_",
@@ -110,18 +120,21 @@
   },
 
   "npm.fetchOnlinePackageInfo": false,
+  "npm.packageManager": "npm",
 
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
   "prettier.semi": false,
-  "prettier.resolveGlobalModules": true,
+  // "prettier.resolveGlobalModules": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
 
   "python.showStartPage": false,
+
+  "redhat.telemetry.enabled": false,
 
   "search.exclude": {
     "**/.git": true
@@ -130,10 +143,14 @@
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
 
+  "security.workspace.trust.untrustedFiles": "open",
+
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
 
   "terminal.external.osxExec": "Hyper.app",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
@@ -146,6 +163,7 @@
       "args": ["-l"]
     }
   },
+  "terminal.integrated.tabs.enabled": false,
 
   "terraform.languageServer": {
     "external": false,
@@ -197,6 +215,8 @@
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
 
+  "update.mode": "start",
+
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
@@ -210,6 +230,19 @@
   "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
 
-  "update.mode": "start",
-  "prettier.prettierPath": "/usr/local/opt/prettier"
-  }
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "settingsSync.ignoredExtensions": [
+    "ms-dotnettools.csharp",
+    "ms-toolsai.jupyter-keymap",
+    "buster.ndjson-colorizer",
+    "mark-tucker.aws-cli-configure",
+    "randomfractalsinc.vscode-data-preview",
+    "ms-python.vscode-pylance",
+    "ms-python.python"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}
