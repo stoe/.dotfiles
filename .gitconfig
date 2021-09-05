@@ -150,8 +150,9 @@
   # https://github.com/ahmadawais/Emoji-Log
   new = "!f() { git commit -m \"📦 ${@:-Init}\"; }; f"
   imp = "!f() { git commit -m \"🤘 $@\"; }; f"
+  wip = "!f() { git commit -m \"🚧 Work in Progress\"; }; f"
   fix = "!f() { git commit -m \"🐛 $@\"; }; f"
-  rlz = "!f() { git commit -m \"🚀 $1\" --allow-empty; git tag \"$1\" -m \"$2\" -s; }; f"
+  rlz = "!f() { git commit -m \"🚀 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
   brk = "!f() { git commit -m \"‼ $@\"; }; f"
   doc = "!f() { git commit -m \"📖 $@\"; }; f"
   tst = "!f() { git commit -m \"🤖 $@\"; }; f"
