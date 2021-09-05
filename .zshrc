@@ -2,6 +2,7 @@
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 setopt HIST_IGNORE_ALL_DUPS    # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_SPACE       # Don't record an entry starting with a space.
@@ -63,7 +64,7 @@ if ! zgen saved; then
 
     # zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen load djui/alias-tips
+    # zgen load djui/alias-tips
 
     # completions
 

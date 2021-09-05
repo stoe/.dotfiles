@@ -65,12 +65,18 @@ function rubyversion_prompt_info {
   echo "%{$grey%}ruby(%{$red%}$(current_ruby)%{$grey%})%{$reset_color%} "
 }
 
+function npm_prompt_info () {
+  which npm &> /dev/null || return
+  local npm_prompt=${$(npm --version)#v}
+  echo "%{$grey%}npm(%{$green%}${npm_prompt}%{$grey%})%{$reset_color%} "
+}
+
 # disables prompt mangling in virtual_env/bin/activate
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # primary prompt
 PROMPT='
-%{$grey%}%n@%m%{$reset_color%} $(gitversion_prompt_info)$(nvm_prompt_info)$(golang_prompt_info)$(rubyversion_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
+%{$grey%}%n@%m%{$reset_color%} $(gitversion_prompt_info)$(nvm_prompt_info)$(npm_prompt_info)$(golang_prompt_info)$(rubyversion_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
 \
 %{$blue%}%1~%{$reset_color%}$(git_super_status) $grey%(!.#.$)%{$reset_color%} '
 
