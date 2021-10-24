@@ -221,6 +221,9 @@
   },
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "update.mode": "start",
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.15,
@@ -236,8 +239,5 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  }
 }
