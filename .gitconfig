@@ -148,16 +148,16 @@
   me = !git config --get user.name && git config --get user.email
   idiff = difftool -t icdiff
   # https://github.com/ahmadawais/Emoji-Log
-  new = "!f() { git commit -m \"📦 ${@:-Init}\"; }; f"
-  imp = "!f() { git commit -m \"🤘 $@\"; }; f"
-  wip = "!f() { git commit -m \"🚧 Work in Progress\"; }; f"
-  fix = "!f() { git commit -m \"🐛 $@\"; }; f"
-  rlz = "!f() { git commit -m \"🚀 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
-  brk = "!f() { git commit -m \"‼ $@\"; }; f"
-  doc = "!f() { git commit -m \"📖 $@\"; }; f"
-  tst = "!f() { git commit -m \"🤖 $@\"; }; f"
-  dep = "!f() { git commit -m \"🆙 ${@:-Update dependencies}\"; }; f"
-  typo = "!f() { git commit -m \"🔡 ${@:-Fix typo}\"; }; f"
+  new = "!f() { git commit -S -m \"📦 ${@:-Init}\"; }; f"
+  imp = "!f() { git commit -S -m \"🤘 $@\"; }; f"
+  wip = "!f() { git commit -S -m \"🚧 Work in Progress\"; }; f"
+  fix = "!f() { git commit -S -m \"🐛 $@\"; }; f"
+  rlz = "!f() { git commit -S -m \"🚀 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
+  brk = "!f() { git commit -S -m \"‼ $@\"; }; f"
+  doc = "!f() { git commit -S -m \"📖 $@\"; }; f"
+  tst = "!f() { git commit -S -m \"🤖 $@\"; }; f"
+  dep = "!f() { git commit -S -m \"🆙 ${@:-Update dependencies}\"; }; f"
+  typo = "!f() { git commit -S -m \"🔡 ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree
   # https://stackoverflow.com/a/25387310
