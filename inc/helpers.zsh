@@ -1,12 +1,12 @@
 #!/bin/zsh
 
 abort() {
-  print -P "\n✘ ${yellow}aborting${reset_color} $1\n"
+  print -P "✘ ${yellow}aborting${reset_color} $1\n"
   return
 }
 
 disabled() {
-  print -P "\n${red}disabled${reset_color}."
+  print -P "${red}disabled${reset_color}.\n"
   return 1
 }
 
@@ -24,7 +24,7 @@ formatexec() {
 }
 
 ok() {
-  print -P "\n[ ${green}✓${reset_color} ] $1\n"
+  print -P "[ ${green}✓${reset_color} ] $1"
 }
 
 question() {
