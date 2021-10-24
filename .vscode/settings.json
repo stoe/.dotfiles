@@ -149,8 +149,8 @@
     "shadowtime2000.eta-vscode"
   ],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
-  "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "terminal.external.osxExec": "Hyper.app",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
