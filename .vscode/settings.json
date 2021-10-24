@@ -167,6 +167,10 @@
       "args": [
         "-l"
       ]
+    },
+    "pwsh": {
+      "path": "/usr/local/bin/pwsh",
+      "args": []
     }
   },
   "terminal.integrated.tabs.enabled": false,
