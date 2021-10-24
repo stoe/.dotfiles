@@ -67,16 +67,14 @@
     "editor.wordWrap": "off"
   },
   "github.copilot.enable": {
-    "*": true,
-    "yaml": false,
-    "plaintext": false,
-    "markdown": true
+    "*": false,
+    "markdown": true,
+    "javascript": true
   },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
-  "gitlens.blame.avatars": true,
-  "gitlens.blame.highlight.locations": [
+  "gitlens.blame.avatars": true,  "gitlens.blame.highlight.locations": [
     "gutter",
     "line",
     "overview"
