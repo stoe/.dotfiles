@@ -49,6 +49,7 @@ alias gpgkey="gpg --armor --export $(git config user.signingkey) | pbcopy | echo
 alias npmla="npm la --depth=0"
 alias npmll="npm ll --depth=0"
 alias npmls="npm ls --depth=0"
+alias npx="npx --no-install"
 
 # https://www.martin-brennan.com/set-timezone-from-terminal-osx/
 alias settz="sudo systemsetup -settimezone $@"
