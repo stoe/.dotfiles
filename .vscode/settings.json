@@ -6,6 +6,10 @@
   "bookmarks.sideBar.expanded": true,
   "bookmarks.useWorkaroundForFormatters": true,
 
+  "codesnap.transparentBackground": true,
+  "codesnap.showLineNumbers": false,
+  "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
+
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
 
