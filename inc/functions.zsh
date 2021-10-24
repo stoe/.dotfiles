@@ -52,20 +52,6 @@ function tre() {
   tree -aC -I '.git|node_modules|bower_components|.node-gyp|compile-cache' --dirsfirst "$@" | less -FRNX
 }
 
-# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh#L110
-function pfd() {
-  osascript 2>/dev/null <<EOF
-    tell application "Finder"
-      return POSIX path of (target of window 1 as alias)
-    end tell
-EOF
-}
-
-# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh#L131
-function cdf() {
-  cd "$(pfd)"
-}
-
 ### Functions for setting and getting environment variables from the OSX keychain ###
 ### Adapted from https://www.netmeister.org/blog/keychain-passwords.html ###
 
@@ -134,6 +120,7 @@ function brewup() {
   formatexec "brew update"
 
   section "Fetching cask list"
+  print -P "${grey}> brew outdated --cask${reset_color}"
 
   local _casks=$(brew outdated --cask | wc -l | awk '{print $1}')
 
@@ -157,6 +144,7 @@ function brewup() {
   fi
 
   section "Fetching mas list"
+  print -P "${grey}> mas outdated${reset_color}"
 
   local _apps=`mas outdated | wc -l | awk '{print $1}'`
 
@@ -180,6 +168,7 @@ function brewup() {
   fi
 
   section "Fetching packages list"
+  print -P "${grey}> brew outdated --formula${reset_color}"
 
   local _brews=`brew outdated --formula | wc -l | awk '{print $1}'`
 
@@ -236,7 +225,7 @@ function targz() {
     progress="pv -s $((${size} * 1024)) | "
   fi
 
-  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tar.gz || return 1"
+  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tar.gz || return 1"
 
   ok "${@}.tar.gz created successfully."
 }
