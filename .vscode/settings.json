@@ -148,6 +148,7 @@
     "github.copilot",
     "shadowtime2000.eta-vscode"
   ],
+  "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.external.osxExec": "Hyper.app",
