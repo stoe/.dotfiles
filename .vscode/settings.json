@@ -137,6 +137,17 @@
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
+  "settingsSync.ignoredExtensions": [
+    "ms-dotnettools.csharp",
+    "ms-toolsai.jupyter-keymap",
+    "buster.ndjson-colorizer",
+    "mark-tucker.aws-cli-configure",
+    "randomfractalsinc.vscode-data-preview",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "github.copilot",
+    "shadowtime2000.eta-vscode"
+  ],
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.external.osxExec": "Hyper.app",
@@ -226,15 +237,6 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "settingsSync.ignoredExtensions": [
-    "ms-dotnettools.csharp",
-    "ms-toolsai.jupyter-keymap",
-    "buster.ndjson-colorizer",
-    "mark-tucker.aws-cli-configure",
-    "randomfractalsinc.vscode-data-preview",
-    "ms-python.vscode-pylance",
-    "ms-python.python"
-  ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
