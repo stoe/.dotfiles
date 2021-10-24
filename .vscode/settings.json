@@ -1,18 +1,14 @@
 {
   "atomKeymap.promptV3Features": true,
-
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
   "bookmarks.useWorkaroundForFormatters": true,
-
   "codesnap.transparentBackground": true,
   "codesnap.showLineNumbers": false,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
-
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
-
   "editor.cursorStyle": "block",
   "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "editor.fontSize": 16,
@@ -25,16 +21,17 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
-
   "extensions.autoUpdate": "onlyEnabledExtensions",
-
   "files.associations": {
     ".env*": "dotenv",
     "credentials": "properties",
@@ -60,26 +57,30 @@
   "files.exclude": {
     "**/.git": true
   },
-
   "git.autofetch": false,
   "git.confirmSync": false,
   "[git-commit]": {
-    "editor.rulers": [72, 50],
+    "editor.rulers": [
+      72,
+      50
+    ],
     "editor.wordWrap": "off"
   },
-
   "github.copilot.enable": {
     "*": true,
     "yaml": false,
     "plaintext": false,
     "markdown": true
   },
-
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
   "gitlens.blame.avatars": true,
-  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
+  "gitlens.blame.highlight.locations": [
+    "gutter",
+    "line",
+    "overview"
+  ],
   "gitlens.codeLens.enabled": true,
   "gitlens.currentLine.enabled": true,
   "gitlens.currentLine.scrollable": false,
@@ -88,9 +89,7 @@
   "gitlens.hovers.enabled": true,
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
-
   "go.gopath": "~/.go",
-
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -104,7 +103,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-
   "json.schemaDownload.enable": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -113,7 +111,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-
   "markdown.previewFrontMatter": "show",
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.githubCompatibility": true,
@@ -122,10 +119,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-
   "npm.fetchOnlinePackageInfo": false,
   "npm.packageManager": "npm",
-
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
@@ -135,23 +130,17 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-
   "python.showStartPage": false,
-
   "redhat.telemetry.enabled": false,
-
   "search.exclude": {
     "**/.git": true
   },
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
-
   "security.workspace.trust.untrustedFiles": "open",
-
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-
   "terminal.external.osxExec": "Hyper.app",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
@@ -160,15 +149,18 @@
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "bash (login)": {
       "path": "bash",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     }
   },
   "terminal.integrated.tabs.enabled": false,
-
   "terraform.languageServer": {
     "external": false,
     "pathToBinary": "/usr/local/bin/terraform",
@@ -177,8 +169,10 @@
   "[terraform]": {
     "editor.formatOnSave": true
   },
-
-  "todo-tree.filtering.excludeGlobs": ["**/node_modules", "**/bundle/**"],
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules",
+    "**/bundle/**"
+  ],
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
@@ -218,9 +212,7 @@
   },
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
-
   "update.mode": "start",
-
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
@@ -233,7 +225,6 @@
   },
   "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
-
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
