@@ -2,10 +2,6 @@
 [include]
   path = ~/.gitconfig.local
 
-[user]
-  name = Stefan Stölzle
-  email = stoe@github.com
-
 [init]
   defaultBranch = main
 
@@ -19,11 +15,15 @@
   prune = true
 
 [gpg]
-  program = /usr/local/bin/gpg
-  # format = x509
+  program = /opt/homebrew/bin/gpg
+  # format = ssh
 
-[gpg "x509"]
-  program = smimesign
+# [gpg "ssh"]
+#   defaultKeyCommand = ssh-add -L
+#   program = ssh-keygen
+
+# [gpg "x509"]
+#   program = smimesign
 
 [tag]
   forceSignAnnotated = true
