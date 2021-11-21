@@ -62,6 +62,9 @@ function gitversion_prompt_info {
 }
 
 function rubyversion_prompt_info {
+  [[ $(current_ruby) =~ "not supported" ]] && return
+  [[ $(current_ruby) =~ "system" ]] && return
+
   echo "%{$grey%}ruby(%{$red%}$(current_ruby)%{$grey%})%{$reset_color%} "
 }
 
