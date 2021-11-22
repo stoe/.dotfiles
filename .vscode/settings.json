@@ -49,7 +49,11 @@
     "**/*ansible*/**/*.yml": "yaml",
     "**/vars/**/*.yml": "yaml",
     "**/inventory/*/*": "yaml",
-    "*.md": "markdown"
+    "*.md": "markdown",
+    "*.{input,filter,output}.conf": "logstash",
+    ".gitconfig.*local": "properties",
+    ".zshrc.github.local": "properties",
+    ".zshrc.local": "properties"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -59,6 +63,7 @@
   },
   "git.autofetch": false,
   "git.confirmSync": false,
+  "git.ignoreMissingGitWarning": true,
   "[git-commit]": {
     "editor.rulers": [
       72,
@@ -67,9 +72,7 @@
     "editor.wordWrap": "off"
   },
   "github.copilot.enable": {
-    "*": false,
-    "markdown": true,
-    "javascript": true
+    "*": true
   },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
@@ -230,13 +233,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "update.mode": "start",
-  "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0.15,
+"window.newWindowDimensions": "inherit",
+"window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "newUntitledFile",
+  "workbench.startupEditor": "none",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },

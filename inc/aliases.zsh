@@ -40,7 +40,7 @@ alias pdfplain="pdfify --header ~/private/xify-old/pdfify-node/assets/header-def
 # Pipe my public key to my clipboard.
 alias pubkey-stoe="more ~/.ssh/id_rsa_stoe.pub | pbcopy | echo '=> stoe public key copied to pasteboard'"
 alias pubkey-git="more ~/.ssh/id_ecdsa_sk.pub | pbcopy | echo '=> (New) GitHub public key copied to pasteboard'"
-alias pubkey-git-rsa="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> GitHub public key copied to pasteboard'"
+alias pubkey-git-rsa="more ~/.ssh/id_rsa_gh.pub | pbcopy | echo '=> GitHub public key copied to pasteboard'"
 alias pubkey="pubkey-git"
 
 alias gpgkey="gpg --armor --export $(git config user.signingkey) | pbcopy | echo '=> stoe gpg key copied to pasteboard'"

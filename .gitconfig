@@ -15,7 +15,7 @@
   prune = true
 
 [gpg]
-  program = /opt/homebrew/bin/gpg
+  program = /usr/local/bin/gpg
   # format = ssh
 
 # [gpg "ssh"]
