@@ -51,9 +51,8 @@
     "**/inventory/*/*": "yaml",
     "*.md": "markdown",
     "*.{input,filter,output}.conf": "logstash",
-    ".gitconfig.*local": "properties",
-    ".zshrc.github.local": "properties",
-    ".zshrc.local": "properties"
+    ".gitconfig*": "properties",
+    ".zshrc*": "properties"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -77,7 +76,8 @@
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
-  "gitlens.blame.avatars": true,  "gitlens.blame.highlight.locations": [
+  "gitlens.blame.avatars": true,
+  "gitlens.blame.highlight.locations": [
     "gutter",
     "line",
     "overview"
@@ -233,8 +233,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "update.mode": "start",
-"window.newWindowDimensions": "inherit",
-"window.zoomLevel": 0.15,
+  "window.newWindowDimensions": "inherit",
+  "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
