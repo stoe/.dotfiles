@@ -9,6 +9,11 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.organizeImports": false
+  },
   "editor.cursorStyle": "block",
   "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "editor.fontSize": 16,
@@ -16,6 +21,7 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
+  "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
@@ -28,6 +34,9 @@
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "️": true
+  },
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
@@ -51,9 +60,6 @@
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
   "files.eol": "\n",
-  "files.exclude": {
-    "**/.git": true
-  },
   "git.autofetch": false,
   "git.confirmSync": false,
   "git.ignoreMissingGitWarning": true,
@@ -65,7 +71,11 @@
     "editor.wordWrap": "off"
   },
   "github.copilot.enable": {
-    "*": true
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true,
+    "javascript": true
   },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
@@ -110,6 +120,7 @@
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..4",
+  "markdown-preview-github-styles.colorTheme": "light",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -127,9 +138,6 @@
   "prettier.useTabs": false,
   "python.showStartPage": false,
   "redhat.telemetry.enabled": false,
-  "search.exclude": {
-    "**/.git": true
-  },
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
@@ -142,8 +150,12 @@
     "randomfractalsinc.vscode-data-preview",
     "ms-python.vscode-pylance",
     "ms-python.python",
-    "github.copilot",
-    "shadowtime2000.eta-vscode"
+    "shadowtime2000.eta-vscode",
+    "ms-azuretools.vscode-azurefunctions",
+    "ms-azuretools.vscode-azureresourcegroups",
+    "idleberg.applescript",
+    "randomchance.logstash",
+    "github.vscode-pull-request-github"
   ],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableTelemetry": false,
@@ -232,7 +244,7 @@
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
