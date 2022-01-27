@@ -15,7 +15,7 @@
   prune = true
 
 [gpg]
-  program = /usr/local/bin/gpg
+  program = gpg
   # format = ssh
 
 # [gpg "ssh"]
@@ -110,7 +110,7 @@
   #
   # Setting to git 2.0 default to surpress warning message
   default = simple
-  gpgsign = if-asked
+  # gpgsign = if-asked
 
 [rebase]
   autoStash = true
@@ -124,7 +124,7 @@
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
   lg = log --pretty=info --graph --all -n 10
-  lj = "!f() { git log --pretty=json; }; f"
+  lj = log --pretty=json --all -n 10
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
