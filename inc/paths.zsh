@@ -1,8 +1,12 @@
 # OpenSSL
-export PATH="${PATH}:/usr/local/opt/openssl@1.1/bin"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export PATH="$(brew --prefix openssl)/bin:${PATH}"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CPPFLAGS="-I$(brew --prefix openssl)/include"
+export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig"
+
+# OpenSSH
+export PATH="$(brew --prefix openssh)/bin:${PATH}"
+export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 
 # bin
 export PATH="${PATH}:/usr/local/bin"
@@ -24,9 +28,9 @@ export PATH="${PATH}:${GOROOT}/bin"
 export PATH="${PATH}:/usr/local/opt/python/libexec/bin"
 
 # Ruby
-export PATH="${PATH}:${HOME}/.rbenv/bin"
+# export PATH="${PATH}:${HOME}/.rbenv/bin"
 eval "$(rbenv init -)"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
 
 # MySQL
 export PATH="${PATH}:$(brew --prefix)/opt/mysql@5.7/bin"
