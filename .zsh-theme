@@ -62,6 +62,7 @@ function gitversion_prompt_info {
 }
 
 function rubyversion_prompt_info {
+  [[ $(which rbenv) =~ "not found" ]] && return
   [[ $(current_ruby) =~ "not supported" ]] && return
   [[ $(current_ruby) =~ "system" ]] && return
 
