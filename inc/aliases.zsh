@@ -57,7 +57,3 @@ alias settz="sudo systemsetup -settimezone $@"
 
 alias shadowon="defaults write com.apple.screencapture disable-shadow -bool false ; killall SystemUIServer"
 alias shadowoff="defaults write com.apple.screencapture disable-shadow -bool true ; killall SystemUIServer"
-
-# https://github.com/sindresorhus/trash-cli
-alias rm=trash
-alias rm!=rm
