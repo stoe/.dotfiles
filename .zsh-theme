@@ -82,7 +82,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 PROMPT='
 %{$grey%}%n@%m%{$reset_color%} $(gitversion_prompt_info)$(nvm_prompt_info)$(npm_prompt_info)$(golang_prompt_info)$(rubyversion_prompt_info)$(tf_prompt_info)$(virtualenv_prompt_info)
 \
-%{$blue%}%1~%{$reset_color%}$(git_super_status) $grey%(!.#.$)%{$reset_color%} '
+%{$blue%}%1~%{$reset_color%}$(git_prompt_info) $grey%(!.#.$)%{$reset_color%} '
 
 PROMPT2='%{$red%}\ %{$reset_color%}'
 RPS1='${return_code}'
@@ -91,19 +91,19 @@ RPS1='${return_code}'
 # RPROMPT='%{$grey%}%n@%m%{$reset_color%}%'
 
 # git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$grey%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$grey%}]"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$grey%}|"
+ZSH_THEME_GIT_PROMPT_PREFIX=" ["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$yellow%}"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$orange%}%{●%G%}"
-ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✗%G%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$orange%}%{●%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✗%G%}%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚%G%}"
 # ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
 # ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}%{○%G%}"
-ZSH_THEME_GIT_PROMPT_STASHED="%{$magenta%}%{▣%G%}"
-# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
-# ZSH_THEME_GIT_PROMPT_CACHE=1
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}%{○%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$magenta%}%{▣%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CACHE=1
 
 # nvm settings
 ZSH_THEME_NVM_PROMPT_PREFIX="%{$grey%}nvm(%{$green%}"

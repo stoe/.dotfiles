@@ -76,7 +76,7 @@ if ! zgen saved; then
     zgen save
 fi
 
-test -f "$HOME/.zsh-theme" && source "$HOME/.zsh-theme"
+test -f "$DFH/.zsh-theme" && source "$DFH/.zsh-theme"
 
 # https://github.com/pstadler/keybase-gpg-github
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
