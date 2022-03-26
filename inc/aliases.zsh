@@ -50,7 +50,7 @@ alias npmla="npm la --depth=0"
 alias npmll="npm ll --depth=0"
 alias npmls="npm ls --depth=0"
 # alias npx="npx --no-install $@"
-alias ncua="git pull || true && ncu -i && rm! -rf package-lock.json yarn.lock build dist node_modules && npm i $@ && npm run format --if-present && npm run build --if-present && npm run test --if present"
+alias ncua="git pull || true && ncu -i && rm! -rf package-lock.json yarn.lock build dist node_modules && npm i $@ && npm run format --if-present && npm run build --if-present && npm run test --if-present"
 
 # https://www.martin-brennan.com/set-timezone-from-terminal-osx/
 alias settz="sudo systemsetup -settimezone $@"
