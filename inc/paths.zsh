@@ -1,3 +1,5 @@
+export PATH=/opt/homebrew/bin:$PATH
+
 # OpenSSL
 export PATH="$(brew --prefix openssl)/bin:${PATH}"
 export LDFLAGS="-L$(brew --prefix openssl)/lib"
