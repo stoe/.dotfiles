@@ -261,5 +261,7 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.experimental.layoutControl.enabled": true,
+  "workbench.experimental.layoutControl.type": "both"
 }
