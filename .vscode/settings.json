@@ -252,7 +252,7 @@
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
