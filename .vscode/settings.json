@@ -144,6 +144,7 @@
       "useBundler": true
     }
   },
+  "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": false,
   "search.mode": "reuseEditor",

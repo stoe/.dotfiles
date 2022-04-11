@@ -23,3 +23,6 @@ export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
 # export GOROOT="/usr/local/opt/go/libexec"
 # export PATH="${PATH}:${GOROOT}/bin"
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
