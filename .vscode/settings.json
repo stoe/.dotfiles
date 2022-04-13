@@ -1,5 +1,6 @@
 {
   "atomKeymap.promptV3Features": true,
+  "aws.telemetry": false,
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
@@ -7,7 +8,7 @@
   "codesnap.transparentBackground": true,
   "codesnap.showLineNumbers": false,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
-  "debug.console.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "debug.console.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
@@ -15,7 +16,7 @@
     "source.organizeImports": false
   },
   "editor.cursorStyle": "block",
-  "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "editor.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "editor.fontSize": 16,
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
@@ -144,6 +145,7 @@
       "useBundler": true
     }
   },
+  "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": false,
@@ -183,7 +185,7 @@
   "terminal.external.osxExec": "Hyper.app",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
