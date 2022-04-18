@@ -68,6 +68,7 @@ cask 'quicklook-json'
 cask 'quicklookase'
 cask 'rocket'
 cask 'skitch'
+cask 'spotify'
 cask 'suspicious-package'
 cask 'the-unarchiver'
 cask 'tower'
@@ -77,12 +78,11 @@ cask 'viscosity'
 cask 'visual-studio-code'
 
 # (optional) brew install --cask
-# cask 'citrix-workspace'
-# cask 'keybase'
-# cask 'parallels'
-# # cask 'pingid'
 # cask 'sonos'
 # cask 'steam'
+# cask 'keybase'
+# cask 'pingid'
+# cask 'citrix-workspace'
 # cask 'vmware-fusion'
 
 # mas install
