@@ -57,6 +57,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/node
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/macos
+  zgen oh-my-zsh plugins/terraform
   zgen load zsh-users/zsh-syntax-highlighting
 
   # completions
