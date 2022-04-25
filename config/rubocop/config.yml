@@ -4,5 +4,11 @@ AllCops:
   RubyInterpreters:
     - ruby
 
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Layout/LeadingCommentSpace:
+  Enabled: false
+
 Style/NumericLiterals:
   Enabled: false
