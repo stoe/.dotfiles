@@ -77,7 +77,7 @@ function set-keychain-environment-variable () {
 function dstop() {
   question "Do you really want to stop all 🐳  docker containers?" "yn"
   read -rs -k 1 ask
-  print -P "%F{8}> $ask%f"
+  print -P "%39F> $ask%f"
 
   dockerps=`docker ps -a -q`
 
@@ -91,7 +91,7 @@ function dstop() {
 function dclean() {
   question "Do you really want to delete all stopped 🐳  docker containers?" "yn"
   read -rs -k 1 ask
-  print -P "%F{8}> $ask%f"
+  print -P "%39F> $ask%f"
 
   if [ "$ask" = "y" ]; then
     docker container prune --filter 'label=name!=splunk' --force
@@ -103,7 +103,7 @@ function dclean() {
 
   question "Do you really want to delete all untagged 🐳  docker images?" "yn"
   read -rs -k 1 ask
-  print -P "%F{8}> $ask%f"
+  print -P "%39F> $ask%f"
 
   if [ "$ask" = "y" ]; then
     docker image prune --force
@@ -120,18 +120,18 @@ function brewup() {
   formatexec "brew update"
 
   section "Fetching cask list"
-  print -P "${grey}> brew outdated --cask${reset_color}"
+  print -P "%244F> brew outdated --cask%f"
 
   local _casks=$(brew outdated --cask | wc -l | awk '{print $1}')
 
   if [ "$_casks" != 0 ]; then
-    print -P "%F{3}Outdated casks:%f" "$_casks"
+    print -P "%5FOutdated casks:%f" "$_casks"
     brew outdated --cask --verbose | grep -v '(latest)' | awk '{print $1}'
 
     if [ "$1" != "-y" ]; then
       question "Update these casks?" "yn"
       read -rs -k 1 ask
-      print -P "%F{8}> $ask%f"
+      print -P "%39F> $ask%f"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -144,18 +144,18 @@ function brewup() {
   fi
 
   section "Fetching mas list"
-  print -P "${grey}> mas outdated${reset_color}"
+  print -P "%244F> mas outdated%f"
 
   local _apps=`mas outdated | wc -l | awk '{print $1}'`
 
   if [ "$_apps" != 0 ]; then
-    print -P "%F{3}Outdated casks:%f" "$_apps"
+    print -P "%5FOutdated casks:%f" "$_apps"
     mas outdated
 
     if [ "$1" != "-y" ]; then
       question "Update these apps?" "yn"
       read -rs -k 1 ask
-      print -P "%F{8}> $ask%f"
+      print -P "%39F> $ask%f"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -168,18 +168,18 @@ function brewup() {
   fi
 
   section "Fetching packages list"
-  print -P "${grey}> brew outdated --formula${reset_color}"
+  print -P "%244F> brew outdated --formula%f"
 
   local _brews=`brew outdated --formula | wc -l | awk '{print $1}'`
 
   if [ "$_brews" != 0 ]; then
-    print -P "%F{3}Outdated packages:%f" "$_brews"
+    print -P "%5FOutdated packages:%f" "$_brews"
     brew outdated --formula --verbose | grep -v '(latest)' | awk '{print $1}'
 
     if [ "$1" != "-y" ]; then
       question "Update these packages?" "yn"
       read -rs -k 1 ask
-      print -P "%F{8}> $ask%f"
+      print -P "%39F> $ask%f"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -273,5 +273,5 @@ function mov2gif() {
 
     rm -rf "${tmpFolder}" &>/dev/null
 
-    ok "$(pwd)/${yellow}${file}.gif${reset_color} saved"
+    ok "$(pwd)/%178F${file}.gif%f saved"
 }

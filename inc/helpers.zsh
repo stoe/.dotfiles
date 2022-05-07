@@ -1,17 +1,17 @@
 #!/bin/zsh
 
 abort() {
-  print -P "✘ ${yellow}aborting${reset_color} $1\n"
+  print -P "✘ %178Faborting%f $1\n"
   return
 }
 
 disabled() {
-  print -P "${red}disabled${reset_color}.\n"
-  return 1
+  print -P "%1Fdisabled%f\n"
+  return 0
 }
 
 finished() {
-  print -P "\n${grey}✎ with ${red}♥${grey} by %F{12}stoe${grey} (https://github.com/stoe/.dotfiles)${reset_color}"
+  print -P "\n%244F✎ with %1F♥%244F by %39Fstoe%244F (https://github.com/stoe/.dotfiles)%f"
 
   source "$HOME/.zshrc"
 }
@@ -19,22 +19,22 @@ finished() {
 formatexec() {
   local _exec="$1"
 
-  print -P "${grey}> $_exec${reset_color}"
+  print -P "%244F> $_exec%f"
   eval "$_exec"
 }
 
 ok() {
-  print -P "[ ${green}✓${reset_color} ] $1"
+  print -P "[ %76F✓%f ] $1"
 }
 
 question() {
   local question="$1"
   local options="$2"
 
-  print -P "${cyan}${question}${reset_color}"
-  [ "$options" != "" ] && print -P "${green}[$options]${reset_color}"
+  print -P "%39F${question}%f"
+  [ "$options" != "" ] && print -P "%244F[$options]%f"
 }
 
 section () {
-  print -P "\n[ ${magenta}$1${reset_color} ] $2"
+  print -P "\n[ %5F$1%f ] $2"
 }
