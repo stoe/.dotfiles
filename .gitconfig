@@ -153,6 +153,7 @@
   me = !git config --get user.name && git config --get user.email
   idiff = difftool -t icdiff
   # https://github.com/ahmadawais/Emoji-Log
+  # https://gitmoji.dev/
   new = "!f() { git commit -S -m \"📦 ${@:-Init}\"; }; f"
   imp = "!f() { git commit -S -m \"🤘 $@\"; }; f"
   gear = "!f() { git commit -S -m \"⚙️ ${@:-Update config}\"; }; f"
