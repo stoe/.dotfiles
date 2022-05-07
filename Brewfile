@@ -6,7 +6,9 @@ cask_args appdir: '/Applications', require_sha: true
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-versions'
 tap 'homebrew/core'
+tap '1password/tap'
 
 # brew install
 brew 'coreutils'
@@ -21,6 +23,7 @@ brew 'gh'
 brew 'git'
 brew 'git-extras'
 brew 'git-lfs'
+brew 'gitmoji'
 
 brew 'gnupg'
 brew 'openssh'
@@ -38,6 +41,7 @@ brew 'rbenv'
 
 # brew install --cask
 cask '1password'
+cask '1password-cli'
 cask 'alfred'
 cask 'apparency'
 cask 'bartender'
@@ -88,7 +92,7 @@ cask 'visual-studio-code'
 # mas install
 brew 'mas'
 
-mas '1Password 7', id: 1333542190
+# mas '1Password 7', id: 1333542190
 mas 'Dato', id: 1470584107
 mas 'Denied', id: 909257784
 mas 'Keynote', id: 409183694
