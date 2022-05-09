@@ -247,9 +247,11 @@ function extract () {
       *.tar)     formatexec "pv ${1} | tar xf -"  ;;
       *.tbz2)    formatexec "pv ${1} | tar xjf -" ;;
       *.tgz)     formatexec "pv ${1} | tar xzf -" ;;
-      *.zip)     formatexec "7z x ${1}" ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
+      # *.zip)     formatexec "7z x ${1}" ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
+
+      *.zip)     formatexec "unzip ${1}"          ;;
       *.Z)       formatexec "uncompress ${1}"     ;;
-      *.7z)      formatexec "7z x ${1}"           ;;
+      # *.7z)      formatexec "7z x ${1}"           ;;
       *)         abort "'${1}' cannot be extracted via extract" ;;
     esac
   else
