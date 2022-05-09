@@ -12,3 +12,6 @@ Layout/LeadingCommentSpace:
 
 Style/NumericLiterals:
   Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
