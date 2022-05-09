@@ -338,8 +338,12 @@
   #
   typeset -g POWERLEVEL9K_DIR_CLASSES=(
     '~/code/private(|/*)'  PRIVATE  ''
+    '~/private(|/*)'       PRIVATE  ''
     '~/code/scratch(|/*)'  SCRATCH  ''
+    '~/scratch(|/*)'       SCRATCH  ''
     '~/code/work(|/*)'     WORK     ''
+    '~/github(|/*)'        WORK     ''
+    '~/customers(|/*)'     WORK     ''
     '~(|/*)'               HOME     ''
     '*'                    DEFAULT  ''
   )
