@@ -96,6 +96,7 @@
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
   "go.gopath": "~/.go",
+  "go.toolsManagement.autoUpdate": true,
   "json.schemas": [],
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",

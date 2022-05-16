@@ -54,6 +54,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/git-extras
   zgen oh-my-zsh plugins/git-lfs
   zgen oh-my-zsh plugins/gitignore
+  zgen oh-my-zsh plugins/golang
   zgen oh-my-zsh plugins/node
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/macos
