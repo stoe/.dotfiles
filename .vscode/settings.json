@@ -1,5 +1,9 @@
 {
   "atomKeymap.promptV3Features": true,
+  "autoDarkMode.darkTheme": "GitHub Dark Dimmed",
+  "autoDarkMode.darkIconTheme": "vscode-icons",
+  "autoDarkMode.lightIconTheme": "vscode-icons",
+  "autoDarkMode.lightTheme": "GitHub Light Colorblind (Beta)",
   "aws.telemetry": false,
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
