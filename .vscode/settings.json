@@ -99,7 +99,8 @@
   "gitlens.hovers.enabled": true,
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
-  "go.gopath": "~/.go",
+  "go.gopath": "~/go",
+  "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
   "json.schemas": [],
   "javascript.format.enable": false,
@@ -310,5 +311,9 @@
   ],
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-config.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/ISSUE_TEMPLATE/config.yml",
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/workflows/stale.yml"
   }
 }
