@@ -21,8 +21,8 @@ export NODE_ENV=development
 export GOPATH="${HOME}/go"
 export GOBIN="${GOPATH}/bin"
 export PATH="${PATH}:${GOBIN}"
-# export GOROOT="/usr/local/opt/go/libexec"
-# export PATH="${PATH}:${GOROOT}/bin"
+export GOROOT="$(brew --prefix go)/libexec"
+export PATH="${PATH}:${GOROOT}/bin"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
