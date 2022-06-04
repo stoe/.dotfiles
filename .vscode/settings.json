@@ -237,23 +237,23 @@
   "todo-tree.highlights.customHighlight": {
     "DEBUG": {
       "foreground": "#bd2c00",
-      "fontWeight": 800
+      "fontWeight": "800"
     },
     "FIXME": {
       "foreground": "#bd2c00",
-      "fontWeight": 800
+      "fontWeight": "800"
     },
     "REVIEW": {
       "foreground": "#6e5494",
-      "fontWeight": 800
+      "fontWeight": "800"
     },
     "NOTE": {
       "foreground": "#4078c0",
-      "fontWeight": 800
+      "fontWeight": "800"
     },
     "TODO": {
       "foreground": "#6cc644",
-      "fontWeight": 800
+      "fontWeight": "800"
     },
     "[ ]": {
       "background": "#bd2c0032"
@@ -271,15 +271,15 @@
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.editorAssociations": {},
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "none",
-  "workbench.editorAssociations": {},
   "workbench.enableExperiments": false,
-  "workbench.experimental.layoutControl.enabled": true,
-  "workbench.experimental.layoutControl.type": "both",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.layoutControl.enabled": true,
+  "workbench.layoutControl.type": "both",
   "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.startupEditor": "none",
   "yaml.customTags": [
     "!And",
     "!And sequence",
