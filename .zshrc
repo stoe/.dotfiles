@@ -20,14 +20,14 @@ autoload -Uz colors && colors
 # initialize autocomplete here, otherwise functions won't be loaded
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
 fi
 
 if type gh &>/dev/null; then
   eval "$(gh completion -s zsh)"
 fi
-
-autoload -Uz compinit
-compinit
 
 # shortcut to this dotfiles path is $DFH
 export DFH=$HOME/code/private/.dotfiles
