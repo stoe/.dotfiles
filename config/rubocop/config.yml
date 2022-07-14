@@ -1,5 +1,9 @@
 inherit_from: []
 
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+
 AllCops:
   RubyInterpreters:
     - ruby
