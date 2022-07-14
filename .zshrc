@@ -111,4 +111,5 @@ fi
 
 # `gg` (zgen oh-my-zsh plugins/git) overwrite
 # https://medium.com/darek1024/how-to-clean-local-git-branches-that-were-removed-on-the-remote-4d76f7de93ac
-alias gg="git pull -p && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
+alias gg="git fetch -p && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
+alias gc="gitmoji -c"
