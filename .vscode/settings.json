@@ -5,6 +5,7 @@
   "autoDarkMode.lightIconTheme": "vscode-icons",
   "autoDarkMode.lightTheme": "GitHub Light Colorblind (Beta)",
   "aws.telemetry": false,
+  "azureResourceGroups.groupBy": "resourceType",
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
@@ -14,6 +15,7 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "debug.console.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "debug.console.fontSize": 16,
+  "editor.acceptSuggestionOnEnter": "on",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": false,
@@ -38,6 +40,9 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.showMethods": true,
+  "editor.suggest.preview": true,
   "editor.tabSize": 2,
   "editor.unicodeHighlight.allowedCharacters": {
     "️": true
@@ -139,7 +144,6 @@
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
   "prettier.semi": false,
-  // "prettier.resolveGlobalModules": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
@@ -155,7 +159,7 @@
   "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "ruby.useBundler": true,
-  "ruby.useLanguageServer": false,
+  "ruby.useLanguageServer": true,
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
@@ -268,6 +272,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "update.mode": "start",
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
@@ -278,6 +284,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "yaml.customTags": [
@@ -311,9 +318,5 @@
   ],
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-issue-config.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/ISSUE_TEMPLATE/config.yml",
-    "https://json.schemastore.org/github-workflow.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/workflows/stale.yml"
   }
 }
