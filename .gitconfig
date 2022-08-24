@@ -24,12 +24,12 @@
   prune = true
 
 [gpg]
-  program = /opt/homebrew/bin/gpg
-  # format = ssh
+  # program = /opt/homebrew/bin/gpg
+  format = ssh
 
-# [gpg "ssh"]
-#   defaultKeyCommand = ssh-add -L
-#   program = ssh-keygen
+[gpg "ssh"]
+  defaultKeyCommand = ssh-add -L
+  program = ssh-keygen
 
 # [gpg "x509"]
 #   program = smimesign
@@ -127,7 +127,8 @@
 
 [pretty]
   changelog = * %h %s
-  info = %C(auto)%h %G? %d %s
+  # info = %C(auto)%h %G? %d %s
+  info = %C(auto)%h %d %s
   json = {\"sha\":\"%H\",\"author\":{\"userid\":\"%aN\",\"email\":\"%aE\",\"date\":\"%as\"},\"commiter\":{\"userid\":\"%cN\",\"email\":\"%cE\",\"date\":\"%cs\"},\"message\":\"%s\",\"tree_sha\":\"%T\",\"parents\":\"%P\"}
 
 [alias]
