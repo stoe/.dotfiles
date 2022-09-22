@@ -28,11 +28,12 @@
   format = ssh
 
 [gpg "ssh"]
-  defaultKeyCommand = ssh-add -L
-  program = ssh-keygen
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  # defaultKeyCommand = ssh-add -L
+  # program = ssh-keygen
 
-# [gpg "x509"]
-#   program = smimesign
+[commit]
+  gpgsign = true
 
 [tag]
   forceSignAnnotated = true
@@ -103,9 +104,6 @@
 
 [help]
   autocorrect = 50
-
-[commit]
-  gpgsign = true
 
 [fetch]
   prune = true
