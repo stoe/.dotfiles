@@ -41,6 +41,7 @@
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.snippetSuggestions": "top",
+  "editor.stickyScroll.enabled": true,
   "editor.suggest.showMethods": true,
   "editor.suggest.preview": true,
   "editor.tabSize": 2,
@@ -65,7 +66,8 @@
     "*.md": "markdown",
     "*.{input,filter,output}.conf": "logstash",
     ".gitconfig*": "properties",
-    ".zshrc*": "properties"
+    ".zshrc*": "properties",
+    "*.ndjson": "ndjson"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -73,6 +75,7 @@
   "git.autofetch": false,
   "git.confirmSync": false,
   "git.ignoreMissingGitWarning": true,
+  "git.mergeEditor": false,
   "[git-commit]": {
     "editor.rulers": [
       72,
@@ -160,6 +163,9 @@
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
+  "[ruby]": {
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
+  },
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
@@ -190,6 +196,7 @@
     "ms-vscode.powershell",
     "ms-sarifvscode.sarif-viewer"
   ],
+  "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
@@ -217,11 +224,7 @@
     }
   },
   "terminal.integrated.tabs.enabled": false,
-  "terraform.languageServer": {
-    "external": false,
-    "pathToBinary": "/usr/local/bin/terraform",
-    "trace.server": "off"
-  },
+  "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[terraform]": {
     "editor.formatOnSave": true
   },
@@ -316,6 +319,10 @@
     "!Split",
     "!Split sequence"
   ],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-config.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/ISSUE_TEMPLATE/config.yml",
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/workflows/stale.yml"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }

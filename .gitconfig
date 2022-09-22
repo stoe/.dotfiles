@@ -6,7 +6,7 @@
   path = ~/code/private/.gitconfig-private
 
 [includeIf "gitdir/i:~/code/scratch/"]
-  path = ~/code/work/.gitconfig-work
+  path = ~/code/private/.gitconfig-private
 
 [includeIf "gitdir/i:~/code/work/"]
   path = ~/code/work/.gitconfig-work
