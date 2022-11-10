@@ -109,7 +109,5 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# `gg` (zgen oh-my-zsh plugins/git) overwrite
-# https://medium.com/darek1024/how-to-clean-local-git-branches-that-were-removed-on-the-remote-4d76f7de93ac
-alias gg="git fetch -p && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
+# `gc` (zgen oh-my-zsh plugins/git) overwrite
 alias gc="gitmoji -c"
