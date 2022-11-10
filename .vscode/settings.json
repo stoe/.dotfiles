@@ -166,6 +166,8 @@
   "[ruby]": {
     "editor.defaultFormatter": "misogi.ruby-rubocop"
   },
+  "sarif-viewer.connectToGithubCodeScanning": "on",
+  "sarif-viewer.explorer.openWhenNoResults": false,
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
@@ -284,6 +286,7 @@
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabCloseButton": "left",
   "workbench.enableExperiments": false,
+  "workbench.experimental.settingsProfiles.enabled": true,
   "workbench.iconTheme": "vscode-icons",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
