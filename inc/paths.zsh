@@ -24,5 +24,8 @@ export PATH="${PATH}:${GOBIN}"
 export GOROOT="$(brew --prefix go)/libexec"
 export PATH="${PATH}:${GOROOT}/bin"
 
+# Python
+export PATH="${PATH}:$(brew --prefix python)/libexec/bin"
+
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
