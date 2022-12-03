@@ -343,6 +343,7 @@
     '~/scratch(|/*)'       SCRATCH  ''
     '~/code/work(|/*)'     WORK     ''
     '~/github(|/*)'        WORK     ''
+    '~/work(|/*)'          WORK     ''
     '~/customers(|/*)'     WORK     ''
     '~(|/*)'               HOME     ''
     '*'                    DEFAULT  ''
