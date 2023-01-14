@@ -26,6 +26,7 @@ export PATH="${PATH}:${GOROOT}/bin"
 
 # Python
 export PATH="${PATH}:$(brew --prefix python)/libexec/bin"
+export PATH="${PATH}:$(brew --prefix pipenv)/bin"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
