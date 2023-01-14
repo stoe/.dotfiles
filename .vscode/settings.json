@@ -72,6 +72,7 @@
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
   "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
   "git.confirmSync": false,
   "git.ignoreMissingGitWarning": true,
@@ -90,6 +91,7 @@
     "markdown": true,
     "javascript": true
   },
+  "githubPullRequests.pullBranch": "never",
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
@@ -196,13 +198,13 @@
     "hashicorp.terraform",
     "wholroyd.hcl",
     "ms-vscode.powershell",
-    "ms-sarifvscode.sarif-viewer"
+    "ms-sarifvscode.sarif-viewer",
+    "ms-vscode.azure-account"
   ],
   "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
-  "terminal.external.osxExec": "Hyper.app",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
