@@ -22,6 +22,7 @@
 
 [remote "origin"]
   prune = true
+  pruneTags = true
 
 [gpg]
   # program = /opt/homebrew/bin/gpg
@@ -107,6 +108,7 @@
 
 [fetch]
   prune = true
+  pruneTags = true
 
 [pull]
   rebase = true
