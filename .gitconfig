@@ -135,7 +135,7 @@
   # View abbreviated SHA, description, and history graph
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
   lg = log --pretty=info --graph --all -n 10
-  lj = log --pretty=json --all -n 10
+  loj = !git log --pretty=json -n 10 | jq -sc
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
@@ -148,7 +148,7 @@
   # http://haacked.com/archive/2014/07/28/github-flow-aliases/#completing-the-pull-request
   up = pull --rebase --prune
   co = checkout
-  cob = checkout -b
+  cob = switch -c
   ec = config --global -e
   # show who you are committing as
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
@@ -158,7 +158,8 @@
   # https://gitmoji.dev/
   new = "!f() { git commit -S -m \"🎉 ${@:-Init}\"; }; f"
   gear = "!f() { git commit -S -m \"🔧 ${@:-Update config}\"; }; f"
-  wip = "!f() { git commit -S -m \"🚧 Work in Progress\"; }; f"
+  # wip = "!f() { git commit -S -m \"🚧 Work in Progress\"; }; f"
+  wip = stash -u -m "WIP"
   fix = "!f() { git commit -S -m \"🐛 $@\"; }; f"
   rlz = "!f() { git commit -S -m \"🔖 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
   brk = "!f() { git commit -S -m \"💥 $@\"; }; f"
@@ -167,6 +168,14 @@
   typo = "!f() { git commit -S -m \"✏️ ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree
+  wtl = worktree list
+  wtr = worktree remove
+  # add a worktree for a new local branch
+  # git worktree add -b <branch> <path>
+  wtb = "!f() { git worktree add -b ${1} ${2}; }; f"
+  # add a worktree for an existing upstream branch and set up tracking
+  # git worktree add --track -b <branch> <path> <origin>/<branch>
+  wtt = "!f() { git worktree add --track -b ${1} ${2} ${3}; }; f"
   # https://stackoverflow.com/a/25387310
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
