@@ -42,5 +42,13 @@
     "key": "shift+alt+cmd+k",
     "command": "workbench.action.closeFolder",
     "when": "emptyWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+shift+[Backquote]",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "shift+alt+t",
+    "command": "workbench.action.terminal.newWithProfile"
   }
 ]
