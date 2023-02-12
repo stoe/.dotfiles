@@ -204,19 +204,22 @@ function brewup() {
 function targz() {
   section "Compressing ${@} ..."
 
+  local tmp="${@%/}.tar"
   local size=$(du -ck ${@} | tail -n 1 | awk '{print $1}')
   local cmd=""
   local progress=""
 
+  formatexec "tar -cf ${tmp} --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' ${@} || return 1"
+
   if (( size < 51200 )) && hash zopfli 2> /dev/null; then
     # the content is less than 50 MB and zopfli is available; use it
-    cmd="zopfli"
+    cmd="zopfli "
   else
     if hash pigz 2> /dev/null; then
       # pigz is available; use it
-      cmd="pigz"
+      cmd="pigz "
     else
-      cmd="gzip"
+      cmd="gzip "
     fi
   fi
 
@@ -225,8 +228,9 @@ function targz() {
     progress="pv -s $((${size} * 1024)) | "
   fi
 
-  formatexec "tar -c --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' -f - ${@} | ${progress}${cmd} > ${@}.tar.gz || return 1"
+  formatexec "${progress}${cmd}${tmp} || return 1"
 
+  [ -f "${tmp}" ] && /bin/rm -rf "${tmp}" &>/dev/null
   ok "${@}.tar.gz created successfully."
 }
 
@@ -248,7 +252,6 @@ function extract () {
       *.tbz2)    formatexec "pv ${1} | tar xjf -" ;;
       *.tgz)     formatexec "pv ${1} | tar xzf -" ;;
       # *.zip)     formatexec "7z x ${1}" ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
-
       *.zip)     formatexec "unzip ${1}"          ;;
       *.Z)       formatexec "uncompress ${1}"     ;;
       # *.7z)      formatexec "7z x ${1}"           ;;
@@ -273,7 +276,7 @@ function mov2gif() {
     formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
     formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
 
-    rm -rf "${tmpFolder}" &>/dev/null
+    [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
     ok "$(pwd)/%178F${file}.gif%f saved"
 }
