@@ -12,6 +12,10 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
 
+    concurrency:
+      group: super-linter-${{ github.ref }}
+      cancel-in-progress: true
+
     permissions:
       contents: read
       packages: read
