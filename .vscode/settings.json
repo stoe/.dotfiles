@@ -77,6 +77,7 @@
   "git.confirmSync": false,
   "git.ignoreMissingGitWarning": true,
   "git.mergeEditor": false,
+  "git.openRepositoryInParentFolders": "never",
   "[git-commit]": {
     "editor.rulers": [
       72,
@@ -112,6 +113,9 @@
   "go.gopath": "~/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
