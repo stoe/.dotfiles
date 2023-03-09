@@ -130,7 +130,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "json.schemaDownload.enable": false,
+  "json.schemaDownload.enable": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -210,6 +210,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
@@ -282,6 +283,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "update.mode": "start",
+  "vsicons.dontShowNewVersionMessage": true,
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
