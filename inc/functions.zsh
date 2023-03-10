@@ -201,36 +201,37 @@ function brewup() {
 }
 
 # Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
+# Usage: targz <path>
 function targz() {
   section "Compressing ${@} ..."
 
   local tmp="${@%/}.tar"
   local size=$(du -ck ${@} | tail -n 1 | awk '{print $1}')
   local cmd=""
-  local progress=""
 
   formatexec "tar -cf ${tmp} --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' ${@} || return 1"
 
-  if (( size < 51200 )) && hash zopfli 2> /dev/null; then
-    # the content is less than 50 MB and zopfli is available; use it
-    cmd="zopfli "
+  if hash 7zz 2> /dev/null; then
+    # 7zz is available; use it
+    formatexec "7zz a -tgzip ${tmp}.gz ${tmp} || return 1"
   else
-    if hash pigz 2> /dev/null; then
-      # pigz is available; use it
-      cmd="pigz "
+    if (( size < 51200 )) && hash zopfli 2> /dev/null; then
+      # the content is less than 50 MB and zopfli is available; use it
+      cmd="zopfli "
     else
-      cmd="gzip "
+      if hash pigz 2> /dev/null; then
+        # pigz is available; use it
+        cmd="pigz "
+      else
+        cmd="gzip "
+      fi
     fi
-  fi
 
-  if (( size > 524288 )); then
-    # the content is greater than 0.5GB; show a progress bar
-    progress="pv -s $((${size} * 1024)) | "
+    formatexec "${cmd}${tmp} || return 1"
   fi
-
-  formatexec "${progress}${cmd}${tmp} || return 1"
 
   [ -f "${tmp}" ] && /bin/rm -rf "${tmp}" &>/dev/null
+
   ok "${@}.tar.gz created successfully."
 }
 
