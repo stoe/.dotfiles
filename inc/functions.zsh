@@ -235,6 +235,23 @@ function targz() {
   ok "${@}.tar.gz created successfully."
 }
 
+# Create a password protected .zip archive, using `7z` for compression
+# Usage: zippw <folder> <password>
+function zippw() {
+  if ! hash 7zz 2> /dev/null; then
+    abort "Error: 7z is not installed."
+    return 1
+  fi
+
+  section "Compressing ${1} ..."
+
+  local tmp="${1%/}.zip"
+
+  7zz a -tzip -p${2} ${tmp} ${1} || return 1
+
+  ok "${tmp} created successfully."
+}
+
 # Extract any archive.
 # Usage: extract <file>
 function extract () {
