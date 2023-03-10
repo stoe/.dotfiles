@@ -26,7 +26,7 @@ function o() {
 
 # open in Tower.app
 function gt() {
-  if ! $(which gittower &>/dev/null); then
+  if ! hash gittower &>/dev/null; then
     abort "Please install Tower.app first"
   else
     if [ $# -eq 0 ]; then
@@ -57,12 +57,12 @@ function tre() {
 
 ### from https://gist.github.com/bmhatfield/f613c10e360b4f27033761bbee4404fd ###
 
-# Use: keychain-environment-variable SECRET_ENV_VAR
+# Usage: keychain-environment-variable SECRET_ENV_VAR
 function keychain-environment-variable () {
   security find-generic-password -w -a ${USER} -D "environment variable" -s "${1}"
 }
 
-# Use: set-keychain-environment-variable SECRET_ENV_VAR
+# Usage: set-keychain-environment-variable SECRET_ENV_VAR
 #   provide: super_secret_key_abc123
 function set-keychain-environment-variable () {
   [ -n "$1" ] || print "Missing environment variable name"
@@ -236,6 +236,7 @@ function targz() {
 }
 
 # Extract any archive.
+# Usage: extract <file>
 function extract () {
   if [ $# -ne 1 ]; then
     abort "Error: No file specified."
@@ -264,6 +265,7 @@ function extract () {
 }
 
 # .mov -> .gif
+# Usage: mov2gif <file> <scale>
 function mov2gif() {
     local file="${1%.*}"
     local scale="${2:-600}"
