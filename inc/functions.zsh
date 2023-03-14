@@ -65,7 +65,7 @@ function keychain-environment-variable () {
 # Usage: set-keychain-environment-variable SECRET_ENV_VAR
 #   provide: super_secret_key_abc123
 function set-keychain-environment-variable () {
-  [ -n "$1" ] || print "Missing environment variable name"
+  [ -n "$1" ] || print "Missing environment variable name" & exit 1
 
   # Note: if using bash, use `-p` to indicate a prompt string, rather than the leading `?`
   read -s "?Enter Value for ${1}: " secret
@@ -333,4 +333,24 @@ function mov2gif() {
     [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
     ok "$(pwd)/%178F${file}.gif%f saved"
+}
+
+# .pdf -> .png
+function pdf2png() {
+    local file="${1%.*}"
+    local outputFolder="${HOME}/Desktop/${file}"
+
+    section "${1} >> ${outputFolder}/*.png"
+
+    rm -rf "${outputFolder}" &>/dev/null
+    mkdir "${outputFolder}" &>/dev/null
+
+    formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha off '${outputFolder}/${file}.Page %03d.png'"
+
+    ok "PNGs saved to %178F${outputFolder}%f"
+}
+
+# https://docs.gitignore.io/install/command-line
+function gi() {
+    curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
 }

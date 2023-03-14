@@ -30,3 +30,5 @@ alias ncua!="git pull || true && ncu -i && rm! -rf package-lock.json yarn.lock b
 
 # act
 alias act="act --container-architecture linux/amd64"
+
+alias ghpdf="node /Users/stoe/private/@legacy/pdfify-node/index.js --header /Users/stoe/scratch/pdfify/header.hbs --style /Users/stoe/scratch/pdfify/style.css"
