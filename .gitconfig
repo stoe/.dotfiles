@@ -130,6 +130,7 @@
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
   lg = log --pretty=info --graph --all -n 10
   loj = !git log --pretty=json -n 10 | jq -sc
+  lol = log --oneline --graph --decorate --all
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
@@ -167,6 +168,9 @@
   # add a worktree for a new local branch
   # git worktree add -b <branch> <path>
   wtb = "!f() { git worktree add -b ${1} ${2}; }; f"
+  # add a worktree for an existing local branch
+  # git worktree add --checkout <branch> <path>
+  wtc = "!f() { git worktree add --checkout ${1} ${2}; }; f"
   # add a worktree for an existing upstream branch and set up tracking
   # git worktree add --track -b <branch> <path> <origin>/<branch>
   wtt = "!f() { git worktree add --track -b ${1} ${2} ${3}; }; f"
@@ -174,6 +178,7 @@
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
   # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/#integrating-with-git
+  g = ! "gh poi"
   gone = ! "gh poi"
 
 [log]
