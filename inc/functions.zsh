@@ -188,7 +188,7 @@ function brewup() {
       ok "OK, not doing anything"
     fi
   else
-    ok "Nothing to do"
+    ok "Everything is up to date"
   fi
 
   section "Cleanup"
@@ -196,6 +196,40 @@ function brewup() {
 
   section "Doctor"
   formatexec "brew doctor"
+
+  ok "DONE"
+}
+
+# see https://docs.npmjs.com/cli/commands/npm-outdated
+# see https://docs.npmjs.com/cli/commands/npm-update
+# see https://docs.npmjs.com/cli/commands/npm-doctor
+function npmup() {
+  section "Fetching packages list"
+  print -P "%244F> npm outdated --global%f"
+
+  local packages=`npm outdated --global --depth=0 | grep global | wc -l | awk '{print $1}'`
+
+  if [ "$packages" != 0 ]; then
+    print -P "%5FOutdated packages:%f" "$packages"
+    npm outdated --global --depth=0
+
+    if [ "$1" != "-y" ]; then
+      question "Update these packages?" "yn"
+      read -rs -k 1 ask
+      print -P "%39F> $ask%f"
+    fi
+
+    if [ "$ask" = "y" ]; then
+      formatexec "npm update --global --omit=dev --omit=optional --omot=peer --depth=0 --install-strategy=shallow"
+    else
+      ok "OK, not doing anything"
+    fi
+  else
+    ok "Everything is up to date"
+  fi
+
+  section "Doctor"
+  formatexec "npm doctor"
 
   ok "DONE"
 }
