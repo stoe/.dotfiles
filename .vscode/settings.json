@@ -85,6 +85,7 @@
     ],
     "editor.wordWrap": "off"
   },
+  "github-actions.org-features": true,
   "github.copilot.enable": {
     "*": true,
     "yaml": true,
@@ -93,6 +94,7 @@
     "javascript": true
   },
   "githubPullRequests.pullBranch": "never",
+  "[github-actions-workflow]": {},
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
   },
@@ -139,6 +141,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "markdown.extension.italic.indicator": "_",
+  "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..4",
   "markdown.previewFrontMatter": "show",
@@ -329,10 +332,6 @@
     "!Split",
     "!Split sequence"
   ],
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-issue-config.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/ISSUE_TEMPLATE/config.yml",
-    "https://json.schemastore.org/github-workflow.json": "file:///Users/stoe/code/work/customers/Sophos/githubcustomers/.github/workflows/stale.yml"
-  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
