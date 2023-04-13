@@ -10,20 +10,3 @@ aliases:
     comment: issue comment -e
     notes: issue list -l "meeting-notes ☑"
     pr: pull request
-    repo-list: |-
-        api graphql -F owner="$1" -f query="
-            query ($owner: String!, $endCursor: String = null) {
-              organization(login: $owner) {
-                repositories(first: 10, orderBy: { field: NAME, direction: ASC }, after: $endCursor) {
-                  nodes {
-                    name
-                    url
-                  }
-                  pageInfo {
-                    hasNextPage
-                    endCursor
-                  }
-                }
-              }
-            }
-          " --jq ".data.organization.repositories.nodes[] | select(.object == null) | {\"name\": .name, \"url\": .url}"
