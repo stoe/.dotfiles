@@ -19,11 +19,18 @@ brew 'pv'
 brew 'tree'
 brew 'zopfli'
 
+brew 'ffmpeg'
+brew 'imagemagick'
+brew 'pandoc'
+
 brew 'gh'
 brew 'git'
 brew 'git-extras'
 brew 'git-lfs'
+brew 'git-sizer'
 brew 'gitmoji'
+# brew 'git-svn'
+# brew 'subversion'
 
 brew 'gnupg'
 brew 'openssh'
@@ -32,12 +39,20 @@ brew 'pinentry-mac'
 brew 'yubikey-agent'
 
 brew 'go'
+brew 'golangci-lint'
 brew 'goreleaser'
 
 brew 'node'
 brew 'nvm'
 
 brew 'rbenv'
+
+brew 'ansible'
+brew 'terraform'
+
+brew 'python'
+brew 'pipenv'
+brew 'virtualenv'
 
 # brew install --cask
 cask '1password'
@@ -49,7 +64,11 @@ cask 'cleanmymac'
 cask 'cyberduck'
 cask 'deckset'
 cask 'docker'
+cask 'elgato-camera-hub'
+cask 'elgato-control-center'
+cask 'elgato-stream-deck'
 cask 'encryptme'
+cask 'google-drive'
 cask 'hookshot'
 cask 'insomnia'
 cask 'istat-menus'
@@ -59,17 +78,16 @@ cask 'little-snitch'
 cask 'micro-snitch'
 cask 'microsoft-auto-update'
 cask 'microsoft-edge'
+cask 'microsoft-teams'
 cask 'mimestream'
 cask 'mosaic'
 cask 'muzzle'
-cask 'obs'
-cask 'qlcolorcode'
 cask 'qlimagesize'
 cask 'qlmarkdown'
-cask 'qlstephen'
 cask 'qlvideo'
 cask 'quicklook-json'
 cask 'quicklookase'
+cask 'postman'
 cask 'rocket'
 cask 'skitch'
 cask 'spotify'
@@ -80,24 +98,32 @@ cask 'tripmode'
 cask 'ubersicht'
 cask 'viscosity'
 cask 'visual-studio-code'
+cask 'yubico-yubikey-manager'
 
 # (optional) brew install --cask
+# cask 'citrix-workspace'
+# cask 'microsoft-remote-desktop'
+# cask 'obs'
+# cask 'pingid'
+# cask 'powershell'
 # cask 'sonos'
 # cask 'steam'
-# cask 'keybase'
-# cask 'pingid'
-# cask 'citrix-workspace'
+# cask 'visual-studio-code-insiders'
+# cask 'vlc'
 # cask 'vmware-fusion'
 
 # mas install
 brew 'mas'
 
-# mas '1Password 7', id: 1333542190
+mas '1Password for Safari', id: 1569813296
+mas 'Bear', id: 1091189122
+mas 'Black Out', id: 1319884285
 mas 'Dato', id: 1470584107
 mas 'Denied', id: 909257784
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
 mas 'Okta Extension App', id: 1439967473
 mas 'Pages', id: 409201541
+mas 'Speediness', id: 1596706466
 mas 'We Love Lights', id: 1479422551
-mas 'Xcode', id: 497799835
+# mas 'Xcode', id: 497799835
