@@ -221,7 +221,7 @@ function npmup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      formatexec "npm update --global --omit=dev --omit=optional --omot=peer --depth=0 --install-strategy=shallow"
+      formatexec "npm update --global --omit=dev --omit=optional --omit=peer --depth=0 --install-strategy=shallow"
     else
       ok "OK, not doing anything"
     fi
