@@ -65,7 +65,8 @@ function keychain-environment-variable () {
 # Usage: set-keychain-environment-variable SECRET_ENV_VAR
 #   provide: super_secret_key_abc123
 function set-keychain-environment-variable () {
-  [ -n "$1" ] || print "Missing environment variable name" & exit 1
+  # exit if no argument is provided
+  [ -n "$1" ] || return 1
 
   # Note: if using bash, use `-p` to indicate a prompt string, rather than the leading `?`
   read -s "?Enter Value for ${1}: " secret
