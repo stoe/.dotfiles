@@ -36,9 +36,6 @@ export DFH=$HOME/code/private/.dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
-# load local zshrc if present
-[ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
-
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -111,3 +108,6 @@ fi
 
 # `gc` (zgen oh-my-zsh plugins/git) overwrite
 alias gc="gitmoji -c"
+
+# load local zshrc if present
+[ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
