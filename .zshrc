@@ -22,12 +22,12 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
   autoload -Uz compinit
-  compinit
+  compinit -i
 fi
 
-if type gh &>/dev/null; then
-  eval "$(gh completion -s zsh)"
-fi
+# if type gh &>/dev/null; then
+#   eval "$(gh completion -s zsh)"
+# fi
 
 # shortcut to this dotfiles path is $DFH
 export DFH=$HOME/code/private/.dotfiles
