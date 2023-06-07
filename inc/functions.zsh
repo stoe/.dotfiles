@@ -230,7 +230,7 @@ function npmup() {
   fi
 
   section "Doctor"
-  formatexec "npm doctor"
+  formatexec "npm doctor ping registry environment cache"
 
   ok "DONE"
 }
