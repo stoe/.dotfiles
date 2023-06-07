@@ -5,7 +5,7 @@
   "autoDarkMode.lightIconTheme": "vscode-icons",
   "autoDarkMode.lightTheme": "GitHub Light Colorblind (Beta)",
   "aws.telemetry": false,
-  "azureResourceGroups.groupBy": "resourceType",
+  "azureResourceGroups.groupBy": "resourceGroup",
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
@@ -46,7 +46,8 @@
   "editor.suggest.showMethods": true,
   "editor.tabSize": 2,
   "editor.unicodeHighlight.allowedCharacters": {
-    "️": true
+    "️": true,
+    "ℹ": true
   },
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
@@ -143,7 +144,7 @@
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
-  "markdown.extension.toc.levels": "2..4",
+  "markdown.extension.toc.levels": "3..4",
   "markdown.previewFrontMatter": "show",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
