@@ -160,6 +160,7 @@
   brk = "!f() { git commit -S -m \"💥 $@\"; }; f"
   doc = "!f() { git commit -S -m \"📝 $@\"; }; f"
   dep = "!f() { git commit -S -m \"⬆️ ${@:-Update dependencies}\"; }; f"
+  tst = "!f() { git commit -S -m \"🧪 ${@:-Test}\" -m \"Mmm Mmm Mmm Mmm\"; }; f"
   typo = "!f() { git commit -S -m \"✏️ ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree

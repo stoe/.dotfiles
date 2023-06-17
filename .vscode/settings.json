@@ -1,4 +1,5 @@
 {
+  "application.shellEnvironmentResolutionTimeout": 15,
   "atomKeymap.promptV3Features": true,
   "autoDarkMode.darkIconTheme": "vscode-icons",
   "autoDarkMode.darkTheme": "GitHub Dark Dimmed",
@@ -40,6 +41,7 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
+  "editor.inlineSuggest.showToolbar": "always",
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.suggest.preview": true,
