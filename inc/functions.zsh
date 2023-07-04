@@ -346,7 +346,7 @@ function pdf2png() {
     rm -rf "${outputFolder}" &>/dev/null
     mkdir "${outputFolder}" &>/dev/null
 
-    formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha off '${outputFolder}/${file}.Page %03d.png'"
+    formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
 
     ok "PNGs saved to %178F${outputFolder}%f"
 }
