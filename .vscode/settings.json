@@ -212,11 +212,10 @@
   ],
   "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
-  "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "zsh (login)",
+  "terminal.integrated.defaultProfile.osx": "zsh (login)",
+  "terminal.integrated.defaultProfile.windows": "pwsh",
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
@@ -224,20 +223,26 @@
       "path": "zsh",
       "args": [
         "-l"
-      ]
+      ],
+      "color": "terminal.ansiGreen"
     },
     "bash (login)": {
       "path": "bash",
       "args": [
         "-l"
-      ]
+      ],
+      "icon": "terminal-bash",
+      "color": "terminal.ansiBlue"
     },
     "pwsh": {
       "path": "/usr/local/bin/pwsh",
-      "args": []
+      "args": [],
+      "icon": "terminal-powershell",
+      "color": "terminal.ansiMagenta"
     }
   },
-  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.location": "right",
   "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[terraform]": {
     "editor.formatOnSave": true
@@ -335,7 +340,10 @@
     "!Split",
     "!Split sequence"
   ],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-config.json": "**/.github/ISSUE_TEMPLATE/config.yml"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
 }
