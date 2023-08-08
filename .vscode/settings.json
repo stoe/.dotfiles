@@ -1,10 +1,6 @@
 {
   "application.shellEnvironmentResolutionTimeout": 15,
   "atomKeymap.promptV3Features": true,
-  "autoDarkMode.darkIconTheme": "vscode-icons",
-  "autoDarkMode.darkTheme": "GitHub Dark Dimmed",
-  "autoDarkMode.lightIconTheme": "vscode-icons",
-  "autoDarkMode.lightTheme": "GitHub Light Colorblind (Beta)",
   "aws.telemetry": false,
   "azureResourceGroups.groupBy": "resourceGroup",
   "bookmarks.label.suggestion": "suggestWhenSelected",
@@ -184,31 +180,20 @@
   "search.useGlobalIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
   "settingsSync.ignoredExtensions": [
-    "buster.ndjson-colorizer",
-    "hashicorp.terraform",
-    "idleberg.applescript",
+    "davidanson.vscode-markdownlint",
+    "fnando.ruby",
     "kaiwood.endwise",
     "manuelpuyol.erb-linter",
+    "mark-tucker.aws-cli-configure",
     "misogi.ruby-rubocop",
     "ms-azuretools.vscode-cosmosdb",
-    "ms-dotnettools.csharp",
-    "ms-python.python",
-    "ms-python.vscode-pylance",
     "ms-sarifvscode.sarif-viewer",
-    "ms-toolsai.jupyter-keymap",
-    "ms-toolsai.jupyter-renderers",
-    "ms-toolsai.jupyter",
     "ms-vscode.azure-account",
     "ms-vscode.azure-repos",
     "ms-vscode.powershell",
-    "randomchance.logstash",
-    "randomfractalsinc.vscode-data-preview",
     "rebornix.ruby",
-    "shadowtime2000.eta-vscode",
-    "wholroyd.hcl",
-    "will-wow.vscode-alternate-file",
+    "vortizhe.simple-ruby-erb",
     "wingrunr21.vscode-ruby",
-    "mark-tucker.aws-cli-configure"
   ],
   "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
@@ -247,49 +232,6 @@
   "[terraform]": {
     "editor.formatOnSave": true
   },
-  "todo-tree.filtering.excludeGlobs": [
-    "**/node_modules",
-    "**/bundle/**"
-  ],
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.highlights.customHighlight": {
-    "DEBUG": {
-      "foreground": "#bd2c00",
-      "fontWeight": "800"
-    },
-    "FIXME": {
-      "foreground": "#bd2c00",
-      "fontWeight": "800"
-    },
-    "REVIEW": {
-      "foreground": "#6e5494",
-      "fontWeight": "800"
-    },
-    "NOTE": {
-      "foreground": "#4078c0",
-      "fontWeight": "800"
-    },
-    "TODO": {
-      "foreground": "#6cc644",
-      "fontWeight": "800"
-    },
-    "[ ]": {
-      "background": "#bd2c0032"
-    },
-    "[x]": {
-      "background": "#6cc64432"
-    }
-  },
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "todo-tree.tree.showScanModeButton": false,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -309,6 +251,7 @@
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
+  "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "yaml.customTags": [
