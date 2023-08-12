@@ -226,7 +226,7 @@
       "color": "terminal.ansiMagenta"
     }
   },
-  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.tabs.location": "right",
   "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[terraform]": {
