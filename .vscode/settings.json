@@ -2,7 +2,6 @@
   "application.shellEnvironmentResolutionTimeout": 15,
   "atomKeymap.promptV3Features": true,
   "aws.telemetry": false,
-  "azureResourceGroups.groupBy": "resourceGroup",
   "bookmarks.label.suggestion": "suggestWhenSelected",
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
