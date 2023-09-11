@@ -106,7 +106,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# `gc` (zgen oh-my-zsh plugins/git) overwrite
+# overwrites (zgen oh-my-zsh plugins/git)
 alias gc="gitmoji -c"
 
 # load local zshrc if present

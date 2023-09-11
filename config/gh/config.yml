@@ -4,6 +4,7 @@ git_protocol: ssh
 editor: code --wait
 # Aliases allow you to create nicknames for gh commands
 aliases:
+    pr browse: pr view --web
     browse: repo view --web
     clone: repo clone
     co: pr checkout

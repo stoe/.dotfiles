@@ -180,8 +180,7 @@
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
   # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/#integrating-with-git
-  g = ! "gh poi"
-  gone = ! "gh poi"
+  gone = ! "git pull && gh poi"
 
 [log]
   showSignature = false
