@@ -57,6 +57,7 @@
   untracked = cyan bold
 
 [core]
+  autocrlf = input
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
