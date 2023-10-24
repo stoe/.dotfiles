@@ -102,6 +102,7 @@ cask 'yubico-yubikey-manager'
 
 # (optional) brew install --cask
 # cask 'citrix-workspace'
+# cask 'java' unless system '/usr/libexec/java_home --failfast'
 # cask 'microsoft-remote-desktop'
 # cask 'obs'
 # cask 'pingid'
@@ -122,7 +123,7 @@ mas 'Dato', id: 1470584107
 mas 'Denied', id: 909257784
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
-mas 'Okta Extension App', id: 1439967473
+# mas 'Okta Extension App', id: 1439967473
 mas 'Pages', id: 409201541
 mas 'Speediness', id: 1596706466
 mas 'We Love Lights', id: 1479422551
