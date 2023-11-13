@@ -3,6 +3,7 @@ config/*
 !config/gh/config.yml
 
 *-local
+*-msft
 *-private
 *-work
 

@@ -11,6 +11,9 @@
 [includeIf "gitdir/i:~/code/work/"]
   path = ~/code/work/.gitconfig-work
 
+[includeIf "gitdir/i:~/code/microsoft/"]
+  path = ~/code/microsoft/.gitconfig-msft
+
 [init]
   defaultBranch = main
 
