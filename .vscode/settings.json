@@ -9,7 +9,7 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showLineNumbers": false,
   "codesnap.transparentBackground": true,
-  "debug.console.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', monospace",
+  "debug.console.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "debug.console.fontSize": 16,
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
@@ -20,7 +20,7 @@
   },
   "editor.cursorStyle": "block",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Monaspace Argon', 'MesloLGS NF', 'FiraCode Nerd Font Mono', Menlo, 'DejaVu Sans Mono', 'Lucida Console', monospace",
+  "editor.fontFamily": "'Monaspace Argon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
   "editor.fontSize": 16,
   "editor.formatOnPaste": true,
@@ -210,7 +210,7 @@
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
   "terminal.integrated.defaultProfile.windows": "pwsh",
-  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', monospace",
+  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
