@@ -5,6 +5,7 @@ cask_args appdir: '/Applications', require_sha: true
 # brew tap
 tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap '1password/tap'
 
@@ -112,6 +113,11 @@ cask 'yubico-yubikey-manager'
 # cask 'visual-studio-code-insiders'
 # cask 'vlc'
 # cask 'vmware-fusion'
+
+# fonts
+cask 'font-fira-code-nerd-font'
+cask 'font-fira-code'
+cask 'font-monaspace'
 
 # mas install
 brew 'mas'
