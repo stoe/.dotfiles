@@ -1,14 +1,19 @@
+version: "1"
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: ssh
 # What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor: code --wait
 # Aliases allow you to create nicknames for gh commands
 aliases:
-    pr browse: pr view --web
+    # repo
     browse: repo view --web
     clone: repo clone
-    co: pr checkout
+    # issues
     comment: issue comment -e
     notes: issue list -l "meeting-notes ☑"
+    # prs
+    co: pr checkout
+    pr browse: pr view --web
     pr: pull request
+    # actions
     run-cleanup: "!gh run list --limit 100 --json databaseId --jq '.[].databaseId' | xargs -n1 -I % gh run delete %"
