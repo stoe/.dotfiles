@@ -9,8 +9,9 @@
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showLineNumbers": false,
   "codesnap.transparentBackground": true,
-  "debug.console.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
+  "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
+  "docker.images.groupBy": "Repository",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -174,12 +175,8 @@
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
     "editor.semanticHighlighting.enabled": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
   },
   "sarif-viewer.connectToGithubCodeScanning": "off",
   "sarif-viewer.explorer.openWhenNoResults": false,
@@ -194,7 +191,7 @@
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
   "terminal.integrated.defaultProfile.windows": "pwsh",
-  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
+  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
