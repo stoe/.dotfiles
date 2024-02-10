@@ -7,7 +7,7 @@
   "bookmarks.sideBar.expanded": true,
   "bookmarks.useWorkaroundForFormatters": true,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
-  "codesnap.showLineNumbers": false,
+  "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
@@ -49,7 +49,7 @@
     "️": true,
     "ℹ": true
   },
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
   "extensions.autoUpdate": "onlyEnabledExtensions",
@@ -191,7 +191,7 @@
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
   "terminal.integrated.defaultProfile.windows": "pwsh",
-  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', monospace",
+  "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
