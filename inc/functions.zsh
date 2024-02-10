@@ -351,6 +351,24 @@ function pdf2png() {
   ok "PNGs saved to %178F${outputFolder}%f"
 }
 
+# .docx -> .md
+function docx2md() {
+  # check if pandoc is installed via brew
+  if ! hash pandoc 2> /dev/null; then
+    abort "Error: pandoc is not installed."
+    return 1
+  fi
+
+  local inputFile="${1}"
+  local outputFile="${inputFile%.*}.md"
+
+  section "${1} >> ${outputFile}"
+
+  formatexec "pandoc -t gfm -s '${inputFile}' -o '${outputFile}'"
+
+  ok "Markdown saved to %178F${outputFile}%f"
+}
+
 # https://docs.gitignore.io/install/command-line
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
