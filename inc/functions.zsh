@@ -319,39 +319,39 @@ function extract () {
 # .mov -> .gif
 # Usage: mov2gif <file> <scale>
 function mov2gif() {
-    local file="${1%.*}"
-    local scale="${2:-600}"
-    local tmpFolder=".mov2png"
+  local file="${1%.*}"
+  local scale="${2:-600}"
+  local tmpFolder=".mov2png"
 
-    section "${1} >> ${file}.gif (scale: ${scale})"
+  section "${1} >> ${file}.gif (scale: ${scale})"
 
-    rm -rf "${tmpFolder}" &>/dev/null
-    mkdir "${tmpFolder}" &>/dev/null
+  rm -rf "${tmpFolder}" &>/dev/null
+  mkdir "${tmpFolder}" &>/dev/null
 
-    formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
-    formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
+  formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
+  formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
 
-    [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
+  [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
-    ok "$(pwd)/%178F${file}.gif%f saved"
+  ok "$(pwd)/%178F${file}.gif%f saved"
 }
 
 # .pdf -> .png
 function pdf2png() {
-    local file="${1%.*}"
-    local outputFolder="${HOME}/Desktop/${file}"
+  local file="${1%.*}"
+  local outputFolder="${HOME}/Desktop/${file}"
 
-    section "${1} >> ${outputFolder}/*.png"
+  section "${1} >> ${outputFolder}/*.png"
 
-    rm -rf "${outputFolder}" &>/dev/null
-    mkdir "${outputFolder}" &>/dev/null
+  rm -rf "${outputFolder}" &>/dev/null
+  mkdir "${outputFolder}" &>/dev/null
 
-    formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
+  formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
 
-    ok "PNGs saved to %178F${outputFolder}%f"
+  ok "PNGs saved to %178F${outputFolder}%f"
 }
 
 # https://docs.gitignore.io/install/command-line
 function gi() {
-    curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
+  curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
 }
