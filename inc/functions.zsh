@@ -369,6 +369,24 @@ function docx2md() {
   ok "Markdown saved to %178F${outputFile}%f"
 }
 
+# .md -> .docx
+function md2docx() {
+  # check if pandoc is installed via brew
+  if ! hash pandoc 2> /dev/null; then
+    abort "Error: pandoc is not installed."
+    return 1
+  fi
+
+  local inputFile="${1}"
+  local outputFile="${inputFile%.*}.docx"
+
+  section "${1} >> ${outputFile}"
+
+  formatexec "pandoc -f gfm+emoji -s '${inputFile}' -o '${outputFile}'"
+
+  ok "MS Word saved to %178F${outputFile}%f"
+}
+
 # https://docs.gitignore.io/install/command-line
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
