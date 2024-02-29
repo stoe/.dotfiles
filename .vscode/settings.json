@@ -1,5 +1,5 @@
 {
-  "application.shellEnvironmentResolutionTimeout": 15,
+  "application.shellEnvironmentResolutionTimeout": 30,
   "atomKeymap.promptV3Features": true,
   "aws.telemetry": false,
   "bookmarks.label.suggestion": "suggestWhenSelected",
@@ -136,7 +136,7 @@
   },
   "json.schemaDownload.enable": true,
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
   },
   "[jsonc]": {
@@ -161,7 +161,6 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-  "postman.telemetry.enabled": false,
   "python.showStartPage": false,
   "redhat.telemetry.enabled": false,
   "ruby.format": "rubocop",
@@ -231,7 +230,7 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0.15,
+  "window.zoomLevel": 0.5,
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
