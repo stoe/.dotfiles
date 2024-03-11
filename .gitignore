@@ -4,7 +4,7 @@ config/*
 
 *-local
 *-msft
-*-private
+*-personal
 *-work
 
 .npmrc

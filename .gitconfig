@@ -3,10 +3,10 @@
   path = ~/.gitconfig-local
 
 [includeIf "gitdir/i:~/code/private/"]
-  path = ~/code/private/.gitconfig-private
+  path = ~/code/private/.gitconfig-personal
 
 [includeIf "gitdir/i:~/code/scratch/"]
-  path = ~/code/private/.gitconfig-private
+  path = ~/code/private/.gitconfig-personal
 
 [includeIf "gitdir/i:~/code/work/"]
   path = ~/code/work/.gitconfig-work
@@ -152,7 +152,7 @@
   ec = config --global -e
   # show who you are committing as
   # https://gist.github.com/loranallensmith/0350db8a91578f40e471d322cf244d45
-  me = !git config --show-origin --get user.name && git config --show-origin --get user.email
+  me = !git config --show-scope --show-origin --get user.name && git config --show-scope --show-origin --get user.email
   idiff = difftool -t icdiff
   # https://github.com/ahmadawais/Emoji-Log
   # https://gitmoji.dev/
