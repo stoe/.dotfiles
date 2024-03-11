@@ -54,15 +54,6 @@ brew "goreleaser"
 brew "node"
 brew "nvm"
 
-brew "rbenv"
-
-# brew "ansible"
-# brew "terraform"
-
-# brew "python"
-# brew "pipenv"
-# brew "virtualenv"
-
 #/ -----------------------------------------------------------------------------
 #/ brew install --cask
 
@@ -100,29 +91,6 @@ cask "tower"
 cask "ubersicht"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
-
-#/ (personal) casks
-
-# cask "parallels"
-# cask "sonos"
-# cask "steam", args: { require_sha: false }
-
-#/ (work) casks
-
-# cask "citrix-workspace"
-# cask "energiza", args: { require_sha: false }
-# cask "google-drive", args: { require_sha: false }
-# cask "java" unless system "/usr/libexec/java_home --failfast"
-# cask "lunar"
-# cask "microsoft-remote-desktop"
-# cask "microsoft-teams"
-# cask "obs"
-# cask "pingid"
-# cask "powershell"
-# cask "tripmode"
-# cask "viscosity"
-# cask "visual-studio-code-insiders"
-# cask "vmware-fusion"
 
 #/ (optional) casks
 

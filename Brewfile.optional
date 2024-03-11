@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+#/ (optional) casks ------------------------------------------------------------
+
+# cask "postman"
+# cask "qlimagesize"
+# cask "qlmarkdown"
+# cask "qlvideo"
+# cask "quicklook-json"
+# cask "quicklookase"
+# cask "skitch"
+# cask "vlc"
