@@ -30,3 +30,6 @@ alias ncua!="git pull || true && ncu -i && rm! -rf package-lock.json yarn.lock b
 
 # act
 alias act="act --container-architecture linux/amd64"
+
+# load GitHub Copilot aliases
+eval "$(gh copilot alias -- zsh)"
