@@ -25,10 +25,6 @@ if type brew &>/dev/null; then
   compinit -i
 fi
 
-# if type gh &>/dev/null; then
-#   eval "$(gh completion -s zsh)"
-# fi
-
 # shortcut to this dotfiles path is $DFH
 export DFH=$HOME/code/private/.dotfiles
 [ -f "${DFH}/inc/paths.zsh" ] && source "${DFH}/inc/paths.zsh"
@@ -66,6 +62,11 @@ if ! zgen saved; then
 
   # generate the init script from plugins above
   zgen save
+fi
+
+# GitHub CLI completion
+if type gh &>/dev/null; then
+  eval "$(gh completion -s zsh)"
 fi
 
 export EDITOR="code --wait"
