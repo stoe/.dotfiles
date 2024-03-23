@@ -7,8 +7,6 @@ brew "azure-cli"
 # brew "ansible"
 # brew "terraform"
 
-brew "rbenv"
-
 brew "python"
 brew "pipenv"
 # brew "virtualenv"

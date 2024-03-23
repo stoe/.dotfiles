@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+set -eo pipefail
+
+print -P "\n[ %5Fhomebrew%f ] 🍺 cleanup\n"
+
+# check if the Brewfile.all file exists
+[ ! -f Brewfile.all ] && print -P "✘ %178Faborting%f Brewfile.all not found" && exit 1
+
+# execute command
+cmd="brew bundle cleanup --file Brewfile.all --force"
+print -P "%244F> $cmd%f" && eval "$cmd"
+
+print -P "\n[ %76F✓%f ] 🍺 done"

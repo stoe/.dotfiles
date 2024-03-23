@@ -1,0 +1,51 @@
+#!/bin/zsh
+
+set -eo pipefail
+
+print -P "\n[ %5Fhomebrew%f ] 🍺 install\n"
+
+# check if the Brewfile file exists
+[ ! -f Brewfile ] && print -P "✘ %178Faborting%f Brewfile not found" && exit 1
+# check if the Brewfile.optional file exists
+[ ! -f Brewfile.optional ] && print -P "✘ %178Faborting%f Brewfile.optional not found" && exit 1
+
+# get the local computer's name and save it to a variable
+machine_name=$(hostname)
+
+# get the contents of the Brewfile and Brewfile.optional files and join them
+brewfile_all="$(cat Brewfile)$(cat Brewfile.optional)"
+
+# switch statement to check the machine_name variable
+case $machine_name in
+"0x73746f65")
+  print -P "[ %5Fhomebrew%f ] 🍺 💼\n"
+
+  # check if the Brewfile.work file exists
+  [ ! -f Brewfile.work ] && print -P "✘ %178Faborting%f Brewfile.work not found" && exit 1
+
+  # get the contents of the Brewfile.work file and join it with the contents of the Brewfile_all variable
+  brewfile_all="$brewfile_all$(cat Brewfile.work)"
+  ;;
+"6x73746f65")
+  print -P "[ %5Fhomebrew%f ] 🍺 🏠\n"
+
+  # check if the Brewfile.personal file exists
+  [ ! -f Brewfile.personal ] && print -P "✘ %178Faborting%f Brewfile.personal not found" && exit 1
+
+  # get the contents of the Brewfile.personal file and join it with the contents of the Brewfile_all variable
+  brewfile_all="$brewfile_all$(cat Brewfile.personal)"
+  ;;
+*)
+  print -P "✘ %178Faborting%f Unknown machine name: $machine_name"
+  exit 1
+  ;;
+esac
+
+# write the contents of the joined Brewfile files to a new file
+echo "$brewfile_all" > Brewfile.all
+
+# execute command
+cmd="brew bundle --file Brewfile.all"
+print -P "%244F> $cmd%f" && eval "$cmd"
+
+print -P "\n[ %76F✓%f ] 🍺 done"

@@ -54,6 +54,8 @@ brew "goreleaser"
 brew "node"
 brew "nvm"
 
+brew "rbenv"
+
 #/ -----------------------------------------------------------------------------
 #/ brew install --cask
 
@@ -91,17 +93,6 @@ cask "tower"
 cask "ubersicht"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
-
-#/ (optional) casks
-
-# cask "postman"
-# cask "qlimagesize"
-# cask "qlmarkdown"
-# cask "qlvideo"
-# cask "quicklook-json"
-# cask "quicklookase"
-# cask "skitch"
-# cask "vlc"
 
 #/ -----------------------------------------------------------------------------
 #/ fonts
