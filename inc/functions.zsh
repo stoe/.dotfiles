@@ -118,9 +118,9 @@ function dclean() {
 # see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
 # thanks https://github.com/fvdm
 function brewup() {
+  section "Updating Homebrew"
   formatexec "brew update"
 
-  section "Fetching cask list"
   print -P "%244F> brew outdated --cask%f"
 
   local _casks=$(brew outdated --cask | wc -l | awk '{print $1}')
@@ -144,7 +144,6 @@ function brewup() {
     ok "Nothing to do"
   fi
 
-  section "Fetching mas list"
   print -P "%244F> mas outdated%f"
 
   local _apps=`mas outdated | wc -l | awk '{print $1}'`
@@ -168,7 +167,6 @@ function brewup() {
     ok "Nothing to do"
   fi
 
-  section "Fetching packages list"
   print -P "%244F> brew outdated --formula%f"
 
   local _brews=`brew outdated --formula | wc -l | awk '{print $1}'`
@@ -192,10 +190,7 @@ function brewup() {
     ok "Everything is up to date"
   fi
 
-  section "Cleanup"
   formatexec "brew cleanup"
-
-  section "Doctor"
   formatexec "brew doctor"
 
   ok "DONE"
@@ -205,7 +200,7 @@ function brewup() {
 # see https://docs.npmjs.com/cli/commands/npm-update
 # see https://docs.npmjs.com/cli/commands/npm-doctor
 function npmup() {
-  section "Fetching packages list"
+  section "Updating NPM global packages"
   print -P "%244F> npm outdated --global%f"
 
   local packages=`npm outdated --global --depth=0 | grep global | wc -l | awk '{print $1}'`
@@ -229,10 +224,21 @@ function npmup() {
     ok "Everything is up to date"
   fi
 
-  section "Doctor"
   formatexec "npm doctor ping registry environment cache"
 
   ok "DONE"
+}
+
+function ghup() {
+  section "Updating GitHub CLI extensions"
+  formatexec "gh extension upgrade --all"
+  ok "DONE"
+}
+
+function allup() {
+  brewup
+  npmup
+  ghup
 }
 
 # Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
