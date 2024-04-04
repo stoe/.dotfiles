@@ -72,7 +72,6 @@ cask "docker", link: false
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
-cask "encryptme"
 cask "insomnia"
 cask "istat-menus"
 cask "kaleidoscope"
