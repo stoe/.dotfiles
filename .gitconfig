@@ -156,17 +156,8 @@
   idiff = difftool -t icdiff
   # https://github.com/ahmadawais/Emoji-Log
   # https://gitmoji.dev/
-  new = "!f() { git commit -S -m \"🎉 ${@:-Init}\"; }; f"
-  gear = "!f() { git commit -S -m \"🔧 ${@:-Update config}\"; }; f"
-  # wip = "!f() { git commit -S -m \"🚧 Work in Progress\"; }; f"
   wip = stash -u -m "WIP"
-  fix = "!f() { git commit -S -m \"🐛 $@\"; }; f"
   rlz = "!f() { git commit -S -m \"🔖 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
-  brk = "!f() { git commit -S -m \"💥 $@\"; }; f"
-  doc = "!f() { git commit -S -m \"📝 $@\"; }; f"
-  dep = "!f() { git commit -S -m \"⬆️ ${@:-Update dependencies}\"; }; f"
-  tst = "!f() { git commit -S -m \"🧪 ${@:-Test}\" -m \"Mmm Mmm Mmm Mmm\"; }; f"
-  typo = "!f() { git commit -S -m \"✏️ ${@:-Fix typo}\"; }; f"
   # worktrees
   wt = worktree
   wtl = worktree list
