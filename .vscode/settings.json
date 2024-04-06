@@ -1,5 +1,5 @@
 {
-  "application.shellEnvironmentResolutionTimeout": 30,
+  "application.shellEnvironmentResolutionTimeout": 45,
   "atomKeymap.promptV3Features": true,
   "aws.telemetry": false,
   "bookmarks.label.suggestion": "suggestWhenSelected",
@@ -49,7 +49,7 @@
     "️": true,
     "ℹ": true
   },
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
   "extensions.autoUpdate": "onlyEnabledExtensions",
@@ -67,8 +67,9 @@
     "**/*ansible*/**/*.yml": "yaml",
     "**/defaults/**/*": "yaml",
     "*config": "ssh_config",
+    "Brewfile*": "ruby",
     "credentials": "properties",
-    "known_hosts": "ssh_config",
+    "known_hosts": "ssh_config"
   },
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
@@ -95,6 +96,7 @@
     "yaml": true,
   },
   "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
   "[github-actions-workflow]": {},
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false
@@ -112,6 +114,7 @@
   "gitlens.defaultTimeFormat": "HH:mm ",
   "gitlens.graph.defaultItemLimit": 200,
   "gitlens.hovers.enabled": true,
+  "gitlens.rebaseEditor.ordering": "asc",
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
   "go.gopath": "~/go",
@@ -145,7 +148,7 @@
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
-  "markdown.extension.toc.levels": "3..4",
+  "markdown.extension.toc.levels": "2..4",
   "markdown.previewFrontMatter": "show",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -183,13 +186,19 @@
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "settingsSync.ignoredExtensions": [],
+  "settingsSync.ignoredExtensions": [
+    "parallelsdesktop.parallels-desktop"
+  ],
   "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
   "terminal.integrated.defaultProfile.windows": "pwsh",
+  "terminal.integrated.experimentalInlineChat": true,
   "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.profiles.osx": {
@@ -230,7 +239,7 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "window.zoomLevel": 0.5,
+  "window.zoomLevel": 0.15,
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
