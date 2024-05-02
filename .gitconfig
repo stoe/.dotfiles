@@ -131,9 +131,9 @@
 
 [alias]
   # View abbreviated SHA, description, and history graph
-  l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 10
-  lf = log --pretty=info --graph --first-parent HEAD -n 10
-  lg = log --pretty=info --graph --all -n 10
+  l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 20
+  lf = log --pretty=info --graph --first-parent HEAD -n 20
+  lg = log --pretty=info --graph --all -n 20
   loj = !git log --pretty=json -n 10 | jq -sc
   lol = log --oneline --graph --decorate --all
   # View the current working tree status using the short format w/ branch info
