@@ -1,0 +1,35 @@
+{
+  "name": "@stoe/dotfiles",
+  "version": "0.0.0-development",
+  "description": "~~Stolen~~ Adopted from various dotfiles, changed and extended to my needs.",
+  "keywords": [],
+  "author": {
+    "name": "Stefan Stölzle",
+    "email": "stefan@stoelzle.me",
+    "url": "https://github.com/stoe"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/stoe/.dotfiles",
+  "type": "module",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "format": "npx prettier --config-precedence prefer-file --write .",
+    "prepare": "husky"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@github/prettier-config": "^0.0.6",
+    "husky": "^9.0.11",
+    "prettier": "^3.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./.husky/pre-commit",
+      "pre-push": "./.husky/pre-push"
+    }
+  },
+  "prettier": "@github/prettier-config"
+}
