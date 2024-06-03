@@ -25,7 +25,7 @@ export GOROOT="$(brew --prefix go)/libexec"
 export PATH="${PATH}:${GOROOT}/bin"
 
 # Python
-export PATH="${PATH}:$(brew --prefix python)/libexec/bin"
+export PATH="${PATH}:$(brew --prefix python@3.10)/libexec/bin"
 export PATH="${PATH}:$(brew --prefix pipenv)/bin"
 
 # Ruby

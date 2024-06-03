@@ -8,6 +8,8 @@ brew "azure-cli"
 # brew "terraform"
 
 brew "python"
+brew "python@3.10"
+brew "pyenv"
 brew "pipenv"
 # brew "virtualenv"
 
