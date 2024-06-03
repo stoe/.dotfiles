@@ -335,7 +335,7 @@ function mov2gif() {
   mkdir "${tmpFolder}" &>/dev/null
 
   formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
-  formatexec "convert -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
+  formatexec "magick -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
 
   [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
@@ -352,7 +352,7 @@ function pdf2png() {
   rm -rf "${outputFolder}" &>/dev/null
   mkdir "${outputFolder}" &>/dev/null
 
-  formatexec "convert -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
+  formatexec "magick -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
 
   ok "PNGs saved to %178F${outputFolder}%f"
 }
