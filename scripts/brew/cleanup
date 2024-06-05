@@ -4,8 +4,8 @@ set -eo pipefail
 
 print -P "\n[ %5Fhomebrew%f ] 🍺 cleanup\n"
 
-# check if the Brewfile.all file exists
-[ -f Brewfile.all ] && print -P "✓ %178Ffound%f Brewfile.all, deleting...\n" && rm Brewfile.all > /dev/null 2>&1 && rm Brewfile.all.lock.json > /dev/null 2>&1
+# check if the Brewfile.local file exists
+[ -f Brewfile.local ] && print -P "✓ %178Ffound%f Brewfile.local, deleting...\n" && rm Brewfile.local > /dev/null 2>&1 && rm Brewfile.local.lock.json > /dev/null 2>&1
 
 # check if the Brewfile file exists
 [ ! -f Brewfile ] && print -P "✘ %178Faborting%f Brewfile not found" && exit 1
@@ -45,10 +45,10 @@ case $machine_name in
 esac
 
 # write the contents of the joined Brewfile files to a new file
-echo "$brewfile_all" > Brewfile.all
+echo "$brewfile_all" > Brewfile.local
 
 # execute command
-cmd="brew bundle cleanup --file Brewfile.all --force"
+cmd="brew bundle cleanup --file Brewfile.local --force"
 print -P "%244F> $cmd%f" && eval "$cmd"
 
 print -P "\n[ %76F✓%f ] 🍺 done"

@@ -13,7 +13,7 @@ config/*
 # Edit at https://www.toptal.com/developers/gitignore?templates=homebrew,linux,macos,node,windows
 
 ### Homebrew ###
-Brewfile.all
+Brewfile.local
 Brewfile*.lock.json
 
 ### Linux ###

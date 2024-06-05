@@ -42,10 +42,10 @@ case $machine_name in
 esac
 
 # write the contents of the joined Brewfile files to a new file
-echo "$brewfile_all" > Brewfile.all
+echo "$brewfile_all" > Brewfile.local
 
 # execute command
-cmd="brew bundle --file Brewfile.all"
+cmd="brew bundle --file Brewfile.local"
 print -P "%244F> $cmd%f" && eval "$cmd"
 
 print -P "\n[ %76F✓%f ] 🍺 done"

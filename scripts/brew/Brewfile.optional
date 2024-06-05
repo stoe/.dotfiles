@@ -10,3 +10,8 @@
 # cask "quicklookase"
 # cask "skitch"
 # cask "vlc"
+
+
+#/ (optional) mas --------------------------------------------------------------
+
+# mas "Hidden Bar", id: 1452453066
