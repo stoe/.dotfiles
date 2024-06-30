@@ -19,7 +19,8 @@ cask "citrix-workspace"
 cask "energiza", args: { require_sha: false }
 cask "google-drive", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
-cask "lunar"
+cask "jordanbaird-ice"
+# cask "lunar"
 # cask "microsoft-remote-desktop"
 cask "microsoft-teams"
 cask "obs"

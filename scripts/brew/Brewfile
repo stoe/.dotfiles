@@ -10,8 +10,8 @@ cask_args appdir: "/Applications", require_sha: true
 
 tap "homebrew/bundle"
 # tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
+# tap "homebrew/cask-fonts"
+# tap "homebrew/cask-versions"
 tap "1password/tap"
 
 #/ -----------------------------------------------------------------------------
@@ -75,7 +75,6 @@ cask "elgato-control-center"
 cask "elgato-stream-deck"
 cask "insomnia"
 cask "istat-menus"
-cask "jordanbaird-ice"
 cask "kaleidoscope"
 cask "kap"
 cask "little-snitch"
