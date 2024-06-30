@@ -23,13 +23,22 @@
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",
     "husky": "^9.0.11",
-    "prettier": "^3.3.0"
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2"
   },
   "husky": {
     "hooks": {
       "pre-commit": "./.husky/pre-commit",
       "pre-push": "./.husky/pre-push"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run format"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "prettier": "@github/prettier-config"
 }
