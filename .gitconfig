@@ -63,6 +63,7 @@
   autocrlf = input
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
+  filemode = false
   attributesfile = ~/.gitattributes
   editor = code --wait
   pager = ""
