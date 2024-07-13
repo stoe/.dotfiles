@@ -27,7 +27,7 @@ case $machine_name in
   brewfile_all="$brewfile_all$(cat Brewfile.work)"
   ;;
 "6x73746f65")
-  print -P "[ %5Fhomebrew%f ] 🍺 🏠\n"
+  print -P "[ %5Fhomebrew%f ] 🍺 🏡\n"
 
   # check if the Brewfile.personal file exists
   [ ! -f Brewfile.personal ] && print -P "✘ %178Faborting%f Brewfile.personal not found" && exit 1

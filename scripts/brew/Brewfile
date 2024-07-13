@@ -17,12 +17,14 @@ tap "1password/tap"
 #/ -----------------------------------------------------------------------------
 #/ brew install
 
-brew "coreutils"
-brew "duti"
+brew "7-zip"
 brew "gnu-tar"
 brew "gzip"
-brew "jq"
 brew "pigz"
+
+brew "coreutils"
+brew "duti"
+brew "jq"
 brew "pv"
 brew "tree"
 brew "yq"
@@ -45,6 +47,7 @@ brew "gnupg"
 brew "openssh"
 brew "openssl"
 brew "pinentry-mac"
+brew "ykman"
 brew "yubikey-agent"
 
 brew "go"
