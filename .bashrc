@@ -2,6 +2,11 @@
 
 # -- Source dependencies
 
+# source .bashrc-local if it exists
+if [ -f ~/.bashrc-local ]; then
+  source ~/.bashrc-local
+fi
+
 # Get it from the original Git repo:
 # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 if [ -f ~/.git-prompt.sh ]; then
