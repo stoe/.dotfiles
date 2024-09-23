@@ -2,6 +2,7 @@
 
 #/ (personal) casks ------------------------------------------------------------
 
+cask "mimestream"
 cask "parallels"
 cask "sonos"
 cask "steam", args: { require_sha: false }

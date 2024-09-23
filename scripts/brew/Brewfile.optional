@@ -2,7 +2,6 @@
 
 #/ (optional) casks ------------------------------------------------------------
 
-# cask "postman"
 # cask "qlimagesize"
 # cask "qlmarkdown"
 # cask "qlvideo"
