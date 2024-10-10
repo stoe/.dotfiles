@@ -22,7 +22,7 @@ cask "google-drive", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
 cask "jordanbaird-ice"
 cask "lunar"
-cask "microsoft-outlook"
+# cask "microsoft-outlook"
 # cask "microsoft-remote-desktop"
 cask "microsoft-teams"
 cask "onedrive"
