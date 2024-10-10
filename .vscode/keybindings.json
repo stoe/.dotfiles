@@ -45,5 +45,10 @@
   {
     "key": "shift+alt+t",
     "command": "workbench.action.terminal.newWithProfile"
+  },
+  {
+    "key": "ctrl+cmd+s",
+    "command": "editor.action.insertSnippet",
+    "when": "!editorReadonly"
   }
 ]
