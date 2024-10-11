@@ -248,7 +248,7 @@
   "workbench.editorAssociations": {},
   "workbench.enableExperiments": false,
   "workbench.experimental.settingsProfiles.enabled": true,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
