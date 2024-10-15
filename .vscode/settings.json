@@ -52,6 +52,7 @@
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
+  "eslint.useFlatConfig": true,
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "files.associations": {
     ".env*": "dotenv",
@@ -89,17 +90,19 @@
   },
   "github-actions.org-features": true,
   "github.copilot.advanced": {},
+  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
     "markdown": true,
-    "yaml": true,
+    "yaml": true
   },
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.pushBranch": "always",
   "[github-actions-workflow]": {},
   "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false
+    "suppressIntegrationDisconnectedTooManyFailedRequestsWarning": true,
+    "suppressIntegrationRequestTimedOutWarning": true
   },
   "gitlens.blame.avatars": true,
   "gitlens.blame.highlight.locations": [
@@ -114,15 +117,18 @@
   "gitlens.defaultTimeFormat": "HH:mm ",
   "gitlens.graph.defaultItemLimit": 200,
   "gitlens.hovers.enabled": true,
-  "gitlens.rebaseEditor.ordering": "asc",
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.views.search.enabled": false,
   "go.gopath": "~/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "inlineChat.experimental.textButtons": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -154,11 +160,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
   "npm.packageManager": "npm",
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
+  "prettier.resolveGlobalModules": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
@@ -178,7 +186,7 @@
   "ruby.useLanguageServer": true,
   "[ruby]": {
     "editor.formatOnSave": true,
-    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticHighlighting.enabled": true
   },
   "sarif-viewer.connectToGithubCodeScanning": "off",
   "sarif-viewer.explorer.openWhenNoResults": false,
@@ -187,7 +195,9 @@
   "search.useGlobalIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
   "settingsSync.ignoredExtensions": [
-    "parallelsdesktop.parallels-desktop"
+    "parallelsdesktop.parallels-desktop",
+    "hashicorp.terraform",
+    "ms-vscode-remote.remote-containers"
   ],
   "settingsSync.ignoredSettings": [],
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
@@ -239,14 +249,18 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
+  "window.newWindowProfile": "Default",
   "window.zoomLevel": 0.15,
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabActionLocation": "left",
   "workbench.editor.tabCloseButton": "left",
-  "workbench.editorAssociations": {},
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
   "workbench.enableExperiments": false,
+  "workbench.experimental.enableNewProfilesUI": true,
   "workbench.experimental.settingsProfiles.enabled": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
@@ -282,7 +296,7 @@
     "!Select",
     "!Select sequence",
     "!Split",
-    "!Split sequence",
+    "!Split sequence"
   ],
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config.json": "**/.github/ISSUE_TEMPLATE/config.yml"
