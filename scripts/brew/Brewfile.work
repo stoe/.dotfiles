@@ -17,6 +17,7 @@ brew "pipenv"
 #/ (work) casks ----------------------------------------------------------------
 
 cask "citrix-workspace"
+cask "deskpad"
 cask "energiza", args: { require_sha: false }
 cask "google-drive", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
