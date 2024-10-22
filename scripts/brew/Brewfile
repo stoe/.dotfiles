@@ -64,6 +64,7 @@ brew "rbenv"
 
 cask "1password"
 cask "1password-cli"
+cask "arc"
 cask "alfred"
 cask "apparency"
 # cask "bartender"
