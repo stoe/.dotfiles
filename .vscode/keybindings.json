@@ -50,5 +50,9 @@
     "key": "ctrl+cmd+s",
     "command": "editor.action.insertSnippet",
     "when": "!editorReadonly"
+  },
+  {
+    "key": "ctrl+cmd+c",
+    "command": "workbench.panel.chat.view.copilot.focus"
   }
 ]
