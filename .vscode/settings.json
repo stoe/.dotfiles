@@ -93,11 +93,6 @@
   "github.copilot.advanced": {},
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.chat.edits.enabled": true,
-  "github.copilot.chat.experimental.codeGeneration.instructions": [
-    {
-      "file": ".github/copilot-instructions.md"
-    }
-  ],
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -311,5 +306,10 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ]
 }
