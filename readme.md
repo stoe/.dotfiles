@@ -1,6 +1,6 @@
 ## stoe :green_heart: ~/
 
-~~Stolen~~ Adopted from [various dotfiles](#thanks 'tanks'), changed and extended to my needs.
+~~Stolen~~ Adopted from [various dotfiles](#thanks 'thanks'), changed and extended to my needs.
 
 [It should have been a fork](https://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/ 'Dotfiles Are Meant to Be Forked'), but I decided against it.
 
