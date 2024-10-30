@@ -38,6 +38,9 @@
     ],
     "*.{json,md}": [
       "prettier --write"
+    ],
+    "!(.github/copilot-instructions.md)": [
+      "prettier --write"
     ]
   },
   "prettier": "@github/prettier-config"

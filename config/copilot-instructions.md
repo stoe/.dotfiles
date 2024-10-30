@@ -1,8 +1,16 @@
-For any code use `.editorconfig` within the workspace, or the global one at `/Users/stoe/code/private/.dotfiles/.editorconfig`.
+For any code use the following configuration files (if they are present):
 
-For Ruby code, always use `/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml` as the RuboCop configuration file.
+- `<root>/.editorconfig`
 
-For JavaScript/TypeScript/Node.js code, always use following config files inside of the workspace (if present):
+For all JavaScript/TypeScript/Node.js code, ensure the formatting adheres to the rules specified in the following files (if they are present):
 
-- `eslint.config.js`
-- `prettier.config.js` and `.prettierignore`, or use the global one at `/Users/stoe/code/private/.dotfiles/prettier.config.js` and `/Users/stoe/code/private/.dotfiles/.prettierignore`.
+- `<root>/eslint.config.js`
+- `<root>/prettier.config.js` and `<root>/.prettierignore`
+
+When creating comments, follow these guidelines:
+
+- Place inline comments above the code, not on the same line.
+- Use full sentences for comments.
+- Add JSDoc/HereDoc if missing, but keep it short. Do not align it.
+- Keep all lines, including comments, under 120 characters.
+- Never comment in Markdown, except code blocks.

@@ -1,0 +1,1 @@
+../config/copilot-instructions.md

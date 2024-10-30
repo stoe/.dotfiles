@@ -92,15 +92,12 @@
   "github-actions.org-features": true,
   "github.copilot.advanced": {},
   "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.chat.edits.enabled": true,
-  "github.copilot.chat.experimental.codeGeneration.instructions": [
-    {
-      "file": "/Users/stoe/code/private/.dotfiles/config/copilot-instructions.md"
-    },
+  "github.copilot.chat.codeGeneration.instructions": [
     {
       "file": ".github/copilot-instructions.md"
     }
   ],
+  "github.copilot.chat.edits.enabled": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -167,7 +164,7 @@
   "markdown.extension.toc.levels": "2..4",
   "markdown.previewFrontMatter": "show",
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     "editor.formatOnSave": true
   },
   "notebook.lineNumbers": "on",
@@ -261,8 +258,8 @@
   "window.newWindowDimensions": "inherit",
   "window.newWindowProfile": "Default",
   "window.zoomLevel": 0.15,
-  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.activityBar.location": "top",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabActionLocation": "left",
   "workbench.editor.tabCloseButton": "left",
@@ -275,7 +272,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
-  "workbench.panel.defaultLocation": "bottom",
+  "workbench.panel.defaultLocation": "right",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.settings.enableNaturalLanguageSearch": false,

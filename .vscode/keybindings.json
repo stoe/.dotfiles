@@ -52,7 +52,8 @@
     "when": "!editorReadonly"
   },
   {
-    "key": "ctrl+cmd+c",
-    "command": "workbench.panel.chat.view.copilot.focus"
+    "key": "cmd+i",
+    "command": "inlineChat.startWithCurrentLine",
+    "when": "editorFocus && github.copilot.chat.editor.enableLineTrigger && inlineChatHasProvider && !editorReadonly && !inlineChatVisible && editorLangId != 'markdown'"
   }
 ]
