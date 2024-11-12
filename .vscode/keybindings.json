@@ -1,14 +1,29 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "cmd+b",
+    "key": "ctrl+b",
     "command": "markdown.extension.editing.toggleBold",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
   },
   {
-    "key": "cmd+b",
+    "key": "ctrl+b",
     "command": "-markdown.extension.editing.toggleBold",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "markdown.extension.editing.toggleStrikethrough",
+    "when": "editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   },
   {
     "key": "tab",
@@ -50,10 +65,5 @@
     "key": "ctrl+cmd+s",
     "command": "editor.action.insertSnippet",
     "when": "!editorReadonly"
-  },
-  {
-    "key": "cmd+i",
-    "command": "inlineChat.startWithCurrentLine",
-    "when": "editorFocus && github.copilot.chat.editor.enableLineTrigger && inlineChatHasProvider && !editorReadonly && !inlineChatVisible && editorLangId != 'markdown'"
   }
 ]
