@@ -178,6 +178,7 @@
   # https://stackoverflow.com/a/25387310
   hide = update-index --assume-unchanged
   unhide = update-index --no-assume-unchanged
+  hidden = "!git ls-files -v | grep "^[a-z]""
   # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/#integrating-with-git
   gone = ! "git pull && gh poi"
 
