@@ -2,10 +2,21 @@
 
 set -eo pipefail
 
-print -P "\n[ %5Fhomebrew%f ] 🍺 cleanup\n"
+# Check if the dry run option is provided
+dry_run=false
+if [[ "$1" == "--dry-run" ]]; then
+  dry_run=true
+  print -P "\n[ %244Fdry run%f  ] 🍺 🙈 No changes will be made\n"
+else
+  print -P "\n[ %5Fhomebrew%f ] 🍺 💻 cleanup\n"
+fi
 
 # check if the Brewfile.local file exists
-[ -f Brewfile.local ] && print -P "✓ %178Ffound%f Brewfile.local, deleting...\n" && rm Brewfile.local > /dev/null 2>&1 && rm Brewfile.local.lock.json > /dev/null 2>&1
+if [ -f Brewfile.local ]; then
+  print -P "[ %5Fhomebrew%f ] 🍺 🧹 %178FBrewfile.local%f ...\n"
+  rm Brewfile.local > /dev/null 2>&1 || true
+  rm Brewfile.local.lock.json > /dev/null 2>&1 || true
+fi
 
 # check if the Brewfile file exists
 [ ! -f Brewfile ] && print -P "✘ %178Faborting%f Brewfile not found" && exit 1
@@ -47,8 +58,12 @@ esac
 # write the contents of the joined Brewfile files to a new file
 echo "$brewfile_all" > Brewfile.local
 
-# execute command
-cmd="brew bundle cleanup --file Brewfile.local --force"
+# Construct the command
+cmd="brew bundle cleanup --file Brewfile.local"
+# Add --force if not in dry-run mode
+if [[ "$dry_run" == false ]]; then
+  cmd="$cmd --force"
+fi
 print -P "%244F> $cmd%f" && eval "$cmd"
 
-print -P "\n[ %76F✓%f ] 🍺 done"
+print -P "\n[ %76Fhomebrew%f ] 🍺 done"

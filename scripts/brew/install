@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-print -P "\n[ %5Fhomebrew%f ] 🍺 install\n"
+print -P "\n[ %5Fhomebrew%f ] 🍺 💻 install\n"
 
 # check if the Brewfile file exists
 [ ! -f Brewfile ] && print -P "✘ %178Faborting%f Brewfile not found" && exit 1
@@ -48,4 +48,4 @@ echo "$brewfile_all" > Brewfile.local
 cmd="brew bundle --file Brewfile.local"
 print -P "%244F> $cmd%f" && eval "$cmd"
 
-print -P "\n[ %76F✓%f ] 🍺 done"
+print -P "\n[ %76Fhomebrew%f ] 🍺 done"
