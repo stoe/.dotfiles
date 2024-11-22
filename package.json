@@ -39,7 +39,7 @@
     "*.{json,md}": [
       "prettier --write"
     ],
-    "!(.github/copilot-instructions.md|.gitconfig|scripts/brew/**/*)": [
+    "!(.github/copilot-instructions.md|.gitconfig|scripts/brew/**/*|.husky/*)": [
       "prettier --write"
     ]
   },
