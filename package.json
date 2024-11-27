@@ -24,7 +24,7 @@
     "@github/prettier-config": "^0.0.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3"
+    "prettier": "^3.4.1"
   },
   "husky": {
     "hooks": {
@@ -39,7 +39,7 @@
     "*.{json,md}": [
       "prettier --write"
     ],
-    "!(.github/copilot-instructions.md|.gitconfig|scripts/brew/**/*|.husky/*)": [
+    "!(.github/copilot-instructions.md|.gitconfig|scripts/brew/**/*|.husky/*|**/*.zsh)": [
       "prettier --write"
     ]
   },
