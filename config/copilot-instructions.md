@@ -14,3 +14,5 @@ When creating comments, follow these guidelines:
 - Add JSDoc/HereDoc if missing, but keep it short. Do not align it.
 - Keep all lines, including comments, under 120 characters.
 - Never comment in Markdown, except code blocks.
+
+Use @terminal when answering questions about Git.
