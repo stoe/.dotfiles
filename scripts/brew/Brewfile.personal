@@ -6,3 +6,9 @@ cask "mimestream"
 cask "parallels"
 cask "sonos"
 cask "steam", args: { require_sha: false }
+
+# (personal) fonts -------------------------------------------------------------
+cask "font-playwrite-de-grund-guides", args: { require_sha: false }
+cask "font-playwrite-de-la-guides", args: { require_sha: false }
+cask "font-playwrite-de-sas-guides", args: { require_sha: false }
+cask "font-playwrite-de-va-guides", args: { require_sha: false }
