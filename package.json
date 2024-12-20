@@ -23,8 +23,8 @@
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.4.1"
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2"
   },
   "husky": {
     "hooks": {
@@ -33,15 +33,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run format"
+    "*.{js,jsx,ts,tsx,json,md}": [
+      "npx prettier --config-precedence prefer-file --write"
     ],
-    "*.{json,md}": [
-      "prettier --write"
-    ],
-    "!(.github/copilot-instructions.md|.gitconfig|scripts/brew/**/*|.husky/*|**/*.zsh)": [
-      "prettier --write"
-    ]
+    "!**/.github/copilot-instructions.md": []
   },
   "prettier": "@github/prettier-config"
 }
