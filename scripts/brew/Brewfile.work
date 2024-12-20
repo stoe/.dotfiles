@@ -22,6 +22,7 @@ cask "energiza", args: { require_sha: false }
 cask "google-drive", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
 cask "jordanbaird-ice"
+cask "loom"
 cask "lunar"
 # cask "microsoft-outlook"
 # cask "microsoft-remote-desktop"
