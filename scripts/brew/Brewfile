@@ -110,12 +110,9 @@ brew "mas"
 
 mas "1Password for Safari", id: 1569813296
 mas "Bear", id: 1091189122
-mas "Black Out", id: 1319884285
 mas "Dato", id: 1470584107
 mas "Denied", id: 909257784
-mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Speediness", id: 1596706466
-mas "We Love Lights", id: 1479422551
