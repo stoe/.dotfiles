@@ -150,7 +150,7 @@
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
-  "markdown.extension.toc.levels": "2..4",
+  "markdown.extension.toc.levels": "2..3",
   "markdown.previewFrontMatter": "show",
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one",
