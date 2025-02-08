@@ -43,12 +43,12 @@ if ! zgen saved; then
 
   # plugins
   zgen oh-my-zsh plugins/brew
-  zgen oh-my-zsh plugins/docker
+  # zgen oh-my-zsh plugins/docker
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/git-extras
   zgen oh-my-zsh plugins/git-lfs
   zgen oh-my-zsh plugins/gitignore
-  zgen oh-my-zsh plugins/golang
+  # zgen oh-my-zsh plugins/golang
   zgen oh-my-zsh plugins/node
   zgen oh-my-zsh plugins/nvm
   zgen oh-my-zsh plugins/macos

@@ -73,7 +73,7 @@ cask "cleanmymac"
 cask "cleanshot"
 cask "cyberduck"
 cask "deckset"
-cask "docker", link: false
+cask "docker"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
@@ -94,6 +94,7 @@ cask "the-unarchiver"
 cask "tower"
 cask "ubersicht"
 cask "visual-studio-code"
+cask "visual-studio-code@insiders"
 cask "yubico-yubikey-manager"
 
 #/ -----------------------------------------------------------------------------
