@@ -239,6 +239,14 @@ function allup() {
   brewup
   npmup
   ghup
+
+  formatexec "omz update"
+  formatexec "zgen update"
+  formatexec "zgen selfupdate"
+
+  reload!
+
+  ok "DONE"
 }
 
 # Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
