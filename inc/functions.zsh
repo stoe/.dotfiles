@@ -240,7 +240,7 @@ function allup() {
   formatexec "zgen update"
   formatexec "zgen selfupdate"
 
-  reload!
+  formatexec ". ~/.zshrc"
 
   brewup
   npmup
