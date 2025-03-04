@@ -99,12 +99,12 @@
   "github.copilot.advanced": {
     "authProvider": "github"
   },
-  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.chat.codeGeneration.instructions": [
     {
       "file": ".github/copilot-instructions.md"
     }
   ],
+  "github.copilot.chat.edits.codesearch.enabled": true,
   "github.copilot.chat.edits.enabled": true,
   "github.copilot.enable": {
     "*": true,
@@ -112,6 +112,7 @@
     "markdown": true,
     "yaml": true
   },
+  "github.copilot.editor.enableAutoCompletions": true,
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.pushBranch": "always",
   "[github-actions-workflow]": {},
