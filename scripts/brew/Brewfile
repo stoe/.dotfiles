@@ -12,7 +12,7 @@ tap "homebrew/bundle"
 # tap "homebrew/cask"
 # tap "homebrew/cask-fonts"
 # tap "homebrew/cask-versions"
-tap "1password/tap"
+# tap "1password/tap"
 
 #/ -----------------------------------------------------------------------------
 #/ brew install
