@@ -7,6 +7,7 @@
   "bookmarks.sideBar.expanded": true,
   "bookmarks.useWorkaroundForFormatters": true,
   "chat.commandCenter.enabled": true,
+  "chat.experimental.statusIndicator.enabled": true,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
