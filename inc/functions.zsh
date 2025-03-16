@@ -236,7 +236,6 @@ function ghup() {
 }
 
 function allup() {
-  formatexec "omz update"
   formatexec "zgen update"
   formatexec "zgen selfupdate"
 
@@ -245,6 +244,8 @@ function allup() {
   brewup
   npmup
   ghup
+
+  formatexec "omz update"
 
   ok "DONE"
 }
