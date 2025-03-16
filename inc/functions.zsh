@@ -226,6 +226,9 @@ function npmup() {
 
   formatexec "npm doctor ping registry environment cache"
 
+  ok "Node\t$(node --version)"
+  ok "NPM\tv$(npm --version)"
+
   ok "DONE"
 }
 
