@@ -341,11 +341,12 @@ tags
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
 !.vscode/extensions.json
-!.vscode/*.code-snippets
+!.vscode/keybindings.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/snippets/
+!.vscode/tasks.json
 
 # Local History for Visual Studio Code
 .history/
