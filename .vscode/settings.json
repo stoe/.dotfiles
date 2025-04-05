@@ -2,6 +2,10 @@
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
   "chat.commandCenter.enabled": true,
+  "chat.promptFilesLocations": {
+    ".github/prompts/*.prompt.md": true,
+    ".github/copilot-instructions.md": true
+  },
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
