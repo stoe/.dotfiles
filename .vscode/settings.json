@@ -1,14 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
-  "atomKeymap.promptV3Features": true,
-  "aws.telemetry": false,
-  "bookmarks.label.suggestion": "suggestWhenSelected",
-  "bookmarks.saveBookmarksInProject": true,
-  "bookmarks.sideBar.expanded": true,
-  "bookmarks.useWorkaroundForFormatters": true,
   "chat.agent.enabled": true,
   "chat.commandCenter.enabled": true,
-  "chat.experimental.statusIndicator.enabled": true,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
@@ -97,17 +90,16 @@
     ],
     "editor.wordWrap": "off"
   },
-  "github-actions.org-features": true,
   "github.copilot.advanced": {
     "authProvider": "github"
   },
+  "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.codeGeneration.instructions": [
     {
       "file": ".github/copilot-instructions.md"
     }
   ],
-  "github.copilot.chat.edits.codesearch.enabled": true,
-  "github.copilot.chat.edits.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -127,7 +119,6 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "inlineChat.experimental.textButtons": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
@@ -171,7 +162,6 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-  "python.showStartPage": false,
   "redhat.telemetry.enabled": false,
   "ruby.format": "rubocop",
   "ruby.lint": {
@@ -245,7 +235,6 @@
     "editor.formatOnSave": true
   },
   "update.mode": "start",
-  "vsicons.dontShowNewVersionMessage": true,
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
@@ -255,13 +244,10 @@
   "workbench.activityBar.location": "top",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabActionLocation": "left",
-  "workbench.editor.tabCloseButton": "left",
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
   "workbench.enableExperiments": false,
-  "workbench.experimental.enableNewProfilesUI": true,
-  "workbench.experimental.settingsProfiles.enabled": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
