@@ -3,7 +3,6 @@
 #/ (personal) casks ------------------------------------------------------------
 
 cask "parallels"
-cask "sonos"
 cask "steam", args: { require_sha: false }
 
 # (personal) fonts -------------------------------------------------------------
