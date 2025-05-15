@@ -13,6 +13,21 @@ function c() {
   fi
 }
 
+# open in Visual Studio Code Insiders.app
+function ci() {
+  if ! $(which code-insiders &>/dev/null); then
+    abort "Please install Visual Studio Code Insiders.app first"
+  else
+    if [ $# -eq 0 ]; then
+      # no arguments opens current directory
+      code-insiders .
+    else
+      # otherwise opens the given location
+      code-insiders "$@"
+    fi
+  fi
+}
+
 # open in Finder.app
 function o() {
   if [ $# -eq 0 ]; then
