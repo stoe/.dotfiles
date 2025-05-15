@@ -30,6 +30,7 @@ brew "tree"
 brew "yq"
 brew "zopfli"
 
+brew "exiftool"
 brew "ffmpeg"
 brew "imagemagick"
 brew "pandoc"
