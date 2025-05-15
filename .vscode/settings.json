@@ -4,6 +4,7 @@
   "chat.commandCenter.enabled": true,
   "chat.promptFilesLocations": {
     ".github/prompts/*.prompt.md": true,
+    ".github/prompts/*.instructions.md": true,
     ".github/copilot-instructions.md": true
   },
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
@@ -152,7 +153,8 @@
   "markdown.previewFrontMatter": "show",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "mcp": {
     "inputs": [
