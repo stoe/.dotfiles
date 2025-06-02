@@ -1,7 +1,9 @@
-## Code Quality Requirements
+---
+applyTo: '**/*.{js,ts,go,ruby}'
+---
 
-- Use clear, descriptive variable and function names
-- Write unit tests for core functionality
+- Use clear, descriptive variable and function names.
+<!-- - Write unit tests for core functionality -->
 - Keep functions focused and manageable (generally under 50 lines)
 - Use error handling patterns consistently
 - Keep all lines, including comments, under 120 characters
