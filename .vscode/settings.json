@@ -3,6 +3,14 @@
   "chat.agent.enabled": true,
   "chat.commandCenter.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
+  "chat.mcp.discovery.enabled": true,
+  "chat.mcp.serverSampling": {
+    "Global in Code: markitdown": {
+      "allowedModels": [
+        "github.copilot-chat/gpt-4.1"
+      ]
+    }
+  },
   "chat.promptFilesLocations": {
     ".github/prompts/*.prompt.md": true,
     ".github/prompts/*.instructions.md": true,
@@ -18,6 +26,8 @@
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
   "docker.images.groupBy": "Repository",
+  "docker.extension.enableComposeLanguageServer": false,
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -101,12 +111,12 @@
     "authProvider": "github"
   },
   "github.copilot.chat.agent.thinkingTool": true,
-  "github.copilot.chat.codeGeneration.instructions": [
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.instructions": [
     {
       "file": ".github/copilot-instructions.md"
     }
   ],
-  "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -157,32 +167,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "diffEditor.ignoreTrimWhitespace": false
-  },
-  "mcp": {
-    "inputs": [
-      {
-        "type": "promptString",
-        "id": "github_token",
-        "description": "GitHub Personal Access Token",
-        "password": true
-      }
-    ],
-    "servers": {
-      "github": {
-        "command": "docker",
-        "args": [
-          "run",
-          "-i",
-          "--rm",
-          "-e",
-          "GITHUB_PERSONAL_ACCESS_TOKEN",
-          "ghcr.io/github/github-mcp-server"
-        ],
-        "env": {
-          "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
-        }
-      }
-    }
   },
   "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
@@ -276,6 +260,7 @@
   "window.zoomLevel": 0.15,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.activityBar.location": "top",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabActionLocation": "left",
   "workbench.editorAssociations": {
