@@ -31,8 +31,11 @@
   pruneTags = true
 
 [gpg]
-  # program = /opt/homebrew/bin/gpg
+  program = /opt/homebrew/bin/gpg
   format = ssh
+
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [commit]
   gpgsign = true
