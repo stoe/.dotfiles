@@ -60,6 +60,12 @@ brew "nvm"
 
 brew "rbenv"
 
+brew "python"
+brew "python@3.10"
+brew "pyenv"
+brew "pipenv"
+# brew "virtualenv"
+
 #/ -----------------------------------------------------------------------------
 #/ brew install --cask
 

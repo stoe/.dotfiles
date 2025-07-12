@@ -10,12 +10,6 @@ brew "docker"
 # brew "ansible"
 # brew "terraform"
 
-brew "python"
-brew "python@3.10"
-brew "pyenv"
-brew "pipenv"
-# brew "virtualenv"
-
 #/ (work) casks ----------------------------------------------------------------
 
 cask "citrix-workspace"
