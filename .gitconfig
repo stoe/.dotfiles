@@ -30,6 +30,9 @@
   prune = true
   pruneTags = true
 
+[credentials]
+  helper = osxkeychain
+
 [gpg]
   program = /opt/homebrew/bin/gpg
   format = ssh
