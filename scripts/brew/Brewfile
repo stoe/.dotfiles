@@ -8,7 +8,7 @@ cask_args appdir: "/Applications", require_sha: true
 #/ -----------------------------------------------------------------------------
 #/ brew taps
 
-tap "homebrew/bundle"
+# tap "homebrew/bundle"
 # tap "homebrew/cask"
 # tap "homebrew/cask-fonts"
 # tap "homebrew/cask-versions"
