@@ -1,4 +1,4 @@
-version: "1"
+version: '1'
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: ssh
 # What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
@@ -17,4 +17,4 @@ aliases:
     pr: pull request
     # actions
     run-cleanup: "!gh run list --limit 100 --json databaseId --jq '.[].databaseId' | xargs -n1 -I % gh run delete %"
-    admins: "!gh api graphql -F owner='{owner}' -F repo='{repo}' --paginate -f query='query ($owner: String!, $repo: String!, $endCursor: String = null) { repository(owner: $owner, name: $repo) { collaborators(affiliation: ALL, first: 10, after: $endCursor) { pageInfo { hasNextPage, endCursor } edges { permission, node { login } } } } }' | jq -c '.[].repository | .[].edges[] | select(.permission == \"ADMIN\") | {login: .node.login}'"
+    admins: '!gh api graphql -F owner=''{owner}'' -F repo=''{repo}'' --paginate -f query=''query ($owner: String!, $repo: String!, $endCursor: String = null) { repository(owner: $owner, name: $repo) { collaborators(affiliation: ALL, first: 10, after: $endCursor) { pageInfo { hasNextPage, endCursor } edges { permission, node { login } } } } }'' | jq -c ''.[].repository | .[].edges[] | select(.permission == "ADMIN") | {login: .node.login}'''
