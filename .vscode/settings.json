@@ -5,9 +5,10 @@
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.mcp.discovery.enabled": true,
   "chat.mcp.serverSampling": {
-    "Global in Code: markitdown": {
+    "Global in Code: github": {
       "allowedModels": [
-        "github.copilot-chat/gpt-4.1"
+        "github.copilot-chat/gpt-4.1",
+        "github.copilot-chat/claude-3.7-sonnet"
       ]
     }
   },
