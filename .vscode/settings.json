@@ -3,19 +3,23 @@
   "chat.agent.enabled": true,
   "chat.commandCenter.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
+  "chat.instructionsFilesLocations": {
+    "instructions": true
+  },
   "chat.mcp.discovery.enabled": true,
   "chat.mcp.serverSampling": {
-    "Global in Code: github": {
+    "Global in Code: markitdown": {
       "allowedModels": [
-        "github.copilot-chat/gpt-4.1",
-        "github.copilot-chat/claude-3.7-sonnet"
+        "github.copilot-chat/gpt-4o"
       ]
     }
   },
+  "chat.modeFilesLocations": {
+    "chatmodes": true
+  },
   "chat.promptFilesLocations": {
-    ".github/prompts/*.prompt.md": true,
-    ".github/prompts/*.instructions.md": true,
-    ".github/copilot-instructions.md": true
+    ".github/copilot-instructions.md": true,
+    "prompts": true
   },
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
@@ -26,9 +30,9 @@
   },
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
-  "docker.images.groupBy": "Repository",
-  "docker.extension.enableComposeLanguageServer": false,
   "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "docker.extension.enableComposeLanguageServer": false,
+  "docker.images.groupBy": "Repository",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -46,6 +50,7 @@
   "editor.formatOnType": false,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.showToolbar": "always",
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -56,7 +61,6 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
-  "editor.inlineSuggest.showToolbar": "always",
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.suggest.preview": true,
@@ -77,8 +81,11 @@
     ".github/workflows/*.yml": "yaml",
     ".zshrc*": "properties",
     "*.{input,filter,output}.conf": "logstash",
+    "*.chatmode.md": "markdown",
+    "*.instructions.md": "markdown",
     "*.md": "markdown",
     "*.ndjson": "ndjson",
+    "*.prompt.md": "markdown",
     "*.tf": "terraform",
     "**/{handler,inventory,playbooks,roles,tasks,vars}/*/*": "yaml",
     "**/*_vars/**/*.yml": "yaml",
@@ -92,6 +99,7 @@
   "files.autoSave": "afterDelay",
   "files.defaultLanguage": "markdown",
   "files.eol": "\n",
+  "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": false,
   "git.blame.editorDecoration.enabled": true,
@@ -142,7 +150,6 @@
   "javascript.referencesCodeLens.enabled": false,
   "javascript.suggest.includeAutomaticOptionalChainCompletions": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "json.schemas": [],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -152,6 +159,7 @@
     "editor.formatOnSave": false
   },
   "json.schemaDownload.enable": true,
+  "json.schemas": [],
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
@@ -159,16 +167,16 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..3",
   "markdown.previewFrontMatter": "show",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": false
-  },
   "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
   "npm.packageManager": "npm",
@@ -245,10 +253,10 @@
   },
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.tabs.location": "right",
-  "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[terraform]": {
     "editor.formatOnSave": true
   },
+  "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -259,8 +267,8 @@
   "window.newWindowDimensions": "inherit",
   "window.newWindowProfile": "Default",
   "window.zoomLevel": 0.15,
-  "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.tabActionLocation": "left",
@@ -276,6 +284,9 @@
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -307,8 +318,5 @@
   ],
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config.json": "**/.github/ISSUE_TEMPLATE/config.yml"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
