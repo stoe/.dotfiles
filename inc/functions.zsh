@@ -376,10 +376,17 @@ function pdf2png() {
 
   section "${1} >> ${outputFolder}/*.png"
 
+  # Check if Ghostscript is installed
+  if ! hash gs &>/dev/null; then
+    abort "Error: Ghostscript is not installed. Install it with 'brew install ghostscript' first."
+    return 1
+  fi
+
   rm -rf "${outputFolder}" &>/dev/null
   mkdir "${outputFolder}" &>/dev/null
 
-  formatexec "magick -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %03d.png'"
+  # Use proper format sequence for ImageMagick with PDF
+  formatexec "magick -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %d.png'"
 
   ok "PNGs saved to %178F${outputFolder}%f"
 }
