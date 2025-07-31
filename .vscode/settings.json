@@ -30,9 +30,6 @@
   },
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
-  "docker.extension.dockerEngineAvailabilityPrompt": false,
-  "docker.extension.enableComposeLanguageServer": false,
-  "docker.images.groupBy": "Repository",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -121,11 +118,6 @@
   },
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.codesearch.enabled": true,
-  "github.copilot.chat.instructions": [
-    {
-      "file": ".github/copilot-instructions.md"
-    }
-  ],
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -174,9 +166,7 @@
   },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
-  "markdown.extension.toc.githubCompatibility": true,
   "markdown.extension.toc.levels": "2..3",
-  "markdown.previewFrontMatter": "show",
   "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
   "npm.packageManager": "npm",
@@ -190,22 +180,12 @@
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
-  "ruby.format": "rubocop",
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": true
-    }
-  },
   "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
-  "ruby.useBundler": true,
-  "ruby.useLanguageServer": true,
   "[ruby]": {
     "editor.formatOnSave": true,
     "editor.semanticHighlighting.enabled": true
   },
-  "sarif-viewer.connectToGithubCodeScanning": "off",
-  "sarif-viewer.explorer.openWhenNoResults": false,
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
@@ -253,10 +233,6 @@
   },
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.tabs.location": "right",
-  "[terraform]": {
-    "editor.formatOnSave": true
-  },
-  "terraform.languageServer.path": "/usr/local/bin/terraform",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -279,6 +255,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
+  "workbench.navigationControl.enabled": false,
   "workbench.panel.defaultLocation": "right",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
