@@ -196,10 +196,6 @@
     "ms-vscode-remote.remote-containers"
   ],
   "settingsSync.ignoredSettings": [],
-  "shellcheck.executablePath": "/usr/local/bin/shellcheck",
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
