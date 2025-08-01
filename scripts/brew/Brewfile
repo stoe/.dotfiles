@@ -101,7 +101,6 @@ cask "tower"
 cask "ubersicht"
 cask "visual-studio-code"
 cask "visual-studio-code@insiders"
-cask "yubico-yubikey-manager"
 
 #/ -----------------------------------------------------------------------------
 #/ fonts
