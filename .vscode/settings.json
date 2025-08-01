@@ -7,13 +7,6 @@
     "instructions": true
   },
   "chat.mcp.discovery.enabled": true,
-  "chat.mcp.serverSampling": {
-    "Global in Code: markitdown": {
-      "allowedModels": [
-        "github.copilot-chat/gpt-4o"
-      ]
-    }
-  },
   "chat.modeFilesLocations": {
     "chatmodes": true
   },
@@ -182,6 +175,7 @@
   "redhat.telemetry.enabled": false,
   "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
+  "rubyLsp.formatter": "rubocop",
   "[ruby]": {
     "editor.formatOnSave": true,
     "editor.semanticHighlighting.enabled": true
@@ -190,11 +184,7 @@
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "settingsSync.ignoredExtensions": [
-    "parallelsdesktop.parallels-desktop",
-    "hashicorp.terraform",
-    "ms-vscode-remote.remote-containers"
-  ],
+  "settingsSync.ignoredExtensions": [],
   "settingsSync.ignoredSettings": [],
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
