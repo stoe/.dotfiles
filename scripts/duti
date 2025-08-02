@@ -9,44 +9,45 @@ if ! which duti &> /dev/null; then
   return 1
 fi
 
-duti -s com.microsoft.VSCode public.json all
-duti -s com.microsoft.VSCode public.plain-text all
-duti -s com.microsoft.VSCode public.python-script all
-duti -s com.microsoft.VSCode public.shell-script all
-duti -s com.microsoft.VSCode public.source-code all
-duti -s com.microsoft.VSCode public.text all
-duti -s com.microsoft.VSCode public.unix-executable all
-# this works for files without a filename extension
-duti -s com.microsoft.VSCode public.data all
+print -P "ℹ %178FSetting default file associations for VSCode%f"
 
-duti -s com.microsoft.VSCode .c all
-duti -s com.microsoft.VSCode .cfg all
-duti -s com.microsoft.VSCode .conf all
-duti -s com.microsoft.VSCode .cpp all
-duti -s com.microsoft.VSCode .cs all
-duti -s com.microsoft.VSCode .css all
-duti -s com.microsoft.VSCode .go all
-duti -s com.microsoft.VSCode .java all
-duti -s com.microsoft.VSCode .js all
-duti -s com.microsoft.VSCode .json all
-duti -s com.microsoft.VSCode .jsx all
-duti -s com.microsoft.VSCode .less all
-duti -s com.microsoft.VSCode .log all
-duti -s com.microsoft.VSCode .lua all
-duti -s com.microsoft.VSCode .md all
-duti -s com.microsoft.VSCode .php all
-duti -s com.microsoft.VSCode .pl all
-duti -s com.microsoft.VSCode .py all
-duti -s com.microsoft.VSCode .rb all
-duti -s com.microsoft.VSCode .sass all
-duti -s com.microsoft.VSCode .scss all
-duti -s com.microsoft.VSCode .sh all
-duti -s com.microsoft.VSCode .toml all
-duti -s com.microsoft.VSCode .ts all
-duti -s com.microsoft.VSCode .tsx all
-duti -s com.microsoft.VSCode .txt all
-duti -s com.microsoft.VSCode .vue all
-duti -s com.microsoft.VSCode .xml all
-duti -s com.microsoft.VSCode .yaml all
-duti -s com.microsoft.VSCode .yml all
-duti -s com.microsoft.VSCode .zsh all
+formatexec "duti -s com.microsoft.VSCode public.json all"
+formatexec "duti -s com.microsoft.VSCode public.plain-text all"
+formatexec "duti -s com.microsoft.VSCode public.python-script all"
+formatexec "duti -s com.microsoft.VSCode public.shell-script all"
+formatexec "duti -s com.microsoft.VSCode public.source-code all"
+formatexec "duti -s com.microsoft.VSCode public.text all"
+formatexec "duti -s com.microsoft.VSCode public.unix-executable all"
+formatexec "duti -s com.microsoft.VSCode public.data all"
+
+formatexec "duti -s com.microsoft.VSCode .c all"
+formatexec "duti -s com.microsoft.VSCode .cfg all"
+formatexec "duti -s com.microsoft.VSCode .conf all"
+formatexec "duti -s com.microsoft.VSCode .cpp all"
+formatexec "duti -s com.microsoft.VSCode .cs all"
+formatexec "duti -s com.microsoft.VSCode .css all"
+formatexec "duti -s com.microsoft.VSCode .go all"
+formatexec "duti -s com.microsoft.VSCode .java all"
+formatexec "duti -s com.microsoft.VSCode .js all"
+formatexec "duti -s com.microsoft.VSCode .json all"
+formatexec "duti -s com.microsoft.VSCode .jsx all"
+formatexec "duti -s com.microsoft.VSCode .less all"
+formatexec "duti -s com.microsoft.VSCode .log all"
+formatexec "duti -s com.microsoft.VSCode .lua all"
+formatexec "duti -s com.microsoft.VSCode .md all"
+formatexec "duti -s com.microsoft.VSCode .php all"
+formatexec "duti -s com.microsoft.VSCode .pl all"
+formatexec "duti -s com.microsoft.VSCode .py all"
+formatexec "duti -s com.microsoft.VSCode .rb all"
+formatexec "duti -s com.microsoft.VSCode .sass all"
+formatexec "duti -s com.microsoft.VSCode .scss all"
+formatexec "duti -s com.microsoft.VSCode .sh all"
+formatexec "duti -s com.microsoft.VSCode .toml all"
+formatexec "duti -s com.microsoft.VSCode .ts all"
+formatexec "duti -s com.microsoft.VSCode .tsx all"
+formatexec "duti -s com.microsoft.VSCode .txt all"
+formatexec "duti -s com.microsoft.VSCode .vue all"
+formatexec "duti -s com.microsoft.VSCode .xml all"
+formatexec "duti -s com.microsoft.VSCode .yaml all"
+formatexec "duti -s com.microsoft.VSCode .yml all"
+formatexec "duti -s com.microsoft.VSCode .zsh all"
