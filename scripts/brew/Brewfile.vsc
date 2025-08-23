@@ -24,8 +24,8 @@ vscode "ms-azuretools.vscode-docker"
 # vscode "docker.docker"
 
 # Azure and related
-vscode "ms-azuretools.vscode-azureresourcegroups"
-vscode "teamsdevapp.vscode-ai-foundry"
+# vscode "ms-azuretools.vscode-azureresourcegroups"
+# vscode "teamsdevapp.vscode-ai-foundry"
 
 # Remote development and related
 vscode "ms-vscode.remote-explorer"
@@ -41,7 +41,7 @@ vscode "bierner.markdown-footnotes"
 vscode "bierner.markdown-mermaid"
 vscode "bierner.markdown-preview-github-styles"
 vscode "bierner.markdown-yaml-preamble"
-vscode "davidanson.vscode-markdownlint"
+# vscode "davidanson.vscode-markdownlint"
 
 # Linters and formatters
 vscode "dbaeumer.vscode-eslint"
