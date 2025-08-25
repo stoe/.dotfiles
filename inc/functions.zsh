@@ -133,6 +133,12 @@ function dclean() {
 # see https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh
 # thanks https://github.com/fvdm
 function brewup() {
+  # Only allow -y flag or no arguments
+  if [ -n "$1" ] && [ "$1" != "-y" ]; then
+    abort "Error: Only -y flag is supported."
+    return 1
+  fi
+
   section "Updating Homebrew"
   formatexec "brew update"
 
@@ -148,6 +154,8 @@ function brewup() {
       question "Update these casks?" "yn"
       read -rs -k 1 ask
       print -P "%39F> $ask%f"
+    else
+      ask="y"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -171,6 +179,8 @@ function brewup() {
       question "Update these apps?" "yn"
       read -rs -k 1 ask
       print -P "%39F> $ask%f"
+    else
+      ask="y"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -194,6 +204,8 @@ function brewup() {
       question "Update these packages?" "yn"
       read -rs -k 1 ask
       print -P "%39F> $ask%f"
+    else
+      ask="y"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -215,6 +227,12 @@ function brewup() {
 # see https://docs.npmjs.com/cli/commands/npm-update
 # see https://docs.npmjs.com/cli/commands/npm-doctor
 function npmup() {
+  # Only allow -y flag or no arguments
+  if [ -n "$1" ] && [ "$1" != "-y" ]; then
+    abort "Error: Only -y flag is supported."
+    return 1
+  fi
+
   section "Updating NPM global packages"
   print -P "%244F> npm outdated --global%f"
 
@@ -228,6 +246,8 @@ function npmup() {
       question "Update these packages?" "yn"
       read -rs -k 1 ask
       print -P "%39F> $ask%f"
+    else
+      ask="y"
     fi
 
     if [ "$ask" = "y" ]; then
@@ -254,13 +274,19 @@ function ghup() {
 }
 
 function allup() {
+  # Only allow -y flag or no arguments
+  if [ -n "$1" ] && [ "$1" != "-y" ]; then
+    abort "Error: Only -y flag is supported."
+    return 1
+  fi
+
   formatexec "zgen update"
   formatexec "zgen selfupdate"
 
   formatexec ". ~/.zshrc"
 
-  brewup
-  npmup
+  brewup "$1"
+  npmup "$1"
   ghup
 
   formatexec "omz update"
