@@ -418,6 +418,7 @@ function pdf2png() {
 }
 
 # .docx -> .md
+# Usage: docx2md <input-file.docx> [output-name]
 function docx2md() {
   # check if pandoc is installed via brew
   if ! hash pandoc 2> /dev/null; then
@@ -425,8 +426,23 @@ function docx2md() {
     return 1
   fi
 
+  if [ $# -eq 0 ]; then
+    abort "Error: No input file specified."
+    return 1
+  fi
+
   local inputFile="${1}"
-  local outputFile="${inputFile%.*}.md"
+  local outputName=""
+
+  # If output name is provided, use it, otherwise use input file name without extension
+  if [ -n "${2}" ]; then
+    # Remove any extension from the output name if present
+    outputName="${2%.*}"
+  else
+    outputName="${inputFile%.*}"
+  fi
+
+  local outputFile="${outputName}.md"
 
   section "${1} >> ${outputFile}"
 
@@ -436,6 +452,7 @@ function docx2md() {
 }
 
 # .md -> .docx
+# Usage: md2docx <input-file.md> [output-name]
 function md2docx() {
   # check if pandoc is installed via brew
   if ! hash pandoc 2> /dev/null; then
@@ -443,8 +460,23 @@ function md2docx() {
     return 1
   fi
 
+  if [ $# -eq 0 ]; then
+    abort "Error: No input file specified."
+    return 1
+  fi
+
   local inputFile="${1}"
-  local outputFile="${inputFile%.*}.docx"
+  local outputName=""
+
+  # If output name is provided, use it, otherwise use input file name without extension
+  if [ -n "${2}" ]; then
+    # Remove any extension from the output name if present
+    outputName="${2%.*}"
+  else
+    outputName="${inputFile%.*}"
+  fi
+
+  local outputFile="${outputName}.docx"
 
   section "${1} >> ${outputFile}"
 
