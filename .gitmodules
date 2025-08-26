@@ -1,0 +1,3 @@
+[submodule "config/.pandoc"]
+	path = config/.pandoc
+	url = git@github.com:stoe/ges-pandoc-pdf.git
