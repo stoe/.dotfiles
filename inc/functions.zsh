@@ -300,14 +300,14 @@ function targz() {
   section "Compressing ${@} ..."
 
   local tmp="${@%/}.tar"
-  local size=$(du -ck ${@} | tail -n 1 | awk '{print $1}')
+  local size=$(du -ck "${@}" | tail -n 1 | awk '{print $1}')
   local cmd=""
 
-  formatexec "tar -cf ${tmp} --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' ${@} || return 1"
+  formatexec "tar -cf '${tmp}' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' '${@}' || return 1"
 
   if hash 7zz 2> /dev/null; then
     # 7zz is available; use it
-    formatexec "7zz a -tgzip ${tmp}.gz ${tmp} || return 1"
+    formatexec "7zz a -tgzip '${tmp}.gz' '${tmp}' || return 1"
   else
     if (( size < 51200 )) && hash zopfli 2> /dev/null; then
       # the content is less than 50 MB and zopfli is available; use it
@@ -321,7 +321,7 @@ function targz() {
       fi
     fi
 
-    formatexec "${cmd}${tmp} || return 1"
+    formatexec "${cmd}'${tmp}' || return 1"
   fi
 
   [ -f "${tmp}" ] && /bin/rm -rf "${tmp}" &>/dev/null
@@ -341,7 +341,7 @@ function zippw() {
 
   local tmp="${1%/}.zip"
 
-  7zz a -tzip -p${2} ${tmp} ${1} || return 1
+  7zz a -tzip -p${2} "${tmp}" "${1}" || return 1
 
   ok "${tmp} created successfully."
 }
@@ -356,17 +356,17 @@ function extract () {
 
   if [ -f "${1}" ] ; then
     case "${1}" in
-      *.tar.bz2) formatexec "pv ${1} | tar xjf -" ;;
-      *.tar.gz)  formatexec "pv ${1} | tar xzf -" ;;
-      *.bz2)     formatexec "bunzip2 ${1}"        ;;
-      *.rar)     formatexec "unrar x ${1}"        ;;
-      *.gz)      formatexec "gunzip ${1}"         ;;
-      *.tar)     formatexec "pv ${1} | tar xf -"  ;;
-      *.tbz2)    formatexec "pv ${1} | tar xjf -" ;;
-      *.tgz)     formatexec "pv ${1} | tar xzf -" ;;
+      *.tar.bz2) formatexec "pv '${1}' | tar xjf -" ;;
+      *.tar.gz)  formatexec "pv '${1}' | tar xzf -" ;;
+      *.bz2)     formatexec "bunzip2 '${1}'"        ;;
+      *.rar)     formatexec "unrar x '${1}'"        ;;
+      *.gz)      formatexec "gunzip '${1}'"         ;;
+      *.tar)     formatexec "pv '${1}' | tar xf -"  ;;
+      *.tbz2)    formatexec "pv '${1}' | tar xjf -" ;;
+      *.tgz)     formatexec "pv '${1}' | tar xzf -" ;;
       # *.zip)     formatexec "7z x ${1}" ;; # http://stackoverflow.com/questions/32253631/mac-terminal-unzip-zip64
-      *.zip)     formatexec "unzip ${1}"          ;;
-      *.Z)       formatexec "uncompress ${1}"     ;;
+      *.zip)     formatexec "unzip '${1}'"          ;;
+      *.Z)       formatexec "uncompress '${1}'"     ;;
       # *.7z)      formatexec "7z x ${1}"           ;;
       *)         abort "'${1}' cannot be extracted via extract" ;;
     esac
@@ -387,8 +387,8 @@ function mov2gif() {
   rm -rf "${tmpFolder}" &>/dev/null
   mkdir "${tmpFolder}" &>/dev/null
 
-  formatexec "ffmpeg -i ${file}.mov -vf scale=\"${scale}\":-1 -r 10 ${tmpFolder}/ffout%3d.png -v 0"
-  formatexec "magick -delay 8 -loop 0 $tmpFolder/ffout*.png ${file}-${scale}.gif"
+  formatexec "ffmpeg -i '${file}.mov' -vf scale=\"${scale}\":-1 -r 10 '${tmpFolder}/ffout%3d.png' -v 0"
+  formatexec "magick -delay 8 -loop 0 '${tmpFolder}/ffout*.png' '${file}-${scale}.gif'"
 
   [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
