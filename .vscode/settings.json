@@ -6,6 +6,7 @@
   "chat.instructionsFilesLocations": {
     "instructions": true
   },
+  "chat.mcp.autostart": "newAndOutdated",
   "chat.mcp.discovery.enabled": true,
   "chat.modeFilesLocations": {
     "chatmodes": true
