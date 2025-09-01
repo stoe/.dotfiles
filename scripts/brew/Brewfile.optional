@@ -1,6 +1,5 @@
 #/ (optional) casks ------------------------------------------------------------
 
-# cask "deckset"
 # cask "qlimagesize"
 # cask "qlmarkdown"
 # cask "qlvideo"

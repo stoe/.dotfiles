@@ -11,6 +11,7 @@ brew "docker"
 #/ (work) casks ----------------------------------------------------------------
 
 cask "citrix-workspace"
+cask "deckset"
 cask "deskpad"
 cask "energiza", args: { require_sha: false }
 cask "google-drive", args: { require_sha: false }
