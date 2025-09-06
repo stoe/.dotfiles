@@ -4,16 +4,19 @@
   "chat.commandCenter.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.instructionsFilesLocations": {
-    "instructions": true
+    ".github/copilot-instructions.md": true,
+    ".github/instructions": true,
+    "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
   "chat.mcp.autostart": "newAndOutdated",
   "chat.mcp.discovery.enabled": true,
   "chat.modeFilesLocations": {
-    "chatmodes": true
+    ".github/chatmodes": true,
+    "/Users/stoe/code/private/.dotfiles/.github/chatmodes": true
   },
   "chat.promptFilesLocations": {
-    ".github/copilot-instructions.md": true,
-    "prompts": true
+    ".github/prompts": true,
+    "/Users/stoe/code/private/.dotfiles/.github/prompts": true
   },
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,

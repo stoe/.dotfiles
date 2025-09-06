@@ -1,0 +1,18 @@
+{
+  "writing": {
+    "tools": [
+      "changes",
+      "codebase",
+      "convert_to_markdown",
+      "editFiles",
+      "fetch",
+      "get_file_contents",
+      "get_me",
+      "search",
+      "think",
+      "usages"
+    ],
+    "description": "A toolbox for comprehensive writing assistance, providing tools to edit files, search content, fetch resources, and convert documents for academic, professional, and technical writing tasks.",
+    "icon": "pencil"
+  }
+}

@@ -1,5 +1,4 @@
 config/*
-!config/copilot-instructions.md
 !config/gh/config.yml
 !config/rubocop/config.yml
 
