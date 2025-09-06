@@ -1,6 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
+  "chat.checkpoints.showFileChanges": true,
   "chat.commandCenter.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.instructionsFilesLocations": {
@@ -115,6 +116,8 @@
   },
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.scopeSelection": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -125,7 +128,7 @@
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.pushBranch": "always",
   "[github-actions-workflow]": {},
-  "go.gopath": "~/go",
+  "go.gopath": "/Users/stoe/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
   "[go]": {
@@ -249,6 +252,7 @@
   "workbench.panel.defaultLocation": "right",
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
+  "workbench.secondarySideBar.defaultVisibility": "visible",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "[yaml]": {
