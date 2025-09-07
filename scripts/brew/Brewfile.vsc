@@ -16,21 +16,13 @@ vscode "ms-windows-ai-studio.windows-ai-studio"
 vscode "github.remotehub"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
+vscode "jasonnutter.vscode-codeowners"
 
 # Containers and Docker
 vscode "github.codespaces"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 # vscode "docker.docker"
-
-# Azure and related
-# vscode "ms-azuretools.vscode-azureresourcegroups"
-# vscode "teamsdevapp.vscode-ai-foundry"
-
-# Remote development and related
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
 
 # Markdown extensions
 vscode "yzhang.markdown-all-in-one"
@@ -46,15 +38,17 @@ vscode "bierner.markdown-yaml-preamble"
 # Linters and formatters
 vscode "dbaeumer.vscode-eslint"
 vscode "esbenp.prettier-vscode"
-vscode "rvest.vs-code-prettier-eslint"
 vscode "foxundermoon.shell-format"
+vscode "graphql.vscode-graphql-syntax"
+vscode "graphql.vscode-graphql"
+vscode "rvest.vs-code-prettier-eslint"
+vscode "stylelint.vscode-stylelint"
 
 # Git and related
 vscode "kaleidoscope-app.vscode-ksdiff"
 
 # Ruby and related
 vscode "shopify.ruby-extensions-pack"
-vscode "shopify.ruby-lsp"
 vscode "misogi.ruby-rubocop"
 vscode "sorbet.sorbet-vscode-extension"
 

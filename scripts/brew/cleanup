@@ -2,6 +2,10 @@
 
 set -eo pipefail
 
+# Change these to match your machine hostnames
+WORK_MACHINE_NAME="0x73746f65"
+PERSONAL_MACHINE_NAME="6x73746f65"
+
 # Check if the dry run option is provided
 dry_run=false
 if [[ "$1" == "--dry-run" ]]; then
@@ -31,7 +35,7 @@ brewfile_all="$(cat Brewfile)\n\n$(cat Brewfile.optional)"
 
 # switch statement to check the machine_name variable
 case $machine_name in
-"0x73746f65")
+"$WORK_MACHINE_NAME")
   print -P "[ %5Fhomebrew%f ] 🍺 💼\n"
 
   # check if the Brewfile.work file exists
@@ -40,7 +44,7 @@ case $machine_name in
   # get the contents of the Brewfile.work file and join it with the contents of the Brewfile_all variable
   brewfile_all="$brewfile_all\n\n$(cat Brewfile.work)"
   ;;
-"6x73746f65")
+"$PERSONAL_MACHINE_NAME")
   print -P "[ %5Fhomebrew%f ] 🍺 🏡\n"
 
   # check if the Brewfile.personal file exists
