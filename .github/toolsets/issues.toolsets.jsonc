@@ -1,0 +1,14 @@
+{
+  "my-issues": {
+    "tools": [
+      "get_issue_comments",
+      "get_issue",
+      "get_me",
+      "get_pull_request_comments",
+      "get_pull_request",
+      "think"
+    ],
+    "description": "Toolset for GitHub issues and pull request management.",
+    "icon": "issue-opened"
+  }
+}

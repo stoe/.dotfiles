@@ -1,0 +1,10 @@
+{
+  "my-content": {
+    "tools": [
+      "convert_to_markdown",
+      "think"
+    ],
+    "description": "Toolset for content creation, conversion, and analysis.",
+    "icon": "pencil"
+  }
+}

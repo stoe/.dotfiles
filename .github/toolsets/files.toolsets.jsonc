@@ -1,0 +1,14 @@
+{
+  "my-files": {
+    "tools": [
+      "changes",
+      "codebase",
+      "editFiles",
+      "get_file_contents",
+      "think",
+      "usages"
+    ],
+    "description": "Toolset for file operations, editing, and codebase management.",
+    "icon": "file"
+  }
+}

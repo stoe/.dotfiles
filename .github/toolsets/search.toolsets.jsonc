@@ -1,0 +1,12 @@
+{
+  "my-search": {
+    "tools": [
+      "fetch",
+      "search",
+      "websearch",
+      "think"
+    ],
+    "description": "Toolset for searching code, web content, and fetching resources.",
+    "icon": "search"
+  }
+}
