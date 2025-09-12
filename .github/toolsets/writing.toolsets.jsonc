@@ -3,7 +3,7 @@
     "tools": [
       "my-content",
       "my-files",
-      "my-issues",
+      "my-github",
       "my-search"
     ],
     "description": "Toolset to edit files, search content, fetch resources, and convert documents for writing tasks.",

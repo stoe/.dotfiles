@@ -3,9 +3,10 @@
     "tools": [
       "changes",
       "codebase",
+      "createDirectory",
+      "createFile",
       "editFiles",
       "get_file_contents",
-      "think",
       "usages"
     ],
     "description": "Toolset for file operations, editing, and codebase management.",

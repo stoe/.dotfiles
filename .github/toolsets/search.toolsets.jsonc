@@ -1,11 +1,9 @@
 {
   "my-search": {
     "tools": [
+      "bing_search",
       "fetch",
-      "search",
-      "searchResults",
-      "websearch",
-      "think"
+      "search"
     ],
     "description": "Toolset for searching code, web content, and fetching resources.",
     "icon": "search"

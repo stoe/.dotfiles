@@ -1,5 +1,5 @@
 {
-  "my-issues": {
+  "my-github": {
     "tools": [
       "get_issue_comments",
       "get_issue",
@@ -7,9 +7,10 @@
       "get_pull_request_comments",
       "get_pull_request",
       "search_issues",
-      "think"
+      "search_pull_requests",
+      "search_users"
     ],
     "description": "Toolset for GitHub issues and pull request management.",
-    "icon": "issue-opened"
+    "icon": "github"
   }
 }
