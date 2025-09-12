@@ -4,7 +4,7 @@
       "convert_to_markdown",
       "think"
     ],
-    "description": "Toolset for content creation, conversion, and analysis.",
+    "description": "Toolset for content conversion and analysis.",
     "icon": "pencil"
   }
 }

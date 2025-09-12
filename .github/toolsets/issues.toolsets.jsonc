@@ -6,6 +6,7 @@
       "get_me",
       "get_pull_request_comments",
       "get_pull_request",
+      "search_issues",
       "think"
     ],
     "description": "Toolset for GitHub issues and pull request management.",

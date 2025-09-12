@@ -3,6 +3,7 @@
     "tools": [
       "fetch",
       "search",
+      "searchResults",
       "websearch",
       "think"
     ],

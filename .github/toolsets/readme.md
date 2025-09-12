@@ -4,7 +4,7 @@ This document explains the different categories of tools available in GitHub Cop
 
 ## `my-content` - Content Management Tools
 
-**Description**: Toolset for content creation, conversion, and analysis.
+**Description**: Toolset for content conversion and analysis.
 **Icon**: 📝 pencil
 
 Tools available in this toolset:
@@ -38,6 +38,7 @@ Tools available in this toolset:
 - **get_me**: Get your GitHub profile and account information
 - **get_pull_request_comments**: Get comments from pull requests
 - **get_pull_request**: Get pull request information and changes
+- **search_issues**: Search for issues and pull requests on GitHub
 - **think**: Reasoning and planning tool for complex tasks
 
 ## `my-search` - Code Search and Analysis Tools
@@ -49,6 +50,7 @@ Tools available in this toolset:
 
 - **fetch**: Fetch and retrieve content from various sources
 - **search**: Search through code and content
+- **searchResults**: Retrieve and analyze search results
 - **websearch**: Search the web for information and resources
 - **think**: Reasoning and planning tool for complex tasks
 
@@ -75,8 +77,8 @@ The `my-writing` toolset is a meta-toolset that combines all other toolsets, pro
 
 **Use the right toolset for the task**:
 
-- `my-content` for document conversion and creation
+- `my-content` for document conversion
 - `my-files` for file operations and code management
-- `my-issues` for GitHub collaboration
+- `my-issues` for GitHub issues and Pull Requests
 - `my-search` for finding information and code
 - `my-writing` when you need multiple capabilities together
