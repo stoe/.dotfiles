@@ -1,16 +1,26 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
+  "chat.agent.thinkingStyle": "expanded",
+  "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
   "chat.commandCenter.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
+  "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
+  "chat.editor.fontSize": 14,
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
     ".github/instructions": true,
     "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
+  "chat.mcp.access": "registry",
   "chat.mcp.autostart": "newAndOutdated",
-  "chat.mcp.discovery.enabled": true,
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": false,
+    "windsurf": false,
+    "cursor-global": false,
+    "cursor-workspace": false
+  },
   "chat.modeFilesLocations": {
     ".github/chatmodes": true,
     "/Users/stoe/code/private/.dotfiles/.github/chatmodes": true
@@ -19,6 +29,7 @@
     ".github/prompts": true,
     "/Users/stoe/code/private/.dotfiles/.github/prompts": true
   },
+  "chat.promptFilesRecommendations": {},
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
@@ -237,10 +248,10 @@
   "window.newWindowDimensions": "inherit",
   "window.newWindowProfile": "Default",
   "window.zoomLevel": 0.15,
-  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.labelFormat": "short",
+  "workbench.editor.showTabIndex": true,
   "workbench.editor.tabActionLocation": "left",
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
@@ -254,6 +265,7 @@
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.secondarySideBar.defaultVisibility": "visible",
+  "workbench.secondarySideBar.showLabels": true,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "[yaml]": {
