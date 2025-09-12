@@ -13,7 +13,6 @@
     ".github/instructions": true,
     "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
-  "chat.mcp.access": "registry",
   "chat.mcp.autostart": "newAndOutdated",
   "chat.mcp.discovery.enabled": {
     "claude-desktop": false,
