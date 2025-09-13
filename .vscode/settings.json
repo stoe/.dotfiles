@@ -241,7 +241,6 @@
     "editor.formatOnSave": true
   },
   "update.mode": "start",
-  "websearch.preferredEngine": "bing",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
