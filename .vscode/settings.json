@@ -137,7 +137,9 @@
   "github.copilot.nextEditSuggestions.enabled": false,
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.pushBranch": "always",
-  "[github-actions-workflow]": {},
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "github.vscode-github-actions"
+  },
   "go.gopath": "/Users/stoe/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
