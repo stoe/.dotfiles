@@ -3,8 +3,6 @@
 brew "awscli"
 brew "azure-cli"
 
-brew "docker"
-
 # brew "ansible"
 # brew "terraform"
 

@@ -38,6 +38,17 @@
   },
   "debug.console.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "debug.console.fontSize": 16,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
