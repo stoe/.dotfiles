@@ -3,6 +3,7 @@
     "tools": [
       "changes",
       "codebase",
+      "convert_to_markdown",
       "createDirectory",
       "createFile",
       "editFiles",
