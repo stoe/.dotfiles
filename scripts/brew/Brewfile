@@ -62,11 +62,17 @@ brew "nvm"
 
 brew "rbenv"
 
-brew "python"
-brew "python@3.10"
 brew "pyenv"
 brew "pipenv"
 # brew "virtualenv"
+brew "readline"
+brew "sqlite3"
+brew "xz"
+brew "tcl-tk"
+brew "libb2"
+brew "zstd"
+brew "zlib"
+brew "pkgconfig"
 
 #/ -----------------------------------------------------------------------------
 #/ brew install --cask
