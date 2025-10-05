@@ -19,7 +19,7 @@ autoload -Uz colors && colors
 
 # initialize autocomplete here, otherwise functions won't be loaded
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  FPATH="${FPATH}:$(brew --prefix)/share/zsh/site-functions"
 
   autoload -Uz compinit
   compinit -i
@@ -129,7 +129,7 @@ fi
 
 # PYENV - init according to https://github.com/pyenv/pyenv?tab=readme-ov-file#zsh
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="${PATH}:${PYENV_ROOT}/bin"
 eval "$(pyenv init - zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -140,3 +140,7 @@ alias gc="gitmoji -c"
 
 # load local zshrc if present
 [ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
+
+# ensure unique entries in path and fpath
+typeset -U path
+typeset -U fpath
