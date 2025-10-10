@@ -2,11 +2,10 @@
   "my-files": {
     "tools": [
       "changes",
-      "codebase",
+      "search/codebase",
       "convert_to_markdown",
-      "createDirectory",
-      "createFile",
-      "editFiles",
+      "create_or_update_file",
+      "edit",
       "get_file_contents",
       "usages"
     ],
