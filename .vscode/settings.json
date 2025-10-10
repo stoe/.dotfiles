@@ -8,6 +8,7 @@
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "chat.editor.fontSize": 14,
+  "chat.emptyState.history.enabled": true,
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
     ".github/instructions": true,
