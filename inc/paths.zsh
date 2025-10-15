@@ -24,11 +24,17 @@ go_prefix="$(brew --prefix go 2>/dev/null)"
 [[ -n $go_prefix ]] && export GOROOT="${go_prefix}/libexec"
 
 # --- Build initial path array ---
-# Prepend important toolchain bins before existing $path, preserving original order later.
+# Capture original path then rebuild ensuring system dirs come first (avoid conflicts),
+# followed by toolchain bins, then the prior path contents.
+orig_path=("${path[@]}")
 path=(
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
   ${openssl_prefix:+${openssl_prefix}/bin}
   ${openssh_prefix:+${openssh_prefix}/bin}
-  $path
+  "${orig_path[@]}"
 )
 
 # --- Append additional directories ---

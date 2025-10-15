@@ -144,3 +144,6 @@ alias gc="gitmoji -c"
 # ensure unique entries in path and fpath
 typeset -U path
 typeset -U fpath
+
+# Export PATH after modifications
+export PATH
