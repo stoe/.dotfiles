@@ -273,27 +273,6 @@ function ghup() {
   ok "DONE"
 }
 
-function allup() {
-  # Only allow -y flag or no arguments
-  if [ -n "$1" ] && [ "$1" != "-y" ]; then
-    abort "Error: Only -y flag is supported."
-    return 1
-  fi
-
-  formatexec "zgen update"
-  formatexec "zgen selfupdate"
-
-  formatexec ". ~/.zshrc"
-
-  brewup "$1"
-  npmup "$1"
-  ghup
-
-  formatexec "omz update"
-
-  ok "DONE"
-}
-
 # Create a .tgz archive, using `zopfli`, `pigz` or `gzip` for compression
 # Usage: targz <path>
 function targz() {
