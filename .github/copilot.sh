@@ -34,7 +34,7 @@ create_symlinks() {
 
     # Find and symlink files, allowing individual failures
     local linked_count=0
-    find "$source_dir" -name "$file_pattern" -type f 2>/dev/null | while read -r file; do
+    find "$source_dir" \( -type d -name backup -prune \) -o -type f -name "$file_pattern" -print 2>/dev/null | while read -r file; do
         basename_file=$(basename "$file")
         if [ -e "$basename_file" ]; then
             print -P "%244F  Skipping $basename_file (already exists)%f"
