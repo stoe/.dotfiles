@@ -2,6 +2,10 @@
 # Refactored to use zsh's 'path' array for clarity, ordering, and easy de-dupe.
 # Keep non-PATH environment exports (LDFLAGS, CPPFLAGS, etc.) the same.
 
+# --- Homebrew (base prefix) ---
+# Capture the main Homebrew prefix early so we can prioritize its bin dirs.
+brew_prefix="$(brew --prefix 2>/dev/null)"
+
 # --- OpenSSL ---
 openssl_prefix="$(brew --prefix openssl 2>/dev/null)"
 if [[ -n $openssl_prefix ]]; then
@@ -28,6 +32,8 @@ go_prefix="$(brew --prefix go 2>/dev/null)"
 # followed by toolchain bins, then the prior path contents.
 orig_path=("${path[@]}")
 path=(
+  ${brew_prefix:+${brew_prefix}/bin}      # Prefer Homebrew-provided tools first
+  ${brew_prefix:+${brew_prefix}/sbin}
   /usr/bin
   /bin
   /usr/sbin
