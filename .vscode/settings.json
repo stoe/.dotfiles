@@ -22,14 +22,15 @@
     "cursor-workspace": false
   },
   "chat.modeFilesLocations": {
-    ".github/chatmodes": true,
-    "/Users/stoe/code/private/.dotfiles/.github/chatmodes": true
+    ".github/agents": true,
+    "/Users/stoe/code/private/.dotfiles/.github/agents": true
   },
   "chat.promptFilesLocations": {
     ".github/prompts": true,
     "/Users/stoe/code/private/.dotfiles/.github/prompts": true
   },
   "chat.promptFilesRecommendations": {},
+  "chat.tools.edits.autoApprove": {},
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,

@@ -20,10 +20,10 @@ This is a **modular dotfiles system** with three key architectural components:
 ```shell
 .dotfiles/
 ├── .github/                        # GitHub configuration
-│   ├── chatmodes/                  # AI chat mode configurations
+│   ├── agents/                     # AI agents configurations
 │   ├── instructions/               # AI behavior instructions
 │   ├── prompts/                    # AI prompts
-│   └── toolsets/                   # AI tool configurations
+│   └── toolsets/                   # AI toolset configurations
 ├── config/                         # Application-specific configurations
 │   ├── gh/                         # GitHub CLI config
 │   ├── rubocop/                    # RuboCop config
@@ -47,8 +47,8 @@ This is a **modular dotfiles system** with three key architectural components:
 ├── .zshrc                          # Main ZSH configuration
 ├── ...                             # other configs
 # Local Override Files (not committed)
-├── .gitconfig-local            # Personal git settings
-├── .gitconfig-{work|personal}  # Context-specific git config
+├── .gitconfig-local            # Machine-specific Git settings
+├── .gitconfig-{work|personal}  # Context-specific Git config
 └── .zshrc-local                # Machine-specific shell config
 ```
 
