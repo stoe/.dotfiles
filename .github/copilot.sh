@@ -52,13 +52,14 @@ create_symlinks() {
 }
 
 # Symlink all agents
-create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.md" "agents"
+create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.agent.md" "agents"
+create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.chatmode.md" "chatmodes"
 
 # Symlink all instructions
-create_symlinks "$SOURCE_DIR/instructions" "$TARGET_DIR/instructions" "*.md" "instructions"
+create_symlinks "$SOURCE_DIR/instructions" "$TARGET_DIR/instructions" "*.instructions.md" "instructions"
 
 # Symlink all prompts
-create_symlinks "$SOURCE_DIR/prompts" "$TARGET_DIR/prompts" "*.md" "prompts"
+create_symlinks "$SOURCE_DIR/prompts" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
 
 # Symlink all toolsets
 create_symlinks "$DFH/.github/toolsets" "$HOME/Library/Application Support/Code/User/prompts" "*.jsonc" "toolsets"
