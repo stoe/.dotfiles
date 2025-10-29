@@ -73,10 +73,7 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.snippetSuggestions": "top",
@@ -99,11 +96,12 @@
     ".github/workflows/*.yml": "yaml",
     ".zshrc*": "properties",
     "*.{input,filter,output}.conf": "logstash",
-    "*.chatmode.md": "markdown",
-    "*.instructions.md": "markdown",
+    "*.agent.md": "chatmode",
+    "*.chatmode.md": "chatmode",
+    "*.instructions.md": "instructions",
     "*.md": "markdown",
     "*.ndjson": "ndjson",
-    "*.prompt.md": "markdown",
+    "*.prompt.md": "prompt",
     "*.tf": "terraform",
     "**/{handler,inventory,playbooks,roles,tasks,vars}/*/*": "yaml",
     "**/*_vars/**/*.yml": "yaml",
@@ -128,10 +126,7 @@
   "git.mergeEditor": false,
   "git.openRepositoryInParentFolders": "never",
   "[git-commit]": {
-    "editor.rulers": [
-      72,
-      50
-    ],
+    "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
   "github.copilot.advanced": {
@@ -185,7 +180,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {
-    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.ignoreTrimWhitespace": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
@@ -229,16 +224,12 @@
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
-      "args": [
-        "-l"
-      ],
+      "args": ["-l"],
       "color": "terminal.ansiGreen"
     },
     "bash (login)": {
       "path": "bash",
-      "args": [
-        "-l"
-      ],
+      "args": ["-l"],
       "icon": "terminal-bash",
       "color": "terminal.ansiBlue"
     },
