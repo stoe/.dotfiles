@@ -1,9 +1,0 @@
-{
-  "my-content": {
-    "tools": [
-      "convert_to_markdown"
-    ],
-    "description": "Toolset for content conversion and analysis.",
-    "icon": "pencil"
-  }
-}
