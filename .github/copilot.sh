@@ -53,7 +53,6 @@ create_symlinks() {
 
 # Symlink all agents
 create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.agent.md" "agents"
-create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.chatmode.md" "chatmodes"
 
 # Symlink all instructions
 create_symlinks "$SOURCE_DIR/instructions" "$TARGET_DIR/instructions" "*.instructions.md" "instructions"
