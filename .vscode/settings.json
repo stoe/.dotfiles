@@ -14,6 +14,11 @@
     ".github/instructions": true,
     "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
+  "[instructions]": {
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "chat.mcp.autostart": "newAndOutdated",
   "chat.mcp.discovery.enabled": {
     "claude-desktop": false,
@@ -25,9 +30,19 @@
     ".github/agents": true,
     "/Users/stoe/code/private/.dotfiles/.github/agents": true
   },
+  "[chatagent]": {
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "chat.promptFilesLocations": {
     ".github/prompts": true,
     "/Users/stoe/code/private/.dotfiles/.github/prompts": true
+  },
+  "[prompt]": {
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   "chat.promptFilesRecommendations": {},
   "chat.tools.edits.autoApprove": {},
@@ -93,7 +108,7 @@
   "files.associations": {
     ".env*": "dotenv",
     ".gitconfig*": "properties",
-    ".github/workflows/*.yml": "yaml",
+    ".github/workflows/*.yml": "github-actions-workflow",
     ".zshrc*": "properties",
     "*.{input,filter,output}.conf": "logstash",
     "*.agent.md": "chatagent",
