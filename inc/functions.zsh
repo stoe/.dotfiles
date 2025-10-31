@@ -430,40 +430,6 @@ function docx2md() {
   ok "Markdown saved to %178F${outputFile}%f"
 }
 
-# .md -> .docx
-# Usage: md2docx <input-file.md> [output-name]
-function md2docx() {
-  # check if pandoc is installed via brew
-  if ! hash pandoc 2> /dev/null; then
-    abort "Error: pandoc is not installed."
-    return 1
-  fi
-
-  if [ $# -eq 0 ]; then
-    abort "Error: No input file specified."
-    return 1
-  fi
-
-  local inputFile="${1}"
-  local outputName=""
-
-  # If output name is provided, use it, otherwise use input file name without extension
-  if [ -n "${2}" ]; then
-    # Remove any extension from the output name if present
-    outputName="${2%.*}"
-  else
-    outputName="${inputFile%.*}"
-  fi
-
-  local outputFile="${outputName}.docx"
-
-  section "${1} >> ${outputFile}"
-
-  formatexec "pandoc -f gfm+emoji -s '${inputFile}' -o '${outputFile}'"
-
-  ok "MS Word saved to %178F${outputFile}%f"
-}
-
 # https://docs.gitignore.io/install/command-line
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
