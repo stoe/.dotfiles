@@ -1,4 +1,6 @@
 config/*
+!config/.pandoc-pdf
+!config/.pandoc-docx
 !config/gh/config.yml
 !config/rubocop/config.yml
 
