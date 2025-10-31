@@ -9,45 +9,128 @@ if ! which duti &> /dev/null; then
   return 1
 fi
 
-print -P "ℹ %178FSetting default file associations for VSCode%f"
+# Detect installed VSCode variants
+typeset -i has_stable=0
+typeset -i has_insiders=0
 
-formatexec "duti -s com.microsoft.VSCode public.json all"
-formatexec "duti -s com.microsoft.VSCode public.plain-text all"
-formatexec "duti -s com.microsoft.VSCode public.python-script all"
-formatexec "duti -s com.microsoft.VSCode public.shell-script all"
-formatexec "duti -s com.microsoft.VSCode public.source-code all"
-formatexec "duti -s com.microsoft.VSCode public.text all"
-formatexec "duti -s com.microsoft.VSCode public.unix-executable all"
-formatexec "duti -s com.microsoft.VSCode public.data all"
+if which code &> /dev/null || [ -d "/Applications/Visual Studio Code.app" ]; then
+  has_stable=1
+fi
 
-formatexec "duti -s com.microsoft.VSCode .c all"
-formatexec "duti -s com.microsoft.VSCode .cfg all"
-formatexec "duti -s com.microsoft.VSCode .conf all"
-formatexec "duti -s com.microsoft.VSCode .cpp all"
-formatexec "duti -s com.microsoft.VSCode .cs all"
-formatexec "duti -s com.microsoft.VSCode .css all"
-formatexec "duti -s com.microsoft.VSCode .go all"
-formatexec "duti -s com.microsoft.VSCode .java all"
-formatexec "duti -s com.microsoft.VSCode .js all"
-formatexec "duti -s com.microsoft.VSCode .json all"
-formatexec "duti -s com.microsoft.VSCode .jsx all"
-formatexec "duti -s com.microsoft.VSCode .less all"
-formatexec "duti -s com.microsoft.VSCode .log all"
-formatexec "duti -s com.microsoft.VSCode .lua all"
-formatexec "duti -s com.microsoft.VSCode .md all"
-formatexec "duti -s com.microsoft.VSCode .php all"
-formatexec "duti -s com.microsoft.VSCode .pl all"
-formatexec "duti -s com.microsoft.VSCode .py all"
-formatexec "duti -s com.microsoft.VSCode .rb all"
-formatexec "duti -s com.microsoft.VSCode .sass all"
-formatexec "duti -s com.microsoft.VSCode .scss all"
-formatexec "duti -s com.microsoft.VSCode .sh all"
-formatexec "duti -s com.microsoft.VSCode .toml all"
-formatexec "duti -s com.microsoft.VSCode .ts all"
-formatexec "duti -s com.microsoft.VSCode .tsx all"
-formatexec "duti -s com.microsoft.VSCode .txt all"
-formatexec "duti -s com.microsoft.VSCode .vue all"
-formatexec "duti -s com.microsoft.VSCode .xml all"
-formatexec "duti -s com.microsoft.VSCode .yaml all"
-formatexec "duti -s com.microsoft.VSCode .yml all"
-formatexec "duti -s com.microsoft.VSCode .zsh all"
+if which code-insiders &> /dev/null || [ -d "/Applications/Visual Studio Code - Insiders.app" ]; then
+  has_insiders=1
+fi
+
+# Check if at least one variant is installed
+if [[ $has_stable -eq 0 && $has_insiders -eq 0 ]]; then
+  abort "No VSCode variant detected. Please install VSCode or VSCode-Insiders first."
+fi
+
+# Build available options message
+typeset available=""
+if [[ $has_stable -eq 1 && $has_insiders -eq 1 ]]; then
+  available="stable/insiders/both"
+elif [[ $has_stable -eq 1 ]]; then
+  available="stable only"
+elif [[ $has_insiders -eq 1 ]]; then
+  available="insiders only"
+fi
+
+# Prompt user for selection
+question "Which VSCode variant to set as default?" "s/i/b"
+print -P "  Available: %39F${available}%f"
+read -rs -k 1 choice
+print -P "%39F> $choice%f"
+
+# Validate and confirm selection
+typeset variant=""
+case "$choice" in
+  s|S)
+    if [[ $has_stable -eq 0 ]]; then
+      abort "VSCode stable is not installed"
+    fi
+    variant="stable"
+    ;;
+  i|I)
+    if [[ $has_insiders -eq 0 ]]; then
+      abort "VSCode-Insiders is not installed"
+    fi
+    variant="insiders"
+    ;;
+  b|B)
+    if [[ $has_stable -eq 0 || $has_insiders -eq 0 ]]; then
+      abort "Both variants are not installed"
+    fi
+    variant="both"
+    ;;
+  *)
+    abort "Invalid selection. Please choose s, i, or b"
+    ;;
+esac
+
+ok "Setting default file associations for VSCode ${variant}"
+
+# Function to set file associations for a given bundle identifier
+set_file_associations() {
+  typeset bundle_id=$1
+  typeset label=$2
+
+  print -P "\nℹ %178FConfiguring ${label}%f"
+
+  formatexec "duti -s ${bundle_id} public.json all"
+  formatexec "duti -s ${bundle_id} public.plain-text all"
+  formatexec "duti -s ${bundle_id} public.python-script all"
+  formatexec "duti -s ${bundle_id} public.shell-script all"
+  formatexec "duti -s ${bundle_id} public.source-code all"
+  formatexec "duti -s ${bundle_id} public.text all"
+  formatexec "duti -s ${bundle_id} public.unix-executable all"
+  formatexec "duti -s ${bundle_id} public.data all"
+
+  formatexec "duti -s ${bundle_id} .c all"
+  formatexec "duti -s ${bundle_id} .cfg all"
+  formatexec "duti -s ${bundle_id} .conf all"
+  formatexec "duti -s ${bundle_id} .cpp all"
+  formatexec "duti -s ${bundle_id} .cs all"
+  formatexec "duti -s ${bundle_id} .css all"
+  formatexec "duti -s ${bundle_id} .go all"
+  formatexec "duti -s ${bundle_id} .java all"
+  formatexec "duti -s ${bundle_id} .js all"
+  formatexec "duti -s ${bundle_id} .json all"
+  formatexec "duti -s ${bundle_id} .jsx all"
+  formatexec "duti -s ${bundle_id} .less all"
+  formatexec "duti -s ${bundle_id} .log all"
+  formatexec "duti -s ${bundle_id} .lua all"
+  formatexec "duti -s ${bundle_id} .md all"
+  formatexec "duti -s ${bundle_id} .php all"
+  formatexec "duti -s ${bundle_id} .pl all"
+  formatexec "duti -s ${bundle_id} .py all"
+  formatexec "duti -s ${bundle_id} .rb all"
+  formatexec "duti -s ${bundle_id} .sass all"
+  formatexec "duti -s ${bundle_id} .scss all"
+  formatexec "duti -s ${bundle_id} .sh all"
+  formatexec "duti -s ${bundle_id} .toml all"
+  formatexec "duti -s ${bundle_id} .ts all"
+  formatexec "duti -s ${bundle_id} .tsx all"
+  formatexec "duti -s ${bundle_id} .txt all"
+  formatexec "duti -s ${bundle_id} .vue all"
+  formatexec "duti -s ${bundle_id} .xml all"
+  formatexec "duti -s ${bundle_id} .yaml all"
+  formatexec "duti -s ${bundle_id} .yml all"
+  formatexec "duti -s ${bundle_id} .zsh all"
+}
+
+# Execute based on user selection
+case "$variant" in
+  stable)
+    set_file_associations "com.microsoft.VSCode" "VSCode Stable"
+    ;;
+  insiders)
+    set_file_associations "com.microsoft.VSCodeInsiders" "VSCode Insiders"
+    ;;
+  both)
+    set_file_associations "com.microsoft.VSCode" "VSCode Stable"
+    set_file_associations "com.microsoft.VSCodeInsiders" "VSCode Insiders"
+    ;;
+esac
+
+ok "File associations configured successfully"
