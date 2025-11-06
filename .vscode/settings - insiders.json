@@ -266,7 +266,7 @@
       "color": "terminal.ansiMagenta"
     }
   },
-  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.tabs.location": "right",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
