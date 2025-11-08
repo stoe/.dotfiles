@@ -17,6 +17,8 @@ cask_args appdir: "/Applications", require_sha: true
 #/ -----------------------------------------------------------------------------
 #/ brew install
 
+brew "bash"
+
 brew "7-zip"
 brew "gnu-tar"
 brew "gzip"

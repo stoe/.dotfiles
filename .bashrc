@@ -32,9 +32,6 @@ alias reload!='. ~/.bashrc'
 # DOS style clear
 alias cls="clear"
 
-# load GitHub Copilot aliases
-eval "$(gh copilot alias -- bash)"
-
 # -- Prompt
 
 export GIT_PS1_SHOWCOLORHINTS=true
