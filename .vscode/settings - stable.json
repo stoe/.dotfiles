@@ -1,7 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
-  "chat.agent.thinking.collapsedTools": true,
+  "chat.agent.thinking.collapsedTools": "all",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
@@ -89,7 +89,10 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.snippetSuggestions": "top",
@@ -142,7 +145,10 @@
   "git.mergeEditor": false,
   "git.openRepositoryInParentFolders": "never",
   "[git-commit]": {
-    "editor.rulers": [72, 50],
+    "editor.rulers": [
+      72,
+      50
+    ],
     "editor.wordWrap": "off"
   },
   "github.copilot.advanced": {
@@ -240,12 +246,16 @@
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "color": "terminal.ansiGreen"
     },
     "bash (login)": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash",
       "color": "terminal.ansiBlue"
     },

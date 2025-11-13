@@ -1,7 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
-  "chat.agent.thinking.collapsedTools": true,
+  "chat.agent.thinking.collapsedTools": "all",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
