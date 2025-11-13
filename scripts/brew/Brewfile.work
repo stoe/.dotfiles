@@ -8,20 +8,13 @@ brew "azure-cli"
 
 #/ (work) casks ----------------------------------------------------------------
 
-cask "citrix-workspace"
 cask "deckset"
 cask "deskpad"
 cask "energiza", args: { require_sha: false }
-cask "google-drive", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
-cask "jordanbaird-ice"
+# cask "jordanbaird-ice"
+cask "jordanbaird-ice@beta"
 cask "loom"
 cask "lunar"
-# cask "obs"
-# cask "opera"
-# cask "pingid"
-# cask "powershell"
 cask "tripmode"
 cask "viscosity"
-# cask "visual-studio-code-insiders"
-# cask "vmware-fusion"
