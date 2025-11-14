@@ -69,7 +69,7 @@ if type gh &>/dev/null; then
 fi
 
 export EDITOR="code --wait"
-export GIT_EDITOR="code --wait"
+export GIT_EDITOR="${EDITOR}"
 
 export GPG_TTY="$(tty)"
 # https://github.com/pstadler/keybase-gpg-github
