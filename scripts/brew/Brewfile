@@ -123,10 +123,15 @@ cask "font-monaspace"
 brew "mas"
 
 mas "1Password for Safari", id: 1569813296
-# mas "Bear", id: 1091189122
+mas "Azure VPN Client", id: 1553936137
+mas "Bear", id: 1091189122
 mas "Dato", id: 1470584107
 mas "Denied", id: 909257784
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
+mas "Okta Extension App", id: 1439967473
+mas "Okta Verify", id: 490179405
 mas "Pages", id: 409201541
 mas "Speediness", id: 1596706466
+mas "Windows App", id: 1295203466
+# mas "Xcode", id: 497799835
