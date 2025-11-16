@@ -8,7 +8,7 @@
 
 This collection includes configurations for:
 
-- **zsh** with Oh My Zsh and Powerlevel10k theme
+- **zsh** via zgen (loads selected Oh My Zsh plugins + Powerlevel10k theme)
 - **git** with sensible defaults and helpful aliases
 - **VS Code** settings and extensions (because who doesn't love a good editor war?)
 - **homebrew** packages organized by context (work, personal, optional)
@@ -19,7 +19,7 @@ This collection includes configurations for:
 
 **Prerequisites:** You'll need macOS and a sense of adventure.
 
-1. **Clone this bad boy:**
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/stoe/.dotfiles.git ~/.dotfiles
