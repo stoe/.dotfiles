@@ -288,16 +288,11 @@ function targz() {
     # 7zz is available; use it
     formatexec "7zz a -tgzip '${tmp}.gz' '${tmp}' || return 1"
   else
-    if (( size < 51200 )) && hash zopfli 2> /dev/null; then
-      # the content is less than 50 MB and zopfli is available; use it
-      cmd="zopfli "
+    if hash pigz 2> /dev/null; then
+      # pigz is available; use it
+      cmd="pigz "
     else
-      if hash pigz 2> /dev/null; then
-        # pigz is available; use it
-        cmd="pigz "
-      else
-        cmd="gzip "
-      fi
+      cmd="gzip "
     fi
 
     formatexec "${cmd}'${tmp}' || return 1"

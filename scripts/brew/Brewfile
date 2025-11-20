@@ -31,7 +31,6 @@ brew "jq"
 brew "pv"
 brew "tree"
 brew "yq"
-brew "zopfli"
 
 brew "exiftool"
 brew "ffmpeg"
