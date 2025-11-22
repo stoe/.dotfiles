@@ -18,3 +18,10 @@ cask "loom"
 cask "lunar"
 cask "tripmode"
 cask "viscosity"
+
+#/ (work) mas ------------------------------------------------------------------
+
+mas "Azure VPN Client", id: 1553936137
+mas "Okta Extension App", id: 1439967473
+mas "Okta Verify", id: 490179405
+mas "Windows App", id: 1295203466
