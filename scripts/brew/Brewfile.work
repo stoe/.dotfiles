@@ -16,6 +16,7 @@ cask "energiza", args: { require_sha: false }
 cask "jordanbaird-ice@beta"
 cask "loom"
 cask "lunar"
+cask "microsoft-edge"
 cask "tripmode"
 cask "viscosity"
 
