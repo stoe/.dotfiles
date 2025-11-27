@@ -8,6 +8,7 @@ brew "azure-cli"
 
 #/ (work) casks ----------------------------------------------------------------
 
+cask "camo-studio"
 cask "deckset"
 cask "deskpad"
 cask "energiza", args: { require_sha: false }
