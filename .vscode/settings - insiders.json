@@ -1,7 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
-  "chat.agent.thinking.collapsedTools": "all",
+  "chat.agent.thinking.collapsedTools": "always",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
@@ -11,8 +11,8 @@
   "chat.editor.fontSize": 14,
   "chat.emptyState.history.enabled": true,
   "chat.instructionsFilesLocations": {
-    ".github/copilot-instructions.md": true,
     ".github/instructions": true,
+    ".github/copilot-instructions.md": true,
     "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
