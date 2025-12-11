@@ -1,11 +1,12 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
-  "chat.agent.thinking.collapsedTools": "always",
+  "chat.agent.thinking.collapsedTools": "withThinking",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
   "chat.commandCenter.enabled": true,
+  "chat.customAgentInSubagent.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "chat.editor.fontSize": 14,
@@ -47,6 +48,7 @@
     "editor.formatOnSave": true
   },
   "chat.tools.edits.autoApprove": {},
+  "chat.viewSessions.orientation": "stacked",
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
@@ -148,7 +150,10 @@
     "authProvider": "github"
   },
   "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.cli.customAgents.enabled": true,
   "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents": true,
+  "github.copilot.chat.githubMcpServer.enabled": true,
   "github.copilot.chat.localeOverride": "en",
   "github.copilot.chat.scopeSelection": true,
   "github.copilot.enable": {
@@ -172,6 +177,7 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "inlineChat.enableV2": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "javascript.referencesCodeLens.enabled": false,
