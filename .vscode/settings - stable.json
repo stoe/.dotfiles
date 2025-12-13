@@ -48,6 +48,7 @@
     "editor.formatOnSave": true
   },
   "chat.tools.edits.autoApprove": {},
+  "chat.tools.urls.autoApprove": {},
   "chat.viewSessions.orientation": "stacked",
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
