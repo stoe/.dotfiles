@@ -8,8 +8,27 @@ source "$DFH/inc/helpers.zsh"
 SOURCE_DIR="$HOME/Documents/.copilot"
 TARGET_DIR="$DFH/.github"
 
-# Function to safely create symlinks
-create_symlinks() {
+# Function to remove symlinks from target directory
+cleanup_old_symlinks() {
+    local target_dir="$1"
+    local description="$2"
+
+    if [ ! -d "$target_dir" ]; then
+        return 0
+    fi
+
+    section "CLEANUP" "Removing symlinks from %39F$target_dir%f ($description)"
+
+    cd "$target_dir" || return 1
+
+    # Remove symlinks (not regular files or directories)
+    find . -maxdepth 1 -type l -delete 2>/dev/null || true
+
+    ok "Cleaned up symlinks in $target_dir"
+}
+
+# Function to create flat symlinks (searches recursively but symlinks to flat directory)
+create_flat_symlinks() {
     local source_dir="$1"
     local target_dir="$2"
     local file_pattern="$3"
@@ -32,16 +51,16 @@ create_symlinks() {
         return 1
     }
 
-    # Find and symlink files, allowing individual failures
-    local linked_count=0
-    find "$source_dir" \( -type d -name backup -prune \) -o -type f -name "$file_pattern" -print 2>/dev/null | while read -r file; do
+    # Find files matching pattern recursively, excluding backup and reflections directories
+    find "$source_dir" \( -type d \( -name 'backup*' -o -name 'reflections' \) -prune \) -o -type f -name "$file_pattern" -print 2>/dev/null | while read -r file; do
         basename_file=$(basename "$file")
+
+        # Create symlink if it doesn't exist
         if [ -e "$basename_file" ]; then
             print -P "%244F  Skipping $basename_file (already exists)%f"
         else
             if ln -s "$file" . 2>/dev/null; then
                 ok "Linked $basename_file"
-                linked_count=$((linked_count + 1))
             else
                 print -P "%1F  Warning: Failed to link $basename_file%f"
             fi
@@ -51,17 +70,22 @@ create_symlinks() {
     }
 }
 
-# Symlink all agents
-create_symlinks "$SOURCE_DIR/agents" "$TARGET_DIR/agents" "*.agent.md" "agents"
+# Cleanup existing symlinks
+cleanup_old_symlinks "$TARGET_DIR/agents" "agents"
+cleanup_old_symlinks "$TARGET_DIR/instructions" "instructions"
+cleanup_old_symlinks "$TARGET_DIR/prompts" "prompts"
 
-# Symlink all instructions
-create_symlinks "$SOURCE_DIR/instructions" "$TARGET_DIR/instructions" "*.instructions.md" "instructions"
+# Symlink all agents (*.agent.md -> agents/) regardless of source subdirectory
+create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/agents" "*.agent.md" "agents"
 
-# Symlink all prompts
-create_symlinks "$SOURCE_DIR/prompts" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
+# Symlink all knowledge/instructions (*.instructions.md -> instructions/)
+create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/instructions" "*.instructions.md" "instructions"
+
+# Symlink all prompts (*.prompt.md -> prompts/) regardless of source subdirectory
+create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
 
 # Symlink all toolsets
-create_symlinks "$DFH/.github/toolsets" "$HOME/Library/Application Support/Code/User/prompts" "*.jsonc" "toolsets"
+create_flat_symlinks "$DFH/.github/toolsets" "$HOME/Library/Application Support/Code/User/prompts" "*.jsonc" "toolsets"
 
 echo
 ok "All done!"
