@@ -320,6 +320,44 @@ function zippw() {
   ok "${tmp} created successfully."
 }
 
+# Create a password protected .pdf file, using `gs` for encryption
+# Usage: pdfpw <input-file.pdf> [output-file.pdf] <password-user> <password-owner>
+function pdfpw() {
+  if ! hash gs &>/dev/null; then
+    abort "Error: Ghostscript is not installed. Install it with 'brew install ghostscript' first."
+    return 1
+  fi
+
+  if [ $# -lt 3 ]; then
+    abort "Error: Not enough arguments provided."
+    return 1
+  fi
+
+  local inputFile="${1}"
+  local outputFile=""
+
+  # If output file name is provided, use it, otherwise use input file name with '-protected' suffix
+  if [ $# -eq 4 ]; then
+    outputFile="${2}"
+    shift
+  else
+    outputFile="${inputFile%.*}-protected.pdf"
+  fi
+
+  section "${inputFile} >> ${outputFile}"
+
+  gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite \
+    -dEncryptionR=3 \
+    -dKeyLength=128 \
+    -dPermissions=-4 \
+    -sUserPassword="${2}" \
+    -sOwnerPassword="${3}" \
+    -sOutputFile="${outputFile}" \
+    "${inputFile}"
+
+  ok "Password protected PDF saved to %178F${outputFile}%f"
+}
+
 # Extract any archive.
 # Usage: extract <file>
 function extract () {
