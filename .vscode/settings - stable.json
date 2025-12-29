@@ -51,7 +51,8 @@
   },
   "chat.tools.edits.autoApprove": {},
   "chat.tools.urls.autoApprove": {},
-  "chat.viewSessions.orientation": "stacked",
+  "chat.useAgentSkills": true,
+  "chat.useNestedAgentsMdFiles": true,
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
@@ -73,7 +74,6 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "editor.acceptSuggestionOnEnter": "on",
-  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
