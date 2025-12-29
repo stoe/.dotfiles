@@ -224,6 +224,7 @@
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
+  "rest-client.previewOption": "full",
   "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",

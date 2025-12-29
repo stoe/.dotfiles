@@ -58,6 +58,7 @@ vscode "golang.go"
 
 # Other extensions
 vscode "adpyke.codesnap"
+vscode "humao.rest-client"
 vscode "idleberg.applescript"
 vscode "mechatroner.rainbow-csv"
 vscode "tomoki1207.pdf"
