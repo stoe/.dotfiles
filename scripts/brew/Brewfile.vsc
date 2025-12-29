@@ -8,7 +8,6 @@ vscode "ms-vscode.atom-keybindings"
 vscode "ms-ceintl.vscode-language-pack-de"
 
 # GitHub Copilot and related
-vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "ms-windows-ai-studio.windows-ai-studio"
 vscode "ms-vscode.vscode-websearchforcopilot"
