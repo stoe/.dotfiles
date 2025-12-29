@@ -12,7 +12,6 @@
   "chat.editor.fontSize": 14,
   "chat.edits2.enabled": true,
   "chat.emptyState.history.enabled": true,
-  "chat.tools.terminal.autoApprove": {},
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".github/copilot-instructions.md": true,
@@ -50,9 +49,11 @@
     "editor.formatOnSave": true
   },
   "chat.tools.edits.autoApprove": {},
+  "chat.tools.terminal.autoApprove": {},
   "chat.tools.urls.autoApprove": {},
   "chat.useAgentSkills": true,
   "chat.useNestedAgentsMdFiles": true,
+  "chat.viewSessions.orientation": "stacked",
   "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
   "codesnap.showWindowControls": false,
   "codesnap.transparentBackground": true,
