@@ -52,7 +52,7 @@ create_flat_symlinks() {
     }
 
     # Find files matching pattern recursively, excluding backup and reflections directories
-    find "$source_dir" \( -type d \( -name 'backup*' -o -name 'reflections' \) -prune \) -o -type f -name "$file_pattern" -print 2>/dev/null | while read -r file; do
+    find "$source_dir" \( -type d \( -name 'backup*' -o -name 'reflections' \) -prune \) -o -type f -name "$file_pattern" -print 2>/dev/null | LC_ALL=C sort | while read -r file; do
         basename_file=$(basename "$file")
 
         # Create symlink if it doesn't exist
@@ -94,9 +94,14 @@ create_directory_symlinks() {
     }
 
     # Find direct subdirectories only, excluding backup and reflections
-    find "$source_dir" -maxdepth 1 -type d ! -name '.*' ! -name 'backup*' ! -name 'reflections' 2>/dev/null | while read -r dir; do
+    find "$source_dir" -maxdepth 1 -type d ! -name '.*' ! -name 'backup*' ! -name 'reflections' 2>/dev/null | LC_ALL=C sort | while read -r dir; do
         [ "$dir" = "$source_dir" ] && continue
         dirname=$(basename "$dir")
+
+        if [ -f "$dir/.linkignore" ]; then
+            print -P "%244F[ ✘ ] Skipping $dirname (.linkignore present)%f"
+            continue
+        fi
 
         # Create symlink if it doesn't exist
         if [ -e "$dirname" ]; then
@@ -117,6 +122,7 @@ create_directory_symlinks() {
 cleanup_old_symlinks "$TARGET_DIR/agents" "agents"
 cleanup_old_symlinks "$TARGET_DIR/instructions" "instructions"
 cleanup_old_symlinks "$TARGET_DIR/prompts" "prompts"
+cleanup_old_symlinks "$HOME/.copilot/skills" "skills"
 
 # Symlink all agents (*.agent.md -> agents/) regardless of source subdirectory
 create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/agents" "*.agent.md" "agents"
@@ -128,7 +134,7 @@ create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/instructions" "*.instructions.md
 create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
 
 # Symlink all skills (skills/ -> skills/) preserving directory structure
-create_directory_symlinks "$SOURCE_DIR/skills" "$TARGET_DIR/skills" "skills"
+create_directory_symlinks "$SOURCE_DIR/skills" "$HOME/.copilot/skills" "skills"
 
 echo
 ok "All done!"
