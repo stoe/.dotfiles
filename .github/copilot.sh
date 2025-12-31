@@ -130,8 +130,5 @@ create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
 # Symlink all skills (skills/ -> skills/) preserving directory structure
 create_directory_symlinks "$SOURCE_DIR/skills" "$TARGET_DIR/skills" "skills"
 
-# Symlink all toolsets
-create_flat_symlinks "$DFH/.github/toolsets" "$HOME/Library/Application Support/Code/User/prompts" "*.jsonc" "toolsets"
-
 echo
 ok "All done!"
