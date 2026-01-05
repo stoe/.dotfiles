@@ -88,6 +88,7 @@ set_file_associations() {
 
   formatexec "duti -s ${bundle_id} .c all"
   formatexec "duti -s ${bundle_id} .cfg all"
+  formatexec "duti -s ${bundle_id} .code-workspace all"
   formatexec "duti -s ${bundle_id} .conf all"
   formatexec "duti -s ${bundle_id} .cpp all"
   formatexec "duti -s ${bundle_id} .cs all"
