@@ -41,6 +41,8 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 
 **Gitmoji category guide**:
 
+See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use it only to guide your categorization.
+
 - Feature Development: ✨ new feature; 🚧 WIP; ⚡️ performance improvement.
 - Testing: ✅ add/update tests; 🧪 add failing tests; 🔨 fix tests.
 - Code Quality: ♻️ refactor; 🎨 structure/format; 💡 comments.
