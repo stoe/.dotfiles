@@ -1,11 +1,19 @@
 ---
-name: Git Commit Planner
-description: Inspect repo state, fetch gitmoji guidance, group changes, and generate length-compliant commit messages with selective staging.
+name: commit-planner
+description: Inspect repo state, group changes, and generate length-compliant commit messages with selective staging.
 argument-hint: 'Optional intent. The agent will run git status/diffs itself.'
 agent: agent
 model: Auto (copilot)
 tools:
-  ['execute/getTerminalOutput', 'execute/runInTerminal', 'read/readFile', 'read/terminalLastCommand', 'search', 'todo']
+  [
+    'execute/getTerminalOutput',
+    'execute/runInTerminal',
+    'read/terminalLastCommand',
+    'read/readFile',
+    'search',
+    'github/get_me',
+    'todo',
+  ]
 ---
 
 # Git Commit Planner
@@ -19,7 +27,17 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 - Run: `git status` → separate staged/unstaged; note renames, deletes, binaries, vendor/generated. Respect `.gitignore`; leave it unchanged unless the user explicitly modified and staged it.
 - Run: `git diff` (unstaged) and `git diff --cached` (staged) to size risk and chunkable hunks.
 
-### 2. Categorize and prioritize
+### 2. Confirm branch
+
+- Run: `git branch --show-current` (fallback: `git rev-parse --abbrev-ref HEAD`) and surface: "Current branch: <name>".
+- Determine user prefix:
+  - Try tool `github/get_me` → use the `login` value.
+  - If unavailable or fails, fallback to `$USER` from the environment.
+- Ask explicitly: "Use this branch, or create a new one?"
+- If creating a new branch, suggest: `<user>/<short-kebab-summary>` derived from the first planned commit subject (e.g., `stoe/update-commit-prompt`).
+- On confirmation, create and switch: `git switch -c <suggested-branch>`; otherwise continue on the current branch. Do not push.
+
+### 3. Categorize and prioritize
 
 **Priority order**:
 
@@ -54,21 +72,21 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - Configuration & Security: 🔧 config; 🔒 security updates; 🚨 fix lints/warnings.
 - Cleanup: 🔥 remove files/code; 🗑️ deprecate; ⚰️ dead code.
 
-### 3. Selective staging
+### 4. Selective staging
 
 - If nothing is staged, propose a staging plan first.
 - Stage by priority; use `git add -p` to chunk large files/hunks. Re-run `git diff --cached` after each staging step.
 - For huge diffs or dependency bumps/removals/security fixes, still stage in small category slices; confirm uncertain groupings with the user before committing.
 - For binaries/assets/vendor/generated, pause and ask the user whether to stage or skip; leave `.gitignore` unchanged unless the user explicitly staged changes to it.
 
-### 4. Commit composition
+### 5. Commit composition
 
 - One commit per logical group.
 - Subject: <emoji> Imperative subject, no scope segment, no trailing period, max 50 chars including emoji/spaces.
 - Body: bullet list; each line ≤72 chars. Wrap overflow onto next line. Each bullet covers what changed, where, and why/impact.
 - Optional footer: issue links, co-authors.
 
-### 5. Validation and handoff
+### 6. Validation and handoff
 
 - Enforce 50/72 limits; if exceeded, tighten nouns/verbs and re-wrap. Surface unresolved overages to the user.
 - If required data is missing or binaries/vendor handling is unclear, ask the user before finalizing.
@@ -96,3 +114,4 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - 🚫 Don't exceed 50/72 char limits or leave trailing periods in subjects.
 - 🚫 Don't merge unrelated categories into one commit; prefer smaller grouped slices.
 - 🚫 Don't modify `.gitignore` unless the user explicitly changed and staged it; don't skip fetch_webpage steps for gitmoji/category guidance.
+- 🚫 Never push to any remote. Do not run `git push` under any circumstances in this workflow.
