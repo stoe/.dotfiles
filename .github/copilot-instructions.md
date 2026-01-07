@@ -24,23 +24,29 @@ This is a **modular dotfiles system** with three key architectural components:
 │   ├── agents/                     # AI agents configurations
 │   ├── instructions/               # AI behavior instructions
 │   ├── prompts/                    # AI prompts
+│   ├── skills/                     # AI skills
 │   └── toolsets/                   # AI toolset configurations
+│
 ├── .husky/                         # Git hooks (pre-commit, pre-push)
+│
 ├── .vscode/                        # VS Code workspace settings
 │   ├── settings.json               # Shared settings
 │   ├── settings - stable.json      # VS Code stable overrides (symlink this to /Users/you/Library/Application Support/Code/User/settings.json)
 │   ├── settings - insiders.json    # VS Code insiders overrides (symlink this to /Users/you/Library/Application Support/Code - Insiders/User/settings.json)
 │   └── keybindings.json            # Custom keybindings (symlink this to /Users/you/Library/Application Support/{Code|Code - Insiders}/User/keybindings.json)
+│
 ├── config/                         # Application-specific configurations
 │   ├── .pandoc-docx/               # Pandoc Word conversion templates (git submodule)
 │   ├── .pandoc-pdf/                # Pandoc PDF conversion templates (git submodule)
 │   ├── gh/config.yml               # GitHub CLI config
 │   └── rubocop/config.yml          # RuboCop config
+│
 ├── inc/                            # Modular shell includes
 │   ├── aliases.zsh                 # Command aliases
 │   ├── functions.zsh               # Custom functions
 │   ├── helpers.zsh                 # Helper utilities
 │   └── paths.zsh                   # PATH modifications
+│
 ├── scripts/                        # Executable automation
 │   ├── duti                        # MacOS default app handler
 │   └── brew/                       # Homebrew management
@@ -51,13 +57,27 @@ This is a **modular dotfiles system** with three key architectural components:
 │       ├── Brewfile.personal       # Personal packages
 │       ├── Brewfile.optional       # Optional packages
 │       └── Brewfile.vsc            # VS Code extensions
+│
 ├── .bash_profile                   # Bash compatibility (transition support)
 ├── .bashrc                         # Bash configuration
+├── .editor                         # Default editor configuration
+├── .editorconfig                   # EditorConfig standard (cross-editor formatting)
+├── .git-completion.bash            # Git bash completion script
+├── .git-prompt.sh                  # Git prompt helper for shell
+├── .gitattributes                  # Git attributes (line endings, diff handling)
 ├── .gitconfig                      # Git configuration (with includes)
+├── .gitmodules                     # Git submodules configuration
 ├── .p10k.zsh                       # Powerlevel10k theme configuration
+├── .prettierignore                 # Prettier formatter exclusions
+├── .zlogin                         # ZSH login initialization
+├── .zprofile                       # ZSH profile initialization
 ├── .zshrc                          # Main ZSH configuration
-├── ...                             # other configs
-# Local Override Files (not committed, essential for customization)
+├── package.json                    # NPM project metadata
+├── prettier.config.js              # Prettier formatter configuration
+├── readme.md                       # Repository documentation
+├── license                         # MIT License
+│
+│   # Local Override Files (not committed, essential for customization)
 ├── .gitconfig-local            # Machine-specific Git settings
 ├── .gitconfig-{work|personal}  # Context-specific Git config
 ├── .gitconfig-{ghedr|msft}     # Additional context-specific configs
@@ -66,12 +86,32 @@ This is a **modular dotfiles system** with three key architectural components:
 
 ### Code Organization
 
-- `.github/` - AI workflow system (chatmodes, instructions, toolsets)
+**Primary Directories:**
+
+- `.github/` - AI workflow system (agents, instructions, prompts, toolsets) + GitHub metadata (issue templates, code of conduct, contributing guidelines, codeowners)
 - `.husky/` - Git hooks for pre-commit and pre-push automation
-- `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings)
+- `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings, snippets, extensions)
 - `config/` - Application-specific configurations (document conversion, CLI tools, linters)
 - `inc/` - Modular shell includes (aliases, functions, helpers, paths)
-- `scripts/` - Executable automation (brew management, MacOS defaults)
+- `scripts/` - Executable automation (brew management, MacOS defaults, duti)
+
+**Configuration Files:**
+
+- `.editorconfig` - Cross-editor formatting standards
+- `.gitattributes` - Git line ending and diff settings
+- `.gitmodules` - Submodule references (Pandoc templates)
+- `.prettierignore` - Prettier exclusions
+- `prettier.config.js` - Code formatter configuration
+
+**Shell Initialization Files:**
+
+- `.zprofile` - ZSH profile (login shells)
+- `.zlogin` - ZSH login (after profile)
+- `.zshrc` - ZSH interactive shell configuration
+- `.bash_profile` - Bash profile (legacy support)
+- `.bashrc` - Bash interactive shell (legacy support)
+- `.git-completion.bash` - Git bash completions
+- `.git-prompt.sh` - Git prompt helper
 
 ### Machine Detection & Setup
 
@@ -117,11 +157,26 @@ Supports five contexts: `local`, `personal`, `work`, `ghedr`, `msft`
 - `.vscode/` directory for workspace settings (stable, insiders, shared keybindings)
 - Dedicated `scripts/brew/Brewfile.vsc` for 50+ editor extensions
 
+#### GitHub Workflow Integration
+
+- **Issue Templates**: `.github/ISSUE_TEMPLATE/config.yml` - GitHub issue template configuration
+- **Code Governance**: `.github/codeowners` - Automatic code review assignments
+- **Contributing Guidelines**: `.github/contributing.md` - Contribution standards
+- **Code of Conduct**: `.github/code_of_conduct.md` - Community guidelines
+- **Copilot Integration**: `.github/copilot.sh` - Shell integration for AI workflows
+
 #### Config Categories
 
-- **Document Conversion**: Pandoc templates for Word (`config/.pandoc-docx/`) and PDF (`config/.pandoc-pdf/`) with custom styling
+- **Document Conversion**: Pandoc templates for Word (`config/.pandoc-docx/`) and PDF (`config/.pandoc-pdf/`) with custom styling (git submodules)
 - **CLI Tools**: GitHub CLI configuration (`config/gh/config.yml`)
 - **Language Tooling**: RuboCop linting rules (`config/rubocop/config.yml`)
+
+#### VS Code Extensions & Snippets
+
+- `.vscode/extensions/.gitkeep` - Extensions directory placeholder
+- `.vscode/snippets/markdown.json` - Markdown code snippets
+- `.vscode/snippets/stoe.code-snippets` - Custom workspace snippets
+- `scripts/brew/Brewfile.vsc` - 50+ VS Code extensions installation
 
 ## Coding Standards
 
