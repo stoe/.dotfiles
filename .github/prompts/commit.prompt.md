@@ -16,7 +16,7 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 
 ### 1. Collect repo state
 
-- Run: `git status` → separate staged/unstaged; note renames, deletes, binaries, vendor/generated. Respect `.gitignore`; never edit it.
+- Run: `git status` → separate staged/unstaged; note renames, deletes, binaries, vendor/generated. Respect `.gitignore`; leave it unchanged unless the user explicitly modified and staged it.
 - Run: `git diff` (unstaged) and `git diff --cached` (staged) to size risk and chunkable hunks.
 
 ### 2. Categorize and prioritize
@@ -57,7 +57,7 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 - If nothing is staged, propose a staging plan first.
 - Stage by priority; use `git add -p` to chunk large files/hunks. Re-run `git diff --cached` after each staging step.
 - For huge diffs or dependency bumps/removals/security fixes, still stage in small category slices; confirm uncertain groupings with the user before committing.
-- For binaries/assets/vendor/generated, pause and ask the user whether to stage or skip; never change `.gitignore`.
+- For binaries/assets/vendor/generated, pause and ask the user whether to stage or skip; leave `.gitignore` unchanged unless the user explicitly staged changes to it.
 
 ### 4. Commit composition
 
@@ -77,7 +77,7 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 - No staged changes → present proposed staging order before commits.
 - Huge diffs → propose chunking plan by file/hunk and category.
 - Dependency bumps/removals/security fixes → stage in small slices; confirm before commit.
-- Binaries/assets/vendor/generated → ask user whether to stage or skip; do not edit `.gitignore`.
+- Binaries/assets/vendor/generated → ask user whether to stage or skip; edit `.gitignore` only if the user explicitly changed and staged it.
 
 ## Dos
 
@@ -93,4 +93,4 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 - 🚫 Don't stage binaries/assets/vendor/generated without explicit user direction.
 - 🚫 Don't exceed 50/72 char limits or leave trailing periods in subjects.
 - 🚫 Don't merge unrelated categories into one commit; prefer smaller grouped slices.
-- 🚫 Don't modify `.gitignore` or skip fetch_webpage steps for gitmoji/category guidance.
+- 🚫 Don't modify `.gitignore` unless the user explicitly changed and staged it; don't skip fetch_webpage steps for gitmoji/category guidance.
