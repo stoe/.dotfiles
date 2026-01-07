@@ -1,1 +1,4 @@
 *.prompt.md
+
+# Exceptions
+!commit.prompt.md
