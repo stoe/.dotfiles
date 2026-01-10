@@ -6,7 +6,7 @@ applyTo: '**/*.md'
 
 # Writing Style Instructions
 
-Unified style governance for all Markdown project documents. Provides actionable, verifiable guidance for clarity, consistency, and accessibility across general narrative, technical, and reference content.
+The single source of truth for writing Markdown documents. This guide helps you write clear, consistent, and accessible content for any type of document.
 
 ## Role & Scope
 
@@ -22,7 +22,7 @@ Unified style governance for all Markdown project documents. Provides actionable
 
 **🚫 Don't:**
 
-- _Fragment style guidance_ across multiple ad‑hoc documents
+- _Scatter style rules_ across separate documents
 - _Use speculative or unverifiable statements_ as fact
 - _Over-formalize_ - avoid needlessly ornate or "posh" tone
 - _Add filler bullets_ or redundant sentences
@@ -57,17 +57,19 @@ Unified style governance for all Markdown project documents. Provides actionable
 - **Use US English, active voice, accessible vocabulary** - contractions when natural
 - **Trust your conversational voice** - use language that comes naturally
 - **Write to express, not impress** - focus on clear thinking over vocabulary display
-- **Allow one light, tongue‑in‑cheek aside** in non-sensitive contexts
+- **Keep it real** - write like you're explaining to a smart colleague, not presenting to royalty
+- **Allow a bit of humor** in non-sensitive contexts
 - **Use emojis sparingly** inside bullets or category titles when they clarify tone or meaning
 - **Expand common abbreviations** where clarity improves ("for example" over "e.g.", "versus" over "vs"); "e.g." and "vs" are acceptable when widely understood
 - **Prefer full month names** (e.g., June 2025) in dated headings
 
 **🚫 Don't:**
 
-- _Place emojis_ in top‑level headings (#, ##, ###)
+- _Place emojis_ in main headings (#, ##, ###)
 - _Use humor_ in sensitive contexts (security, personnel, risk incidents)
 - _Overuse parenthetical asides_ or emotive punctuation
 - _Substitute opinion for evidence_ on technical matters
+- _Sound overly formal or "posh"_ - if you wouldn't say it in conversation, don't write it
 
 ### Clarity & Accessibility
 
@@ -91,7 +93,7 @@ Unified style governance for all Markdown project documents. Provides actionable
 
 **✅ Do:**
 
-- **Follow Opening → Middle → Closing logic**
+- **Structure content as Opening, Middle, Closing**
 - **Lead sections with their main point** (inverted pyramid)
 - **Use lists for multi-item clarity** - keep them parallel
 - **Split or summarize lists** that grow unwieldy
@@ -113,7 +115,7 @@ Unified style governance for all Markdown project documents. Provides actionable
 
 - **Keep most sentences ≤25 words** - favor brevity
 - **Place core information early** in the sentence
-- **Use coordination ("and")** for complementary ideas; limit complex subordination
+- **Use "and" to connect ideas** rather than complex nested clauses
 - **Use a primary factual sentence for results** - follow with additive evidence sentences (each ≤25 words)
 - **Use personal pronouns judiciously** - avoid "I" in formal impact summaries; team or neutral voice preferred
 - **Give yourself permission to use personal pronouns** (I, we, you) when appropriate for conversational flow
@@ -125,6 +127,26 @@ Unified style governance for all Markdown project documents. Provides actionable
 - Overuse passive voice ("was completed by")
 - Chain multiple clauses creating >25-word density without clarity gain
 - Repeat the same opening verb across successive bullets without reason
+
+### Punctuation & Dashes
+
+**✅ Do:**
+
+- **Use hyphens (-)** for compound words and ranges (e.g., "Monday-Friday", "well-known")
+- **Avoid em dashes (—) entirely** - restructure using commas, periods, parentheses, colons, or separate sentences
+- **Use commas, colons, or separate sentences** as alternatives to dashes
+
+**🚫 Don't:**
+
+- _Use em dashes (—)_ - they signal overly complex sentence structure and don't display correctly in all mediums
+- _Insert parenthetical thoughts with dashes_ - restructure or use commas instead
+- _Chain ideas with dashes_ - break into separate sentences for clarity
+
+**Instead of em dashes, try:**
+
+- "The feature works well—even in edge cases" → "The feature works well, even in edge cases"
+- "We tested three approaches—none worked" → "We tested three approaches. None worked."
+- "The team—which included engineers from both coasts—delivered on time" → "The team, which included engineers from both coasts, delivered on time"
 
 ### Verification & Evidence
 
@@ -162,7 +184,7 @@ Unified style governance for all Markdown project documents. Provides actionable
 
 **✅ Do:**
 
-- **Draft → refine → evidence links → variation check → final proof**
+- **Draft, then refine, add evidence links, check for variety, and proof**
 - **Edit for major issues while drafting** - but don't get stuck on perfect phrasing
 - **Focus on getting ideas down clearly** during first draft
 - **Let high-stakes documents rest** before final review (incubation period)
@@ -281,12 +303,18 @@ Enhance documents for easy scanning by using:
 - "Start" instead of "commence" or "initiate"
 - "End" instead of "terminate" or "conclude"
 - "Get" instead of "obtain" or "acquire"
+- "About" instead of "regarding" or "concerning"
+- "But" instead of "however" (in most cases)
+- "So" instead of "therefore" or "consequently"
+- "Try" instead of "attempt" or "endeavor"
 
 **🚫 Avoid:**
 
 - _Unnecessarily complex vocabulary_ when simpler words suffice
 - _Business jargon or buzzwords_ without clear meaning
 - _Overly technical terms_ when writing for general audiences
+- _Fancy words that sound impressive but add nothing_ ("leverage", "synergize", "paradigm")
+- _Stuffy phrasing_ - if it sounds like a legal document or royal decree, simplify it
 
 ## Writing Style Management
 
@@ -469,7 +497,7 @@ Apply specialized agent instructions from `@github.writing-style.instructions.md
 - [ ] **No speculation in past summaries** - forward actions clearly scoped
 - [ ] **Examples support key points** where provided
 - [ ] **Technical examples** (if present) minimal, accurate, runnable
-- [ ] **Headlines direct, sentence case, value‑forward**
+- [ ] **Headlines direct, sentence case, benefit-focused**
 - [ ] **Abbreviations expanded** where clarity improves; domain (e.g. PR, JSON) preserved
 - [ ] **Emojis additive** - none in top-level headings
 
@@ -480,7 +508,9 @@ Apply specialized agent instructions from `@github.writing-style.instructions.md
 - [ ] _Consecutive identical opening verbs_ without necessity
 - [ ] _Unnecessary categorization_ where a simple summary works
 - [ ] _Broken or placeholder links_
+- [ ] _Em dashes (—)_ - restructure using commas, periods, parentheses, colons, or separate sentences
+- [ ] _Overly formal or "posh" phrasing_ - simplify to conversational language
 
 ---
 
-_These unified guidelines ensure writing remains clear, professional, accessible, and verifiably useful across all documentation._
+_Follow these guidelines to write clear, professional, and accessible documentation._
