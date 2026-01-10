@@ -50,7 +50,12 @@
   },
   "chat.tools.edits.autoApprove": {},
   "chat.tools.terminal.autoApprove": {},
-  "chat.tools.urls.autoApprove": {},
+  "chat.tools.urls.autoApprove": {
+    "https://docs.github.com": {
+      "approveRequest": true,
+      "approveResponse": true
+    }
+  },
   "chat.useAgentSkills": true,
   "chat.useNestedAgentsMdFiles": true,
   "chat.viewSessions.orientation": "stacked",
@@ -240,6 +245,7 @@
   "settingsSync.ignoredExtensions": [],
   "settingsSync.ignoredSettings": [],
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "zsh (login)",
   "terminal.integrated.defaultProfile.windows": "pwsh",
@@ -247,6 +253,7 @@
   "terminal.integrated.fontFamily": "'Monaspace Neon', 'FiraCode Nerd Font Mono', Menlo, monospace",
   "terminal.integrated.fontLigatures": true,
   "terminal.integrated.fontSize": 16,
+  "terminal.integrated.initialHint": false,
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
