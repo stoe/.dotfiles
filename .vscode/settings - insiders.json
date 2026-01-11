@@ -1,7 +1,7 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
-  "chat.agent.thinking.collapsedTools": "withThinking",
+  "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
@@ -9,9 +9,10 @@
   "chat.customAgentInSubagent.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
-  "chat.editor.fontSize": 14,
+  "chat.editor.fontSize": 12,
   "chat.edits2.enabled": true,
   "chat.emptyState.history.enabled": true,
+  "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".github/copilot-instructions.md": true,
@@ -209,6 +210,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "markdown.preview.fontSize": 16,
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
