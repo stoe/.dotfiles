@@ -4,3 +4,6 @@
 [submodule "config/.pandoc-pdf"]
 	path = config/.pandoc-pdf
 	url = git@github.com:stoe/ges-pandoc-pdf.git
+[submodule "config/.pdfpw"]
+	path = config/.pdfpw
+	url = git@github.com:stoe/pdfpw.git
