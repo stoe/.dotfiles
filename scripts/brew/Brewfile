@@ -112,6 +112,8 @@ cask "visual-studio-code@insiders"
 
 cask "font-fira-code-nerd-font"
 cask "font-fira-code"
+cask "font-hubot-sans"
+cask "font-mona-sans"
 cask "font-monaspace"
 
 #/ -----------------------------------------------------------------------------
