@@ -13,6 +13,7 @@ tools:
     'search',
     'github/get_me',
     'todo',
+    'askQuestions',
   ]
 ---
 
@@ -33,8 +34,9 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 - Determine user prefix:
   - Try tool `github/get_me` → use the `login` value.
   - If unavailable or fails, fallback to `$USER` from the environment.
-- Ask explicitly: "Use this branch, or create a new one?"
-- If creating a new branch, suggest: `<user>/<short-kebab-summary>` derived from the first planned commit subject (e.g., `stoe/update-commit-prompt`).
+- Use `askQuestions` to confirm: "Use this branch, or create a new one?"
+  - Provide context about current branch state
+  - If creating new branch, recommend `<user>/<short-kebab-summary>` derived from first planned commit subject
 - On confirmation, create and switch: `git switch -c <suggested-branch>`; otherwise continue on the current branch. Do not push.
 
 ### 3. Categorize and prioritize
@@ -105,7 +107,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - ✅ Do align commits to the priority order and category → gitmoji mapping.
 - ✅ Do keep subjects imperative and ≤50 chars with a leading gitmoji.
 - ✅ Do wrap body bullets at 72 chars and ensure each bullet states what/where/why.
-- ✅ Do ask the user when grouping, scope, or binary/vendor handling is ambiguous.
+- ✅ Do use `askQuestions` to batch related questions (branch choice, staging plan, grouping ambiguity) with context and recommendations.
 
 ## Don'ts
 

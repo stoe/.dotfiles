@@ -82,9 +82,9 @@ Use full GitHub Flavored Markdown (GFM) - tables, code blocks, task lists, etc. 
 ### 5. Metadata
 
 - **Assignee**: Use `github/get_me` → default to `@me` unless user overrides.
-- **Reviewers**: Ask for GitHub handles; use `search` to find CODEOWNERS if present.
-- **Labels**: Use `github/get_label` to fetch repo labels; suggest relevant ones.
-- **Draft status**: Ask user; prefer `--draft` if tests not run or WIP.
+- **Reviewers**: Use `askQuestions` to request GitHub handles; suggest CODEOWNERS if found via `search`.
+- **Labels**: Use `github/get_label` to fetch repo labels; use `askQuestions` to suggest relevant ones.
+- **Draft status**: Use `askQuestions`; recommend `--draft` if tests not run or WIP.
 
 ### 6. Command composition
 
@@ -119,7 +119,7 @@ Prepare `gh pr create` command:
 - ✅ Do run `git status`, `git log`, and `git diff` before drafting.
 - ✅ Do keep title ≤72 chars; body can use full GFM (no length limit).
 - ✅ Do invoke commit-planner if uncommitted changes exist.
-- ✅ Do ask for reviewers, labels, and draft status explicitly.
+- ✅ Do use `askQuestions` to batch metadata choices (reviewers, labels, draft status) with context and recommendations.
 - ✅ Do present the full `gh pr create` command for user approval.
 
 ## Don'ts
