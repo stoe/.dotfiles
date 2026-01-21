@@ -82,7 +82,7 @@ Use full GitHub Flavored Markdown (GFM) - tables, code blocks, task lists, etc. 
 ### 5. Metadata
 
 - **Assignee**: Use `github/get_me` → default to `@me` unless user overrides.
-- **Reviewers**: Use `askQuestions` to request GitHub handles; suggest CODEOWNERS if found via `search`.
+- **Reviewers**: Use `askQuestions` to request GitHub handles (usernames only, no `@` prefix); suggest CODEOWNERS if found via `search`.
 - **Labels**: Use `github/get_label` to fetch repo labels; use `askQuestions` to suggest relevant ones.
 - **Draft status**: Use `askQuestions`; recommend `--draft` if tests not run or WIP.
 
@@ -105,6 +105,7 @@ Prepare `gh pr create` command:
 - [ ] Title ≤72 chars, no trailing period
 - [ ] All uncommitted changes handled via commit-planner
 - [ ] Reviewers/labels confirmed with user
+- [ ] Reviewer usernames have no `@` prefix
 - [ ] Draft vs ready status explicitly set
 
 **Final presentation:**
@@ -119,6 +120,8 @@ Prepare `gh pr create` command:
 - ✅ Do run `git status`, `git log`, and `git diff` before drafting.
 - ✅ Do keep title ≤72 chars; body can use full GFM (no length limit).
 - ✅ Do invoke commit-planner if uncommitted changes exist.
+- ✅ Do use literal `@me` for assignee (no need to fetch current user).
+- ✅ Do strip `@` prefix from reviewer usernames (use `username`, not `@username`).
 - ✅ Do use `askQuestions` to batch metadata choices (reviewers, labels, draft status) with context and recommendations.
 - ✅ Do present the full `gh pr create` command for user approval.
 
