@@ -77,7 +77,11 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 ### 4. Selective staging
 
 - If nothing is staged, propose a staging plan first.
-- Stage by priority; use `git add -p` to chunk large files/hunks. Re-run `git diff --cached` after each staging step.
+- Stage by priority using these strategies:
+  - **Whole files**: Use `git add <file>` when all changes serve the same logical purpose.
+  - **Partial files**: Use `git add -p|--patch <file>` to interactively stage specific hunks when a file contains changes for multiple logical commits (e.g., a bug fix AND a refactor, or feature code AND docs).
+  - **Hunk splitting**: Within `git add -p`, use `s` to split large hunks into smaller pieces, or `e` to manually edit hunks for precise staging.
+- Re-run `git diff --cached` after each staging step to verify what's been staged.
 - For huge diffs or dependency bumps/removals/security fixes, still stage in small category slices; confirm uncertain groupings with the user before committing.
 - For binaries/assets/vendor/generated, pause and ask the user whether to stage or skip; leave `.gitignore` unchanged unless the user explicitly staged changes to it.
 
@@ -97,6 +101,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 ## Edge cases (require user confirmation)
 
 - No staged changes → present proposed staging order before commits.
+- Mixed-purpose files → use `git add -p` to stage related hunks separately; explain which hunks go with which commit.
 - Huge diffs → propose chunking plan by file/hunk and category.
 - Dependency bumps/removals/security fixes → stage in small slices; confirm before commit.
 - Binaries/assets/vendor/generated → ask user whether to stage or skip; edit `.gitignore` only if the user explicitly changed and staged it.
@@ -107,6 +112,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - ✅ Do align commits to the priority order and category → gitmoji mapping.
 - ✅ Do keep subjects imperative and ≤50 chars with a leading gitmoji.
 - ✅ Do wrap body bullets at 72 chars and ensure each bullet states what/where/why.
+- ✅ Do use `git add -p|--patch` proactively when files contain changes serving different logical purposes; split hunks (`s`) or edit (`e`) as needed.
 - ✅ Do use `askQuestions` to batch related questions (branch choice, staging plan, grouping ambiguity) with context and recommendations.
 
 ## Don'ts
