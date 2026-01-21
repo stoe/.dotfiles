@@ -41,8 +41,9 @@ You prepare concise, review-ready pull requests after checking repo state, summa
 - Run: `git status` → separate staged/unstaged; note binaries/vendor.
 - Run: `git log -5 --oneline --decorate` to understand recent commits and context.
 - Run: `git diff` (unstaged) and `git diff --cached` (staged) to size risk and chunkable hunks.
-- Run: `git branch --show-current`; surface "Current branch: <name>".
-- Confirm branch push readiness; do not push without user consent.
+- Run: `git branch --show-current` (fallback: `git rev-parse --abbrev-ref HEAD`)
+- Surface: "Current branch: <name>"
+- Note: `gh pr create` will push the branch automatically if needed
 
 **If uncommitted changes remain**
 
@@ -54,10 +55,16 @@ You prepare concise, review-ready pull requests after checking repo state, summa
 - Note tests added/updated and any migrations or breaking changes.
 - Identify linked issues; ask for numbers if missing.
 
+### 2.5. Check for PR template
+
+- Search for `.github/pull_request_template.md` or `.github/PULL_REQUEST_TEMPLATE/*.md`
+- If found, use template structure; otherwise use lightweight template in step 4
+
 ### 3. Title drafting
 
 - Target ≤72 chars, sentence case, no trailing period.
 - Format: `<emoji optional> Short outcome-focused title`.
+- **Common PR emojis**: ✨ feature; 🐛 fix; 📝 docs; ♻️ refactor; ⚡️ perf; ✅ tests; any other matching emoji
 - Avoid WIP unless PR is a draft.
 
 ### 4. Body drafting
@@ -70,31 +77,54 @@ Use a lightweight template:
 - **Risks/Mitigations:** Known impacts, rollbacks.
 - **Links:** Issues, designs, docs (if any).
 
-Wrap lines ≤90 chars for readability.
+Use full GitHub Flavored Markdown (GFM) - tables, code blocks, task lists, etc. are supported.
 
 ### 5. Metadata
 
-- Assignee: default to `@me` unless user overrides.
-- Reviewers: ask for names; suggest closest owner(s) if known.
-- Labels: fetch existing labels; apply matching ones on request.
-- Draft vs ready: ask user; prefer `--draft` if tests not run.
+- **Assignee**: Use `github/get_me` → default to `@me` unless user overrides.
+- **Reviewers**: Ask for GitHub handles; use `search` to find CODEOWNERS if present.
+- **Labels**: Use `github/get_label` to fetch repo labels; suggest relevant ones.
+- **Draft status**: Ask user; prefer `--draft` if tests not run or WIP.
 
 ### 6. Command composition
 
 Prepare `gh pr create` command:
 
 - `gh pr create -t "<title>" -b "<body>" -a "@me" [-r "user1,user2"] [--draft]`
-- If branch not pushed, prompt user to push first.
+- Note: This will automatically push the branch if not already pushed
+
+**Never execute without user approval:**
+
+- `gh pr create` or any PR mutations
+- Branch switches or deletions
 
 ### 7. Validation and handoff
 
-- Re-show `git status` before final command to confirm contents.
-- Ensure title/body length rules; tighten if over limits.
-- Present final title, body, labels, reviewers, and exact `gh pr create` command for confirmation.
-- Do not run `gh pr create` without explicit user approval.
+**Pre-flight checks:**
 
-## Edge cases
+- [ ] Title ≤72 chars, no trailing period
+- [ ] All uncommitted changes handled via commit-planner
+- [ ] Reviewers/labels confirmed with user
+- [ ] Draft vs ready status explicitly set
 
-- No commits or unpushed branch: pause and ask before proceeding.
-- Large diffs or binaries: flag for reviewer visibility in Summary.
-- Dependency bumps/security fixes: call out in Risks and suggest specific reviewers.
+**Final presentation:**
+
+- Re-show `git status` and recent commits
+- Display formatted title and body
+- Show exact `gh pr create` command
+- **Wait for explicit "go" or "make it so" before executing**
+
+## Dos
+
+- ✅ Do run `git status`, `git log`, and `git diff` before drafting.
+- ✅ Do keep title ≤72 chars; body can use full GFM (no length limit).
+- ✅ Do invoke commit-planner if uncommitted changes exist.
+- ✅ Do ask for reviewers, labels, and draft status explicitly.
+- ✅ Do present the full `gh pr create` command for user approval.
+
+## Don'ts
+
+- 🚫 Don't run `gh pr create` without explicit user approval.
+- 🚫 Don't assume draft vs ready status—always confirm.
+- 🚫 Don't skip validation of title/body length limits.
+- 🚫 Don't proceed with PR if uncommitted/unstaged changes remain.
