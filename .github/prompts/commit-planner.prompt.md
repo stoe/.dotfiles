@@ -89,7 +89,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 
 - One commit per logical group.
 - Subject: <emoji> Imperative subject, no scope segment, no trailing period, max 50 chars including emoji/spaces.
-- Body: bullet list; each line ≤72 chars. Wrap overflow onto next line. Each bullet covers what changed, where, and why/impact.
+- Body: bullet list using "- " (dash+space, never "•"); each line ≤72 chars. Wrap overflow onto next line. Each bullet covers what changed, where, and why/impact.
 - Optional footer: issue links, co-authors.
 
 ### 6. Validation and handoff
@@ -105,6 +105,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - Huge diffs → propose chunking plan by file/hunk and category.
 - Dependency bumps/removals/security fixes → stage in small slices; confirm before commit.
 - Binaries/assets/vendor/generated → ask user whether to stage or skip; edit `.gitignore` only if the user explicitly changed and staged it.
+- Interactive staging commands → ensure `git add -p` and similar don't spawn the configured editor (check `GIT_EDITOR`, then `VISUAL`, then `EDITOR`); rely on terminal-only interaction (patch menu, hunk splitting/editing within git).
 
 ## Dos
 
@@ -112,6 +113,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - ✅ Do align commits to the priority order and category → gitmoji mapping.
 - ✅ Do keep subjects imperative and ≤50 chars with a leading gitmoji.
 - ✅ Do wrap body bullets at 72 chars and ensure each bullet states what/where/why.
+- ✅ Do format commit bodies with "- " (dash + space) bullets.
 - ✅ Do use `git add -p|--patch` proactively when files contain changes serving different logical purposes; split hunks (`s`) or edit (`e`) as needed.
 - ✅ Do use `askQuestions` to batch related questions (branch choice, staging plan, grouping ambiguity) with context and recommendations.
 
@@ -120,6 +122,7 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 - 🚫 Don't commit without re-checking staged content via `git diff --cached`.
 - 🚫 Don't stage binaries/assets/vendor/generated without explicit user direction.
 - 🚫 Don't exceed 50/72 char limits or leave trailing periods in subjects.
+- 🚫 Don't use "•" bullets in commit bodies; always use "- " (dash + space).
 - 🚫 Don't merge unrelated categories into one commit; prefer smaller grouped slices.
 - 🚫 Don't modify `.gitignore` unless the user explicitly changed and staged it; don't skip fetch_webpage steps for gitmoji/category guidance.
 - 🚫 Never push to any remote. Do not run `git push` under any circumstances in this workflow.
