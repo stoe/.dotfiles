@@ -5,7 +5,6 @@
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
-  "chat.commandCenter.enabled": true,
   "chat.customAgentInSubagent.enabled": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
@@ -54,6 +53,10 @@
   "chat.tools.urls.autoApprove": {
     "https://docs.github.com": {
       "approveRequest": true,
+      "approveResponse": true
+    },
+    "https://github.blog": {
+      "approveRequest": false,
       "approveResponse": true
     }
   },
