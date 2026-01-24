@@ -133,8 +133,11 @@ create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/instructions" "*.instructions.md
 # Symlink all prompts (*.prompt.md -> prompts/) regardless of source subdirectory
 create_flat_symlinks "$SOURCE_DIR" "$TARGET_DIR/prompts" "*.prompt.md" "prompts"
 
-# Symlink all skills (skills/ -> skills/) preserving directory structure
-create_directory_symlinks "$SOURCE_DIR/skills" "$HOME/.copilot/skills" "skills"
+# Symlink all skills (skills/ -> skills/) preserving directory structure into global skills directory
+create_directory_symlinks "$HOME/private/skills/skills" "$HOME/.copilot/skills" "skills"
+
+# Symlink all private skills (skills-private/ -> skills/) preserving directory structure into global skills directory
+create_directory_symlinks "$HOME/private/skills-private/skills" "$HOME/.copilot/skills" "skills-private"
 
 echo
 ok "All done!"
