@@ -6,27 +6,29 @@ agent: agent
 model: Auto (copilot)
 tools:
   [
+    'vscode/askQuestions',
     'execute/getTerminalOutput',
     'execute/runInTerminal',
-    'read/readFile',
     'read/terminalLastCommand',
+    'read/readFile',
     'agent',
+    'edit/createFile',
+    'edit/editFiles',
     'search',
+    'github/create_pull_request',
+    'github/get_label',
     'github/get_me',
     'github/list_pull_requests',
     'github/pull_request_read',
-    'github/create_pull_request',
+    'github/push_files',
+    'github/search_issues',
+    'github/search_pull_requests',
     'github/update_pull_request',
     'github/update_pull_request_branch',
-    'github/search_pull_requests',
-    'github/search_issues',
-    'github/get_label',
-    'github/push_files',
+    'github.vscode-pull-request-github/doSearch',
     'github.vscode-pull-request-github/activePullRequest',
     'github.vscode-pull-request-github/openPullRequest',
-    'github.vscode-pull-request-github/doSearch',
     'todo',
-    'askQuestions',
   ]
 ---
 
@@ -73,11 +75,19 @@ Use a lightweight template:
 
 - **Summary:** 2-4 bullets on what and why.
 - **Changes:** Key code or docs areas touched.
-- **Testing:** Commands run or "Not run (reason)".
-- **Risks/Mitigations:** Known impacts, rollbacks.
-- **Links:** Issues, designs, docs (if any).
+- **Testing:** _(optional)_ Commands run; include only if it adds clarity.
+- **Risks/Mitigations:** _(optional)_ Known impacts, rollbacks; include only if relevant.
+- **Links:** _(optional)_ Issues, designs, docs; include only if they provide context.
 
 Use full GitHub Flavored Markdown (GFM) - tables, code blocks, task lists, etc. are supported.
+
+**For long bodies (>5 lines):**
+
+- Use `edit/createFile` to create a local `tmp-pr-body.md` file (never commit this file).
+- Draft the full body in `tmp-pr-body.md` for clarity using `edit/editFiles`.
+- Use `-F tmp-pr-body.md` with `gh pr create` to read the body from this file.
+- Delete `tmp-pr-body.md` immediately after PR creation (use `edit/editFiles` or shell command).
+- Confirm `tmp-pr-body.md` is in `.gitignore` or will not be staged.
 
 ### 5. Metadata
 
@@ -90,8 +100,10 @@ Use full GitHub Flavored Markdown (GFM) - tables, code blocks, task lists, etc. 
 
 Prepare `gh pr create` command:
 
-- `gh pr create -t "<title>" -b "<body>" -a "@me" [-r "user1,user2"] [--draft]`
+- For short bodies: `gh pr create -t "<title>" -b "<body>" -a "@me" [-r "user1,user2"] [--draft]`
+- For long bodies (from `tmp-pr-body.md`): `gh pr create -t "<title>" -F tmp-pr-body.md -a "@me" [-r "user1,user2"] [--draft]`
 - Note: This will automatically push the branch if not already pushed
+- **After PR creation:** Delete `tmp-pr-body.md` if used
 
 **Never execute without user approval:**
 
@@ -124,10 +136,13 @@ Prepare `gh pr create` command:
 - ✅ Do strip `@` prefix from reviewer usernames (use `username`, not `@username`).
 - ✅ Do use `askQuestions` to batch metadata choices (reviewers, labels, draft status) with context and recommendations.
 - ✅ Do present the full `gh pr create` command for user approval.
+- ✅ Do use a temporary `tmp-pr-body.md` file for long PR bodies (>5 lines) and delete it after PR creation.
 
 ## Don'ts
 
 - 🚫 Don't run `gh pr create` without explicit user approval.
-- 🚫 Don't assume draft vs ready status—always confirm.
+- 🚫 Don't assume draft vs ready status; always confirm.
 - 🚫 Don't skip validation of title/body length limits.
 - 🚫 Don't proceed with PR if uncommitted/unstaged changes remain.
+- 🚫 Don't commit `tmp-pr-body.md` files; use them only as temporary drafting aids.
+- 🚫 Don't forget to delete `tmp-pr-body.md` after creating the PR.
