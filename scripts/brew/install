@@ -1,60 +1,77 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-set -eo pipefail
+#/ DESCRIPTION:
+#/   Install Homebrew packages from machine-specific Brewfiles.
+#/   Combines Brewfile, Brewfile.optional, Brewfile.{work|personal}, and Brewfile.vsc
+#/   into a unified Brewfile.local based on the current machine hostname.
+#/
+#/ USAGE:
+#/   install
 
-# Change these to match your machine hostnames
-WORK_MACHINE_NAME="0x73746f65"
-PERSONAL_MACHINE_NAME="6x73746f65"
+setopt ERR_EXIT NO_UNSET PIPE_FAIL
 
-print -P "\n[ %5Fhomebrew%f ] 🍺 💻 install\n"
+# Source helper functions if not already loaded
+typeset -r SCRIPT_DIR="${0:A:h}"
+typeset -r DOTFILES_ROOT="${SCRIPT_DIR:h:h}"
+if [[ ! $(typeset -f section) ]]; then
+  source "${DOTFILES_ROOT}/inc/helpers.zsh"
+fi
 
-# check if the Brewfile file exists
-[ ! -f Brewfile ] && print -P "✘ %178Faborting%f Brewfile not found" && exit 1
-# check if the Brewfile.optional file exists
-[ ! -f Brewfile.optional ] && print -P "✘ %178Faborting%f Brewfile.optional not found" && exit 1
+# Change to script directory to find Brewfiles
+cd "$SCRIPT_DIR"
 
-# get the local computer's name and save it to a variable
+# Machine hostnames (change these to match your machines)
+typeset -r WORK_MACHINE_NAME="0x73746f65"
+typeset -r PERSONAL_MACHINE_NAME="6x73746f65"
+typeset -r BREWFILE_LOCAL="Brewfile.local"
+
+# Cleanup trap to remove temporary Brewfile.local on exit
+cleanup_brewfile() {
+  [[ -f "$BREWFILE_LOCAL" ]] && rm -f "$BREWFILE_LOCAL" "${BREWFILE_LOCAL}.lock.json"
+}
+trap cleanup_brewfile EXIT INT TERM
+
+section "homebrew" "🍺 💻 install"
+
+# Verify required Brewfiles exist
+[[ ! -f Brewfile ]] && abort "Brewfile not found" && exit 1
+[[ ! -f Brewfile.optional ]] && abort "Brewfile.optional not found" && exit 1
+
+# Get the local computer's hostname
+typeset machine_name
 machine_name=$(hostname)
 
-# get the contents of the Brewfile and Brewfile.optional files and join them
+# Combine base Brewfiles
+typeset brewfile_all
 brewfile_all="$(cat Brewfile)\n\n$(cat Brewfile.optional)"
 
-# switch statement to check the machine_name variable
-case $machine_name in
-"$WORK_MACHINE_NAME")
-  print -P "[ %5Fhomebrew%f ] 🍺 💼\n"
-
-  # check if the Brewfile.work file exists
-  [ ! -f Brewfile.work ] && print -P "✘ %178Faborting%f Brewfile.work not found" && exit 1
-
-  # get the contents of the Brewfile.work file and join it with the contents of the Brewfile_all variable
-  brewfile_all="$brewfile_all\n\n$(cat Brewfile.work)"
-  ;;
-"$PERSONAL_MACHINE_NAME")
-  print -P "[ %5Fhomebrew%f ] 🍺 🏡\n"
-
-  # check if the Brewfile.personal file exists
-  [ ! -f Brewfile.personal ] && print -P "✘ %178Faborting%f Brewfile.personal not found" && exit 1
-
-  # get the contents of the Brewfile.personal file and join it with the contents of the Brewfile_all variable
-  brewfile_all="$brewfile_all\n\n$(cat Brewfile.personal)"
-  ;;
-*)
-  print -P "✘ %178Faborting%f Unknown machine name: $machine_name"
-  exit 1
-  ;;
+# Load machine-specific Brewfile based on hostname
+case "$machine_name" in
+  "$WORK_MACHINE_NAME")
+    section "homebrew" "🍺 💼"
+    [[ ! -f Brewfile.work ]] && abort "Brewfile.work not found" && exit 1
+    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.work)"
+    ;;
+  "$PERSONAL_MACHINE_NAME")
+    section "homebrew" "🍺 🏡"
+    [[ ! -f Brewfile.personal ]] && abort "Brewfile.personal not found" && exit 1
+    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.personal)"
+    ;;
+  *)
+    abort "Unknown machine name: $machine_name"
+    exit 1
+    ;;
 esac
 
-# check if the Brewfile.vsc file exists
-[ ! -f Brewfile.vsc ] && print -P "✘ %178Faborting%f Brewfile.vsc not found" && exit 1
-# get the contents of the Brewfile.vsc file and join it with the contents of the Brewfile_all variable
-brewfile_all="$brewfile_all\n\n$(cat Brewfile.vsc)"
+# Add VS Code extensions
+[[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
+brewfile_all="${brewfile_all}\n\n$(cat Brewfile.vsc)"
 
-# write the contents of the joined Brewfile files to a new file
-echo "$brewfile_all" > Brewfile.local
+# Write unified Brewfile
+echo "$brewfile_all" > "$BREWFILE_LOCAL"
 
-# execute command
-cmd="brew bundle --file Brewfile.local"
-print -P "%244F> $cmd%f" && eval "$cmd"
+# Execute brew bundle install
+typeset cmd="brew bundle --file $BREWFILE_LOCAL"
+formatexec "$cmd"
 
-print -P "\n[ %76Fhomebrew%f ] 🍺 done"
+ok "homebrew 🍺 done"
