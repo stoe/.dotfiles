@@ -1,6 +1,5 @@
 #/ (work) brews ----------------------------------------------------------------
 
-brew "awscli"
 brew "azure-cli"
 
 # brew "ansible"
@@ -9,8 +8,8 @@ brew "azure-cli"
 #/ (work) casks ----------------------------------------------------------------
 
 cask "camo-studio"
-cask "deckset"
-cask "deskpad"
+# cask "deckset"
+# cask "deskpad"
 cask "energiza", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
 # cask "jordanbaird-ice"
