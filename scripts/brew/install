@@ -8,7 +8,7 @@
 #/ USAGE:
 #/   install
 
-setopt ERR_EXIT NO_UNSET PIPE_FAIL
+setopt ERR_EXIT PIPE_FAIL
 
 # Source helper functions if not already loaded
 typeset -r SCRIPT_DIR="${0:A:h}"

@@ -10,7 +10,7 @@
 #/ OPTIONS:
 #/   --dry-run    Show what would be removed without making changes
 
-setopt ERR_EXIT NO_UNSET PIPE_FAIL
+setopt ERR_EXIT PIPE_FAIL
 
 # Source helper functions if not already loaded
 typeset -r SCRIPT_DIR="${0:A:h}"
@@ -41,6 +41,9 @@ if [[ "$1" == "--dry-run" ]]; then
 else
   section "homebrew" "🍺 💻 cleanup"
 fi
+
+# Enable NO_UNSET after handling arguments
+setopt NO_UNSET
 
 # Remove existing Brewfile.local if present
 if [[ -f "$BREWFILE_LOCAL" ]]; then
@@ -85,14 +88,14 @@ brewfile_all="${brewfile_all}\n\n$(cat Brewfile.vsc)"
 # Write unified Brewfile
 echo "$brewfile_all" > "$BREWFILE_LOCAL"
 
-# Run brew autoremove to clean up lingering dependencies
-typeset cmd="brew autoremove"
-[[ "$dry_run" == "true" ]] && cmd="${cmd} --dry-run"
-formatexec "$cmd"
-
 # Run brew bundle cleanup (may return 1 in dry-run mode if packages would be removed)
 cmd="brew bundle cleanup --file $BREWFILE_LOCAL"
 [[ "$dry_run" == "false" ]] && cmd="${cmd} --force"
+formatexec "$cmd" || true
+
+# Run brew autoremove to clean up lingering dependencies
+typeset cmd="brew autoremove"
+[[ "$dry_run" == "true" ]] && cmd="${cmd} --dry-run"
 formatexec "$cmd" || true
 
 ok "homebrew 🍺 done"
