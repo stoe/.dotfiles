@@ -32,6 +32,11 @@ export DFH=$HOME/code/private/.dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
+# load document conversion utilities
+[ -f "${DFH}/config/.pandoc-docx/md2docx.zsh" ] && source "${DFH}/config/.pandoc-docx/md2docx.zsh"
+[ -f "${DFH}/config/.pandoc-pdf/md2pdf.zsh" ] && source "${DFH}/config/.pandoc-pdf/md2pdf.zsh"
+[ -f "${DFH}/config/.pdfpw/pdfpw.zsh" ] && source "${DFH}/config/.pdfpw/pdfpw.zsh"
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 

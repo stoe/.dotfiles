@@ -167,7 +167,10 @@ Supports five contexts: `local`, `personal`, `work`, `ghedr`, `msft`
 
 #### Config Categories
 
-- **Document Conversion**: Pandoc templates for Word (`config/.pandoc-docx/`) and PDF (`config/.pandoc-pdf/`) with custom styling (git submodules)
+- **Document Conversion**: Pandoc-based conversion utilities (git submodules)
+  - `config/.pandoc-docx/` - Markdown to Word conversion with `md2docx` function
+  - `config/.pandoc-pdf/` - Markdown to PDF conversion with `md2pdf` function
+  - `config/.pdfpw/` - PDF password protection with `pdfpw` function
 - **CLI Tools**: GitHub CLI configuration (`config/gh/config.yml`)
 - **Language Tooling**: RuboCop linting rules (`config/rubocop/config.yml`)
 
@@ -244,7 +247,10 @@ Key utilities organized by category in `inc/functions.zsh` and `inc/helpers.zsh`
 
 - `mov2gif()` - Video to GIF conversion with ffmpeg + ImageMagick
 - `pdf2png()` - PDF to PNG with Ghostscript
-- `docx2md()` - Word to Markdown via Pandoc
+- `docx2md()` - Word to Markdown via Pandoc (in `inc/functions.zsh`)
+- `md2docx()` - Markdown to Word with optional reference styling via Pandoc (in `config/.pandoc-docx/` submodule)
+- `md2pdf()` - Markdown to PDF with custom header/footer/watermark via Pandoc (in `config/.pandoc-pdf/` submodule)
+- `pdfpw()` - PDF password protection with Ghostscript + 1Password integration (in `config/.pdfpw/` submodule)
 
 #### Docker Helpers
 
