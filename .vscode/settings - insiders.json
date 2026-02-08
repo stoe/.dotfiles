@@ -11,6 +11,7 @@
   "chat.editor.fontSize": 12,
   "chat.edits2.enabled": true,
   "chat.emptyState.history.enabled": true,
+  "chat.experimental.useSkillAdherencePrompt": true,
   "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
@@ -163,6 +164,7 @@
     "authProvider": "github"
   },
   "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.agentCustomizationSkill.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents": true,
