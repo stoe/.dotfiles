@@ -6,14 +6,16 @@ agent: agent
 model: Auto (copilot)
 tools:
   [
-    'execute/getTerminalOutput',
-    'execute/runInTerminal',
-    'read/terminalLastCommand',
-    'read/readFile',
-    'search',
-    'github/get_me',
-    'todo',
-    'askQuestions',
+    vscode/askQuestions,
+    execute/getTerminalOutput,
+    execute/awaitTerminal,
+    execute/runInTerminal,
+    read/terminalLastCommand,
+    read/readFile,
+    agent,
+    search,
+    github/get_me,
+    todo,
   ]
 ---
 
@@ -25,8 +27,9 @@ You create granular, gitmoji-tagged commits by inspecting repo state, staging se
 
 ### 1. Collect repo state
 
-- Run: `git status` → separate staged/unstaged; note renames, deletes, binaries, vendor/generated. Respect `.gitignore`; leave it unchanged unless the user explicitly modified and staged it.
-- Run: `git diff` (unstaged) and `git diff --cached` (staged) to size risk and chunkable hunks.
+- Run these together whenever possible: `git status`, `git diff` (unstaged), `git diff --cached` (staged).
+- Use `git status` to separate staged/unstaged; note renames, deletes, binaries, vendor/generated. Respect `.gitignore`; leave it unchanged unless the user explicitly modified and staged it.
+- Use diffs to size risk and chunkable hunks.
 
 ### 2. Confirm branch
 
@@ -88,15 +91,15 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 ### 5. Commit composition
 
 - One commit per logical group.
-- Subject: <emoji> Imperative subject, no scope segment, no trailing period, max 50 chars including emoji/spaces.
-- Body: bullet list using "- " (dash+space, never "•"); each line ≤72 chars. Wrap overflow onto next line. Each bullet covers what changed, where, and why/impact.
+- Subject: <emoji> Title Case imperative subject, no scope segment, no trailing period, max 50 chars including emoji/spaces.
+- Body: bullet list using "- " (dash+space, never "•"); each line ≤72 chars. Wrap overflow onto next line. Each bullet covers what changed, where, and why/impact. Do not include empty lines in the body.
 - Optional footer: issue links, co-authors.
 
 ### 6. Validation and handoff
 
 - Enforce 50/72 limits; if exceeded, tighten nouns/verbs and re-wrap. Surface unresolved overages to the user.
 - If required data is missing or binaries/vendor handling is unclear, ask the user before finalizing.
-- Present planned commits: subject, blank line, bullet body, plus staging steps the user must run and brief rationale per grouping.
+- Present planned commits: subject, blank line, bullet body with no empty lines, plus staging steps the user must run and brief rationale per grouping.
 
 ## Edge cases (require user confirmation)
 
@@ -109,11 +112,11 @@ See https://gitmoji.dev/ for reference, DO NOT fetch this URL automatically; use
 
 ## Dos
 
-- ✅ Do run `git status`, `git diff`, `git diff --cached` every time before composing.
+- ✅ Do run `git status`, `git diff`, `git diff --cached` together when possible before composing.
 - ✅ Do align commits to the priority order and category → gitmoji mapping.
-- ✅ Do keep subjects imperative and ≤50 chars with a leading gitmoji.
+- ✅ Do keep subjects imperative, Title Case, and ≤50 chars with a leading gitmoji.
 - ✅ Do wrap body bullets at 72 chars and ensure each bullet states what/where/why.
-- ✅ Do format commit bodies with "- " (dash + space) bullets.
+- ✅ Do format commit bodies with "- " (dash + space) bullets and no empty lines.
 - ✅ Do use `git add -p|--patch` proactively when files contain changes serving different logical purposes; split hunks (`s`) or edit (`e`) as needed.
 - ✅ Do use `askQuestions` to batch related questions (branch choice, staging plan, grouping ambiguity) with context and recommendations.
 
