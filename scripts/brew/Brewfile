@@ -6,13 +6,7 @@
 cask_args appdir: "/Applications", require_sha: true
 
 #/ -----------------------------------------------------------------------------
-#/ brew taps
-
-# tap "homebrew/bundle"
-# tap "homebrew/cask"
-# tap "homebrew/cask-fonts"
-# tap "homebrew/cask-versions"
-# tap "1password/tap"
+#/ brew taps - none
 
 #/ -----------------------------------------------------------------------------
 #/ brew install
@@ -25,6 +19,7 @@ brew "gzip"
 brew "pigz"
 brew "uv"
 
+brew "container"
 brew "coreutils"
 brew "duti"
 brew "jq"
