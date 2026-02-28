@@ -16,7 +16,7 @@
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".github/copilot-instructions.md": true,
-    "/Users/stoe/code/private/.dotfiles/.github/instructions": true
+    "~/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
@@ -30,10 +30,6 @@
     "cursor-global": false,
     "cursor-workspace": false
   },
-  "chat.modeFilesLocations": {
-    ".github/agents": true,
-    "/Users/stoe/code/private/.dotfiles/.github/agents": true
-  },
   "[chatagent]": {
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -41,7 +37,7 @@
   },
   "chat.promptFilesLocations": {
     ".github/prompts": true,
-    "/Users/stoe/code/private/.dotfiles/.github/prompts": true
+    "~/code/private/.dotfiles/.github/prompts": true
   },
   "chat.promptFilesRecommendations": {},
   "[prompt]": {
@@ -183,7 +179,7 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "github.vscode-github-actions"
   },
-  "go.gopath": "/Users/stoe/go",
+  "go.gopath": "~/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
   "[go]": {
@@ -238,8 +234,8 @@
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
   "rest-client.previewOption": "full",
-  "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
-  "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
+  "ruby.rubocop.configFilePath": "~/code/private/.dotfiles/config/rubocop/config.yml",
+  "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
   "[ruby]": {
     "editor.formatOnSave": true,
