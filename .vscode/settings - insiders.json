@@ -101,12 +101,10 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
+  "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.suggest.preview": true,
@@ -150,10 +148,7 @@
   "git.mergeEditor": false,
   "git.openRepositoryInParentFolders": "never",
   "[git-commit]": {
-    "editor.rulers": [
-      72,
-      50
-    ],
+    "editor.rulers": [72, 50],
     "editor.wordWrap": "off"
   },
   "github.copilot.advanced": {
@@ -189,11 +184,6 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "inlineChat.enableV2": true,
-  "javascript.format.enable": false,
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.referencesCodeLens.enabled": false,
-  "javascript.suggest.includeAutomaticOptionalChainCompletions": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -202,6 +192,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "js/ts.format.enable": false,
+  "js/ts.preferences.quoteStyle": "single",
+  "js/ts.referencesCodeLens.enabled": false,
+  "js/ts.suggest.includeAutomaticOptionalChainCompletions": false,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "json.schemaDownload.enable": true,
   "json.schemas": [],
   "[json]": {
@@ -214,7 +209,7 @@
   "markdown.preview.fontSize": 16,
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     "editor.formatOnSave": true
   },
   "markdown.extension.italic.indicator": "_",
@@ -238,8 +233,12 @@
   "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
   "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
-    "editor.semanticHighlighting.enabled": true
+    "editor.formatOnType": true,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.tabSize": 2
   },
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
@@ -260,16 +259,12 @@
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
-      "args": [
-        "-l"
-      ],
+      "args": ["-l"],
       "color": "terminal.ansiGreen"
     },
     "bash (login)": {
       "path": "bash",
-      "args": [
-        "-l"
-      ],
+      "args": ["-l"],
       "icon": "terminal-bash",
       "color": "terminal.ansiBlue"
     },
