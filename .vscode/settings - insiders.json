@@ -101,7 +101,10 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.selectionHighlight": false,
   "editor.semanticHighlighting.enabled": true,
@@ -148,7 +151,10 @@
   "git.mergeEditor": false,
   "git.openRepositoryInParentFolders": "never",
   "[git-commit]": {
-    "editor.rulers": [72, 50],
+    "editor.rulers": [
+      72,
+      50
+    ],
     "editor.wordWrap": "off"
   },
   "github.copilot.advanced": {
@@ -259,12 +265,16 @@
   "terminal.integrated.profiles.osx": {
     "zsh (login)": {
       "path": "zsh",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "color": "terminal.ansiGreen"
     },
     "bash (login)": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash",
       "color": "terminal.ansiBlue"
     },
