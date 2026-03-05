@@ -5,19 +5,22 @@ inherit_gem:
     - config/default.yml
 
 AllCops:
-  TargetRubyVersion: 3.1.1
-  RubyInterpreters:
-    - ruby
+  CacheRootDirectory: ./tmp
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Exclude:
     - '.bundle/**/*'
+  ExtraDetails: true
+  NewCops: disable
+  RubyInterpreters:
+    - ruby
+  SuggestExtensions: false
+  TargetRubyVersion: 3.4
 
-Layout/EmptyLineAfterMagicComment:
+Naming/FileName:
   Enabled: false
 
-Layout/LeadingCommentSpace:
-  Enabled: false
-
-Style/NumericLiterals:
+Style/RedundantReturn:
   Enabled: false
 
 Style/StringLiterals:

@@ -41,6 +41,9 @@ GEM
     rubocop-ast (1.49.0)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
+    rubocop-rspec (3.9.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.81)
     ruby-lsp (0.26.7)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
@@ -57,6 +60,7 @@ PLATFORMS
 
 DEPENDENCIES
   rubocop
+  rubocop-rspec
   ruby-lsp
 
 BUNDLED WITH
