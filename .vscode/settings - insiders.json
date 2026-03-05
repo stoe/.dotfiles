@@ -238,6 +238,11 @@
   "ruby.rubocop.configFilePath": "~/code/private/.dotfiles/config/rubocop/config.yml",
   "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
+  "rubyLsp.bundleGemfile": "~/.ruby-lsp/Gemfile",
+  "rubyLsp.rubyExecutablePath": "~/.rbenv/shims/ruby",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "rbenv"
+  },
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
