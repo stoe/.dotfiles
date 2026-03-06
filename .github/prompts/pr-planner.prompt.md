@@ -125,7 +125,14 @@ Prepare `gh pr create` command:
 - Re-show `git status` and recent commits
 - Display formatted title and body
 - Show exact `gh pr create` command
-- **Wait for explicit "go" or "make it so" before executing**
+- **Wait for user confirmation before executing**
+
+**After approval, do not interrupt:**
+
+- The `gh pr create` command is **interactive** and may take time to complete.
+- It will push the branch, create the PR, and potentially wait for user input.
+- Do not interrupt or cancel the process once started, let it finish naturally.
+- If the process stalls, the user can manually cancel with `Ctrl+C` from the terminal.
 
 ## Dos
 
