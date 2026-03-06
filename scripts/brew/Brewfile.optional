@@ -9,7 +9,7 @@
 # cask "qlvideo"
 # cask "quicklook-json"
 # cask "quicklookase"
-cask "signal"
+# cask "signal"
 # cask "skitch"
 # cask "vlc"
 
