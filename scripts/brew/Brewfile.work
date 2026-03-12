@@ -8,7 +8,7 @@ brew "azure-cli"
 #/ (work) casks ----------------------------------------------------------------
 
 cask "camo-studio"
-# cask "deckset"
+cask "deckset"
 # cask "deskpad"
 cask "energiza", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
@@ -22,7 +22,7 @@ cask "viscosity"
 
 #/ (work) mas ------------------------------------------------------------------
 
-mas "Azure VPN Client", id: 1553936137
+# mas "Azure VPN Client", id: 1553936137
 mas "Okta Extension App", id: 1439967473
-mas "Okta Verify", id: 490179405
-mas "Windows App", id: 1295203466
+# mas "Okta Verify", id: 490179405
+# mas "Windows App", id: 1295203466
