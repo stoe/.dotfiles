@@ -1,6 +1,16 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
+  "chat.agentFilesLocations": {
+    "~/code/private/.dotfiles/.github/agents": true,
+    "~/Documents/.copilot/agents": true
+  },
+  "chat.agentSkillsLocations": {
+    ".claude/skills": false,
+    "~/.claude/skills": false,
+    "~/code/private/skills-private/skills": true,
+    "~/code/private/skills/skills": true
+  },
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
@@ -14,9 +24,13 @@
   "chat.experimental.useSkillAdherencePrompt": true,
   "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
-    ".github/instructions": true,
     ".github/copilot-instructions.md": true,
-    "~/code/private/.dotfiles/.github/instructions": true
+    ".github/instructions": true,
+    "~/code/private/.dotfiles/.github/instructions": true,
+    "~/.copilot/skills-private": true,
+    "~/.copilot/skills": true,
+    "~/code/private/skills-private": true,
+    "~/code/private/skills": true
   },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
@@ -160,6 +174,15 @@
   "github.copilot.advanced": {
     "authProvider": "github"
   },
+  "github.copilot.chat.additionalReadAccessPaths": [
+    "~/.copilot/skills-private",
+    "~/.copilot/skills",
+    "~/.copilot/skills/github-writing",
+    "~/.copilot/skills/using-skills",
+    "~/code/private/.dotfiles/.github/instructions",
+    "~/code/private/skills-private",
+    "~/code/private/skills"
+  ],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.agentCustomizationSkill.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
@@ -215,7 +238,7 @@
   "markdown.preview.fontSize": 16,
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": true,
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "markdown.extension.italic.indicator": "_",

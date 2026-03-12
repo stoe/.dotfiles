@@ -1,6 +1,14 @@
 {
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
+  "chat.agentFilesLocations": {
+    "~/code/private/.dotfiles/.github/agents": true,
+    "~/.copilot/agents": true
+  },
+  "chat.agentSkillsLocations": {
+    "~/code/private/skills-private/skills": true,
+    "~/code/private/skills/skills": true
+  },
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
@@ -14,8 +22,8 @@
   "chat.experimental.useSkillAdherencePrompt": true,
   "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
-    ".github/instructions": true,
     ".github/copilot-instructions.md": true,
+    ".github/instructions": true,
     "~/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
@@ -160,6 +168,21 @@
   "github.copilot.advanced": {
     "authProvider": "github"
   },
+  "github.copilot.chat.additionalReadAccessPaths": [
+    ".github/copilot-instructions.md",
+    ".github/instructions",
+    "~/.copilot/agents",
+    "~/.copilot/skills-private",
+    "~/.copilot/skills",
+    "~/.copilot/skills/github-writing",
+    "~/.copilot/skills/using-skills",
+    "~/code/private/.dotfiles/.github/agents",
+    "~/code/private/.dotfiles/.github/instructions",
+    "~/code/private/skills-private",
+    "~/code/private/skills-private/skills",
+    "~/code/private/skills",
+    "~/code/private/skills/skills"
+  ],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.agentCustomizationSkill.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
@@ -215,7 +238,7 @@
   "markdown.preview.fontSize": 16,
   "[markdown]": {
     "diffEditor.ignoreTrimWhitespace": true,
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "markdown.extension.italic.indicator": "_",
