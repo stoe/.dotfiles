@@ -3,11 +3,9 @@
   "chat.agent.enabled": true,
   "chat.agentFilesLocations": {
     "~/code/private/.dotfiles/.github/agents": true,
-    "~/Documents/.copilot/agents": true
+    "~/.copilot/agents": true
   },
   "chat.agentSkillsLocations": {
-    ".claude/skills": false,
-    "~/.claude/skills": false,
     "~/code/private/skills-private/skills": true,
     "~/code/private/skills/skills": true
   },
@@ -26,11 +24,7 @@
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
     ".github/instructions": true,
-    "~/code/private/.dotfiles/.github/instructions": true,
-    "~/.copilot/skills-private": true,
-    "~/.copilot/skills": true,
-    "~/code/private/skills-private": true,
-    "~/code/private/skills": true
+    "~/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
@@ -175,13 +169,13 @@
     "authProvider": "github"
   },
   "github.copilot.chat.additionalReadAccessPaths": [
-    "~/.copilot/skills-private",
-    "~/.copilot/skills",
-    "~/.copilot/skills/github-writing",
-    "~/.copilot/skills/using-skills",
-    "~/code/private/.dotfiles/.github/instructions",
-    "~/code/private/skills-private",
-    "~/code/private/skills"
+    "/Users/stoe/.copilot/agents",
+    "/Users/stoe/.copilot/skills-private",
+    "/Users/stoe/.copilot/skills",
+    "/Users/stoe/code/private/.dotfiles/.github/agents",
+    "/Users/stoe/code/private/.dotfiles/.github/instructions",
+    "/Users/stoe/code/private/skills-private/skills",
+    "/Users/stoe/code/private/skills/skills"
   ],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.agentCustomizationSkill.enabled": true,
