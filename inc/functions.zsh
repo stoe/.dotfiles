@@ -139,16 +139,21 @@ function brewup() {
     return 1
   fi
 
+  section "Homebrew 🍺"
+  formatexec "brew --version"
+
   section "Updating Homebrew"
   formatexec "brew update"
 
+  section "Casks"
   print -P "%244F> brew outdated --cask%f"
 
-  local _casks=$(brew outdated --cask | wc -l | awk '{print $1}')
+  local _cask_list
+  _cask_list=$(brew outdated --cask --greedy-latest --verbose | awk '{print $1}')
 
-  if [ "$_casks" != 0 ]; then
-    print -P "%5FOutdated casks:%f" "$_casks"
-    brew outdated --cask --verbose | grep -v '(latest)' | awk '{print $1}'
+  if [[ -n "$_cask_list" ]]; then
+    print -P "%5FOutdated casks:%f"
+    echo "$_cask_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these casks?" "yn"
@@ -159,7 +164,7 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      brew outdated --cask --verbose | grep -v '(latest)' | awk '{print $1}' | xargs brew upgrade --cask
+      echo "$_cask_list" | xargs brew upgrade --cask --greedy-latest
     else
       ok "OK, not doing anything"
     fi
@@ -167,13 +172,15 @@ function brewup() {
     ok "Nothing to do"
   fi
 
+  section "Mac App Store"
   print -P "%244F> mas outdated%f"
 
-  local _apps=`mas outdated | wc -l | awk '{print $1}'`
+  local _app_list
+  _app_list=$(mas outdated)
 
-  if [ "$_apps" != 0 ]; then
-    print -P "%5FOutdated casks:%f" "$_apps"
-    mas outdated
+  if [[ -n "$_app_list" ]]; then
+    print -P "%5FOutdated apps:%f"
+    echo "$_app_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these apps?" "yn"
@@ -192,13 +199,15 @@ function brewup() {
     ok "Nothing to do"
   fi
 
+  section "Formulae"
   print -P "%244F> brew outdated --formula%f"
 
-  local _brews=`brew outdated --formula | wc -l | awk '{print $1}'`
+  local _brew_list
+  _brew_list=$(brew outdated --formula --verbose | awk '{print $1}')
 
-  if [ "$_brews" != 0 ]; then
-    print -P "%5FOutdated packages:%f" "$_brews"
-    brew outdated --formula --verbose | grep -v '(latest)' | awk '{print $1}'
+  if [[ -n "$_brew_list" ]]; then
+    print -P "%5FOutdated packages:%f"
+    echo "$_brew_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these packages?" "yn"
@@ -209,7 +218,7 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      brew outdated --formula --verbose | grep -v '(latest)' | awk '{print $1}' | xargs brew upgrade --formula
+      echo "$_brew_list" | xargs brew upgrade --formula
     else
       ok "OK, not doing anything"
     fi
@@ -217,10 +226,12 @@ function brewup() {
     ok "Everything is up to date"
   fi
 
+  section "Running brew cleanup and doctor"
   formatexec "brew cleanup"
   formatexec "brew doctor"
 
-  ok "DONE"
+  echo ""
+  ok "DONE 🍻"
 }
 
 # see https://docs.npmjs.com/cli/commands/npm-outdated
