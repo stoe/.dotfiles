@@ -18,10 +18,11 @@ vscode "github.vscode-pull-request-github"
 vscode "jasonnutter.vscode-codeowners"
 
 # Containers and Docker
+# vscode "docker.docker"
 vscode "github.codespaces"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
-# vscode "docker.docker"
+vscode "ms-vscode-remote.remote-containers"
 
 # Markdown extensions
 vscode "yzhang.markdown-all-in-one"
