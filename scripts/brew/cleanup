@@ -98,4 +98,5 @@ typeset cmd="brew autoremove"
 [[ "$dry_run" == "true" ]] && cmd="${cmd} --dry-run"
 formatexec "$cmd" || true
 
+echo ""
 ok "homebrew 🍺 done"

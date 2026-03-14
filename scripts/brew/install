@@ -74,4 +74,5 @@ echo "$brewfile_all" > "$BREWFILE_LOCAL"
 typeset cmd="brew bundle --file $BREWFILE_LOCAL"
 formatexec "$cmd"
 
+echo ""
 ok "homebrew 🍺 done"
