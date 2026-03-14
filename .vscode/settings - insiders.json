@@ -2,12 +2,12 @@
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
   "chat.agentFilesLocations": {
-    "~/code/private/.dotfiles/.github/agents": true,
-    "~/.copilot/agents": true
+    "/Users/stoe/code/private/.dotfiles/.github/agents": true,
+    "/Users/stoe/.copilot/agents": true
   },
   "chat.agentSkillsLocations": {
-    "~/code/private/skills-private/skills": true,
-    "~/code/private/skills/skills": true
+    "/Users/stoe/code/private/skills-private/skills": true,
+    "/Users/stoe/code/private/skills/skills": true
   },
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
@@ -24,7 +24,7 @@
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
     ".github/instructions": true,
-    "~/code/private/.dotfiles/.github/instructions": true
+    "/Users/stoe/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
@@ -45,7 +45,7 @@
   },
   "chat.promptFilesLocations": {
     ".github/prompts": true,
-    "~/code/private/.dotfiles/.github/prompts": true
+    "/Users/stoe/code/private/.dotfiles/.github/prompts": true
   },
   "chat.promptFilesRecommendations": {},
   "[prompt]": {
@@ -197,7 +197,7 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "github.vscode-github-actions"
   },
-  "go.gopath": "~/go",
+  "go.gopath": "/Users/stoe/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
   "[go]": {
@@ -252,11 +252,11 @@
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
   "rest-client.previewOption": "full",
-  "ruby.rubocop.configFilePath": "~/code/private/.dotfiles/config/rubocop/config.yml",
-  "ruby.rubocop.executePath": "~/.rbenv/shims/",
+  "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
+  "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
-  "rubyLsp.bundleGemfile": "~/.ruby-lsp/Gemfile",
-  "rubyLsp.rubyExecutablePath": "~/.rbenv/shims/ruby",
+  "rubyLsp.bundleGemfile": "/Users/stoe/.ruby-lsp/Gemfile",
+  "rubyLsp.rubyExecutablePath": "/Users/stoe/.rbenv/shims/ruby",
   "rubyLsp.rubyVersionManager": {
     "identifier": "rbenv"
   },
