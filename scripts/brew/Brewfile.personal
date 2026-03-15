@@ -4,7 +4,14 @@ cask "parallels"
 cask "steam"
 
 # (personal) fonts -------------------------------------------------------------
-cask "font-playwrite-de-grund-guides", args: { require_sha: false }
-cask "font-playwrite-de-la-guides", args: { require_sha: false }
-cask "font-playwrite-de-sas-guides", args: { require_sha: false }
-cask "font-playwrite-de-va-guides", args: { require_sha: false }
+cask "font-playwrite-de-grund-guides"
+cask "font-playwrite-de-la-guides"
+cask "font-playwrite-de-sas-guides"
+cask "font-playwrite-de-va-guides"
+
+#/ (personal) mas --------------------------------------------------------------
+
+mas "AusweisApp", id: 948660805
+# mas "Keynote", id: 409183694
+# mas "Numbers", id: 409203825
+# mas "Pages", id: 409201541
