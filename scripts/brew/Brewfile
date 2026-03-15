@@ -13,7 +13,7 @@ cask_args appdir: "/Applications", require_sha: true
 
 brew "bash"
 
-brew "7-zip"
+brew "sevenzip"
 brew "gnu-tar"
 brew "gzip"
 brew "pigz"
@@ -44,7 +44,7 @@ brew "gitmoji"
 
 brew "gnupg"
 brew "openssh"
-brew "openssl"
+brew "openssl@3"
 brew "pinentry-mac"
 brew "ykman"
 brew "yubikey-agent"
@@ -62,13 +62,11 @@ brew "pyenv"
 brew "pipenv"
 # brew "virtualenv"
 brew "readline"
-brew "sqlite3"
 brew "xz"
 brew "tcl-tk"
 brew "libb2"
 brew "zstd"
 brew "zlib"
-brew "pkgconfig"
 
 #/ -----------------------------------------------------------------------------
 #/ brew install --cask
