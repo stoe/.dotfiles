@@ -100,7 +100,7 @@ cask "suspicious-package"
 cask "the-unarchiver"
 cask "tower"
 cask "ubersicht"
-cask "visual-studio-code"
+# cask "visual-studio-code"
 cask "visual-studio-code@insiders"
 
 #/ -----------------------------------------------------------------------------
