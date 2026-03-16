@@ -1,3 +1,5 @@
+.copilot-memory/
+
 config/*
 !config/.pandoc-pdf
 !config/.pandoc-docx
