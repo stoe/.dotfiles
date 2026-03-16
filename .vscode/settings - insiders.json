@@ -2,12 +2,12 @@
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
   "chat.agentFilesLocations": {
-    "/Users/stoe/code/private/.dotfiles/.github/agents": true,
-    "/Users/stoe/.copilot/agents": true
+    "~/code/private/.dotfiles/.github/agents": true,
+    "~/.copilot/agents": true
   },
   "chat.agentSkillsLocations": {
-    "/Users/stoe/code/private/skills-private/skills": true,
-    "/Users/stoe/code/private/skills/skills": true
+    "~/code/private/skills-private/skills": true,
+    "~/code/private/skills/skills": true
   },
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
@@ -24,7 +24,7 @@
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
     ".github/instructions": true,
-    "/Users/stoe/code/private/.dotfiles/.github/instructions": true
+    "~/code/private/.dotfiles/.github/instructions": true
   },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
@@ -45,7 +45,7 @@
   },
   "chat.promptFilesLocations": {
     ".github/prompts": true,
-    "/Users/stoe/code/private/.dotfiles/.github/prompts": true
+    "~/code/private/.dotfiles/.github/prompts": true
   },
   "chat.promptFilesRecommendations": {},
   "[prompt]": {
@@ -261,7 +261,6 @@
     "identifier": "rbenv"
   },
   "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
@@ -271,7 +270,7 @@
   "search.mode": "reuseEditor",
   "search.searchEditor.reusePriorSearchConfiguration": true,
   "search.useGlobalIgnoreFiles": true,
-  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.banner": "always",
   "settingsSync.ignoredExtensions": [],
   "settingsSync.ignoredSettings": [],
   "telemetry.telemetryLevel": "off",
@@ -373,5 +372,6 @@
   ],
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config.json": "**/.github/ISSUE_TEMPLATE/config.yml"
-  }
+  },
+  "@azure.argTenant": ""
 }
