@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     bigdecimal (3.3.1)
-    json (2.18.1)
+    json (2.19.2)
     json-schema (5.2.2)
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
@@ -57,6 +57,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-25
+  x86_64-linux
 
 DEPENDENCIES
   rubocop
