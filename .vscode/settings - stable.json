@@ -2,13 +2,9 @@
   "application.shellEnvironmentResolutionTimeout": 45,
   "chat.agent.enabled": true,
   "chat.agentFilesLocations": {
-    "~/code/private/.dotfiles/.github/agents": true,
     "~/.copilot/agents": true
   },
-  "chat.agentSkillsLocations": {
-    "~/code/private/skills-private/skills": true,
-    "~/code/private/skills/skills": true
-  },
+  "chat.agentSkillsLocations": {},
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
@@ -168,15 +164,7 @@
   "github.copilot.advanced": {
     "authProvider": "github"
   },
-  "github.copilot.chat.additionalReadAccessPaths": [
-    "/Users/stoe/.copilot/agents",
-    "/Users/stoe/.copilot/skills-private",
-    "/Users/stoe/.copilot/skills",
-    "/Users/stoe/code/private/.dotfiles/.github/agents",
-    "/Users/stoe/code/private/.dotfiles/.github/instructions",
-    "/Users/stoe/code/private/skills-private/skills",
-    "/Users/stoe/code/private/skills/skills"
-  ],
+  "github.copilot.chat.additionalReadAccessPaths": [],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.agentCustomizationSkill.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
@@ -197,7 +185,7 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "github.vscode-github-actions"
   },
-  "go.gopath": "/Users/stoe/go",
+  "go.gopath": "~/go",
   "go.goroot": "/opt/homebrew/opt/go/libexec",
   "go.toolsManagement.autoUpdate": true,
   "[go]": {
@@ -252,11 +240,11 @@
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
   "rest-client.previewOption": "full",
-  "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
-  "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
+  "ruby.rubocop.configFilePath": "~/.config/rubocop/config.yml",
+  "ruby.rubocop.executePath": "~/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
-  "rubyLsp.bundleGemfile": "/Users/stoe/.ruby-lsp/Gemfile",
-  "rubyLsp.rubyExecutablePath": "/Users/stoe/.rbenv/shims/ruby",
+  "rubyLsp.bundleGemfile": "~/.ruby-lsp/Gemfile",
+  "rubyLsp.rubyExecutablePath": "~/.rbenv/shims/ruby",
   "rubyLsp.rubyVersionManager": {
     "identifier": "rbenv"
   },
@@ -332,10 +320,11 @@
   "workbench.layoutControl.type": "both",
   "workbench.navigationControl.enabled": false,
   "workbench.panel.defaultLocation": "right",
+  "workbench.panel.showLabels": false,
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "workbench.secondarySideBar.showLabels": true,
+  "workbench.secondarySideBar.showLabels": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "[yaml]": {

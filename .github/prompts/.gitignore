@@ -1,5 +1,1 @@
 *.prompt.md
-
-# Exceptions
-!commit-planner.prompt.md
-!pr-planner.prompt.md
