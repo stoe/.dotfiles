@@ -36,6 +36,7 @@ export DFH=$HOME/code/private/.dotfiles
 [ -f "${DFH}/config/.pandoc-docx/md2docx.zsh" ] && source "${DFH}/config/.pandoc-docx/md2docx.zsh"
 [ -f "${DFH}/config/.pandoc-pdf/md2pdf.zsh" ] && source "${DFH}/config/.pandoc-pdf/md2pdf.zsh"
 [ -f "${DFH}/config/.pdfpw/pdfpw.zsh" ] && source "${DFH}/config/.pdfpw/pdfpw.zsh"
+[ -f "${DFH}/config/.zippw/zippw.zsh" ] && source "${DFH}/config/.zippw/zippw.zsh"
 
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"

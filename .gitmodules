@@ -7,3 +7,6 @@
 [submodule "config/.pdfpw"]
 	path = config/.pdfpw
 	url = git@github.com:stoe/pdfpw.git
+[submodule "config/.zippw"]
+	path = config/.zippw
+	url = git@github.com:stoe/zippw.git
