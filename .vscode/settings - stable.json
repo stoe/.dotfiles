@@ -240,11 +240,11 @@
   "prettier.useTabs": false,
   "redhat.telemetry.enabled": false,
   "rest-client.previewOption": "full",
-  "ruby.rubocop.configFilePath": "~/.config/rubocop/config.yml",
-  "ruby.rubocop.executePath": "~/.rbenv/shims/",
+  "ruby.rubocop.configFilePath": "/Users/stoe/code/private/.dotfiles/config/rubocop/config.yml",
+  "ruby.rubocop.executePath": "/Users/stoe/.rbenv/shims/",
   "rubyLsp.formatter": "rubocop",
-  "rubyLsp.bundleGemfile": "~/.ruby-lsp/Gemfile",
-  "rubyLsp.rubyExecutablePath": "~/.rbenv/shims/ruby",
+  "rubyLsp.bundleGemfile": "/Users/stoe/.ruby-lsp/Gemfile",
+  "rubyLsp.rubyExecutablePath": "/Users/stoe/.rbenv/shims/ruby",
   "rubyLsp.rubyVersionManager": {
     "identifier": "rbenv"
   },
