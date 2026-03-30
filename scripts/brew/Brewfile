@@ -100,7 +100,7 @@ cask "suspicious-package"
 cask "the-unarchiver"
 cask "tower"
 cask "ubersicht"
-# cask "visual-studio-code"
+cask "visual-studio-code"
 cask "visual-studio-code@insiders"
 
 #/ -----------------------------------------------------------------------------
@@ -118,9 +118,9 @@ cask "font-monaspace"
 brew "mas"
 
 mas "1Password for Safari", id: 1569813296
-mas "Bear", id: 1091189122
+# mas "Bear", id: 1091189122
 mas "Dato", id: 1470584107
 mas "Denied", id: 909257784
-mas "Gifski", id: 1351639930
+# mas "Gifski", id: 1351639930
 mas "Speediness", id: 1596706466
 # mas "Xcode", id: 497799835

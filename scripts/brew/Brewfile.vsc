@@ -9,7 +9,7 @@ vscode "ms-ceintl.vscode-language-pack-de"
 
 # GitHub Copilot and related
 vscode "github.copilot-chat"
-vscode "ms-windows-ai-studio.windows-ai-studio"
+# vscode "ms-windows-ai-studio.windows-ai-studio"
 vscode "ms-vscode.vscode-websearchforcopilot"
 
 # GitHub and related
@@ -20,9 +20,9 @@ vscode "jasonnutter.vscode-codeowners"
 # Containers and Docker
 # vscode "docker.docker"
 vscode "github.codespaces"
-vscode "ms-azuretools.vscode-containers"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
+# vscode "ms-azuretools.vscode-containers"
+# vscode "ms-azuretools.vscode-docker"
+# vscode "ms-vscode-remote.remote-containers"
 
 # Markdown extensions
 vscode "yzhang.markdown-all-in-one"
