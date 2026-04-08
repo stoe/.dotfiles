@@ -2,7 +2,7 @@
 
 #/ DESCRIPTION:
 #/   Install Homebrew packages from machine-specific Brewfiles.
-#/   Combines Brewfile, Brewfile.optional, Brewfile.{work|personal}, and Brewfile.vsc
+#/   Combines Brewfile, Brewfile.optional, and Brewfile.{work|personal}
 #/   into a unified Brewfile.local based on the current machine hostname.
 #/
 #/ USAGE:
@@ -19,6 +19,26 @@ fi
 
 # Change to script directory to find Brewfiles
 cd "$SCRIPT_DIR"
+
+sync_vscode_extensions() {
+  typeset cli_name="$1"
+  typeset editor_name="$2"
+  typeset -a desired_extensions
+  typeset extension
+
+  if ! command -v "$cli_name" >/dev/null 2>&1; then
+    disabled
+    print -P "%244FSkipping $editor_name extension sync (missing CLI: $cli_name)%f"
+    return 0
+  fi
+
+  desired_extensions=("${(@f)$(sed -nE 's/^[[:space:]]*vscode[[:space:]]+"([^"]+)".*/\1/p' Brewfile.vsc)}")
+
+  for extension in "${desired_extensions[@]}"; do
+    # --force handles install and update with one command.
+    formatexec "$cli_name --install-extension $extension --force"
+  done
+}
 
 # Machine hostnames (change these to match your machines)
 typeset -r WORK_MACHINE_NAME="0x73746f65"
@@ -63,16 +83,25 @@ case "$machine_name" in
     ;;
 esac
 
-# Add VS Code extensions
-[[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
-brewfile_all="${brewfile_all}\n\n$(cat Brewfile.vsc)"
-
 # Write unified Brewfile
 echo "$brewfile_all" > "$BREWFILE_LOCAL"
 
 # Execute brew bundle install
 typeset cmd="brew bundle --file $BREWFILE_LOCAL"
 formatexec "$cmd"
+
+# Sync extension state in both VS Code Stable and Insiders.
+[[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
+section "vscode" "🧩 insiders"
+sync_vscode_extensions "code-insiders" "VS Code Insiders" || {
+  disabled
+  print -P "%244FVS Code Insiders extension sync reported errors; continuing%f"
+}
+section "vscode" "🧩 stable"
+sync_vscode_extensions "code" "VS Code Stable" || {
+  disabled
+  print -P "%244FVS Code Stable extension sync reported errors; continuing%f"
+}
 
 echo ""
 ok "homebrew 🍺 done"
