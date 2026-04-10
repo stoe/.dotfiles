@@ -74,6 +74,9 @@ if type gh &>/dev/null; then
   eval "$(gh completion -s zsh)"
 fi
 
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit && compinit
+
 export EDITOR="code --wait"
 export GIT_EDITOR="${EDITOR}"
 
