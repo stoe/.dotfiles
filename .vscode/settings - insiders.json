@@ -39,6 +39,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "chat.pluginLocations": {},
+  "chat.plugins.enabled": true,
+  "chat.plugins.marketplaces": [
+    "stoe/stoe-copilot-plugins"
+  ],
   "chat.promptFilesLocations": {
     ".github/prompts": true,
     "~/code/private/.dotfiles/.github/prompts": true
