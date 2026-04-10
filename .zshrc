@@ -77,7 +77,7 @@ fi
 fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit && compinit
 
-export EDITOR="code --wait"
+export EDITOR="code-insiders --wait"
 export GIT_EDITOR="${EDITOR}"
 
 export GPG_TTY="$(tty)"

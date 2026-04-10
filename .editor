@@ -2,4 +2,4 @@
 
 # workaround for `crontab`
 # see https://apple.stackexchange.com/a/328012
-code --wait "$@"
+code-insiders --wait "$@"
