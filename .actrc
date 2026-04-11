@@ -1,2 +1,2 @@
---container-architecture linux/amd64
+--container-architecture linux/arm64
 -P ubuntu-latest=catthehacker/ubuntu:act-latest

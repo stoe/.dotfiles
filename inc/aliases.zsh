@@ -29,4 +29,4 @@ alias ncua="git pull || true && ncu --interactive --format group && npm install 
 alias ncua!="git pull || true && ncu -i && rm! -rf package-lock.json yarn.lock build dist node_modules || true && npm i $@ && npm run format --if-present && npm run build --if-present && npm run test --if-present"
 
 # act
-alias act="act --container-architecture linux/amd64"
+alias act="act --container-architecture linux/arm64"
