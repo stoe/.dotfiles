@@ -8,7 +8,7 @@ alias rm=trash
 alias rm!="/bin/rm"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup='find "$PWD" \( -path "$HOME/Library/CloudStorage" -o -path "$HOME/Library/CloudStorage/*" \) -prune -o -type f -name "*.DS_Store" -ls -delete'
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lsclean="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
