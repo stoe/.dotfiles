@@ -132,7 +132,9 @@
   "eslint.useFlatConfig": true,
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "files.associations": {
+    ".editorconfig": "editorconfig",
     ".env*": "dotenv",
+    ".gitattributes": "properties",
     ".gitconfig*": "properties",
     ".github/workflows/*.yml": "github-actions-workflow",
     ".zshrc*": "properties",
