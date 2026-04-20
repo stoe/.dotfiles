@@ -1,5 +1,5 @@
 {
-  "application.shellEnvironmentResolutionTimeout": 45,
+  "application.shellEnvironmentResolutionTimeout": 60,
   "chat.agent.enabled": true,
   "chat.agentFilesLocations": {
     "~/.copilot/agents": true
