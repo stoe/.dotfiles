@@ -39,7 +39,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "chat.pluginLocations": {},
+  "chat.pluginLocations": {
+    "/Users/stoe/code/private/stoe-copilot-plugins/plugins/git-workflow": true
+  },
   "chat.plugins.enabled": true,
   "chat.plugins.marketplaces": [
     "stoe/stoe-copilot-plugins"
@@ -131,6 +133,7 @@
   "editor.wrappingIndent": "deepIndent",
   "eslint.useFlatConfig": true,
   "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.ignoreRecommendations": true,
   "files.associations": {
     ".editorconfig": "editorconfig",
     ".env*": "dotenv",
@@ -174,6 +177,7 @@
   "github.copilot.chat.additionalReadAccessPaths": [],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.agentCustomizationSkill.enabled": true,
+  "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
   "github.copilot.chat.cli.customAgents.enabled": true,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents": true,
