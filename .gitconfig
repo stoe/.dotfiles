@@ -26,9 +26,13 @@
 [protocol]
   version = 2
 
+[remote]
+  pushDefault = origin
 [remote "origin"]
   prune = true
   pruneTags = true
+[rerere]
+  enabled = true
 
 [credentials]
   helper = osxkeychain
