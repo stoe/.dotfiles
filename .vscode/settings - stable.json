@@ -39,11 +39,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "chat.pluginLocations": {
-    "/Users/stoe/code/private/stoe-copilot-plugins/plugins/git-workflow": true
-  },
+  "chat.pluginLocations": {},
   "chat.plugins.enabled": true,
   "chat.plugins.marketplaces": [
+    "github/copilot-plugins",
     "stoe/stoe-copilot-plugins"
   ],
   "chat.promptFilesLocations": {
