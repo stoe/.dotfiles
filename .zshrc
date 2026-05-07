@@ -81,12 +81,9 @@ export EDITOR="code-insiders --wait"
 export GIT_EDITOR="${EDITOR}"
 
 export GPG_TTY="$(tty)"
-# https://github.com/pstadler/keybase-gpg-github
-if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-  source ~/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-else
-  eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
+# Launch gpg-agent quietly for shells that still use OpenPGP workflows.
+if command -v gpgconf >/dev/null 2>&1; then
+  gpgconf --launch gpg-agent >/dev/null 2>&1
 fi
 
 # grc overides for ls

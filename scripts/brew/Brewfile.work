@@ -17,8 +17,6 @@ cask "jordanbaird-ice@beta"
 cask "loom"
 cask "lunar"
 cask "microsoft-edge"
-cask "tripmode"
-cask "viscosity"
 
 #/ (work) mas ------------------------------------------------------------------
 

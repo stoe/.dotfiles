@@ -41,8 +41,8 @@ sync_vscode_extensions() {
 }
 
 # Machine hostnames (change these to match your machines)
-typeset -r WORK_MACHINE_NAME="0x73746f65"
-typeset -r PERSONAL_MACHINE_NAME="6x73746f65"
+typeset -r WORK_MACHINE_NAME="$(op read 'op://Private/brewfiles/WORK_MACHINE/name')"
+typeset -r PERSONAL_MACHINE_NAME="$(op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')"
 typeset -r BREWFILE_LOCAL="Brewfile.local"
 
 # Cleanup trap to remove temporary Brewfile.local on exit

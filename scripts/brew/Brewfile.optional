@@ -11,6 +11,7 @@
 # cask "quicklookase"
 # cask "signal"
 # cask "skitch"
+cask "spotify", args: { require_sha: false }
 # cask "vlc"
 
 #/ (optional) mas --------------------------------------------------------------

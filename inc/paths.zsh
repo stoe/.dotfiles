@@ -47,12 +47,12 @@ path=(
 path+=(
   /usr/local/bin                    # legacy /usr/local (Intel / custom installs)
   /usr/local/sbin                   # sbin utilities
-  "$HOME/bin"                       # user scripts
   ${GOBIN}                          # Go installed binaries
   ${GOROOT:+${GOROOT}/bin}          # Go toolchain
   $(pyenv root 2>/dev/null)/shims   # pyenv shims (if installed)
   "$HOME/.local/bin"                # uv / user-level Python tools
   "$HOME/.rbenv/bin"                # rbenv
+  "$HOME/bin"                       # user scripts
 )
 
 # De-duplicate while keeping first occurrence
