@@ -281,6 +281,10 @@ function npmup() {
 function ghup() {
   section "Updating GitHub CLI extensions"
   formatexec "gh extension upgrade --all"
+
+  section "Updating GitHub Copilot CLI"
+  formatexec "copilot update"
+
   ok "DONE"
 }
 
