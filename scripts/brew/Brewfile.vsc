@@ -36,6 +36,7 @@ vscode "bierner.markdown-yaml-preamble"
 
 # Linters and formatters
 vscode "dbaeumer.vscode-eslint"
+vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
 vscode "graphql.vscode-graphql-syntax"
@@ -48,6 +49,7 @@ vscode "kaleidoscope-app.vscode-ksdiff"
 
 # Ruby and related
 vscode "shopify.ruby-extensions-pack"
+vscode "shopify.ruby-lsp"
 vscode "misogi.ruby-rubocop"
 vscode "sorbet.sorbet-vscode-extension"
 
