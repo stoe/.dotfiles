@@ -16,6 +16,7 @@
   "chat.edits2.enabled": true,
   "chat.emptyState.history.enabled": true,
   "chat.experimental.useSkillAdherencePrompt": true,
+  "chat.experimental.symbolTools.cacheStable": true,
   "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
@@ -183,6 +184,7 @@
   "github.copilot.chat.githubMcpServer.enabled": true,
   "github.copilot.chat.localeOverride": "en",
   "github.copilot.chat.scopeSelection": true,
+  "github.copilot.chat.skillTool.enabled": true,
   "github.copilot.enable": {
     "*": true,
     "javascript": true,
@@ -190,6 +192,8 @@
     "yaml": true
   },
   "github.copilot.nextEditSuggestions.enabled": false,
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.hideViewedFiles": true,
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.pushBranch": "always",
   "[github-actions-workflow]": {
@@ -235,6 +239,7 @@
   },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.list.indentationSize": "inherit",
+  "markdown.extension.showActionButtons": true,
   "markdown.extension.toc.levels": "2..3",
   "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
@@ -319,7 +324,7 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "window.newWindowProfile": "Default",
-  "window.zoomLevel": 0.15,
+  "window.zoomLevel": 0.2,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.labelFormat": "short",
