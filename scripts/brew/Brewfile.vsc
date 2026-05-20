@@ -58,6 +58,7 @@ vscode "redhat.vscode-yaml"
 vscode "golang.go"
 
 # Other extensions
+vscode "1Password.op-vscode"
 vscode "adpyke.codesnap"
 vscode "humao.rest-client"
 vscode "mechatroner.rainbow-csv"
