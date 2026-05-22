@@ -54,7 +54,8 @@ brew "golangci-lint"
 brew "goreleaser"
 
 brew "node"
-brew "nvm"
+# brew "nvm"
+brew "fnm"
 
 brew "rbenv"
 

@@ -207,7 +207,6 @@ Toolchain environment setup centralized in `inc/paths.zsh`:
 
 - `GOPATH`, `GOBIN`, `GOROOT` - Go toolchain paths
 - `PYENV_ROOT` - Python version manager
-- `NVM_DIR` - Node version manager
 - `GPG_TTY` - GPG terminal for signing
 - Additional variables for OpenSSL, SSH auth, editor configs
 

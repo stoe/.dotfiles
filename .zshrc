@@ -56,7 +56,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/gitignore
   # zgen oh-my-zsh plugins/golang
   zgen oh-my-zsh plugins/node
-  zgen oh-my-zsh plugins/nvm
+  zgen oh-my-zsh plugins/fnm
   zgen oh-my-zsh plugins/macos
   zgen load zsh-users/zsh-syntax-highlighting
 
@@ -99,34 +99,10 @@ fi
 
 PAGER=
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# FNM
+if type fnm &>/dev/null; then
+eval "$(fnm env --shell=zsh --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines)"
+fi
 
 # RBENV - init according to man page
 if (( $+commands[rbenv] )); then
