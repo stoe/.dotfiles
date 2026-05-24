@@ -270,6 +270,19 @@ function npmup() {
     ok "Everything is up to date"
   fi
 
+  if type fnm &>/dev/null; then
+    typeset fnm_current_version fnm_node_bin
+    fnm_current_version="$(fnm current 2>/dev/null)"
+
+    if [[ -n "$fnm_current_version" && "$fnm_current_version" != "system" && "$fnm_current_version" != "none" ]]; then
+      fnm_node_bin="${FNM_DIR:-$HOME/.local/share/fnm}/node-versions/${fnm_current_version}/installation/bin"
+
+      if [[ -d "$fnm_node_bin" ]]; then
+        path=("$fnm_node_bin" $path)
+      fi
+    fi
+  fi
+
   formatexec "npm doctor ping registry environment cache"
 
   ok "Node\t$(node --version)"

@@ -32,6 +32,11 @@ export DFH=$HOME/code/private/.dotfiles
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
 [ -f "${DFH}/inc/aliases.zsh" ] && source "${DFH}/inc/aliases.zsh"
 
+# FNM - Initialize fnm early so its active Node bin and shell hooks are available to functions loaded later in the shell startup sequence.
+if type fnm &>/dev/null; then
+  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines)"
+fi
+
 # load document conversion utilities
 [ -f "${DFH}/config/.pandoc-docx/md2docx.zsh" ] && source "${DFH}/config/.pandoc-docx/md2docx.zsh"
 [ -f "${DFH}/config/.pandoc-pdf/md2pdf.zsh" ] && source "${DFH}/config/.pandoc-pdf/md2pdf.zsh"
@@ -98,11 +103,6 @@ if test gls; then
 fi
 
 PAGER=
-
-# FNM
-if type fnm &>/dev/null; then
-eval "$(fnm env --shell=zsh --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines)"
-fi
 
 # RBENV - init according to man page
 if (( $+commands[rbenv] )); then
