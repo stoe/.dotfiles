@@ -22,6 +22,21 @@ fi
 # Change to script directory to find Brewfiles
 cd "$SCRIPT_DIR"
 
+append_cleanup_ignored_apps() {
+  typeset source_brewfile="$1"
+  typeset app_path
+  typeset bundle_entry
+
+  while IFS=$'\t' read -r app_path bundle_entry; do
+    [[ -z "$app_path" || -z "$bundle_entry" ]] && continue
+
+    if [[ -e "$app_path" ]]; then
+      brewfile_all="${brewfile_all}\n${bundle_entry}"
+      section "homebrew" "🍺 🙅 Ignoring cleanup for $app_path"
+    fi
+  done < <(sed -nE 's|^[[:space:]]*#[[:space:]]*cleanup-ignore-app[[:space:]]+"([^"]+)"[[:space:]]+(.+)$|\1\t\2|p' "$source_brewfile")
+}
+
 # Machine hostnames (change these to match your machines)
 typeset -r WORK_MACHINE_NAME="$(op read 'op://Private/brewfiles/WORK_MACHINE/name')"
 typeset -r PERSONAL_MACHINE_NAME="$(op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')"
@@ -64,15 +79,18 @@ typeset brewfile_all
 brewfile_all="$(cat Brewfile)\n\n$(cat Brewfile.optional)"
 
 # Load machine-specific Brewfile based on hostname
+typeset machine_brewfile
 case "$machine_name" in
   "$WORK_MACHINE_NAME")
     section "homebrew" "🍺 💼"
     [[ ! -f Brewfile.work ]] && abort "Brewfile.work not found" && exit 1
+    machine_brewfile="Brewfile.work"
     brewfile_all="${brewfile_all}\n\n$(cat Brewfile.work)"
     ;;
   "$PERSONAL_MACHINE_NAME")
     section "homebrew" "🍺 🏡"
     [[ ! -f Brewfile.personal ]] && abort "Brewfile.personal not found" && exit 1
+    machine_brewfile="Brewfile.personal"
     brewfile_all="${brewfile_all}\n\n$(cat Brewfile.personal)"
     ;;
   *)
@@ -80,6 +98,9 @@ case "$machine_name" in
     exit 1
     ;;
 esac
+
+# Keep selected apps during cleanup when listed in the active machine Brewfile.
+append_cleanup_ignored_apps "$machine_brewfile"
 
 # Add VS Code extensions
 [[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
@@ -91,11 +112,13 @@ echo "$brewfile_all" > "$BREWFILE_LOCAL"
 # Run brew bundle cleanup (may return 1 in dry-run mode if packages would be removed)
 cmd="brew bundle cleanup --file $BREWFILE_LOCAL"
 [[ "$dry_run" == "false" ]] && cmd="${cmd} --force"
+echo ""
 formatexec "$cmd" || true
 
 # Run brew autoremove to clean up lingering dependencies
 typeset cmd="brew autoremove"
 [[ "$dry_run" == "true" ]] && cmd="${cmd} --dry-run"
+echo ""
 formatexec "$cmd" || true
 
 echo ""
