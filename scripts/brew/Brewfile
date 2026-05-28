@@ -101,7 +101,7 @@ cask "suspicious-package", args: { require_sha: false }
 cask "the-unarchiver"
 cask "tower"
 cask "ubersicht"
-# cask "visual-studio-code"
+cask "visual-studio-code"
 cask "visual-studio-code@insiders"
 cask "yubico-authenticator"
 
