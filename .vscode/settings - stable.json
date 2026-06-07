@@ -35,6 +35,7 @@
     "cursor-global": false,
     "cursor-workspace": false
   },
+  "chat.mcp.gallery.enabled": true,
   "[chatagent]": {
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -323,7 +324,6 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "window.newWindowProfile": "Default",
   "window.zoomLevel": 0.2,
   "workbench.colorTheme": "GitHub Dark Dimmed",
   "workbench.editor.empty.hint": "hidden",
