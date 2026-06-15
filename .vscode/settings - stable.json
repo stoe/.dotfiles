@@ -245,6 +245,7 @@
   "notebook.lineNumbers": "on",
   "npm.fetchOnlinePackageInfo": false,
   "npm.packageManager": "npm",
+  "powershell.integratedConsole.suppressTerminalStoppedNotification": true,
   "prettier.arrowParens": "always",
   "prettier.proseWrap": "preserve",
   "prettier.quoteProps": "preserve",
@@ -308,7 +309,7 @@
       "color": "terminal.ansiBlue"
     },
     "pwsh": {
-      "path": "/usr/local/bin/pwsh",
+      "path": "/opt/homebrew/bin/pwsh",
       "args": [],
       "icon": "terminal-powershell",
       "color": "terminal.ansiMagenta"
