@@ -133,7 +133,6 @@
   "editor.wordWrapColumn": 120,
   "editor.wrappingIndent": "deepIndent",
   "eslint.useFlatConfig": true,
-  "extensions.autoUpdate": "onlyEnabledExtensions",
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     ".editorconfig": "editorconfig",
