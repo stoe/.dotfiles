@@ -1,6 +1,3 @@
-[submodule "config/.pandoc-docx"]
-	path = config/.pandoc-docx
-	url = git@github.com:stoe/ges-pandoc-docx.git
 [submodule "config/.pdfpw"]
 	path = config/.pdfpw
 	url = git@github.com:stoe/pdfpw.git
