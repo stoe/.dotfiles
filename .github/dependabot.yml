@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: ⬆️ action
+    labels:
+      - "github-action :robot:"
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        dependency-type: production
+      npm-dev:
+        dependency-type: development
+    commit-message:
+      prefix: ⬆️ npm
+      include: scope
+    labels:
+      - "dependency :robot:"
+      - javascript
