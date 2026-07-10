@@ -36,7 +36,8 @@ sync_vscode_extensions() {
 
   for extension in "${desired_extensions[@]}"; do
     # --force handles install and update with one command.
-    formatexec "$cli_name --install-extension $extension --force"
+    # filter out deprecation warnings to avoid cluttering output
+    formatexec "$cli_name --install-extension $extension --force" 2>&1 | grep -vE 'DeprecationWarning|--trace-deprecation' || true
   done
 }
 
