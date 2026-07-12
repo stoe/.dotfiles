@@ -7,7 +7,7 @@
 brew_prefix="$(brew --prefix 2>/dev/null)"
 
 # --- OpenSSL ---
-openssl_prefix="$(brew --prefix openssl 2>/dev/null)"
+openssl_prefix="$(brew --prefix openssl@4 2>/dev/null)"
 if [[ -n $openssl_prefix ]]; then
   export LDFLAGS="-L${openssl_prefix}/lib"
   export CPPFLAGS="-I${openssl_prefix}/include"
