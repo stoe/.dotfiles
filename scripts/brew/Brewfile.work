@@ -1,6 +1,7 @@
 #/ (work) brews ----------------------------------------------------------------
 
 brew "azure-cli"
+brew "sf"
 
 # brew "ansible"
 # brew "terraform"
