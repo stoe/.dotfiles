@@ -230,7 +230,6 @@ function brewup() {
   formatexec "brew cleanup"
   formatexec "brew doctor"
 
-  echo ""
   ok "DONE 🍻"
 }
 
@@ -297,6 +296,9 @@ function ghup() {
 
   section "Updating GitHub Copilot CLI"
   formatexec "copilot update"
+
+  section "Updating GitHub Copilot app"
+  formatexec "brew upgrade --greedy --cask github-copilot-app --yes"
 
   ok "DONE"
 }
