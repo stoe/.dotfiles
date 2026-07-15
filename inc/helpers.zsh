@@ -1,17 +1,30 @@
 #!/bin/zsh
 
+# ── Colors ──────────────────────────────────────────────────────
+BOLD=$'\033[1m'
+DIM=$'\033[2m'
+GREEN=$'\033[0;32m'
+BLUE=$'\033[0;34m'
+YELLOW=$'\033[1;33m'
+RED=$'\033[0;31m'
+CYAN=$'\033[0;36m'
+MAGENTA=$'\033[0;35m'
+GRAY=$'\033[0;90m'
+NC=$'\033[0m'
+
+# ── Helpers ─────────────────────────────────────────────────────
 abort() {
-  print -P "✘ %178Faborting%f $1\n"
+  printf '%s✘ %saborting%s %s\n\n' "$RED" "$YELLOW" "$NC" "$1"
   return
 }
 
 disabled() {
-  print -P "%1Fdisabled%f\n"
+  printf '%sdisabled%s\n\n' "$RED" "$NC"
   return 0
 }
 
 finished() {
-  print -P "\n%244F✎ with %1F♥%244F by %39Fstoe%244F (https://github.com/stoe/.dotfiles)%f"
+  printf '\n%s✎ with %s♥%s by %sstoe%s (https://github.com/stoe/.dotfiles)\n' "$GRAY" "$RED" "$GRAY" "$BLUE" "$NC"
 
   source "$HOME/.zshrc"
 }
@@ -19,22 +32,22 @@ finished() {
 formatexec() {
   local _exec="$1"
 
-  print -P "%244F> $_exec%f"
+  printf '%s> %s%s\n' "$GRAY" "$_exec" "$NC"
   eval "$_exec"
 }
 
 ok() {
-  print -P "[ %76F✓%f ] $1"
+  printf '\n[ %s✓%s ] %s\n' "$GREEN" "$NC" "$1"
 }
 
 question() {
   local question="$1"
   local options="$2"
 
-  print -P "%39F${question}%f"
-  [ "$options" != "" ] && print -P "%244F[$options]%f"
+  printf '%s%s%s\n' "$BLUE" "$question" "$NC"
+  [[ -n "$options" ]] && printf '%s[%s]%s\n' "$GRAY" "$options" "$NC"
 }
 
 section () {
-  print -P "\n[ %5F$1%f ] $2"
+  printf '\n[ %s%s%s ] %s\n' "$MAGENTA" "$1" "$NC" "$2"
 }
