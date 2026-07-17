@@ -17,12 +17,16 @@ setopt HIST_SAVE_NO_DUPS       # Don't write duplicate entries in the history fi
 
 autoload -Uz colors && colors
 
-# initialize autocomplete here, otherwise functions won't be loaded
+# Load Homebrew if installed
 if type brew &>/dev/null; then
+  # initialize autocomplete here, otherwise functions won't be loaded
   FPATH="${FPATH}:$(brew --prefix)/share/zsh/site-functions"
 
   autoload -Uz compinit
   compinit -i
+
+  # Gitstatus prompt
+  source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
 fi
 
 # shortcut to this dotfiles path is $DFH
