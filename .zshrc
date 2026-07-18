@@ -24,9 +24,6 @@ if type brew &>/dev/null; then
 
   autoload -Uz compinit
   compinit -i
-
-  # Gitstatus prompt
-  source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
 fi
 
 # shortcut to this dotfiles path is $DFH
@@ -67,6 +64,7 @@ if ! zgen saved; then
 
   # theme
   zgen load romkatv/powerlevel10k powerlevel10k
+  zgen load romkatv/gitstatus gitstatus
 
   # generate the init script from plugins above
   zgen save
