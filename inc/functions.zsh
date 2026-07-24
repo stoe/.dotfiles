@@ -175,8 +175,17 @@ function brewup() {
   section "Mac App Store"
   print -P "${PC_CMD}> mas outdated${PC_RESET}"
 
+  # Mac App Store apps to skip during upgrade (id per `mas outdated`)
+  local -a _mas_ignore=(
+    1596916655  # Push Security
+  )
+
   local _app_list
   _app_list=$(mas outdated)
+  local _id
+  for _id in "${_mas_ignore[@]}"; do
+    _app_list=$(echo "$_app_list" | grep -v "^${_id}[[:space:]]")
+  done
 
   if [[ -n "$_app_list" ]]; then
     print -P "${PC_NOTICE}Outdated apps:${PC_RESET}"
@@ -191,7 +200,7 @@ function brewup() {
     fi
 
     if [ "$ask" = "y" ]; then
-      mas upgrade
+      echo "$_app_list" | awk '{print $1}' | xargs mas upgrade
     else
       ok "OK, not doing anything"
     fi
@@ -442,3 +451,4 @@ function docx2md() {
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
 }
+
