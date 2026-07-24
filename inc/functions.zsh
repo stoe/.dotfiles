@@ -452,3 +452,75 @@ function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@
 }
 
+# List gh-stack branches with needsRebase status using shared helper colors.
+function ghstackview() {
+  if ! command -v gh >/dev/null 2>&1; then
+    abort "Error: gh is not installed."
+    return 127
+  fi
+
+  if ! command -v jq >/dev/null 2>&1; then
+    abort "Error: jq is not installed."
+    return 127
+  fi
+
+  # Shared color variables from inc/common.zsh.
+  local color_current="$BLUE"
+  local color_open="$GREEN"
+  local color_true="$RED"
+  local color_false="$GRAY"
+  local color_reset="$NC"
+
+  local rows
+  rows="$(gh stack view --json 2>/dev/null | jq -r '.branches[] | [.name, (.needsRebase|tostring), (.isCurrent|tostring), (.pr.state // ""), (.pr.url // ""), ((.pr.number // "")|tostring)] | @tsv')"
+
+  if [ -z "$rows" ]; then
+    abort "No stack data found. Run this inside a gh-stack branch."
+    return 1
+  fi
+
+  local max_branch_width=0
+  local name needs is_current pr_state pr_url pr_number arrow needs_color pr_url_color pr_label pr_link_open pr_link_close
+
+  while IFS=$'\t' read -r name needs is_current pr_state pr_url pr_number; do
+    if (( ${#name} > max_branch_width )); then
+      max_branch_width=${#name}
+    fi
+  done <<< "$rows"
+
+  while IFS=$'\t' read -r name needs is_current pr_state pr_url pr_number; do
+    arrow='  '
+    [ "$is_current" = "true" ] && arrow='->'
+
+    needs_color="$color_false"
+    [ "$needs" = "true" ] && needs_color="$color_true"
+
+    pr_url_color="$color_reset"
+    [ "$pr_state" = "OPEN" ] && pr_url_color="$color_open"
+    [ "$pr_state" = "DRAFT" ] && pr_url_color="$color_false"
+
+    if [ -n "$pr_url" ] && [ -n "$pr_number" ]; then
+      pr_label="#${pr_number}"
+      pr_link_open=$'\033]8;;'"$pr_url"$'\a'
+      pr_link_close=$'\033]8;;\a'
+
+      if [ "$is_current" = "true" ]; then
+        printf '%s %b%-*s%b  needs rebase: %b%-5s%b  %b%b%s%b%b\n' \
+          "$arrow" "$color_current" "$max_branch_width" "$name" "$color_reset" "$needs_color" "$needs" "$color_reset" "$pr_url_color" "$pr_link_open" "$pr_label" "$pr_link_close" "$color_reset"
+      else
+        printf '%s %-*s  needs rebase: %b%-5s%b  %b%b%s%b%b\n' \
+          "$arrow" "$max_branch_width" "$name" "$needs_color" "$needs" "$color_reset" "$pr_url_color" "$pr_link_open" "$pr_label" "$pr_link_close" "$color_reset"
+      fi
+    else
+      if [ "$is_current" = "true" ]; then
+        printf '%s %b%-*s%b  needs rebase: %b%-5s%b\n' \
+          "$arrow" "$color_current" "$max_branch_width" "$name" "$color_reset" "$needs_color" "$needs" "$color_reset"
+      else
+        printf '%s %-*s  needs rebase: %b%-5s%b\n' \
+          "$arrow" "$max_branch_width" "$name" "$needs_color" "$needs" "$color_reset"
+      fi
+    fi
+  done <<< "$rows"
+}
+
+alias gsv='ghstackview'
