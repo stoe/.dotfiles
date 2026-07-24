@@ -57,6 +57,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "chat.tips.enabled": false,
   "chat.tools.edits.autoApprove": {},
   "chat.tools.terminal.autoApprove": {},
   "chat.tools.urls.autoApprove": {

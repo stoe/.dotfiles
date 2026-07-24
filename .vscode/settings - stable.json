@@ -57,6 +57,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "chat.tips.enabled": false,
   "chat.tools.edits.autoApprove": {},
   "chat.tools.terminal.autoApprove": {},
   "chat.tools.urls.autoApprove": {
@@ -380,5 +381,13 @@
   ],
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config.json": "**/.github/ISSUE_TEMPLATE/config.yml"
-  }
+  },
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ]
 }
