@@ -93,7 +93,7 @@ function set-keychain-environment-variable () {
 function dstop() {
   question "Do you really want to stop all 🐳  docker containers?" "yn"
   read -rs -k 1 ask
-  print -P "%39F> $ask%f"
+  print -P "${PC_ANSWER}> $ask${PC_RESET}"
 
   dockerps=`docker ps -a -q`
 
@@ -107,7 +107,7 @@ function dstop() {
 function dclean() {
   question "Do you really want to delete all stopped 🐳  docker containers?" "yn"
   read -rs -k 1 ask
-  print -P "%39F> $ask%f"
+  print -P "${PC_ANSWER}> $ask${PC_RESET}"
 
   if [ "$ask" = "y" ]; then
     docker container prune --filter 'label=name!=splunk' --force
@@ -119,7 +119,7 @@ function dclean() {
 
   question "Do you really want to delete all untagged 🐳  docker images?" "yn"
   read -rs -k 1 ask
-  print -P "%39F> $ask%f"
+  print -P "${PC_ANSWER}> $ask${PC_RESET}"
 
   if [ "$ask" = "y" ]; then
     docker image prune --force
@@ -146,19 +146,19 @@ function brewup() {
   formatexec "brew update"
 
   section "Casks"
-  print -P "%244F> brew outdated --cask%f"
+  print -P "${PC_CMD}> brew outdated --cask${PC_RESET}"
 
   local _cask_list
   _cask_list=$(brew outdated --cask --greedy-latest --verbose | awk '{print $1}')
 
   if [[ -n "$_cask_list" ]]; then
-    print -P "%5FOutdated casks:%f"
+    print -P "${PC_NOTICE}Outdated casks:${PC_RESET}"
     echo "$_cask_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these casks?" "yn"
       read -rs -k 1 ask
-      print -P "%39F> $ask%f"
+      print -P "${PC_ANSWER}> $ask${PC_RESET}"
     else
       ask="y"
     fi
@@ -173,19 +173,19 @@ function brewup() {
   fi
 
   section "Mac App Store"
-  print -P "%244F> mas outdated%f"
+  print -P "${PC_CMD}> mas outdated${PC_RESET}"
 
   local _app_list
   _app_list=$(mas outdated)
 
   if [[ -n "$_app_list" ]]; then
-    print -P "%5FOutdated apps:%f"
+    print -P "${PC_NOTICE}Outdated apps:${PC_RESET}"
     echo "$_app_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these apps?" "yn"
       read -rs -k 1 ask
-      print -P "%39F> $ask%f"
+      print -P "${PC_ANSWER}> $ask${PC_RESET}"
     else
       ask="y"
     fi
@@ -200,19 +200,19 @@ function brewup() {
   fi
 
   section "Formulae"
-  print -P "%244F> brew outdated --formula%f"
+  print -P "${PC_CMD}> brew outdated --formula${PC_RESET}"
 
   local _brew_list
   _brew_list=$(brew outdated --formula --verbose | awk '{print $1}')
 
   if [[ -n "$_brew_list" ]]; then
-    print -P "%5FOutdated packages:%f"
+    print -P "${PC_NOTICE}Outdated packages:${PC_RESET}"
     echo "$_brew_list"
 
     if [ "$1" != "-y" ]; then
       question "Update these packages?" "yn"
       read -rs -k 1 ask
-      print -P "%39F> $ask%f"
+      print -P "${PC_ANSWER}> $ask${PC_RESET}"
     else
       ask="y"
     fi
@@ -244,18 +244,18 @@ function npmup() {
   fi
 
   section "Updating NPM global packages"
-  print -P "%244F> npm outdated --global%f"
+  print -P "${PC_CMD}> npm outdated --global${PC_RESET}"
 
   local packages=`npm outdated --global --depth=0 | grep global | wc -l | awk '{print $1}'`
 
   if [ "$packages" != 0 ]; then
-    print -P "%5FOutdated packages:%f" "$packages"
+    print -P "${PC_NOTICE}Outdated packages:${PC_RESET}" "$packages"
     npm outdated --global --depth=0
 
     if [ "$1" != "-y" ]; then
       question "Update these packages?" "yn"
       read -rs -k 1 ask
-      print -P "%39F> $ask%f"
+      print -P "${PC_ANSWER}> $ask${PC_RESET}"
     else
       ask="y"
     fi
@@ -379,7 +379,7 @@ function mov2gif() {
 
   [ -d "${tmpFolder}" ] && /bin/rm -rf "${tmpFolder}" &>/dev/null
 
-  ok "$(pwd)/%178F${file}.gif%f saved"
+  ok "$(pwd)/${PC_PATH}${file}.gif${PC_RESET} saved"
 }
 
 # .pdf -> .png
@@ -401,7 +401,7 @@ function pdf2png() {
   # Use proper format sequence for ImageMagick with PDF
   formatexec "magick -density 300 -colorspace sRGB '$(pwd)/${1}' -alpha ${2:-off} '${outputFolder}/${file}.Page %d.png'"
 
-  ok "PNGs saved to %178F${outputFolder}%f"
+  ok "PNGs saved to ${PC_PATH}${outputFolder}${PC_RESET}"
 }
 
 # .docx -> .md
@@ -435,7 +435,7 @@ function docx2md() {
 
   formatexec "pandoc -t gfm -s '${inputFile}' -o '${outputFile}'"
 
-  ok "Markdown saved to %178F${outputFile}%f"
+  ok "Markdown saved to ${PC_PATH}${outputFile}${PC_RESET}"
 }
 
 # https://docs.gitignore.io/install/command-line

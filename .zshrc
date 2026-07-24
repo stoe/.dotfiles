@@ -28,6 +28,7 @@ fi
 
 # shortcut to this dotfiles path is $DFH
 export DFH=$HOME/code/private/.dotfiles
+[ -f "${DFH}/inc/common.zsh" ] && source "${DFH}/inc/common.zsh"
 [ -f "${DFH}/inc/paths.zsh" ] && source "${DFH}/inc/paths.zsh"
 [ -f "${DFH}/inc/helpers.zsh" ] && source "${DFH}/inc/helpers.zsh"
 [ -f "${DFH}/inc/functions.zsh" ] && source "${DFH}/inc/functions.zsh"
