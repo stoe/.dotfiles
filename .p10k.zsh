@@ -438,7 +438,7 @@
     fi
 
     # Display "wip" if the latest commit's summary contains "wip" or "WIP".
-    if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP)(|[^[:alnum:]]*) ]]; then
+    if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP|🚧)(|[^[:alnum:]]*) ]]; then
       res+=" ${modified}wip"
     fi
 
