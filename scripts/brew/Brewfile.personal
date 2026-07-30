@@ -1,5 +1,6 @@
 #/ (personal) casks ------------------------------------------------------------
 
+cask "little-snitch"
 cask "parallels"
 cask "steam"
 

@@ -91,7 +91,6 @@ cask "insomnia"
 cask "istat-menus", args: { require_sha: false }
 cask "kaleidoscope"
 cask "kap"
-cask "little-snitch"
 cask "micro-snitch"
 cask "microsoft-auto-update"
 cask "mosaic"

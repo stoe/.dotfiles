@@ -16,6 +16,7 @@ setopt ERR_EXIT PIPE_FAIL
 typeset -r SCRIPT_DIR="${0:A:h}"
 typeset -r DOTFILES_ROOT="${SCRIPT_DIR:h:h}"
 if [[ ! $(typeset -f section) ]]; then
+  source "${DOTFILES_ROOT}/inc/common.zsh"
   source "${DOTFILES_ROOT}/inc/helpers.zsh"
 fi
 
