@@ -149,8 +149,8 @@
   l = log --oneline --decorate --graph --abbrev-commit --all --date=relative -n 20
   lf = log --pretty=info --graph --first-parent HEAD -n 20
   lg = log --pretty=info --graph --all -n 20
-  loj = !git log --pretty=json -n 10 | jq -sc
-  lol = log --oneline --graph --decorate --all
+  loj = !git log --pretty=json -n 20 | jq -s
+  lol = log --oneline --graph --decorate --all -n 20
   # View the current working tree status using the short format w/ branch info
   # upgrade your git if -sb breaks for you. it's fun.
   s = status -sb
@@ -173,7 +173,6 @@
   # https://gitmoji.dev/
   wip = stash -u -m "🚧 WIP"
   rlz = "!f() { git commit -S -m \"🔖 $1\"; git tag \"$1\" -m \"$1\" -s; }; f"
-  prune-auto = "!f() { git for-each-ref --format='delete %(refname)' refs/remotes/origin/copilot-pull-request-reviewer refs/remotes/origin/copilot refs/remotes/origin/github-advanced-security | git update-ref --stdin; }; f"
   # worktrees
   wt = worktree
   wtl = worktree list
@@ -196,6 +195,9 @@
 
 [log]
   showSignature = false
+  excludeDecoration = refs/remotes/origin/copilot/*
+  excludeDecoration = refs/remotes/origin/copilot-pull-request-reviewer/*
+  excludeDecoration = refs/remotes/origin/github-advanced-security/*
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
