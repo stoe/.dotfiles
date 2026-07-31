@@ -10,6 +10,7 @@
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
   "chat.customAgentInSubagent.enabled": true,
+  "chat.defaultToCopilotHarness": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
   "chat.editor.fontSize": 12,
@@ -334,17 +335,17 @@
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
+  "workbench.experimental.modernUI": true,
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": true,
   "workbench.layoutControl.type": "both",
-  "workbench.navigationControl.enabled": false,
   "workbench.panel.defaultLocation": "right",
-  "workbench.panel.showLabels": false,
+  "workbench.panel.showLabels": true,
   "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "workbench.secondarySideBar.showLabels": false,
+  "workbench.secondarySideBar.showLabels": true,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "[yaml]": {
