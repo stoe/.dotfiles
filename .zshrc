@@ -65,7 +65,6 @@ if ! zgen saved; then
 
   # theme
   zgen load romkatv/powerlevel10k powerlevel10k
-  zgen load romkatv/gitstatus gitstatus
 
   # generate the init script from plugins above
   zgen save
