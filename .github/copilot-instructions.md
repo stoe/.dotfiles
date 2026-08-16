@@ -66,7 +66,11 @@ This is a **modular dotfiles system** with three key architectural components:
 │   ├── gh/config.yml               # GitHub CLI config
 │   └── rubocop/config.yml          # RuboCop config
 │
-├── script/                         # Executable automation (fish scripts)
+├── script/                         # STRTA entry points and automation
+│   ├── bootstrap                   # Base dependency bootstrap (POSIX shell)
+│   ├── setup                       # Idempotent links and machine setup (Bash)
+│   ├── update                      # Package and plugin updates (fish)
+│   ├── test                        # Formatting, syntax, and Brewfile checks (fish)
 │   ├── duti                        # MacOS default app handler
 │   └── brew/                       # Homebrew management
 │       ├── install                 # Smart installer script
@@ -105,7 +109,8 @@ This is a **modular dotfiles system** with three key architectural components:
 - `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings, snippets, extensions)
 - `config/fish/` - Primary shell configuration: conf.d startup files, autoloaded functions, Fisher plugin manifest
 - `config/` - Other application-specific configurations (document conversion, CLI tools, linters)
-- `script/` - Executable automation (brew management, MacOS defaults, duti) — now fish scripts
+- `script/` - STRTA entry points and machine automation
+- `script/` - STRTA entry points plus brew management and MacOS defaults
 
 **Configuration Files:**
 
@@ -122,15 +127,16 @@ This is a **modular dotfiles system** with three key architectural components:
 
 ### Machine Detection & Setup
 
-The `script/brew/install` script auto-detects machine context:
+The `script/brew/install` script auto-detects machine context through 1Password
+CLI, with `WORK_MACHINE_NAME` and `PERSONAL_MACHINE_NAME` environment variables
+available as a fallback:
 
-```bash
-# Uses hostname to determine context
-WORK_MACHINE_NAME="0x73746f65"
-PERSONAL_MACHINE_NAME="6x73746f65"
+```fish
+set -l WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
+set -l PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
 ```
 
-Creates unified Brewfile from: `Brewfile` + `Brewfile.optional` + `Brewfile.{work|personal}` + `Brewfile.vsc`
+Creates unified Brewfile from: `Brewfile` + `Brewfile.optional` + `Brewfile.{work|personal}` + `Brewfile.vsc`. The STRTA entry points in `script/` orchestrate bootstrap, setup, update, and validation.
 
 ### Integration Points
 

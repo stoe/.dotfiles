@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#/ DESCRIPTION:
+#/   Install the base dependencies required by this dotfiles repository.
+#/
+#/ USAGE:
+#/   script/bootstrap [--help]
+#/
+#/ OPTIONS:
+#/   --help    Show this help message
+
+ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+cd "$ROOT_DIR"
+
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+    grep '^#/' <"$0" | cut -c 4-
+    exit 0
+fi
+
+if [[ "$#" -gt 0 ]]; then
+    printf 'Unknown option: %s\n' "$1" >&2
+    exit 2
+fi
+
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    printf 'Error: this repository supports macOS only.\n' >&2
+    exit 1
+fi
+
+if ! xcode-select -p >/dev/null 2>&1; then
+    printf 'Error: Xcode Command Line Tools are required.\n' >&2
+    printf 'Run: xcode-select --install, then rerun script/bootstrap.\n' >&2
+    exit 1
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+    printf '==> Installing Homebrew…\n'
+    NONINTERACTIVE=1 /bin/bash -c \
+        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+else
+    printf 'Error: Homebrew was not found after installation.\n' >&2
+    exit 1
+fi
+
+printf '==> Installing base Homebrew dependencies…\n'
+brew bundle --file="$ROOT_DIR/script/brew/Brewfile"
+
+if command -v npm >/dev/null 2>&1 && [[ -f package.json ]]; then
+    printf '==> Installing npm dependencies…\n'
+    npm install
+fi
+
+if command -v git >/dev/null 2>&1 && [[ -f .gitmodules ]]; then
+    printf '==> Initializing submodules…\n'
+    if ! git -c url."https://github.com/".insteadOf="git@github.com:" \
+        submodule update --init --recursive; then
+        printf 'Warning: submodules were skipped; configure GitHub authentication and rerun.\n' >&2
+    fi
+fi
+
+if command -v fish >/dev/null 2>&1; then
+    printf '==> Installing Fisher…\n'
+    fish -c '
+        if not functions -q fisher
+            curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+            fisher install jorgebucaran/fisher
+        end
+    '
+fi
+
+if command -v fish >/dev/null 2>&1 &&
+    fish -c 'command -sq op; and op whoami >/dev/null 2>&1'
+then
+    printf '==> Installing machine-specific Homebrew dependencies…\n'
+    fish "$ROOT_DIR/script/brew/install"
+else
+    printf 'Warning: machine-specific Homebrew dependencies were skipped.\n' >&2
+    printf 'After configuring 1Password CLI, rerun script/brew/install.\n' >&2
+fi
