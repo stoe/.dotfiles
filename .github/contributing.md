@@ -22,10 +22,10 @@ To set up the development environment:
 ## Project Structure
 
 - `config/` - Application-specific configuration files
-- `inc/` - Zsh includes (aliases, functions, paths, helpers)
+- `config/fish/` - Fish shell configuration (conf.d, functions, completions, Fisher plugin manifest)
 - `scripts/` - Installation and utility scripts
 - `.github/` - GitHub-specific files (workflows, templates, etc.)
-- Individual dotfiles (`.zshrc`, `.gitconfig`, etc.) in the root
+- Individual dotfiles (`.gitconfig`, `.editorconfig`, etc.) in the root
 
 ## Testing Changes
 

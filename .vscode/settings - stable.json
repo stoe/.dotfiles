@@ -142,7 +142,6 @@
     ".gitattributes": "properties",
     ".gitconfig*": "properties",
     ".github/workflows/*.yml": "github-actions-workflow",
-    ".zshrc*": "properties",
     "*.agent.md": "chatagent",
     "*.instructions.md": "instructions",
     "*.md": "markdown",
