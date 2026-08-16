@@ -1,21 +1,21 @@
 # local/private config goes in the include
 [include]
-  path = ~/.gitconfig-local
+  path = ~/code/private/.dotfiles/.gitconfig.local
 
 [includeIf "gitdir/i:~/code/private/"]
-  path = ~/code/private/.gitconfig-personal
+  path = ~/code/private/.dotfiles/.gitconfig.personal.local
 
 [includeIf "gitdir/i:~/code/scratch/"]
-  path = ~/code/scratch/.gitconfig-local
+  path = ~/code/private/.dotfiles/.gitconfig.local
 
 [includeIf "gitdir/i:~/code/work/"]
-  path = ~/code/work/.gitconfig-work
+  path = ~/code/private/.dotfiles/.gitconfig.github.local
 
 [includeIf "gitdir/i:~/code/ghedr/"]
-  path = ~/code/ghedr/.gitconfig-ghedr
+  path = ~/code/private/.dotfiles/.gitconfig.ghedr.local
 
 [includeIf "gitdir/i:~/code/microsoft/"]
-  path = ~/code/microsoft/.gitconfig-msft
+  path = ~/code/private/.dotfiles/.gitconfig.msft.local
 
 [init]
   defaultBranch = main
