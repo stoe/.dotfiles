@@ -35,11 +35,11 @@ This collection includes configurations for:
 3. **Run the brew setup** (this will install packages based on your machine):
 
    ```bash
-   cd scripts/brew && ./install
+   cd script/brew && ./install
    ```
 
    > [!NOTE]
-   > You might want to review the [`cleanup`](./scripts/brew/cleanup) and [`install`](./scripts/brew/install) scripts to ensure it matches your machine names and needs.
+   > You might want to review the [`cleanup`](./script/brew/cleanup) and [`install`](./script/brew/install) scripts to ensure it matches your machine names and needs.
 
 4. **Symlink your fish config** — `~/.config` should be a symlink to `$DFH/config` so `config/fish/` becomes your live `~/.config/fish/`:
 
@@ -105,7 +105,7 @@ The beauty of dotfiles is making them your own. Local/private overrides live out
 
   Symlink this to `~/Documents/.dotfiles/.config.personal.local.fish`. Add any abbreviations, exports, or functions you want to keep private or specific to this machine. Sourced automatically (if present) by `config/fish/conf.d/90-local.fish`.
 
-- **`scripts/brew/Brewfile.*`** for package management by context
+- **`script/brew/Brewfile.*`** for package management by context
 
 > [!IMPORTANT]
 > None of the `$DFH/.gitconfig.*.local`, `$DFH/.config.personal.local.fish` files are tracked by git — they're gitignored symlinks pointing outside the repo. Create the symlinks yourself, e.g.:

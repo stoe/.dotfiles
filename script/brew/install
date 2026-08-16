@@ -8,7 +8,7 @@
 #/ USAGE:
 #/   install
 #
-# Translated from the original zsh scripts/brew/install. Relies on fish's
+# Translated from the original zsh script/brew/install. Relies on fish's
 # automatic conf.d/functions autoloading (section/abort/ok/formatexec/disabled
 # and the $RED/$NC/... color vars from config/fish/conf.d) instead of manually
 # sourcing inc/common.zsh + inc/helpers.zsh.

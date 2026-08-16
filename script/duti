@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-# Translated from the original zsh scripts/duti. Computes the repo root
+# Translated from the original zsh script/duti. Computes the repo root
 # relative to this script's own location instead of relying on an inherited
-# $DFH (per the Phase 0 audit finding that scripts/duti shouldn't depend on
+# $DFH (per the Phase 0 audit finding that script/duti shouldn't depend on
 # the caller's environment). Simplified to always `exit` (rather than zsh's
 # is_sourced/safe_exit dance) since this script is meant to be run directly,
 # not sourced.

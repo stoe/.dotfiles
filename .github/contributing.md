@@ -23,7 +23,7 @@ To set up the development environment:
 
 - `config/` - Application-specific configuration files
 - `config/fish/` - Fish shell configuration (conf.d, functions, completions, Fisher plugin manifest)
-- `scripts/` - Installation and utility scripts
+- `script/` - Installation and utility scripts
 - `.github/` - GitHub-specific files (workflows, templates, etc.)
 - Individual dotfiles (`.gitconfig`, `.editorconfig`, etc.) in the root
 

@@ -66,7 +66,7 @@ This is a **modular dotfiles system** with three key architectural components:
 │   ├── gh/config.yml               # GitHub CLI config
 │   └── rubocop/config.yml          # RuboCop config
 │
-├── scripts/                        # Executable automation (fish scripts)
+├── script/                         # Executable automation (fish scripts)
 │   ├── duti                        # MacOS default app handler
 │   └── brew/                       # Homebrew management
 │       ├── install                 # Smart installer script
@@ -105,7 +105,7 @@ This is a **modular dotfiles system** with three key architectural components:
 - `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings, snippets, extensions)
 - `config/fish/` - Primary shell configuration: conf.d startup files, autoloaded functions, Fisher plugin manifest
 - `config/` - Other application-specific configurations (document conversion, CLI tools, linters)
-- `scripts/` - Executable automation (brew management, MacOS defaults, duti) — now fish scripts
+- `script/` - Executable automation (brew management, MacOS defaults, duti) — now fish scripts
 
 **Configuration Files:**
 
@@ -122,7 +122,7 @@ This is a **modular dotfiles system** with three key architectural components:
 
 ### Machine Detection & Setup
 
-The `scripts/brew/install` script auto-detects machine context:
+The `script/brew/install` script auto-detects machine context:
 
 ```bash
 # Uses hostname to determine context
@@ -192,7 +192,7 @@ Supports contexts: default (`[include]` + `~/code/scratch/`), `personal` (`~/cod
 
 - `.github/` AI workflow integration with GitHub Copilot
 - `.vscode/` directory for workspace settings (stable, insiders, shared keybindings)
-- Dedicated `scripts/brew/Brewfile.vsc` for 50+ editor extensions
+- Dedicated `script/brew/Brewfile.vsc` for 50+ editor extensions
 
 #### GitHub Workflow Integration
 
@@ -215,7 +215,7 @@ Supports contexts: default (`[include]` + `~/code/scratch/`), `personal` (`~/cod
 - `.vscode/extensions/.gitkeep` - Extensions directory placeholder
 - `.vscode/snippets/markdown.json` - Markdown code snippets
 - `.vscode/snippets/stoe.code-snippets` - Custom workspace snippets
-- `scripts/brew/Brewfile.vsc` - 50+ VS Code extensions installation
+- `script/brew/Brewfile.vsc` - 50+ VS Code extensions installation
 
 ## Coding Standards
 
