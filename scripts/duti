@@ -1,241 +1,175 @@
-#!/bin/zsh
+#!/usr/bin/env fish
 
-set -eo pipefail
+# Translated from the original zsh scripts/duti. Computes the repo root
+# relative to this script's own location instead of relying on an inherited
+# $DFH (per the Phase 0 audit finding that scripts/duti shouldn't depend on
+# the caller's environment). Simplified to always `exit` (rather than zsh's
+# is_sourced/safe_exit dance) since this script is meant to be run directly,
+# not sourced.
 
-source "${DFH}/inc/helpers.zsh"
+function show_help
+    echo "Usage: ./duti [-s|-i|-b]"
+    echo "  -s  Use VSCode Stable"
+    echo "  -i  Use VSCode Insiders"
+    echo "  -b  Use both VSCode Stable and Insiders"
+end
 
-is_sourced() {
-  [[ "${(%):-%N}" != "$0" ]]
-}
-
-safe_exit() {
-  typeset -i code=${1:-0}
-
-  if is_sourced; then
-    return "$code"
-  fi
-
-  exit "$code"
-}
-
-show_help() {
-  print "Usage: ./duti [-s|-i|-b]"
-  print "  -s  Use VSCode Stable"
-  print "  -i  Use VSCode Insiders"
-  print "  -b  Use both VSCode Stable and Insiders"
-}
-
-if ! command -v duti >/dev/null 2>&1; then
-  print -P "✘ %178Faborting%f Please \`brew install duti\` first"
-  safe_exit 1
-fi
+if not command -sq duti
+    abort "Please \`brew install duti\` first"
+    exit 1
+end
 
 # Detect installed VSCode variants
-typeset -i has_stable=0
-typeset -i has_insiders=0
+set -l has_stable 0
+set -l has_insiders 0
 
-if command -v code >/dev/null 2>&1 || [ -d "/Applications/Visual Studio Code.app" ]; then
-  has_stable=1
-fi
+if command -sq code; or test -d "/Applications/Visual Studio Code.app"
+    set has_stable 1
+end
 
-if command -v code-insiders >/dev/null 2>&1 || [ -d "/Applications/Visual Studio Code - Insiders.app" ]; then
-  has_insiders=1
-fi
+if command -sq code-insiders; or test -d "/Applications/Visual Studio Code - Insiders.app"
+    set has_insiders 1
+end
 
 # Check if at least one variant is installed
-if [[ $has_stable -eq 0 && $has_insiders -eq 0 ]]; then
-  abort "No VSCode variant detected. Please install VSCode or VSCode-Insiders first."
-  show_help
-  safe_exit 1
-fi
+if test $has_stable -eq 0; and test $has_insiders -eq 0
+    abort "No VSCode variant detected. Please install VSCode or VSCode-Insiders first."
+    show_help
+    exit 1
+end
 
 # Parse optional non-interactive selection flags
-typeset cli_choice=""
-typeset -i selected_flags=0
+set -l cli_choice
+set -l selected_flags 0
 
-while [[ "$#" -gt 0 ]]; do
-  case "$1" in
-    -s)
-      cli_choice="s"
-      (( selected_flags += 1 ))
-      ;;
-    -i)
-      cli_choice="i"
-      (( selected_flags += 1 ))
-      ;;
-    -b)
-      cli_choice="b"
-      (( selected_flags += 1 ))
-      ;;
-    -h|--help)
-      show_help
-      safe_exit 0
-      ;;
-    *)
-      abort "Unknown option: $1"
-      show_help
-      safe_exit 1
-      ;;
-  esac
-  shift
-done
+for arg in $argv
+    switch $arg
+        case -s
+            set cli_choice s
+            set selected_flags (math $selected_flags + 1)
+        case -i
+            set cli_choice i
+            set selected_flags (math $selected_flags + 1)
+        case -b
+            set cli_choice b
+            set selected_flags (math $selected_flags + 1)
+        case -h --help
+            show_help
+            exit 0
+        case '*'
+            abort "Unknown option: $arg"
+            show_help
+            exit 1
+    end
+end
 
-if (( selected_flags > 1 )); then
-  abort "Please provide only one of -s, -i, or -b"
-  show_help
-  safe_exit 1
-fi
+if test $selected_flags -gt 1
+    abort "Please provide only one of -s, -i, or -b"
+    show_help
+    exit 1
+end
 
 # Build available options message
-typeset available=""
-if [[ $has_stable -eq 1 && $has_insiders -eq 1 ]]; then
-  available="stable/insiders/both"
-elif [[ $has_stable -eq 1 ]]; then
-  available="stable only"
-elif [[ $has_insiders -eq 1 ]]; then
-  available="insiders only"
-fi
+set -l available
+if test $has_stable -eq 1; and test $has_insiders -eq 1
+    set available "stable/insiders/both"
+else if test $has_stable -eq 1
+    set available "stable only"
+else if test $has_insiders -eq 1
+    set available "insiders only"
+end
 
 # Prompt user for selection when no CLI flag is provided
-typeset choice="$cli_choice"
-if [[ -z "$choice" ]]; then
-  question "Which VSCode variant to set as default?" "s/i/b"
-  print -P "  Available: %39F${available}%f"
-  read -rs -k 1 choice
-  print -P "%39F> $choice%f"
+set -l choice $cli_choice
+if test -z "$choice"
+    question "Which VSCode variant to set as default?" "s/i/b"
+    printf '  Available: \033[38;5;39m%s\033[0m\n' "$available"
+    read -s -n 1 choice
+    printf '\033[38;5;39m> %s\033[0m\n' "$choice"
 else
-  print -P "%39FUsing flag selection: $choice%f"
-fi
+    printf '\033[38;5;39mUsing flag selection: %s\033[0m\n' "$choice"
+end
 
-typeset normalized_choice=${choice:l}
+set -l normalized_choice (string lower -- "$choice")
 
 # Validate and confirm selection
-typeset variant=""
-case "$normalized_choice" in
-  s)
-    if [[ $has_stable -eq 0 ]]; then
-      abort "VSCode stable is not installed"
-      show_help
-      safe_exit 1
-    fi
-    variant="stable"
-    ;;
-  i)
-    if [[ $has_insiders -eq 0 ]]; then
-      abort "VSCode-Insiders is not installed"
-      show_help
-      safe_exit 1
-    fi
-    variant="insiders"
-    ;;
-  b)
-    if [[ $has_stable -eq 0 || $has_insiders -eq 0 ]]; then
-      abort "Both variants are not installed"
-      show_help
-      safe_exit 1
-    fi
-    variant="both"
-    ;;
-  *)
-    abort "Invalid selection. Please choose s, i, or b"
-    show_help
-    safe_exit 1
-    ;;
-esac
+set -l variant
+switch $normalized_choice
+    case s
+        if test $has_stable -eq 0
+            abort "VSCode stable is not installed"
+            show_help
+            exit 1
+        end
+        set variant stable
+    case i
+        if test $has_insiders -eq 0
+            abort "VSCode-Insiders is not installed"
+            show_help
+            exit 1
+        end
+        set variant insiders
+    case b
+        if test $has_stable -eq 0; or test $has_insiders -eq 0
+            abort "Both variants are not installed"
+            show_help
+            exit 1
+        end
+        set variant both
+    case '*'
+        abort "Invalid selection. Please choose s, i, or b"
+        show_help
+        exit 1
+end
 
-ok "Setting default file associations for VSCode ${variant}"
+ok "Setting default file associations for VSCode $variant"
 
 # Function to set file associations for a given bundle identifier
-set_file_associations() {
-  typeset bundle_id=$1
-  typeset label=$2
-  typeset -i failures=0
+function set_file_associations
+    set -l bundle_id $argv[1]
+    set -l label $argv[2]
+    set -l failures 0
 
-  print -P "\nℹ %178FConfiguring ${label}%f"
+    printf '\nℹ \033[38;5;178mConfiguring %s\033[0m\n' "$label"
 
-  # Some systems return -50 for unsupported/dynamic UTIs. Warn and continue.
-  set_association() {
-    typeset file_type=$1
-    typeset -i cmd_status=0
+    set -l utis \
+        public.json \
+        public.plain-text \
+        public.python-script \
+        public.shell-script \
+        public.source-code \
+        public.text \
+        public.unix-executable
 
-    set +e
-    formatexec "duti -s ${bundle_id} ${file_type} all"
-    cmd_status=$?
-    set -e
+    set -l extensions \
+        .c .cfg .code-workspace .conf .cpp .cs .css .go .java .js .json .jsx \
+        .less .log .lua .md .php .pl .py .rb .sass .scss .sh .toml .ts .tsx \
+        .txt .vue .xml .yaml .yml .zsh
 
-    if (( cmd_status != 0 )); then
-      print -P "⚠ %178Fskipping unsupported association%f ${file_type}"
-      (( failures += 1 ))
-    fi
-  }
+    set -l file_types $utis $extensions
 
-  typeset -a utis=(
-    public.json
-    public.plain-text
-    public.python-script
-    public.shell-script
-    public.source-code
-    public.text
-    public.unix-executable
-  )
+    for file_type in $file_types
+        # Some systems return -50 for unsupported/dynamic UTIs. Warn and continue.
+        if not formatexec "duti -s $bundle_id $file_type all"
+            printf '⚠ \033[38;5;178mskipping unsupported association\033[0m %s\n' "$file_type"
+            set failures (math $failures + 1)
+        end
+    end
 
-  typeset -a extensions=(
-    .c
-    .cfg
-    .code-workspace
-    .conf
-    .cpp
-    .cs
-    .css
-    .go
-    .java
-    .js
-    .json
-    .jsx
-    .less
-    .log
-    .lua
-    .md
-    .php
-    .pl
-    .py
-    .rb
-    .sass
-    .scss
-    .sh
-    .toml
-    .ts
-    .tsx
-    .txt
-    .vue
-    .xml
-    .yaml
-    .yml
-    .zsh
-  )
-
-  typeset -a file_types=("${utis[@]}" "${extensions[@]}")
-  for file_type in "${file_types[@]}"; do
-    set_association "$file_type"
-  done
-
-  if (( failures > 0 )); then
-    print -P "⚠ %178F${label}: ${failures} association(s) were skipped%f"
-  fi
-}
+    if test $failures -gt 0
+        printf '⚠ \033[38;5;178m%s: %s association(s) were skipped\033[0m\n' "$label" "$failures"
+    end
+end
 
 # Execute based on user selection
-case "$variant" in
-  stable)
-    set_file_associations "com.microsoft.VSCode" "VSCode Stable"
-    ;;
-  insiders)
-    set_file_associations "com.microsoft.VSCodeInsiders" "VSCode Insiders"
-    ;;
-  both)
-    set_file_associations "com.microsoft.VSCode" "VSCode Stable"
-    set_file_associations "com.microsoft.VSCodeInsiders" "VSCode Insiders"
-    ;;
-esac
+switch $variant
+    case stable
+        set_file_associations com.microsoft.VSCode "VSCode Stable"
+    case insiders
+        set_file_associations com.microsoft.VSCodeInsiders "VSCode Insiders"
+    case both
+        set_file_associations com.microsoft.VSCode "VSCode Stable"
+        set_file_associations com.microsoft.VSCodeInsiders "VSCode Insiders"
+end
 
 ok "File associations configured successfully"
