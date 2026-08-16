@@ -33,7 +33,7 @@ This is a **modular dotfiles system** with three key architectural components:
 3. **AI Workflow Layer**: GitHub-based chat modes, instructions, and toolsets for different work contexts
 
 > [!NOTE]
-> This repo migrated from zsh/zgen/Oh My Zsh/Powerlevel10k to fish/Fisher/fzf.fish/Tide (branch `stoe/fish`). `config/fish/` is now the primary, actively maintained shell configuration, and fish is the active default shell. The legacy `.zshrc`/`.zprofile`/`.zlogin`/`inc/*.zsh`/`.p10k.zsh` files are deliberately retained for now as a fallback and as the reference for anything not yet ported — they'll be deleted once fish has proven itself day-to-day. Don't add new features to the zsh files; port them to `config/fish/` instead.
+> This repo migrated from zsh/zgen/Oh My Zsh/Powerlevel10k to fish/Fisher/fzf.fish/Tide (branch `stoe/fish`). `config/fish/` is the primary, actively maintained shell configuration, and fish is the default shell. The legacy zsh (`.zshrc`, `.zprofile`, `.zlogin`, `inc/*.zsh`, `.p10k.zsh`) and bash (`.bash_profile`, `.bashrc`, `.git-completion.bash`, `.git-prompt.sh`) files have been fully removed after confirming every alias/function/PATH setting was ported.
 
 ### File Structure
 
@@ -66,12 +66,6 @@ This is a **modular dotfiles system** with three key architectural components:
 │   ├── gh/config.yml               # GitHub CLI config
 │   └── rubocop/config.yml          # RuboCop config
 │
-├── inc/                            # Legacy zsh modular includes (being retired; see note above)
-│   ├── aliases.zsh                 # Command aliases
-│   ├── functions.zsh               # Custom functions
-│   ├── helpers.zsh                 # Helper utilities
-│   └── paths.zsh                   # PATH modifications
-│
 ├── scripts/                        # Executable automation (fish scripts)
 │   ├── duti                        # MacOS default app handler
 │   └── brew/                       # Homebrew management
@@ -83,20 +77,12 @@ This is a **modular dotfiles system** with three key architectural components:
 │       ├── Brewfile.optional       # Optional packages
 │       └── Brewfile.vsc            # VS Code extensions
 │
-├── .bash_profile                   # Bash compatibility (transition support)
-├── .bashrc                         # Bash configuration
 ├── .editor                         # Default editor configuration
 ├── .editorconfig                   # EditorConfig standard (cross-editor formatting)
-├── .git-completion.bash            # Git bash completion script
-├── .git-prompt.sh                  # Git prompt helper for shell
 ├── .gitattributes                  # Git attributes (line endings, diff handling)
 ├── .gitconfig                      # Git configuration (with includes)
 ├── .gitmodules                     # Git submodules configuration
-├── .p10k.zsh                       # Powerlevel10k theme configuration (legacy, pending removal)
 ├── .prettierignore                 # Prettier formatter exclusions
-├── .zlogin                         # ZSH login initialization (legacy, pending removal)
-├── .zprofile                       # ZSH profile initialization (legacy, pending removal)
-├── .zshrc                          # Main ZSH configuration (legacy, pending removal)
 ├── package.json                    # NPM project metadata
 ├── prettier.config.js              # Prettier formatter configuration
 ├── readme.md                       # Repository documentation
@@ -107,7 +93,6 @@ This is a **modular dotfiles system** with three key architectural components:
 ├── .gitconfig.personal.local   # Personal Git settings (~/code/private/)
 ├── .gitconfig.github.local     # Work-context Git config
 ├── .gitconfig.{ghedr|msft}.local # Additional context-specific configs
-├── .zshrc.personal.local       # Machine-specific shell config (legacy)
 └── .config.personal.local.fish # Machine-specific fish config, sourced by config/fish/conf.d/90-local.fish
 ```
 
@@ -120,7 +105,6 @@ This is a **modular dotfiles system** with three key architectural components:
 - `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings, snippets, extensions)
 - `config/fish/` - Primary shell configuration: conf.d startup files, autoloaded functions, Fisher plugin manifest
 - `config/` - Other application-specific configurations (document conversion, CLI tools, linters)
-- `inc/` - Legacy zsh modular includes (aliases, functions, helpers, paths) — pending removal, see note above
 - `scripts/` - Executable automation (brew management, MacOS defaults, duti) — now fish scripts
 
 **Configuration Files:**
@@ -135,11 +119,6 @@ This is a **modular dotfiles system** with three key architectural components:
 
 - `config/fish/config.fish` - Top-level fish config (interactive-only setup, e.g. `gh completion -s fish`)
 - `config/fish/conf.d/*.fish` - Numbered, auto-loaded startup files (DFH self-detection, Homebrew shellenv, PATH, colors, environment, git abbreviations, GNU ls overrides, toolchain hooks, fzf bindings, Tide bootstrap, local overrides)
-- `.zprofile` / `.zlogin` / `.zshrc` - Legacy ZSH startup files, pending removal once the fish cutover is confirmed
-- `.bash_profile` - Bash profile (legacy support)
-- `.bashrc` - Bash interactive shell (legacy support)
-- `.git-completion.bash` - Git bash completions
-- `.git-prompt.sh` - Git prompt helper
 
 ### Machine Detection & Setup
 
@@ -163,12 +142,11 @@ Creates unified Brewfile from: `Brewfile` + `Brewfile.optional` + `Brewfile.{wor
 - `ls`/`l`/`ll`/`la` are overridden to GNU coreutils' `gls` when installed (`config/fish/conf.d/35-ls.fish`); without coreutils, fish's own colorized `ls` wrapper is used instead
 - NPM workflow aliases/functions for update + install + test cycles (`npmup`, `ncua`, `ncua!`)
 - SSH auth standardized on the 1Password SSH agent (`config/fish/conf.d/20-environment.fish`), resolving a former race condition between `ssh-agent` and yubikey-agent
-- Bash compatibility files (`.bash_profile`, `.bashrc`) remain, out of scope for this migration
-- Legacy zsh startup files remain temporarily for the manual cutover window (see note at the top of this document)
+- Legacy zsh (`.zshrc`, `.zprofile`, `.zlogin`, `inc/*.zsh`, `.p10k.zsh`) and bash (`.bash_profile`, `.bashrc`, `.git-completion.bash`, `.git-prompt.sh`) files have all been removed — fish covers everything they provided
 
 ##### Oh My Zsh plugin replacements
 
-`.zshrc` loaded the Oh My Zsh core lib plus ten plugins via zgen. Fish covers most of it natively; only the `git` plugin's aliases and the lib's `d` needed porting:
+The old `.zshrc` loaded the Oh My Zsh core lib plus ten plugins via zgen. Fish covers most of it natively; only the `git` plugin's aliases and the lib's `d` needed porting:
 
 | Oh My Zsh plugin                    | Fish equivalent                                                                                                                   |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -285,7 +263,6 @@ Essential pattern for customization without committing sensitive data. Real file
 - `$DFH/.gitconfig.personal.local` - Personal git settings (name, email, signing key); symlinked from `~/Documents/.dotfiles/.gitconfig.personal.local`
 - `$DFH/.gitconfig.github.local` - Work-context git configuration; symlinked from `~/Documents/.dotfiles/.gitconfig.github.local`
 - `$DFH/.gitconfig.{ghedr|msft}.local` - Additional context-specific configs; symlinked from `~/Documents/.dotfiles/`
-- `$DFH/.zshrc.personal.local` - Machine-specific shell configuration (legacy zsh); symlinked from `~/Documents/.dotfiles/.zshrc.personal.local`
 - `$DFH/.config.personal.local.fish` - Machine-specific fish configuration; symlinked from `~/Documents/.dotfiles/.config.personal.local.fish`; sourced automatically (if present) by `config/fish/conf.d/90-local.fish`
 
 When working with this codebase, prioritize the local override pattern for sensitive configurations.

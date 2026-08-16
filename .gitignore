@@ -39,8 +39,8 @@ config/fish/functions/fish_mode_prompt.fish
 *-work
 
 # local/private overrides symlinked in from outside the repo (dot-separated
-# naming, e.g. .gitconfig.personal.local, .zshrc.personal.local); the real
-# files live in ~/Documents/.dotfiles/ and must never be committed here
+# naming, e.g. .gitconfig.personal.local, .config.personal.local.fish); the
+# real files live in ~/Documents/.dotfiles/ and must never be committed here
 *.local
 *.local.fish
 

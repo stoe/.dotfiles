@@ -105,12 +105,10 @@ The beauty of dotfiles is making them your own. Local/private overrides live out
 
   Symlink this to `~/Documents/.dotfiles/.config.personal.local.fish`. Add any abbreviations, exports, or functions you want to keep private or specific to this machine. Sourced automatically (if present) by `config/fish/conf.d/90-local.fish`.
 
-- **`$DFH/.zshrc.personal.local`** — the legacy zsh equivalent, kept only while the zsh files remain as a fallback
-
 - **`scripts/brew/Brewfile.*`** for package management by context
 
 > [!IMPORTANT]
-> None of the `$DFH/.gitconfig.*.local`, `$DFH/.config.personal.local.fish`, `$DFH/.zshrc.personal.local` files are tracked by git — they're gitignored symlinks pointing outside the repo. Create the symlinks yourself, e.g.:
+> None of the `$DFH/.gitconfig.*.local`, `$DFH/.config.personal.local.fish` files are tracked by git — they're gitignored symlinks pointing outside the repo. Create the symlinks yourself, e.g.:
 >
 > ```bash
 > ln -s ~/Documents/.dotfiles/.gitconfig.personal.local "$DFH/.gitconfig.personal.local"
