@@ -294,7 +294,7 @@
   "terminal.integrated.initialHint": false,
   "terminal.integrated.profiles.osx": {
     "fish (login)": {
-      "path": "fish",
+      "path": "/opt/homebrew/bin/fish",
       "args": [
         "-l"
       ],
