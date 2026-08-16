@@ -24,8 +24,16 @@ brew "coreutils"
 brew "duti"
 brew "jq"
 brew "pv"
+# keg-only; conf.d/10-paths.fish adds it to PATH so the `rm` -> `trash` wrapper
+# resolves here rather than to an npm-installed trash-cli
+brew "macos-trash"
 brew "tree"
 brew "yq"
+
+brew "bat"
+brew "fd"
+brew "fish"
+brew "fzf"
 
 brew "exiftool"
 brew "ffmpeg"
@@ -48,7 +56,6 @@ brew "openssl@3"
 brew "openssl@4"
 brew "pinentry-mac"
 brew "ykman"
-brew "yubikey-agent"
 
 brew "go"
 brew "golangci-lint"
