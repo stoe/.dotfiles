@@ -7,11 +7,11 @@ updates:
     groups:
       actions:
         patterns:
-          - "*"
+          - '*'
     commit-message:
       prefix: ⬆️ action
     labels:
-      - "github-action :robot:"
+      - 'github-action :robot:'
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -25,5 +25,5 @@ updates:
       prefix: ⬆️ npm
       include: scope
     labels:
-      - "dependency :robot:"
+      - 'dependency :robot:'
       - javascript

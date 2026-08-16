@@ -1,0 +1,173 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#/ DESCRIPTION:
+#/   Set up dotfiles, shell defaults, and application links.
+#/
+#/ USAGE:
+#/   script/setup [--dry-run] [--skip-bootstrap] [--skip-duti] [--help]
+#/
+#/ OPTIONS:
+#/   --dry-run          Show changes without modifying the home directory
+#/   --skip-bootstrap   Skip dependency installation
+#/   --skip-duti        Skip macOS default application setup
+#/   --help             Show this help message
+
+ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+DRY_RUN=false
+SKIP_BOOTSTRAP=false
+SKIP_DUTI=false
+
+while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+        --dry-run) DRY_RUN=true ;;
+        --skip-bootstrap) SKIP_BOOTSTRAP=true ;;
+        --skip-duti) SKIP_DUTI=true ;;
+        --help|-h)
+            grep '^#/' <"$0" | cut -c 4-
+            exit 0
+            ;;
+        *)
+            printf 'Unknown option: %s\n' "$1" >&2
+            exit 2
+            ;;
+    esac
+    shift
+done
+
+cd "$ROOT_DIR"
+
+if [[ "$DRY_RUN" == false && "$SKIP_BOOTSTRAP" == false ]]; then
+    script/bootstrap
+fi
+
+link_file() {
+    local source="$1"
+    local destination="$2"
+    local backup
+
+    if [[ ! -e "$source" && ! -L "$source" ]]; then
+        printf 'Warning: source does not exist, skipping: %s\n' "$source" >&2
+        return 0
+    fi
+
+    if [[ -L "$destination" ]]; then
+        if [[ "$(readlink "$destination")" == "$source" ]] ||
+            {
+                [[ -e "$destination" && -e "$source" ]] &&
+                    [[ "$(realpath "$destination")" == "$(realpath "$source")" ]];
+            }
+        then
+            printf '    ok       %s\n' "$destination"
+            return 0
+        fi
+        backup="${destination}.backup.$(date +%s)"
+        if [[ "$DRY_RUN" == true ]]; then
+            printf '    would relink %s\n' "$destination"
+            return 0
+        fi
+        mv -- "$destination" "$backup"
+    elif [[ -e "$destination" ]]; then
+        backup="${destination}.backup.$(date +%s)"
+        if [[ "$DRY_RUN" == true ]]; then
+            printf '    would backup and link %s\n' "$destination"
+            return 0
+        fi
+        mv -- "$destination" "$backup"
+    elif [[ "$DRY_RUN" == true ]]; then
+        printf '    would link  %s -> %s\n' "$destination" "$source"
+        return 0
+    fi
+
+    if [[ "$DRY_RUN" == false ]]; then
+        mkdir -p -- "$(dirname -- "$destination")"
+        ln -sfn -- "$source" "$destination"
+        printf '    linked   %s -> %s\n' "$destination" "$source"
+    fi
+}
+
+printf '==> Linking fish configuration…\n'
+if [[ -d "$HOME/.config" && ! -L "$HOME/.config" ]]; then
+    printf 'Error: refusing to replace real directory %s.\n' "$HOME/.config" >&2
+    printf 'Link %s manually after preserving its existing contents.\n' "$HOME/.config" >&2
+    exit 1
+fi
+link_file "$ROOT_DIR/config" "$HOME/.config"
+
+printf '==> Linking local overrides…\n'
+for file in .gitconfig.personal.local .gitconfig.github.local \
+    .gitconfig.ghedr.local .gitconfig.msft.local .config.personal.local.fish; do
+    source="$HOME/Documents/.dotfiles/$file"
+    [[ -e "$source" || -L "$source" ]] && link_file "$source" "$ROOT_DIR/$file"
+done
+
+printf '==> Linking default Git identity…\n'
+default_identity=""
+work_machine="${WORK_MACHINE_NAME:-}"
+personal_machine="${PERSONAL_MACHINE_NAME:-}"
+
+if command -v op >/dev/null 2>&1 && op whoami >/dev/null 2>&1; then
+    work_machine="$(op read 'op://Private/brewfiles/WORK_MACHINE/name' 2>/dev/null || true)"
+    personal_machine="$(op read 'op://Private/brewfiles/PERSONAL_MACHINE/name' 2>/dev/null || true)"
+fi
+
+case "$(hostname)" in
+    "${work_machine:-__unset_work__}") default_identity=.gitconfig.github.local ;;
+    "${personal_machine:-__unset_personal__}") default_identity=.gitconfig.personal.local ;;
+esac
+
+if [[ -n "$default_identity" ]]; then
+    link_file "$HOME/Documents/.dotfiles/$default_identity" \
+        "$ROOT_DIR/.gitconfig.local"
+elif [[ -L "$ROOT_DIR/.gitconfig.local" || -e "$ROOT_DIR/.gitconfig.local" ]]; then
+    printf '    keeping existing %s\n' "$ROOT_DIR/.gitconfig.local"
+else
+    printf 'Warning: could not determine machine type.\n' >&2
+    printf 'Link the default Git identity manually, for example:\n' >&2
+    printf '    ln -sfn ~/Documents/.dotfiles/.gitconfig.personal.local \\\n' >&2
+    printf '      %s/.gitconfig.local\n' "$ROOT_DIR" >&2
+fi
+
+printf '==> Linking VS Code settings…\n'
+link_file "$ROOT_DIR/.vscode/settings - stable.json" \
+    "$HOME/Library/Application Support/Code/User/settings.json"
+link_file "$ROOT_DIR/.vscode/settings - insiders.json" \
+    "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
+for variant in Code "Code - Insiders"; do
+    link_file "$ROOT_DIR/.vscode/keybindings.json" \
+        "$HOME/Library/Application Support/$variant/User/keybindings.json"
+done
+
+if [[ "$DRY_RUN" == false && -n "$(command -v fish 2>/dev/null || true)" ]] &&
+    fish -c 'functions -q fisher'
+then
+    fish -c 'fisher update' || {
+        printf 'Error: Fisher plugin update failed.\n' >&2
+        exit 1
+    }
+fi
+
+if [[ "$DRY_RUN" == false && "$SKIP_DUTI" == false &&
+    -t 0 && -x "$ROOT_DIR/script/duti" ]]; then
+    printf '==> Configuring default applications…\n'
+    "$ROOT_DIR/script/duti"
+fi
+
+fish_path="$(command -v fish 2>/dev/null || true)"
+if [[ -n "$fish_path" ]]; then
+    printf '==> Configuring fish as the default shell…\n'
+    if ! grep -Fxq "$fish_path" /etc/shells; then
+        if [[ "$DRY_RUN" == true ]]; then
+            printf '    would add %s to /etc/shells\n' "$fish_path"
+        else
+            printf '%s\n' "$fish_path" | sudo tee -a /etc/shells >/dev/null
+        fi
+    fi
+    if [[ "$SHELL" != "$fish_path" ]]; then
+        if [[ "$DRY_RUN" == true ]]; then
+            printf '    would set login shell to %s\n' "$fish_path"
+        else
+            chsh -s "$fish_path"
+        fi
+    fi
+fi

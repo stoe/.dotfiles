@@ -1,0 +1,54 @@
+#!/usr/bin/env fish
+
+#/ DESCRIPTION:
+#/   Update packages, plugins, dependencies, and submodules.
+#/
+#/ USAGE:
+#/   script/update
+
+cd (dirname (status current-filename))/..; or exit 1
+
+if test "$argv[1]" = --help; or test "$argv[1]" = -h
+    grep '^#/' (status current-filename) | cut -c 4-
+    exit 0
+end
+
+if test (count $argv) -gt 0
+    printf 'Unknown option: %s\n' "$argv[1]" >&2
+    exit 2
+end
+
+section "UPDATE" "dependencies"
+
+if command -sq git
+    git submodule update --init --recursive; or abort "submodule update failed"; or exit 1
+end
+
+if command -sq npm; and test -f package.json
+    npm install && npm audit fix; or abort "npm install && npm audit fix failed"; or exit 1
+end
+
+if functions -q fisher
+    fisher update; or abort "fisher update failed"; or exit 1
+end
+
+if command -sq brew
+    brewup -y; or abort "brewup failed"; or exit 1
+end
+
+if command -sq npm
+    npmup -y; or abort "npmup failed"; or exit 1
+end
+
+if command -sq gh
+    ghup; or abort "ghup failed"; or exit 1
+end
+
+if command -sq op; and op whoami >/dev/null 2>&1
+    op signin
+    script/brew/install; or abort "machine-specific Homebrew update failed"; or exit 1
+else
+    printf '%sSkipping machine-specific Homebrew update: configure 1Password CLI first.%s\n' "$YELLOW" "$NC"
+end
+
+ok "UP TO DATE"

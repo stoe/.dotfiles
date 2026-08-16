@@ -37,9 +37,14 @@ function sync_vscode_extensions
     end
 end
 
-# Machine hostnames (change these to match your machines)
-set -l WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
-set -l PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
+# Machine hostnames come from 1Password when available. Environment variables
+# can provide them after bootstrap, without requiring desktop integration.
+set -l WORK_MACHINE_NAME "$WORK_MACHINE_NAME"
+set -l PERSONAL_MACHINE_NAME "$PERSONAL_MACHINE_NAME"
+if command -sq op; and op whoami >/dev/null 2>&1
+    set WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
+    set PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
+end
 set -l BREWFILE_LOCAL Brewfile.local
 
 # Cleanup on exit to remove temporary Brewfile.local

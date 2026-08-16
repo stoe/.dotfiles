@@ -32,42 +32,15 @@ This collection includes configurations for:
    npm install
    ```
 
-3. **Run the brew setup** (this will install packages based on your machine):
+3. **Run the dotfiles setup** (this installs dependencies and configures links):
 
    ```bash
-   cd script/brew && ./install
+   script/setup
    ```
 
    > [!NOTE]
-   > You might want to review the [`cleanup`](./script/brew/cleanup) and [`install`](./script/brew/install) scripts to ensure it matches your machine names and needs.
-
-4. **Symlink your fish config** — `~/.config` should be a symlink to `$DFH/config` so `config/fish/` becomes your live `~/.config/fish/`:
-
-   ```bash
-   ln -s "$DFH/config" ~/.config
-   ```
-
-5. **Bootstrap [Fisher](https://github.com/jorgebucaran/fisher)** and install the pinned plugins (`PatrickF1/fzf.fish`, `IlanCosman/tide`):
-
-   ```fish
-   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
-   fisher install jorgebucaran/fisher
-   fisher update
-   ```
-
-6. **Make fish your default shell:**
-
-   ```bash
-   # Homebrew's fish isn't in /etc/shells by default — add it once, then chsh.
-   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-   chsh -s "$(command -v fish)"
-   ```
-
-7. **Symlink what you need** (be careful, this might overwrite existing configs):
-   ```bash
-   # Copy/symlink individual files as needed
-   # No automated symlinking because that's how you accidentally nuke your existing setup
-   ```
+   > Review [`script/setup`](./script/setup) before running it. It refuses to replace a real `~/.config` directory.
+   > Use `script/setup --dry-run` to preview links without changing your home directory.
 
 ## customization
 
@@ -106,6 +79,7 @@ The beauty of dotfiles is making them your own. Local/private overrides live out
   Symlink this to `~/Documents/.dotfiles/.config.personal.local.fish`. Add any abbreviations, exports, or functions you want to keep private or specific to this machine. Sourced automatically (if present) by `config/fish/conf.d/90-local.fish`.
 
 - **`script/brew/Brewfile.*`** for package management by context
+- **`script/brew/cleanup`** for removing packages not listed in the active Brewfiles
 
 > [!IMPORTANT]
 > None of the `$DFH/.gitconfig.*.local`, `$DFH/.config.personal.local.fish` files are tracked by git — they're gitignored symlinks pointing outside the repo. Create the symlinks yourself, e.g.:

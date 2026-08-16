@@ -1,0 +1,43 @@
+#!/usr/bin/env fish
+
+#/ DESCRIPTION:
+#/   Validate formatting, fish syntax, Brewfiles, and POSIX scripts.
+#/
+#/ USAGE:
+#/   script/test
+
+cd (dirname (status current-filename))/..; or exit 1
+
+set -l failed 0
+
+section "PRETTIER" "formatting"
+npx prettier --check .; or set failed 1
+
+section "FISH" "syntax"
+for file in (find config/fish script -type f -name '*.fish')
+    fish -n "$file"; or set failed 1
+end
+
+section "FISH" "script formatting"
+for file in (find script -type f -name '*.fish')
+    fish_indent --check "$file"; or set failed 1
+end
+
+section "BREW" "Brewfile parsing"
+for brewfile in script/brew/Brewfile script/brew/Brewfile.optional \
+    script/brew/Brewfile.personal script/brew/Brewfile.work script/brew/Brewfile.vsc
+    brew bundle list --all --file="$brewfile" >/dev/null; or set failed 1
+end
+
+if command -sq shellcheck
+    section "SHELLCHECK" "POSIX scripts"
+    shellcheck -S warning .husky/pre-commit .husky/pre-push \
+        script/bootstrap script/setup; or set failed 1
+end
+
+if test $failed -ne 0
+    abort "tests failed"
+    exit 1
+end
+
+ok "ALL TESTS PASSED"
