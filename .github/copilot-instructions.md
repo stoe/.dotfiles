@@ -2,19 +2,38 @@
 
 This personal dotfiles repository manages MacOS development environment configurations through a modular, machine-aware system.
 
-## Table of Contents
+<details><summary>Table of Contents</summary>
 
-1. [Architecture Overview](#architecture-overview)
-2. [Coding Standards](#coding-standards)
-3. [Maintenance Strategy](#maintenance-strategy)
+- [Architecture Overview](#architecture-overview)
+  - [File Structure](#file-structure)
+  - [Code Organization](#code-organization)
+  - [Machine Detection \& Setup](#machine-detection--setup)
+  - [Integration Points](#integration-points)
+- [Coding Standards](#coding-standards)
+  - [AI Workflow Development](#ai-workflow-development)
+  - [Fish Shell Development](#fish-shell-development)
+  - [Environment Variables](#environment-variables)
+  - [Development Workflow Standards](#development-workflow-standards)
+  - [Local Override Pattern](#local-override-pattern)
+  - [Power Functions \& Utilities](#power-functions--utilities)
+- [Maintenance Strategy](#maintenance-strategy)
+  - [Review Triggers](#review-triggers)
+  - [Quarterly Sync Check](#quarterly-sync-check)
+  - [Formatting Exclusion](#formatting-exclusion)
+  - [Automation Considerations](#automation-considerations)
+
+</details>
 
 ## Architecture Overview
 
 This is a **modular dotfiles system** with three key architectural components:
 
-1. **Configuration Layer**: Core dotfiles (`.zshrc`, `.gitconfig`, etc.) with local overrides
+1. **Configuration Layer**: Core dotfiles (`config/fish/`, `.gitconfig`, etc.) with local overrides
 2. **Package Management**: Machine-aware Homebrew setup that detects work vs personal environments
 3. **AI Workflow Layer**: GitHub-based chat modes, instructions, and toolsets for different work contexts
+
+> [!NOTE]
+> This repo migrated from zsh/zgen/Oh My Zsh/Powerlevel10k to fish/Fisher/fzf.fish/Tide (branch `stoe/fish`). `config/fish/` is now the primary, actively maintained shell configuration, and fish is the active default shell. The legacy `.zshrc`/`.zprofile`/`.zlogin`/`inc/*.zsh`/`.p10k.zsh` files are deliberately retained for now as a fallback and as the reference for anything not yet ported — they'll be deleted once fish has proven itself day-to-day. Don't add new features to the zsh files; port them to `config/fish/` instead.
 
 ### File Structure
 
@@ -36,18 +55,24 @@ This is a **modular dotfiles system** with three key architectural components:
 │   └── keybindings.json            # Custom keybindings (symlink this to /Users/you/Library/Application Support/{Code|Code - Insiders}/User/keybindings.json)
 │
 ├── config/                         # Application-specific configurations
-│   ├── .pandoc-docx/               # Pandoc Word conversion templates (git submodule)
-│   ├── .pandoc-pdf/                # Pandoc PDF conversion templates (git submodule)
+│   ├── .pdfpw/                     # PDF password protection (git submodule)
+│   ├── .zippw/                     # ZIP password protection (git submodule)
+│   ├── fish/                       # Primary shell config (fish + Fisher + Tide + fzf.fish)
+│   │   ├── config.fish             # Top-level fish config (GitHub CLI completion, etc.)
+│   │   ├── conf.d/                 # Numbered auto-loaded startup files (00-dfh, 05-homebrew, 10-paths, 15-colors, 20-environment, 30-git-abbr, 35-ls, 40-toolchains, 50-fzf, 55-tide-config, 90-local)
+│   │   ├── functions/               # Autoloaded fish functions (aliases, helpers, openers, update tools, conversion tools, pdfpw/zippw)
+│   │   ├── completions/            # Fisher-managed completions
+│   │   └── fish_plugins            # Fisher plugin manifest (jorgebucaran/fisher, patrickf1/fzf.fish, ilancosman/tide)
 │   ├── gh/config.yml               # GitHub CLI config
 │   └── rubocop/config.yml          # RuboCop config
 │
-├── inc/                            # Modular shell includes
+├── inc/                            # Legacy zsh modular includes (being retired; see note above)
 │   ├── aliases.zsh                 # Command aliases
 │   ├── functions.zsh               # Custom functions
 │   ├── helpers.zsh                 # Helper utilities
 │   └── paths.zsh                   # PATH modifications
 │
-├── scripts/                        # Executable automation
+├── scripts/                        # Executable automation (fish scripts)
 │   ├── duti                        # MacOS default app handler
 │   └── brew/                       # Homebrew management
 │       ├── install                 # Smart installer script
@@ -67,21 +92,23 @@ This is a **modular dotfiles system** with three key architectural components:
 ├── .gitattributes                  # Git attributes (line endings, diff handling)
 ├── .gitconfig                      # Git configuration (with includes)
 ├── .gitmodules                     # Git submodules configuration
-├── .p10k.zsh                       # Powerlevel10k theme configuration
+├── .p10k.zsh                       # Powerlevel10k theme configuration (legacy, pending removal)
 ├── .prettierignore                 # Prettier formatter exclusions
-├── .zlogin                         # ZSH login initialization
-├── .zprofile                       # ZSH profile initialization
-├── .zshrc                          # Main ZSH configuration
+├── .zlogin                         # ZSH login initialization (legacy, pending removal)
+├── .zprofile                       # ZSH profile initialization (legacy, pending removal)
+├── .zshrc                          # Main ZSH configuration (legacy, pending removal)
 ├── package.json                    # NPM project metadata
 ├── prettier.config.js              # Prettier formatter configuration
 ├── readme.md                       # Repository documentation
 ├── license                         # MIT License
 │
-│   # Local Override Files (not committed, essential for customization)
-├── .gitconfig-local            # Machine-specific Git settings
-├── .gitconfig-{work|personal}  # Context-specific Git config
-├── .gitconfig-{ghedr|msft}     # Additional context-specific configs
-└── .zshrc-local                # Machine-specific shell config
+│   # Local Override Files (symlinked in from ~/Documents/.dotfiles/, gitignored)
+├── .gitconfig.local            # Default identity (per-machine symlink target)
+├── .gitconfig.personal.local   # Personal Git settings (~/code/private/)
+├── .gitconfig.github.local     # Work-context Git config
+├── .gitconfig.{ghedr|msft}.local # Additional context-specific configs
+├── .zshrc.personal.local       # Machine-specific shell config (legacy)
+└── .config.personal.local.fish # Machine-specific fish config, sourced by config/fish/conf.d/90-local.fish
 ```
 
 ### Code Organization
@@ -91,9 +118,10 @@ This is a **modular dotfiles system** with three key architectural components:
 - `.github/` - AI workflow system (agents, instructions, prompts, toolsets) + GitHub metadata (issue templates, code of conduct, contributing guidelines, codeowners)
 - `.husky/` - Git hooks for pre-commit and pre-push automation
 - `.vscode/` - VS Code workspace settings (stable, insiders, shared keybindings, snippets, extensions)
-- `config/` - Application-specific configurations (document conversion, CLI tools, linters)
-- `inc/` - Modular shell includes (aliases, functions, helpers, paths)
-- `scripts/` - Executable automation (brew management, MacOS defaults, duti)
+- `config/fish/` - Primary shell configuration: conf.d startup files, autoloaded functions, Fisher plugin manifest
+- `config/` - Other application-specific configurations (document conversion, CLI tools, linters)
+- `inc/` - Legacy zsh modular includes (aliases, functions, helpers, paths) — pending removal, see note above
+- `scripts/` - Executable automation (brew management, MacOS defaults, duti) — now fish scripts
 
 **Configuration Files:**
 
@@ -105,9 +133,9 @@ This is a **modular dotfiles system** with three key architectural components:
 
 **Shell Initialization Files:**
 
-- `.zprofile` - ZSH profile (login shells)
-- `.zlogin` - ZSH login (after profile)
-- `.zshrc` - ZSH interactive shell configuration
+- `config/fish/config.fish` - Top-level fish config (interactive-only setup, e.g. `gh completion -s fish`)
+- `config/fish/conf.d/*.fish` - Numbered, auto-loaded startup files (DFH self-detection, Homebrew shellenv, PATH, colors, environment, git abbreviations, GNU ls overrides, toolchain hooks, fzf bindings, Tide bootstrap, local overrides)
+- `.zprofile` / `.zlogin` / `.zshrc` - Legacy ZSH startup files, pending removal once the fish cutover is confirmed
 - `.bash_profile` - Bash profile (legacy support)
 - `.bashrc` - Bash interactive shell (legacy support)
 - `.git-completion.bash` - Git bash completions
@@ -129,10 +157,33 @@ Creates unified Brewfile from: `Brewfile` + `Brewfile.optional` + `Brewfile.{wor
 
 #### Shell Environment
 
-- [zgen](https://github.com/tarjoilija/zgen) plugin manager loading selected [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) plugins (`.zshrc` lines 36-62) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme
-- Custom aliases emphasize safety (`rm=trash`, `rm!="/bin/rm"`)
-- NPM workflow aliases for update + install + test cycles
-- Bash compatibility files (`.bash_profile`, `.bashrc`) support shell transitions
+- [Fisher](https://github.com/jorgebucaran/fisher) plugin manager loading [`PatrickF1/fzf.fish`](https://github.com/PatrickF1/fzf.fish) and the [Tide](https://github.com/IlanCosman/tide) prompt (`config/fish/fish_plugins`)
+- `~/.config` is a pre-existing symlink to `$DFH/config`, so `config/fish/` is automatically the live `~/.config/fish/` — no additional symlink needed for fish itself
+- Custom aliases/functions emphasize safety (`rm` → `trash`, `rm!` → real `/bin/rm`); `trash` comes from the keg-only `macos-trash` formula, PATH-prepended in `conf.d/10-paths.fish` so it wins over any npm-installed `trash-cli`
+- `ls`/`l`/`ll`/`la` are overridden to GNU coreutils' `gls` when installed (`config/fish/conf.d/35-ls.fish`); without coreutils, fish's own colorized `ls` wrapper is used instead
+- NPM workflow aliases/functions for update + install + test cycles (`npmup`, `ncua`, `ncua!`)
+- SSH auth standardized on the 1Password SSH agent (`config/fish/conf.d/20-environment.fish`), resolving a former race condition between `ssh-agent` and yubikey-agent
+- Bash compatibility files (`.bash_profile`, `.bashrc`) remain, out of scope for this migration
+- Legacy zsh startup files remain temporarily for the manual cutover window (see note at the top of this document)
+
+##### Oh My Zsh plugin replacements
+
+`.zshrc` loaded the Oh My Zsh core lib plus ten plugins via zgen. Fish covers most of it natively; only the `git` plugin's aliases and the lib's `d` needed porting:
+
+| Oh My Zsh plugin                    | Fish equivalent                                                                                                                   |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `plugins/git`                       | `config/fish/conf.d/30-git-abbr.fish` - `g`, `ga`, `gc`, `gp` … 32 abbreviations covering the subset actually used, plus siblings |
+| `plugins/gitignore`                 | `gi` function (`config/fish/functions/gi.fish`)                                                                                   |
+| `plugins/brew`                      | Fish ships `brew` completions; the plugin's aliases weren't used                                                                  |
+| `plugins/node`                      | Fish ships `node`/`npm` completions; `npmup`/`npmls`/`npmla`/`npmll` are custom functions                                         |
+| `plugins/fnm`                       | `fnm env --use-on-cd --shell fish` in `conf.d/40-toolchains.fish`                                                                 |
+| `plugins/git-extras`                | Completions only; commands themselves come from the `git-extras` formula                                                          |
+| `plugins/git-lfs`                   | Aliases only, unused; `git lfs` works unchanged                                                                                   |
+| `plugins/macos`                     | Only `cdf` was ever used (once); not ported                                                                                       |
+| `zgen oh-my-zsh` (the omz **lib**)  | Mostly native in fish (`..`/`...`, `prevd`/`nextd`, `cd -`, `cdh`); `d` is ported to `config/fish/functions/d.fish`               |
+| `zsh-users/zsh-syntax-highlighting` | Built into fish - no plugin required                                                                                              |
+
+`gs`, `gls` and `gcp` are deliberately **not** defined as git abbreviations: on this machine they resolve to ghostscript, coreutils' `gls` and coreutils' `gcp`.
 
 #### Git Configuration
 
@@ -140,16 +191,24 @@ Layered config with directory-based context switching:
 
 ```properties
 [include]
-  path = ~/.gitconfig-local
+  path = ~/code/private/.dotfiles/.gitconfig.local
+
+[includeIf "gitdir/i:~/code/private/"]
+  path = ~/code/private/.dotfiles/.gitconfig.personal.local
 
 [includeIf "gitdir/i:~/code/work/"]
-  path = ~/code/work/.gitconfig-work
+  path = ~/code/private/.dotfiles/.gitconfig.github.local
 
 [includeIf "gitdir/i:~/code/ghedr/"]
-  path = ~/code/ghedr/.gitconfig-ghedr
+  path = ~/code/private/.dotfiles/.gitconfig.ghedr.local
 ```
 
-Supports five contexts: `local`, `personal`, `work`, `ghedr`, `msft`
+Supports contexts: default (`[include]` + `~/code/scratch/`), `personal` (`~/code/private/`), `work`, `ghedr`, `msft`. Every include resolves to a gitignored symlink in `$DFH` pointing at `~/Documents/.dotfiles/` (see Local Override Pattern below).
+
+`.gitconfig.local` is the machine-neutral default identity: it points at `.gitconfig.personal.local` on the personal machine and `.gitconfig.github.local` on the work machine. `script/setup` selects the target by hostname and prints a manual `ln -sfn` command when it cannot tell.
+
+> [!WARNING]
+> Every `[include]`/`[includeIf]` target must exist. If none resolves, `user.signingkey` is undefined and **all** commits fail with `fatal: either user.signingkey or gpg.ssh.defaultKeyCommand needs to be configured`. Verify with `git config --get user.signingkey` after changing this block.
 
 #### VS Code Integration
 
@@ -167,10 +226,9 @@ Supports five contexts: `local`, `personal`, `work`, `ghedr`, `msft`
 
 #### Config Categories
 
-- **Document Conversion**: Pandoc-based conversion utilities (git submodules)
-  - `config/.pandoc-docx/` - Markdown to Word conversion with `md2docx` function
-  - `config/.pandoc-pdf/` - Markdown to PDF conversion with `md2pdf` function
+- **Password Protection**: Ghostscript/7z-based utilities (git submodules)
   - `config/.pdfpw/` - PDF password protection with `pdfpw` function
+  - `config/.zippw/` - ZIP password protection with `zippw` function
 - **CLI Tools**: GitHub CLI configuration (`config/gh/config.yml`)
 - **Language Tooling**: RuboCop linting rules (`config/rubocop/config.yml`)
 
@@ -190,25 +248,28 @@ Supports five contexts: `local`, `personal`, `work`, `ghedr`, `msft`
 - **File Organization**: Separate chatmodes, instructions, and toolsets into dedicated folders
 - **Configuration Management**: Keep AI workflow configs organized and version controlled
 
-### ZSH Shell Development
+### Fish Shell Development
 
-- **File Structure**: Follow the `inc/` modular pattern - separate concerns into `aliases.zsh`, `functions.zsh`, `helpers.zsh`, `paths.zsh`
-- **Naming Conventions**: Use lowercase with underscores for files (`utility_functions.zsh`) and descriptive names for functions
-- **Variable Scoping**: Use `typeset` for proper variable scoping in functions, avoid global variables when possible
-- **Error Handling**: Always quote variables (`"$variable"`) to prevent word splitting and check exit status with `set -eo pipefail`
-- **Shebang**: Start scripts with `#!/usr/bin/env zsh` (already follows this pattern in `.zshrc`)
-- **Modular Loading**: Use conditional sourcing pattern: `[ -f "${DFH}/inc/file.zsh" ] && source "${DFH}/inc/file.zsh"`
-- **Environment Variables**: Export `DFH` for dotfiles home path, use consistent variable naming like the existing pattern
-- **Safety First**: Follow the `rm=trash` philosophy - prefer safer alternatives to destructive operations
+- **File Structure**: Follow the `config/fish/` modular pattern - numbered `conf.d/*.fish` for auto-loaded startup logic, one function per file under `functions/` (fish autoloads by filename)
+- **Naming Conventions**: Use lowercase filenames matching the function/command name exactly (`brewup.fish` defines `brewup`); prefix private helper functions with an underscore (`_pdfpw_usage`)
+- **Variable Scoping**: Use `set -l` for local/function scope, `set -g` for script-global, `set -gx` for exported environment variables, `set -U` only for genuine cross-session state (e.g. Tide's prompt config) — avoid unscoped `set`
+- **Error Handling**: Always quote variables (`"$variable"`) to prevent word splitting; use `and`/`or` for command chaining instead of `&&`/`||`; avoid concatenating a string literal directly onto a variable followed by `[` (e.g. `"$var[abc]"`) — fish parses that as array indexing, not string interpolation
+- **Command substitution gotcha**: `(some_multiline_output)` inside a larger string/list expression triggers cartesian-style expansion in fish (one output element per iteration) rather than a single joined string — build up a fish list and `string join \n -- $list` only once, right before use, instead of repeatedly concatenating with embedded `\n` escapes
+- **Shebang**: Start scripts with `#!/usr/bin/env fish`
+- **Abbreviations vs functions**: `abbr` is a line-editor feature — it only expands while typing interactively, so an abbreviation is _not_ a usable command in scripts, `fish -c`, or eval'd command strings. Use `abbr` for the interactive convenience (the expansion is visible before running), and add a matching `--wraps` function when the name also needs to work non-interactively; the two coexist, with the abbreviation winning in interactive shells. See `g` (`conf.d/30-git-abbr.fish` + `functions/g.fish`)
+- **Modular Loading**: `conf.d/*.fish` files are auto-sourced by fish on every shell startup (no manual `source` needed); guard local-override sourcing with `if test -f ...`. Note they are read **only** at startup — after editing one, run `reload!` or open a new shell, otherwise existing sessions won't see the change
+- **Environment Variables**: `DFH` self-derives from `config/fish/conf.d/00-dfh.fish`'s own resolved location (via `status current-filename` + `realpath`) rather than being hardcoded, so it survives the repo being cloned to a different path
+- **Safety First**: Follow the `rm` → `trash` philosophy - prefer safer alternatives to destructive operations
 
 ### Environment Variables
 
-Toolchain environment setup centralized in `inc/paths.zsh`:
+Toolchain environment setup centralized in `config/fish/conf.d/10-paths.fish` and `20-environment.fish`:
 
-- `GOPATH`, `GOBIN`, `GOROOT` - Go toolchain paths
+- `GOPATH`, `GOBIN`, `GOROOT` - Go toolchain paths (set in `10-paths.fish` since PATH assembly depends on them)
 - `PYENV_ROOT` - Python version manager
 - `GPG_TTY` - GPG terminal for signing
-- Additional variables for OpenSSL, SSH auth, editor configs
+- `SSH_AUTH_SOCK` - Points at the 1Password SSH agent socket
+- Additional variables for OpenSSL (`openssl@4`), editor configs
 
 ### Development Workflow Standards
 
@@ -218,17 +279,20 @@ Toolchain environment setup centralized in `inc/paths.zsh`:
 
 ### Local Override Pattern
 
-Essential pattern for customization without committing sensitive data:
+Essential pattern for customization without committing sensitive data. Real files live outside the repo in `~/Documents/.dotfiles/` and are symlinked into `$DFH` (gitignored) under matching dot-separated names:
 
-- `.gitconfig-local` - Personal git settings (name, email, signing key)
-- `.gitconfig-{work|personal|ghedr|msft}` - Context-specific git configurations
-- `.zshrc-local` - Machine-specific shell configuration
+- `$DFH/.gitconfig.local` - Default identity for this machine; symlinked to `~/Documents/.dotfiles/.gitconfig.personal.local` on the personal machine and `.gitconfig.github.local` on the work machine. Used by `[include]` and the `~/code/scratch/` context
+- `$DFH/.gitconfig.personal.local` - Personal git settings (name, email, signing key); symlinked from `~/Documents/.dotfiles/.gitconfig.personal.local`
+- `$DFH/.gitconfig.github.local` - Work-context git configuration; symlinked from `~/Documents/.dotfiles/.gitconfig.github.local`
+- `$DFH/.gitconfig.{ghedr|msft}.local` - Additional context-specific configs; symlinked from `~/Documents/.dotfiles/`
+- `$DFH/.zshrc.personal.local` - Machine-specific shell configuration (legacy zsh); symlinked from `~/Documents/.dotfiles/.zshrc.personal.local`
+- `$DFH/.config.personal.local.fish` - Machine-specific fish configuration; symlinked from `~/Documents/.dotfiles/.config.personal.local.fish`; sourced automatically (if present) by `config/fish/conf.d/90-local.fish`
 
 When working with this codebase, prioritize the local override pattern for sensitive configurations.
 
 ### Power Functions & Utilities
 
-Key utilities organized by category in `inc/functions.zsh` and `inc/helpers.zsh`:
+Key utilities organized as one autoloaded function per file under `config/fish/functions/`:
 
 #### Update Functions
 
@@ -236,25 +300,32 @@ Key utilities organized by category in `inc/functions.zsh` and `inc/helpers.zsh`
 - `npmup()` - NPM global package updater with confirmation
 - `ghup()` - GitHub CLI extension upgrade automation
 
+#### Navigation
+
+- `d()` - List the ten most recently visited directories, numbered by how many steps back they are; jump with `prevd N` (fish has no `cd -N`). Reads `$dirprev` (fish's cd history) rather than `dirs`, which in fish only tracks explicit `pushd`
+
 #### Archive Utilities
 
-- `targz()` - Smart tar.gz creation (uses 7zz/zopfli/pigz based on availability)
-- `zippw()` - Password-protected zip archives via 7z
+- `targz()` - Smart tar.gz creation (uses 7zz/pigz/gzip based on availability)
 - `extract()` - Universal archive extractor for multiple formats
+- `zippw()` - Password-protected zip archives via 7z + 1Password integration (fish port of the `.zippw` submodule's zsh script)
 
 #### Conversion Tools
 
 - `mov2gif()` - Video to GIF conversion with ffmpeg + ImageMagick
 - `pdf2png()` - PDF to PNG with Ghostscript
-- `docx2md()` - Word to Markdown via Pandoc (in `inc/functions.zsh`)
-- `md2docx()` - Markdown to Word with optional reference styling via Pandoc (in `config/.pandoc-docx/` submodule)
-- `md2pdf()` - Markdown to PDF with custom header/footer/watermark via Pandoc (in `config/.pandoc-pdf/` submodule)
-- `pdfpw()` - PDF password protection with Ghostscript + 1Password integration (in `config/.pdfpw/` submodule)
+- `docx2md()` - Word to Markdown via Pandoc
+- `pdfpw()` - PDF password protection with Ghostscript + 1Password integration (fish port of the `.pdfpw` submodule's zsh script)
+- `gi()` - Fetch a `.gitignore` template from gitignore.io
+- `ghstackview()` / `gsv` - List gh-stack branches with needsRebase status
 
 #### Docker Helpers
 
 - `dstop()` - Stop all containers with confirmation
 - `dclean()` - Prune stopped containers and untagged images
+
+> [!NOTE]
+> The `.pdfpw`/`.zippw` git submodules (`config/.pdfpw/pdfpw.zsh`, `config/.zippw/zippw.zsh`) remain zsh-only reference implementations in their own upstream repos; the fish functions above are independent reimplementations for the interactive fish shell, not generated from the submodules.
 
 ## Maintenance Strategy
 
@@ -262,7 +333,7 @@ Key utilities organized by category in `inc/functions.zsh` and `inc/helpers.zsh`
 
 Update this documentation when:
 
-- **Adding shell functions** to `inc/*.zsh` - Document in Power Functions if user-facing
+- **Adding shell functions** to `config/fish/functions/` - Document in Power Functions if user-facing
 - **Creating new Brewfile contexts** - Update Machine Detection section and git include patterns
 - **Adding git context includes** - Update Git Configuration section with new `includeIf` paths
 - **Committing new config/ files** - Add to Config Categories if it represents a new category
@@ -282,4 +353,4 @@ Every ~3 months, verify:
 
 ### Automation Considerations
 
-While automated sync (e.g., parsing `inc/*.zsh` for function definitions or using `git ls-files` to generate file tree) could reduce drift, it adds tooling complexity and may produce noisy diffs. Current manual approach balances accuracy with maintenance overhead—focus on documenting high-impact features rather than exhaustive catalogs.
+While automated sync (e.g., parsing `config/fish/functions/*.fish` for function definitions or using `git ls-files` to generate file tree) could reduce drift, it adds tooling complexity and may produce noisy diffs. Current manual approach balances accuracy with maintenance overhead—focus on documenting high-impact features rather than exhaustive catalogs.
