@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env fish
 
 #/ DESCRIPTION:
 #/   Clean up Homebrew packages not listed in machine-specific Brewfiles.
@@ -9,118 +9,121 @@
 #/
 #/ OPTIONS:
 #/   --dry-run    Show what would be removed without making changes
+#
+# Translated from the original zsh scripts/brew/cleanup. Relies on fish's
+# automatic conf.d/functions autoloading (section/abort/ok/formatexec) instead
+# of manually sourcing inc/common.zsh + inc/helpers.zsh.
 
-setopt ERR_EXIT PIPE_FAIL
-
-# Source helper functions if not already loaded
-typeset -r SCRIPT_DIR="${0:A:h}"
-typeset -r DOTFILES_ROOT="${SCRIPT_DIR:h:h}"
-if [[ ! $(typeset -f section) ]]; then
-  source "${DOTFILES_ROOT}/inc/common.zsh"
-  source "${DOTFILES_ROOT}/inc/helpers.zsh"
-fi
+set -l script_dir (dirname (status current-filename))
 
 # Change to script directory to find Brewfiles
-cd "$SCRIPT_DIR"
+cd $script_dir
 
-append_cleanup_ignored_apps() {
-  typeset source_brewfile="$1"
-  typeset app_path
-  typeset bundle_entry
+function append_cleanup_ignored_apps
+    set -l source_brewfile $argv[1]
 
-  while IFS=$'\t' read -r app_path bundle_entry; do
-    [[ -z "$app_path" || -z "$bundle_entry" ]] && continue
+    sed -nE 's|^[[:space:]]*#[[:space:]]*cleanup-ignore-app[[:space:]]+"([^"]+)"[[:space:]]+(.+)$|\1\t\2|p' $source_brewfile | while read -l -d \t app_path bundle_entry
+        if test -z "$app_path"; or test -z "$bundle_entry"
+            continue
+        end
 
-    if [[ -e "$app_path" ]]; then
-      brewfile_all="${brewfile_all}\n${bundle_entry}"
-      section "homebrew" "🍺 🙅 Ignoring cleanup for $app_path"
-    fi
-  done < <(sed -nE 's|^[[:space:]]*#[[:space:]]*cleanup-ignore-app[[:space:]]+"([^"]+)"[[:space:]]+(.+)$|\1\t\2|p' "$source_brewfile")
-}
+        if test -e "$app_path"
+            set -ag brewfile_all $bundle_entry
+            section "homebrew" "🍺 🙅 Ignoring cleanup for $app_path"
+        end
+    end
+end
 
 # Machine hostnames (change these to match your machines)
-typeset -r WORK_MACHINE_NAME="$(op read 'op://Private/brewfiles/WORK_MACHINE/name')"
-typeset -r PERSONAL_MACHINE_NAME="$(op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')"
-typeset -r BREWFILE_LOCAL="Brewfile.local"
+set -l WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
+set -l PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
+set -l BREWFILE_LOCAL Brewfile.local
 
-# Cleanup trap to remove temporary Brewfile.local on exit
-cleanup_brewfile() {
-  [[ -f "$BREWFILE_LOCAL" ]] && rm -f "$BREWFILE_LOCAL" "${BREWFILE_LOCAL}.lock.json"
-}
-trap cleanup_brewfile EXIT INT TERM
+function _cleanup_brewfile --on-event fish_exit
+    test -f Brewfile.local; and rm -f Brewfile.local Brewfile.local.lock.json
+end
 
 # Parse command-line arguments
-typeset dry_run=false
-if [[ "$1" == "--dry-run" ]]; then
-  dry_run=true
-  section "dry run" "🍺 🙈 No changes will be made"
+set -l dry_run false
+if test "$argv[1]" = --dry-run
+    set dry_run true
+    section "dry run" "🍺 🙈 No changes will be made"
 else
-  section "homebrew" "🍺 💻 cleanup"
-fi
-
-# Enable NO_UNSET after handling arguments
-setopt NO_UNSET
+    section "homebrew" "🍺 💻 cleanup"
+end
 
 # Remove existing Brewfile.local if present
-if [[ -f "$BREWFILE_LOCAL" ]]; then
-  section "homebrew" "🍺 🧹 Cleaning existing $BREWFILE_LOCAL"
-  rm -f "$BREWFILE_LOCAL" "${BREWFILE_LOCAL}.lock.json" 2>/dev/null || true
-fi
+if test -f $BREWFILE_LOCAL
+    section "homebrew" "🍺 🧹 Cleaning existing $BREWFILE_LOCAL"
+    rm -f $BREWFILE_LOCAL "$BREWFILE_LOCAL.lock.json" 2>/dev/null
+end
 
 # Verify required Brewfiles exist
-[[ ! -f Brewfile ]] && abort "Brewfile not found" && exit 1
-[[ ! -f Brewfile.optional ]] && abort "Brewfile.optional not found" && exit 1
+if not test -f Brewfile
+    abort "Brewfile not found"
+    exit 1
+end
+if not test -f Brewfile.optional
+    abort "Brewfile.optional not found"
+    exit 1
+end
 
 # Get the local computer's hostname
-typeset machine_name
-machine_name=$(hostname)
+set -l machine_name (hostname)
 
-# Combine base Brewfiles
-typeset brewfile_all
-brewfile_all="$(cat Brewfile)\n\n$(cat Brewfile.optional)"
+# Combine base Brewfiles (as a list of lines; joined into one string only
+# when writing the file, avoiding fish's command-substitution line-splitting
+# from corrupting embedded newlines in an intermediate string).
+set -g brewfile_all (cat Brewfile) '' (cat Brewfile.optional)
 
 # Load machine-specific Brewfile based on hostname
-typeset machine_brewfile
-case "$machine_name" in
-  "$WORK_MACHINE_NAME")
-    section "homebrew" "🍺 💼"
-    [[ ! -f Brewfile.work ]] && abort "Brewfile.work not found" && exit 1
-    machine_brewfile="Brewfile.work"
-    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.work)"
-    ;;
-  "$PERSONAL_MACHINE_NAME")
-    section "homebrew" "🍺 🏡"
-    [[ ! -f Brewfile.personal ]] && abort "Brewfile.personal not found" && exit 1
-    machine_brewfile="Brewfile.personal"
-    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.personal)"
-    ;;
-  *)
-    abort "Unknown machine name: $machine_name"
-    exit 1
-    ;;
-esac
+set -l machine_brewfile
+switch $machine_name
+    case "$WORK_MACHINE_NAME"
+        section "homebrew" "🍺 💼"
+        if not test -f Brewfile.work
+            abort "Brewfile.work not found"
+            exit 1
+        end
+        set machine_brewfile Brewfile.work
+        set -ag brewfile_all '' (cat Brewfile.work)
+    case "$PERSONAL_MACHINE_NAME"
+        section "homebrew" "🍺 🏡"
+        if not test -f Brewfile.personal
+            abort "Brewfile.personal not found"
+            exit 1
+        end
+        set machine_brewfile Brewfile.personal
+        set -ag brewfile_all '' (cat Brewfile.personal)
+    case '*'
+        abort "Unknown machine name: $machine_name"
+        exit 1
+end
 
 # Keep selected apps during cleanup when listed in the active machine Brewfile.
-append_cleanup_ignored_apps "$machine_brewfile"
+append_cleanup_ignored_apps $machine_brewfile
 
 # Add VS Code extensions
-[[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
-brewfile_all="${brewfile_all}\n\n$(cat Brewfile.vsc)"
+if not test -f Brewfile.vsc
+    abort "Brewfile.vsc not found"
+    exit 1
+end
+set -ag brewfile_all '' (cat Brewfile.vsc)
 
 # Write unified Brewfile
-echo "$brewfile_all" > "$BREWFILE_LOCAL"
+string join \n -- $brewfile_all > $BREWFILE_LOCAL
 
 # Run brew bundle cleanup (may return 1 in dry-run mode if packages would be removed)
-cmd="brew bundle cleanup --file $BREWFILE_LOCAL"
-[[ "$dry_run" == "false" ]] && cmd="${cmd} --force"
+set -l cmd "brew bundle cleanup --file $BREWFILE_LOCAL"
+test "$dry_run" = false; and set cmd "$cmd --force"
 echo ""
-formatexec "$cmd" || true
+formatexec "$cmd"; or true
 
 # Run brew autoremove to clean up lingering dependencies
-typeset cmd="brew autoremove"
-[[ "$dry_run" == "true" ]] && cmd="${cmd} --dry-run"
+set -l cmd2 "brew autoremove"
+test "$dry_run" = true; and set cmd2 "$cmd2 --dry-run"
 echo ""
-formatexec "$cmd" || true
+formatexec "$cmd2"; or true
 
 echo ""
 ok "homebrew 🍺 done"

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env fish
 
 #/ DESCRIPTION:
 #/   Install Homebrew packages from machine-specific Brewfiles.
@@ -7,103 +7,108 @@
 #/
 #/ USAGE:
 #/   install
+#
+# Translated from the original zsh scripts/brew/install. Relies on fish's
+# automatic conf.d/functions autoloading (section/abort/ok/formatexec/disabled
+# and the $RED/$NC/... color vars from config/fish/conf.d) instead of manually
+# sourcing inc/common.zsh + inc/helpers.zsh.
 
-setopt ERR_EXIT PIPE_FAIL
-
-# Source helper functions if not already loaded
-typeset -r SCRIPT_DIR="${0:A:h}"
-typeset -r DOTFILES_ROOT="${SCRIPT_DIR:h:h}"
-if [[ ! $(typeset -f section) ]]; then
-  source "${DOTFILES_ROOT}/inc/common.zsh"
-  source "${DOTFILES_ROOT}/inc/helpers.zsh"
-fi
+set -l script_dir (dirname (status current-filename))
 
 # Change to script directory to find Brewfiles
-cd "$SCRIPT_DIR"
+cd $script_dir
 
-sync_vscode_extensions() {
-  typeset cli_name="$1"
-  typeset editor_name="$2"
-  typeset -a desired_extensions
-  typeset extension
+function sync_vscode_extensions
+    set -l cli_name $argv[1]
+    set -l editor_name $argv[2]
 
-  if ! command -v "$cli_name" >/dev/null 2>&1; then
-    disabled
-    print -P "%244FSkipping $editor_name extension sync (missing CLI: $cli_name)%f"
-    return 0
-  fi
+    if not command -sq $cli_name
+        disabled
+        printf '\033[38;5;244mSkipping %s extension sync (missing CLI: %s)\033[0m\n' "$editor_name" "$cli_name"
+        return 0
+    end
 
-  desired_extensions=("${(@f)$(sed -nE 's/^[[:space:]]*vscode[[:space:]]+"([^"]+)".*/\1/p' Brewfile.vsc)}")
+    set -l desired_extensions (sed -nE 's/^[[:space:]]*vscode[[:space:]]+"([^"]+)".*/\1/p' Brewfile.vsc)
 
-  for extension in "${desired_extensions[@]}"; do
-    # --force handles install and update with one command.
-    # filter out deprecation warnings to avoid cluttering output
-    formatexec "$cli_name --install-extension $extension --force" 2>&1 | grep -vE 'DeprecationWarning|--trace-deprecation' || true
-  done
-}
+    for extension in $desired_extensions
+        # --force handles install and update with one command.
+        # filter out deprecation warnings to avoid cluttering output
+        formatexec "$cli_name --install-extension $extension --force" 2>&1 | grep -vE 'DeprecationWarning|--trace-deprecation'; or true
+    end
+end
 
 # Machine hostnames (change these to match your machines)
-typeset -r WORK_MACHINE_NAME="$(op read 'op://Private/brewfiles/WORK_MACHINE/name')"
-typeset -r PERSONAL_MACHINE_NAME="$(op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')"
-typeset -r BREWFILE_LOCAL="Brewfile.local"
+set -l WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
+set -l PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
+set -l BREWFILE_LOCAL Brewfile.local
 
-# Cleanup trap to remove temporary Brewfile.local on exit
-cleanup_brewfile() {
-  [[ -f "$BREWFILE_LOCAL" ]] && rm -f "$BREWFILE_LOCAL" "${BREWFILE_LOCAL}.lock.json"
-}
-trap cleanup_brewfile EXIT INT TERM
+# Cleanup on exit to remove temporary Brewfile.local
+function _cleanup_brewfile --on-event fish_exit
+    test -f Brewfile.local; and rm -f Brewfile.local Brewfile.local.lock.json
+end
 
 section "homebrew" "🍺 💻 install"
 
 # Verify required Brewfiles exist
-[[ ! -f Brewfile ]] && abort "Brewfile not found" && exit 1
-[[ ! -f Brewfile.optional ]] && abort "Brewfile.optional not found" && exit 1
+if not test -f Brewfile
+    abort "Brewfile not found"
+    exit 1
+end
+if not test -f Brewfile.optional
+    abort "Brewfile.optional not found"
+    exit 1
+end
 
 # Get the local computer's hostname
-typeset machine_name
-machine_name=$(hostname)
+set -l machine_name (hostname)
 
-# Combine base Brewfiles
-typeset brewfile_all
-brewfile_all="$(cat Brewfile)\n\n$(cat Brewfile.optional)"
+# Combine base Brewfiles (as a list of lines; joined into one string only
+# when writing the file, avoiding fish's command-substitution line-splitting
+# from corrupting embedded newlines in an intermediate string).
+set -l brewfile_all (cat Brewfile) '' (cat Brewfile.optional)
 
 # Load machine-specific Brewfile based on hostname
-case "$machine_name" in
-  "$WORK_MACHINE_NAME")
-    section "homebrew" "🍺 💼"
-    [[ ! -f Brewfile.work ]] && abort "Brewfile.work not found" && exit 1
-    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.work)"
-    ;;
-  "$PERSONAL_MACHINE_NAME")
-    section "homebrew" "🍺 🏡"
-    [[ ! -f Brewfile.personal ]] && abort "Brewfile.personal not found" && exit 1
-    brewfile_all="${brewfile_all}\n\n$(cat Brewfile.personal)"
-    ;;
-  *)
-    abort "Unknown machine name: $machine_name"
-    exit 1
-    ;;
-esac
+switch $machine_name
+    case "$WORK_MACHINE_NAME"
+        section "homebrew" "🍺 💼"
+        if not test -f Brewfile.work
+            abort "Brewfile.work not found"
+            exit 1
+        end
+        set -a brewfile_all '' (cat Brewfile.work)
+    case "$PERSONAL_MACHINE_NAME"
+        section "homebrew" "🍺 🏡"
+        if not test -f Brewfile.personal
+            abort "Brewfile.personal not found"
+            exit 1
+        end
+        set -a brewfile_all '' (cat Brewfile.personal)
+    case '*'
+        abort "Unknown machine name: $machine_name"
+        exit 1
+end
 
 # Write unified Brewfile
-echo "$brewfile_all" > "$BREWFILE_LOCAL"
+string join \n -- $brewfile_all > $BREWFILE_LOCAL
 
 # Execute brew bundle install
-typeset cmd="brew bundle --file $BREWFILE_LOCAL"
-formatexec "$cmd"
+formatexec "brew bundle --file $BREWFILE_LOCAL"
 
 # Sync extension state in both VS Code Stable and Insiders.
-[[ ! -f Brewfile.vsc ]] && abort "Brewfile.vsc not found" && exit 1
+if not test -f Brewfile.vsc
+    abort "Brewfile.vsc not found"
+    exit 1
+end
 section "vscode" "🧩 insiders"
-sync_vscode_extensions "code-insiders" "VS Code Insiders" || {
-  disabled
-  print -P "%244FVS Code Insiders extension sync reported errors; continuing%f"
-}
+if not sync_vscode_extensions code-insiders "VS Code Insiders"
+    disabled
+    printf '\033[38;5;244mVS Code Insiders extension sync reported errors; continuing\033[0m\n'
+end
 section "vscode" "🧩 stable"
-sync_vscode_extensions "code" "VS Code Stable" || {
-  disabled
-  print -P "%244FVS Code Stable extension sync reported errors; continuing%f"
-}
+if not sync_vscode_extensions code "VS Code Stable"
+    disabled
+    printf '\033[38;5;244mVS Code Stable extension sync reported errors; continuing\033[0m\n'
+end
 
 echo ""
 ok "homebrew 🍺 done"
