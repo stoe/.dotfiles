@@ -34,6 +34,7 @@ if status is-interactive
 
     # branch / checkout / switch
     abbr -a gb git branch
+    abbr -a gbr branches
     abbr -a gbd git branch --delete
     abbr -a gbD git branch --delete --force
     abbr -a gco git checkout
