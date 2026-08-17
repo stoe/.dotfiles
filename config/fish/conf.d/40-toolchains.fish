@@ -6,8 +6,10 @@ end
 
 # fnm — initialize early so its active Node bin is available to functions
 # loaded later, mirroring .zshrc's placement before zgen/plugin loading.
+# Quiet the startup banner so the shell prompt stays clean while preserving the
+# version-selection environment setup.
 if command -sq fnm
-    fnm env --use-on-cd --shell fish | source
+    fnm env --use-on-cd --shell fish --log-level quiet | source
 end
 
 # rbenv
