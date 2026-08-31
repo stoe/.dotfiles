@@ -41,7 +41,6 @@ vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
 vscode "graphql.vscode-graphql-syntax"
 vscode "graphql.vscode-graphql"
-vscode "rvest.vs-code-prettier-eslint"
 vscode "stylelint.vscode-stylelint"
 
 # Git and related
