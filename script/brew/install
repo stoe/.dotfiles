@@ -7,16 +7,16 @@
 #/
 #/ USAGE:
 #/   install
-#
-# Translated from the original zsh script/brew/install. Relies on fish's
-# automatic conf.d/functions autoloading (section/abort/ok/formatexec/disabled
-# and the $RED/$NC/... color vars from config/fish/conf.d) instead of manually
-# sourcing inc/common.zsh + inc/helpers.zsh.
+
+# Relies on fish's automatic conf.d/functions autoloading
+# (section/abort/ok/formatexec) plus the shared helpers in lib.fish.
 
 set -l script_dir (dirname (status current-filename))
 
 # Change to script directory to find Brewfiles
 cd $script_dir
+
+source lib.fish
 
 function sync_vscode_extensions
     set -l cli_name $argv[1]
@@ -39,38 +39,19 @@ end
 
 # Machine hostnames come from 1Password when available. Environment variables
 # can provide them after bootstrap, without requiring desktop integration.
-set -l WORK_MACHINE_NAME "$WORK_MACHINE_NAME"
-set -l PERSONAL_MACHINE_NAME "$PERSONAL_MACHINE_NAME"
-if command -sq op
-    set -l op_status (op whoami 2>&1)
-    if test $status -ne 0; or string match -qi '*account is not signed in*' -- $op_status
-        section "1password" "🔐 Not signed in; running 'op signin' to read machine names"
-        op signin
-    end
-
-    if op whoami >/dev/null 2>&1
-        set WORK_MACHINE_NAME (op read 'op://Private/brewfiles/WORK_MACHINE/name')
-        set PERSONAL_MACHINE_NAME (op read 'op://Private/brewfiles/PERSONAL_MACHINE/name')
-    end
-end
+_brew_resolve_machine_names
 set -l BREWFILE_LOCAL Brewfile.local
 
-# Cleanup on exit to remove temporary Brewfile.local
-function _cleanup_brewfile --on-event fish_exit
-    test -f Brewfile.local; and rm -f Brewfile.local Brewfile.local.lock.json
+# Cleanup on exit (or interrupt) to remove temporary Brewfile.local.
+function _cleanup_brewfile --on-event fish_exit --on-signal SIGINT
+    _brew_clean_local_brewfile Brewfile.local
 end
 
 section "homebrew" "🍺 💻 install"
 
 # Verify required Brewfiles exist
-if not test -f Brewfile
-    abort "Brewfile not found"
-    exit 1
-end
-if not test -f Brewfile.optional
-    abort "Brewfile.optional not found"
-    exit 1
-end
+_brew_require_file Brewfile "Brewfile"
+_brew_require_file Brewfile.optional "Brewfile.optional"
 
 # Get the local computer's hostname
 set -l machine_name (hostname)
@@ -84,17 +65,11 @@ set -l brewfile_all (cat Brewfile) '' (cat Brewfile.optional)
 switch $machine_name
     case "$WORK_MACHINE_NAME"
         section "homebrew" "🍺 💼"
-        if not test -f Brewfile.work
-            abort "Brewfile.work not found"
-            exit 1
-        end
+        _brew_require_file Brewfile.work "Brewfile.work"
         set -a brewfile_all '' (cat Brewfile.work)
     case "$PERSONAL_MACHINE_NAME"
         section "homebrew" "🍺 🏡"
-        if not test -f Brewfile.personal
-            abort "Brewfile.personal not found"
-            exit 1
-        end
+        _brew_require_file Brewfile.personal "Brewfile.personal"
         set -a brewfile_all '' (cat Brewfile.personal)
     case '*'
         abort "Unknown machine name: $machine_name"
@@ -108,10 +83,7 @@ string join \n -- $brewfile_all > $BREWFILE_LOCAL
 formatexec "brew bundle --file $BREWFILE_LOCAL"
 
 # Sync extension state in both VS Code Stable and Insiders.
-if not test -f Brewfile.vsc
-    abort "Brewfile.vsc not found"
-    exit 1
-end
+_brew_require_file Brewfile.vsc "Brewfile.vsc"
 section "vscode" "🧩 insiders"
 if not sync_vscode_extensions code-insiders "VS Code Insiders"
     disabled
