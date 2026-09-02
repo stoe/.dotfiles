@@ -4,12 +4,14 @@
   "chat.agentFilesLocations": {
     "~/.copilot/agents": true
   },
+  "chat.agent.sandbox.enabled": "off",
   "chat.agentSkillsLocations": {},
   "chat.agent.thinking.collapsedTools": "off",
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agentSessionsViewLocation": "view",
   "chat.checkpoints.showFileChanges": true,
   "chat.customAgentInSubagent.enabled": true,
+  "chat.defaultModel": "auto",
   "chat.defaultToCopilotHarness": true,
   "chat.editing.confirmEditRequestRemoval": false,
   "chat.editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
@@ -18,6 +20,7 @@
   "chat.emptyState.history.enabled": true,
   "chat.experimental.useSkillAdherencePrompt": true,
   "chat.experimental.symbolTools.cacheStable": true,
+  "chat.exploreAgent.defaultModel": "Auto (copilot)",
   "chat.fontSize": 14,
   "chat.instructionsFilesLocations": {
     ".github/copilot-instructions.md": true,
@@ -42,6 +45,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "chat.planAgent.defaultModel": "Auto (copilot)",
   "chat.pluginLocations": {},
   "chat.plugins.enabled": true,
   "chat.plugins.marketplaces": [
@@ -58,8 +62,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "chat.repoInfo.enabled": true,
   "chat.tips.enabled": false,
-  "chat.tools.edits.autoApprove": {},
+  "chat.tools.compressOutput.enabled": true,
+  "chat.tools.edits.autoApprove": {
+    "**/*": false
+  },
   "chat.tools.terminal.autoApprove": {},
   "chat.tools.urls.autoApprove": {
     "https://docs.github.com": {
@@ -209,6 +217,7 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "inlineChat.defaultModel": "Auto (copilot)",
   "inlineChat.enableV2": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -283,6 +292,7 @@
   "telemetry.editStats.enabled": false,
   "telemetry.feedback.enabled": false,
   "telemetry.telemetryLevel": "off",
+  "terminal.explorerKind": "both",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.defaultProfile.osx": "fish (login)",
