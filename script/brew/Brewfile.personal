@@ -10,6 +10,8 @@
 
 cask "little-snitch"
 cask "parallels"
+cask "proton-mail"
+# cask "proton-mail-bridge"
 cask "steam"
 
 # (personal) fonts -------------------------------------------------------------
