@@ -6,7 +6,7 @@ function targz --description 'Smart tar.gz creation (uses 7zz/pigz/gzip based on
 
     set -l tmp (string join ' ' $argv | string trim --right --chars=/)".tar"
 
-    formatexec "tar -cf '$tmp' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' '$argv' || return 1"
+    formatexec "tar -cf '$tmp' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.DS_Store' --exclude='Thumbs.db' '$argv' || return 1"
 
     if command -sq 7zz
         formatexec "7zz a -tgzip '$tmp.gz' '$tmp' || return 1"
