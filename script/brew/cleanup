@@ -97,6 +97,8 @@ set -ag brewfile_all '' (cat Brewfile.vsc)
 # Write unified Brewfile
 string join \n -- $brewfile_all > $BREWFILE_LOCAL
 
+set -l fish_version_before (_brew_fish_version)
+
 # Run brew bundle cleanup (may return 1 in dry-run mode if packages would be removed)
 set -l cmd "brew bundle cleanup --file $BREWFILE_LOCAL"
 test "$dry_run" = false; and set cmd "$cmd --force"
@@ -114,6 +116,8 @@ set -l cmd2 "brew autoremove"
 test "$dry_run" = true; and set cmd2 "$cmd2 --dry-run"
 echo ""
 formatexec "$cmd2"; or true
+
+test "$dry_run" = false; and _brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
 
 echo ""
 ok "homebrew 🍺 done"

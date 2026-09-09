@@ -48,3 +48,23 @@ function _brew_clean_local_brewfile
     test -f "$brewfile_local"; and rm "$brewfile_local"
     test -f "$brewfile_local.lock.json"; and rm "$brewfile_local.lock.json"
 end
+
+# Reports installed fish version(s), for diffing before/after a brew
+# operation that may add or remove a Cellar version.
+function _brew_fish_version
+    brew list --versions fish 2>/dev/null
+end
+
+# Warns when fish's installed version(s) changed: any already-running fish
+# shell keeps a stale `status fish-path` (Tide's `fish_prompt.fish` embeds it
+# via `eval`) pointing at the now-gone Cellar dir until the shell is
+# restarted.
+function _brew_warn_if_fish_changed
+    set -l before $argv[1]
+    set -l after $argv[2]
+
+    if test -n "$before"; and test "$before" != "$after"
+        printf '\n\033[38;5;220m⚠ fish was updated (%s → %s). Restart your shell (`exec fish` or a new terminal tab) to avoid stale fish-path errors in the prompt.\033[0m\n' \
+            (string replace 'fish ' '' -- $before) (string replace 'fish ' '' -- $after)
+    end
+end

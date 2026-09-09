@@ -79,8 +79,12 @@ end
 # Write unified Brewfile
 string join \n -- $brewfile_all > $BREWFILE_LOCAL
 
+set -l fish_version_before (_brew_fish_version)
+
 # Execute brew bundle install
 formatexec "brew bundle --file $BREWFILE_LOCAL"
+
+_brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
 
 # Sync extension state in both VS Code Stable and Insiders.
 _brew_require_file Brewfile.vsc "Brewfile.vsc"
