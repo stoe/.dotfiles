@@ -286,6 +286,8 @@ Key utilities organized as one autoloaded function per file under `config/fish/f
 #### Navigation
 
 - `d()` - List the ten most recently visited directories, numbered by how many steps back they are; jump with `prevd N` (fish has no `cd -N`). Reads `$dirprev` (fish's cd history) rather than `dirs`, which in fish only tracks explicit `pushd`
+- `cdf()` - Change to the folder shown in Finder's front window
+- `-` - Expand interactively to `cd -` and return to the previous directory
 
 #### Archive Utilities
 
