@@ -1,4 +1,4 @@
-function ncua --description 'npm-check-updates interactive update + build/test, translated from inc/aliases.zsh'
+function ncua --description 'npm-check-updates interactive update + build/test'
     begin
         git pull
         or true

@@ -1,6 +1,5 @@
 # .docx -> .md
 # Usage: docx2md <input-file.docx> [output-name]
-# Translated from inc/functions.zsh's docx2md().
 function docx2md --description 'Word to Markdown via Pandoc'
     if not command -sq pandoc
         abort "Error: pandoc is not installed."

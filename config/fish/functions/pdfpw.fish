@@ -1,7 +1,4 @@
-# Password-protected PDF creation using Ghostscript, translated from the
-# .pdfpw submodule's pdfpw.zsh (config/.pdfpw/pdfpw.zsh). The submodule
-# itself stays zsh-only (separate upstream repo); this is a fish-native
-# reimplementation for the interactive fish shell.
+# Password-protected PDF creation using Ghostscript.
 #/ DESCRIPTION:
 #/   Create password-protected PDF files using Ghostscript with user and owner passwords.
 #/   Validates inputs, optionally retrieves owner password from 1Password, and encrypts PDFs.

@@ -1,3 +1,3 @@
-function npmla --description 'npm la --depth=0, translated from inc/aliases.zsh'
+function npmla --description 'npm la --depth=0'
     npm la --depth=0 $argv
 end

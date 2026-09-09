@@ -1,6 +1,5 @@
 # Create a .tgz archive, using `7zz`, `pigz` or `gzip` for compression.
 # Usage: targz <path>
-# Translated from inc/functions.zsh's targz().
 function targz --description 'Smart tar.gz creation (uses 7zz/pigz/gzip based on availability)'
     section "Compressing $argv ..."
 

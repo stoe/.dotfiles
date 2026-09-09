@@ -1,4 +1,4 @@
-# Shared color variables, translated from inc/common.zsh.
+# Shared color variables.
 # Sourced early (numbered before functions rely on them) so every fish
 # function file can reference these globals.
 

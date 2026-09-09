@@ -1,4 +1,4 @@
-function mkd --description 'Create a new directory and enter it, translated from inc/functions.zsh'
+function mkd --description 'Create a new directory and enter it'
     mkdir -p $argv
     and cd $argv
 end

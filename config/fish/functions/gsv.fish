@@ -1,3 +1,3 @@
-function gsv --description 'Alias for ghstackview, translated from inc/functions.zsh'
+function gsv --description 'Alias for ghstackview'
     ghstackview $argv
 end

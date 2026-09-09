@@ -1,3 +1,3 @@
-function rm! --description 'Real /bin/rm escape hatch, translated from inc/aliases.zsh'
+function rm! --description 'Real /bin/rm escape hatch'
     /bin/rm $argv
 end

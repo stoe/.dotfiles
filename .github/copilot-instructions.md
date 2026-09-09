@@ -32,8 +32,7 @@ This is a **modular dotfiles system** with three key architectural components:
 2. **Package Management**: Machine-aware Homebrew setup that detects work vs personal environments
 3. **AI Workflow Layer**: GitHub-based chat modes, instructions, and toolsets for different work contexts
 
-> [!NOTE]
-> This repo migrated from zsh/zgen/Oh My Zsh/Powerlevel10k to fish/Fisher/fzf.fish/Tide (branch `stoe/fish`). `config/fish/` is the primary, actively maintained shell configuration, and fish is the default shell. The legacy zsh (`.zshrc`, `.zprofile`, `.zlogin`, `inc/*.zsh`, `.p10k.zsh`) and bash (`.bash_profile`, `.bashrc`, `.git-completion.bash`, `.git-prompt.sh`) files have been fully removed after confirming every alias/function/PATH setting was ported.
+`config/fish/` contains the primary shell configuration, and fish is the default shell.
 
 ### File Structure
 
@@ -147,25 +146,7 @@ Creates unified Brewfile from: `Brewfile` + `Brewfile.optional` + `Brewfile.{wor
 - Custom aliases/functions emphasize safety (`rm` → `trash`, `rm!` → real `/bin/rm`); `trash` comes from the keg-only `macos-trash` formula, PATH-prepended in `conf.d/10-paths.fish` so it wins over any npm-installed `trash-cli`
 - `ls`/`l`/`ll`/`la` are overridden to GNU coreutils' `gls` when installed (`config/fish/conf.d/35-ls.fish`); without coreutils, fish's own colorized `ls` wrapper is used instead
 - NPM workflow aliases/functions for update + install + test cycles (`npmup`, `ncua`, `ncua!`)
-- SSH auth standardized on the 1Password SSH agent (`config/fish/conf.d/20-environment.fish`), resolving a former race condition between `ssh-agent` and yubikey-agent
-- Legacy zsh (`.zshrc`, `.zprofile`, `.zlogin`, `inc/*.zsh`, `.p10k.zsh`) and bash (`.bash_profile`, `.bashrc`, `.git-completion.bash`, `.git-prompt.sh`) files have all been removed — fish covers everything they provided
-
-##### Oh My Zsh plugin replacements
-
-The old `.zshrc` loaded the Oh My Zsh core lib plus ten plugins via zgen. Fish covers most of it natively; only the `git` plugin's aliases and the lib's `d` needed porting:
-
-| Oh My Zsh plugin                    | Fish equivalent                                                                                                                   |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `plugins/git`                       | `config/fish/conf.d/30-git-abbr.fish` - `g`, `ga`, `gc`, `gp` … 32 abbreviations covering the subset actually used, plus siblings |
-| `plugins/gitignore`                 | `gi` function (`config/fish/functions/gi.fish`)                                                                                   |
-| `plugins/brew`                      | Fish ships `brew` completions; the plugin's aliases weren't used                                                                  |
-| `plugins/node`                      | Fish ships `node`/`npm` completions; `npmup`/`npmls`/`npmla`/`npmll` are custom functions                                         |
-| `plugins/fnm`                       | `fnm env --use-on-cd --shell fish` in `conf.d/40-toolchains.fish`                                                                 |
-| `plugins/git-extras`                | Completions only; commands themselves come from the `git-extras` formula                                                          |
-| `plugins/git-lfs`                   | Aliases only, unused; `git lfs` works unchanged                                                                                   |
-| `plugins/macos`                     | Only `cdf` was ever used (once); not ported                                                                                       |
-| `zgen oh-my-zsh` (the omz **lib**)  | Mostly native in fish (`..`/`...`, `prevd`/`nextd`, `cd -`, `cdh`); `d` is ported to `config/fish/functions/d.fish`               |
-| `zsh-users/zsh-syntax-highlighting` | Built into fish - no plugin required                                                                                              |
+- SSH auth uses the 1Password SSH agent (`config/fish/conf.d/20-environment.fish`)
 
 `gs`, `gls` and `gcp` are deliberately **not** defined as git abbreviations: on this machine they resolve to ghostscript, coreutils' `gls` and coreutils' `gcp`.
 
@@ -293,14 +274,14 @@ Key utilities organized as one autoloaded function per file under `config/fish/f
 
 - `targz()` - Smart tar.gz creation (uses 7zz/pigz/gzip based on availability)
 - `extract()` - Universal archive extractor for multiple formats
-- `zippw()` - Password-protected zip archives via 7z + 1Password integration (fish port of the `.zippw` submodule's zsh script)
+- `zippw()` - Password-protected zip archives via 7z and 1Password integration
 
 #### Conversion Tools
 
 - `mov2gif()` - Video to GIF conversion with ffmpeg + ImageMagick
 - `pdf2png()` - PDF to PNG with Ghostscript
 - `docx2md()` - Word to Markdown via Pandoc
-- `pdfpw()` - PDF password protection with Ghostscript + 1Password integration (fish port of the `.pdfpw` submodule's zsh script)
+- `pdfpw()` - PDF password protection with Ghostscript and 1Password integration
 - `gi()` - Fetch a `.gitignore` template from gitignore.io
 - `ghstackview()` / `gsv` - List gh-stack branches with needsRebase status
 
@@ -308,9 +289,6 @@ Key utilities organized as one autoloaded function per file under `config/fish/f
 
 - `dstop()` - Stop all containers with confirmation
 - `dclean()` - Prune stopped containers and untagged images
-
-> [!NOTE]
-> The `.pdfpw`/`.zippw` git submodules (`config/.pdfpw/pdfpw.zsh`, `config/.zippw/zippw.zsh`) remain zsh-only reference implementations in their own upstream repos; the fish functions above are independent reimplementations for the interactive fish shell, not generated from the submodules.
 
 ## Maintenance Strategy
 

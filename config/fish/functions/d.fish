@@ -1,14 +1,10 @@
-# Directory-stack helper from Oh My Zsh's lib/directories.zsh, which .zshrc
-# loaded via `zgen oh-my-zsh` (the lib, separate from the plugins).
-#
-# zsh built this list from AUTO_PUSHD, so `dirs -v` reflected every `cd`.
-# Fish's `dirs` only tracks explicit `pushd`, so this reads $dirprev instead —
-# fish's actual per-session cd history — to reproduce the original behaviour.
+# Fish's `dirs` only tracks explicit `pushd`, so this reads $dirprev,
+# fish's actual per-session cd history.
 #
 # Output is numbered most-recent-first; the number is how many steps back the
 # entry is, so jump to it with `prevd N` (fish has no `cd -N`). `cd -` goes
 # back one, and `cdh` offers an interactive picker.
-function d --description 'List recently visited directories (Oh My Zsh lib/directories.zsh)'
+function d --description 'List recently visited directories'
     if test (count $argv) -gt 0
         dirs $argv
         return

@@ -1,5 +1,4 @@
-# NPM global package updater with confirmation, translated from
-# inc/functions.zsh's npmup() (see npm outdated/update/doctor docs).
+# NPM global package updater with confirmation.
 function npmup --description 'NPM global package updater with confirmation (supports -y)'
     # Only allow -y flag or no arguments
     if test -n "$argv[1]"; and test "$argv[1]" != -y

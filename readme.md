@@ -9,7 +9,7 @@
 This collection includes configurations for:
 
 - **fish** via [Fisher](https://github.com/jorgebucaran/fisher) (loads [`PatrickF1/fzf.fish`](https://github.com/PatrickF1/fzf.fish) and the [Tide](https://github.com/IlanCosman/tide) prompt)
-- **git** with sensible defaults, helpful aliases and fish abbreviations (`config/fish/conf.d/30-git-abbr.fish`, replacing the Oh My Zsh `git` plugin)
+- **git** with sensible defaults, helpful aliases, and fish abbreviations (`config/fish/conf.d/30-git-abbr.fish`)
 - **VS Code** settings and extensions (because who doesn't love a good editor war?)
 - **homebrew** packages organized by context (work, personal, optional)
 - **prettier** for keeping things looking sharp

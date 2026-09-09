@@ -1,4 +1,4 @@
-function ncua! --description 'npm-check-updates full upgrade + clean reinstall, translated from inc/aliases.zsh'
+function ncua! --description 'npm-check-updates full upgrade + clean reinstall'
     begin
         git pull
         or true

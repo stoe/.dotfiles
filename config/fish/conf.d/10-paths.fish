@@ -1,4 +1,3 @@
-# PATH assembly, translated from inc/paths.zsh's zsh `path` array.
 # Fish treats PATH as a real list; use fish_add_path (idempotent, deduplicating,
 # ignores nonexistent directories) instead of rebuilding an array by hand.
 

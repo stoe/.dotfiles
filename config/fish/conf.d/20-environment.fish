@@ -1,7 +1,7 @@
-# Non-PATH environment exports, translated from inc/paths.zsh and .zshrc.
+# Non-PATH environment exports.
 # GOPATH/GOBIN/GOROOT are set in conf.d/10-paths.fish since PATH depends on them.
 
-# Locale, from .zshrc.
+# Locale.
 set -gx LC_CTYPE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8

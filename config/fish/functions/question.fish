@@ -1,4 +1,4 @@
-function question --description 'Print a question (and optional options hint), translated from inc/helpers.zsh'
+function question --description 'Print a question and optional options hint'
     set -l question $argv[1]
     set -l options $argv[2]
 

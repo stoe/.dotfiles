@@ -1,4 +1,4 @@
-function dclean --description 'Prune stopped docker containers and untagged images with confirmation, translated from inc/functions.zsh'
+function dclean --description 'Prune stopped docker containers and untagged images with confirmation'
     question "Do you really want to delete all stopped 🐳  docker containers?" "yn"
     read -s -n 1 ask
     printf '%s> %s%s\n' "$PC_ANSWER" "$ask" "$PC_RESET"

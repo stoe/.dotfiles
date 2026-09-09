@@ -1,6 +1,5 @@
 # .mov -> .gif
 # Usage: mov2gif <file> <scale>
-# Translated from inc/functions.zsh's mov2gif().
 function mov2gif --description 'Video to GIF conversion with ffmpeg + ImageMagick'
     set -l file (string replace -r '\.[^.]*$' '' -- $argv[1])
     set -l scale $argv[2]

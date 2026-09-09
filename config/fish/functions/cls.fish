@@ -1,3 +1,3 @@
-function cls --description 'DOS style clear, translated from inc/aliases.zsh'
+function cls --description 'DOS style clear'
     clear
 end

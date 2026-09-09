@@ -1,5 +1,4 @@
 # .pdf -> .png
-# Translated from inc/functions.zsh's pdf2png().
 function pdf2png --description 'PDF to PNG with Ghostscript'
     set -l file (string replace -r '\.[^.]*$' '' -- $argv[1])
     set -l outputFolder "$HOME/Desktop/$file"

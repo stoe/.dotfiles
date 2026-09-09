@@ -1,4 +1,4 @@
-function ghup --description 'GitHub CLI extension/Copilot updater, translated from inc/functions.zsh'
+function ghup --description 'GitHub CLI extension/Copilot updater'
     section "Updating GitHub CLI extensions"
     formatexec "gh extension upgrade --all"
 

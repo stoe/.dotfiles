@@ -1,14 +1,10 @@
-# GNU coreutils `gls` overrides for the ls family, translated from .zshrc.
+# GNU coreutils `gls` overrides for the ls family.
 #
 # Requires `brew install coreutils`. When gls is unavailable these functions are
 # not defined at all, so fish's own colorized `ls` wrapper stays in effect.
 #
-# Two deliberate changes from the zsh original:
-#   1. The zsh guard was `if test gls` — a one-argument `test`, which is true
-#      for any non-empty string, so it never actually checked for gls. Replaced
-#      with a real `command -sq gls` check.
-#   2. `--color` (equivalent to `--color=always`) became `--color=auto`, so
-#      escape codes are no longer injected into pipes and redirects.
+# Use `command -sq gls` to check availability and `--color=auto` to avoid
+# injecting escape codes into pipes and redirects.
 
 if command -sq gls
     function ls --description 'GNU ls with classify indicators'
@@ -27,4 +23,3 @@ if command -sq gls
         command gls -A --color=auto $argv
     end
 end
-

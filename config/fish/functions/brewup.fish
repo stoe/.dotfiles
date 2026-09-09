@@ -1,6 +1,4 @@
 # Homebrew/Mac App Store/formulae updater with interactive or -y confirmation.
-# Translated from inc/functions.zsh's brewup() (see
-# https://gist.github.com/fvdm/1715d580a22503ce115c#file-homebrew_update-sh).
 function brewup --description 'Interactive Homebrew/mas/cask updater (supports -y)'
     # Only allow -y flag or no arguments
     if test -n "$argv[1]"; and test "$argv[1]" != -y

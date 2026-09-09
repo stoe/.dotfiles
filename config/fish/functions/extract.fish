@@ -1,6 +1,5 @@
 # Extract any archive.
 # Usage: extract <file>
-# Translated from inc/functions.zsh's extract().
 function extract --description 'Universal archive extractor for multiple formats'
     if test (count $argv) -ne 1
         abort "Error: No file specified."

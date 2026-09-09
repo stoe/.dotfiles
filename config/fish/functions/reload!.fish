@@ -1,3 +1,3 @@
-function reload! --description 'Reload the interactive shell, translated from inc/aliases.zsh (. ~/.zshrc)'
+function reload! --description 'Reload the interactive shell'
     exec fish
 end

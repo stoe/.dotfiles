@@ -1,7 +1,4 @@
-# Password-protected ZIP archive creation using 7-Zip, translated from the
-# .zippw submodule's zippw.zsh (config/.zippw/zippw.zsh). The submodule
-# itself stays zsh-only (separate upstream repo); this is a fish-native
-# reimplementation for the interactive fish shell.
+# Password-protected ZIP archive creation using 7-Zip.
 #/ DESCRIPTION:
 #/   Create a password-protected ZIP archive using 7-Zip.
 #/   Validates inputs and dependencies, then writes a .zip file with encryption.

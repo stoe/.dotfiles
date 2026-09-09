@@ -1,11 +1,10 @@
-# Toolchain shell hooks, translated from .zshrc's fnm/rbenv/pyenv init and gpg-agent launch.
+# Toolchain shell hooks for fnm, rbenv, pyenv, direnv, and gpg-agent.
 
 if command -sq gpgconf; and status is-interactive
     gpgconf --launch gpg-agent >/dev/null 2>&1
 end
 
-# fnm — initialize early so its active Node bin is available to functions
-# loaded later, mirroring .zshrc's placement before zgen/plugin loading.
+# Initialize fnm early so its active Node bin is available to functions loaded later.
 # Quiet the startup banner so the shell prompt stays clean while preserving the
 # version-selection environment setup.
 if command -sq fnm

@@ -1,5 +1,4 @@
 # List gh-stack branches with needsRebase status using shared helper colors.
-# Translated from inc/functions.zsh's ghstackview().
 function ghstackview --description 'List gh-stack branches with needsRebase status'
     if not command -sq gh
         abort "Error: gh is not installed."

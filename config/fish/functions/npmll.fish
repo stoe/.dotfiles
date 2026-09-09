@@ -1,3 +1,3 @@
-function npmll --description 'npm ll --depth=0, translated from inc/aliases.zsh'
+function npmll --description 'npm ll --depth=0'
     npm ll --depth=0 $argv
 end

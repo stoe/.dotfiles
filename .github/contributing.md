@@ -11,7 +11,7 @@ Before you start, you'll need:
 
 - **macOS** (these dotfiles are macOS-specific)
 - **Node.js 20+** and **npm 10+** (for prettier and git hooks)
-- **zsh** as your shell
+- **fish** as your shell
 
 To set up the development environment:
 

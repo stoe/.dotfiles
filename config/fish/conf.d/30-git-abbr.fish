@@ -1,6 +1,4 @@
-# Git abbreviations, replacing the Oh My Zsh `git` plugin's aliases that were
-# loaded via zgen in .zshrc. Only the subset actually used is carried over
-# (verified against ~/.zsh_history), plus their closest siblings.
+# Git abbreviations for frequently used commands and their closest siblings.
 #
 # Abbreviations rather than functions/aliases so the expansion is visible in
 # the command line before running — fish's idiomatic equivalent of an alias.
@@ -20,8 +18,7 @@ if status is-interactive
     abbr -a gapa git add --patch
 
     # commit
-    # .zshrc deliberately overrode the omz git plugin's `gc` with gitmoji;
-    # preserved here. `gc!`/`gcn!` remain plain git amend commands.
+    # Prefer gitmoji for `gc`; `gc!` and `gcn!` remain plain amend commands.
     if command -sq gitmoji
         abbr -a gc gitmoji -c
     else

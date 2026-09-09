@@ -1,6 +1,4 @@
-# One-time Tide prompt configuration, mapped from .p10k.zsh's lean/sparse/
-# disconnected/few-icon two-line style (dir+vcs / newline / prompt_char left;
-# status/cmd_duration/jobs/direnv/toolchain-version/cloud-CLI segments right).
+# One-time Tide prompt configuration using a compact, disconnected two-line style.
 # Guarded so it only runs once per machine (fresh `tide_left_prompt_items` is
 # unset until `tide configure` has run) instead of re-running interactively
 # on every shell start.
@@ -15,7 +13,6 @@ if status is-interactive; and functions -q tide; and not set -q tide_left_prompt
         --icons="Many icons" \
         --transient=Yes
 
-    # p10k parity: os_icon was commented out/disabled in .p10k.zsh, so drop
-    # Tide's default `os` segment from the left prompt (dir + git only).
+    # Keep the left prompt focused on the directory and Git state.
     set -U tide_left_prompt_items pwd git newline character
 end
