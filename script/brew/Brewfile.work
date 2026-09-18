@@ -16,10 +16,10 @@ brew "sf"
 cask "camo-studio"
 cask "deckset"
 # cask "deskpad"
-cask "energiza", args: { require_sha: false }
+# cask "energiza", args: { require_sha: false }
 # cask "java" unless system "/usr/libexec/java_home --failfast"
 # cask "jordanbaird-ice"
-cask "jordanbaird-ice@beta"
+# cask "jordanbaird-ice@beta"
 cask "loom"
 cask "lunar"
 
