@@ -13,7 +13,7 @@ function _brew_resolve_machine_names
     if command -sq op
         set -l op_status (op whoami 2>&1)
         if test $status -ne 0; or string match -qi '*account is not signed in*' -- $op_status
-            section "1password" "🔐 Not signed in; running 'op signin' to read machine names"
+            section 1password "🔐 Not signed in; running 'op signin' to read machine names"
             op signin
         end
 
