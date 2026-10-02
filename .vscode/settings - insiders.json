@@ -1,9 +1,6 @@
 {
   "application.shellEnvironmentResolutionTimeout": 60,
   "chat.agent.enabled": true,
-  "chat.agentFilesLocations": {
-    "~/.copilot/agents": true
-  },
   "chat.agent.sandbox.enabled": "off",
   "chat.agentSkillsLocations": {},
   "chat.agent.thinking.collapsedTools": "off",
@@ -22,11 +19,6 @@
   "chat.experimental.symbolTools.cacheStable": true,
   "chat.exploreAgent.defaultModel": "Auto (copilot)",
   "chat.fontSize": 14,
-  "chat.instructionsFilesLocations": {
-    ".github/copilot-instructions.md": true,
-    ".github/instructions": true,
-    "~/code/private/.dotfiles/.github/instructions": true
-  },
   "[instructions]": {
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
