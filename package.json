@@ -17,11 +17,18 @@
   },
   "scripts": {
     "format": "npx prettier --config-precedence prefer-file --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "pretest": "npx eslint-config-prettier eslint.config.js",
+    "test": "eslint ."
   },
   "dependencies": {},
   "devDependencies": {
+    "@eslint/markdown": "^8.0.3",
     "@github/prettier-config": "^0.0.6",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "globals": "^17.13.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.9"
