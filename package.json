@@ -21,17 +21,16 @@
     "pretest": "npx eslint-config-prettier eslint.config.js",
     "test": "eslint ."
   },
-  "dependencies": {},
   "devDependencies": {
-    "@eslint/markdown": "^8.0.3",
+    "@eslint/markdown": "^7.5.1",
     "@github/prettier-config": "^0.0.6",
-    "eslint": "^10.11.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-prettier": "^5.5.7",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "prettier": "^3.9.9"
+    "prettier": "^3.9.10"
   },
   "husky": {
     "hooks": {
