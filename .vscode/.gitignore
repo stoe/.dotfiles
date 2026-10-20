@@ -1,4 +1,8 @@
-*
-!snippets/
-!keybindings.json
-!settings*json
+/*
+!/.gitignore
+!/extensions/
+/extensions/*
+!/extensions/.gitkeep
+!/keybindings.json
+!/settings*.json
+!/snippets/
