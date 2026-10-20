@@ -1,10 +1,11 @@
 import globals from 'globals'
 import markdown from '@eslint/markdown'
+import yml from 'eslint-plugin-yml'
 import prettierConfig from 'eslint-config-prettier'
 import prettierPluginRecommended from 'eslint-plugin-prettier/recommended'
 
 export default [
-  {ignores: ['.ruby-lsp/', '.vscode/extensions/']},
+  {ignores: ['.ruby-lsp/', '.vscode/extensions/', 'config/gh/']},
   prettierConfig,
   prettierPluginRecommended,
   {
@@ -22,4 +23,6 @@ export default [
   },
   ...markdown.configs.recommended,
   ...markdown.configs.processor,
+  ...yml.configs.recommended,
+  ...yml.configs.prettier,
 ]
