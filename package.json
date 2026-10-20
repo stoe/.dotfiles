@@ -41,13 +41,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": [
-      "npx prettier --config-precedence prefer-file --write"
+      "npx prettier --config-precedence prefer-file --write",
+      "eslint"
     ],
     "*.{yaml,yml}": [
       "npx prettier --config-precedence prefer-file --write",
       "eslint"
-    ],
-    "!**/.github/copilot-instructions.md": []
+    ]
   },
   "prettier": "@github/prettier-config"
 }

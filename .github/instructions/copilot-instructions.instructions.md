@@ -239,7 +239,7 @@ Toolchain environment setup centralized in `config/fish/conf.d/10-paths.fish` an
 ### Development Workflow Standards
 
 - **Prettier + Husky**: Auto-formatting with pre-commit hooks
-- **lint-staged**: Staged file formatting (excludes copilot-instructions.md)
+- **lint-staged**: Formats staged files with Prettier and lints them with ESLint
 - **ESLint**: `npm test` lints JavaScript, Markdown and YAML (`eslint-plugin-yml`); `config/gh/` is ignored because `gh` rewrites it
 - **Node.js toolchain**: Uses npm for dependency management
 
