@@ -1,5 +1,9 @@
 .copilot-memory/
 
+.ruby-lsp/
+!.ruby-lsp/Gemfile
+!.ruby-lsp/Gemfile.lock
+
 config/*
 !config/.pdfpw
 !config/.zippw

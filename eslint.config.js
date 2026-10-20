@@ -4,7 +4,7 @@ import prettierConfig from 'eslint-config-prettier'
 import prettierPluginRecommended from 'eslint-plugin-prettier/recommended'
 
 export default [
-  {ignores: ['.vscode/extensions/']},
+  {ignores: ['.ruby-lsp/', '.vscode/extensions/']},
   prettierConfig,
   prettierPluginRecommended,
   {
