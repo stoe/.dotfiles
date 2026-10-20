@@ -1,12 +1,16 @@
-Brewfile* linguist-language=Ruby
+# Normalize text files to LF; this repo only targets macOS
+* text=auto eol=lf
 
-# found via https://github.com/alexkaratarakis/gitattributes
+# Function-aware diff hunk headers
+*.fish     diff=bash
+*.md       diff=markdown
+Brewfile*  diff=ruby
+Gemfile    diff=ruby
 
-#
-# Auto detect text files and perform LF normalization
-# http://davidlaing.com/2012/09/19/customise-your-gitattributes-to-become-a-git-ninja/
-* text=auto
+# GitHub language detection
+Brewfile*         linguist-language=Ruby
+.vscode/**/*.json linguist-language=JSON-with-Comments
 
-#
-# The above will handle all files NOT found below
-#
+# Collapse generated lockfiles in GitHub diffs
+package-lock.json       linguist-generated=true
+.ruby-lsp/Gemfile.lock  linguist-generated=true
