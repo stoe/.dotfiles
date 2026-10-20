@@ -10,7 +10,7 @@ Hi there! I'm thrilled that you'd like to contribute to this project. Your help 
 Before you start, you'll need:
 
 - **macOS** (these dotfiles are macOS-specific)
-- **Node.js 20+** and **npm 10+** (for prettier and git hooks)
+- **Node.js 24+** and **npm 10+** (for prettier and git hooks)
 - **fish** as your shell
 
 To set up the development environment:

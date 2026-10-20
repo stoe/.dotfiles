@@ -12,7 +12,7 @@
   "repository": "https://github.com/stoe/.dotfiles",
   "type": "module",
   "engines": {
-    "node": ">=20",
+    "node": ">=24",
     "npm": ">=10"
   },
   "scripts": {
