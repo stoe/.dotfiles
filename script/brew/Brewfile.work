@@ -4,9 +4,11 @@ tap "timrogers/tap", trusted: true
 
 #/ (work) formulas -------------------------------------------------------------
 
+brew "actionlint"
 brew "azure-cli"
 brew "formanator"
 brew "sf"
+brew "shellcheck"
 
 # brew "ansible"
 # brew "terraform"
@@ -22,6 +24,7 @@ cask "deckset"
 # cask "jordanbaird-ice@beta"
 cask "loom"
 cask "lunar"
+cask "microsoft-365-copilot"
 
 #/ (work) mas ------------------------------------------------------------------
 
