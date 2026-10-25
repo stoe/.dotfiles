@@ -134,7 +134,10 @@ if test "$dry_run" = true
     # that would be installed or updated (and exits 1 when there are any).
     _brew_run_with_categories brew bundle check --verbose --file $BREWFILE_LOCAL; or true
 else
-    _brew_run_with_categories brew bundle --file $BREWFILE_LOCAL
+    # Keep Homebrew attached to the terminal for parallel download progress.
+    _brew_print_category_overview
+    echo ""
+    formatexec "brew bundle --file $BREWFILE_LOCAL"
     _brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
 end
 
