@@ -4,17 +4,25 @@
 
 #/ (optional) formulas ---------------------------------------------------------
 
+# Git and GitLab
 # brew "glab"
 
 #/ (optional) casks ------------------------------------------------------------
 
+# Quick Look plugins
 # cask "qlimagesize"
 # cask "qlmarkdown"
 # cask "qlvideo"
 # cask "quicklook-json"
 # cask "quicklookase"
+
+# Communication
 # cask "signal"
+
+# Screen capture
 # cask "skitch"
+
+# Media players
 # cask "vlc"
 
 #/ (optional) mas --------------------------------------------------------------

@@ -8,13 +8,22 @@
 
 #/ (personal) casks ------------------------------------------------------------
 
+# Security and privacy
 cask "little-snitch"
-cask "parallels"
+
+# Email
 cask "proton-mail"
 # cask "proton-mail-bridge"
+
+# Virtualization
+cask "parallels"
+
+# Gaming
 cask "steam"
 
-# (personal) fonts -------------------------------------------------------------
+#/ (personal) fonts ------------------------------------------------------------
+
+# Handwriting fonts
 cask "font-playwrite-de-grund-guides"
 cask "font-playwrite-de-la-guides"
 cask "font-playwrite-de-sas-guides"
@@ -22,7 +31,10 @@ cask "font-playwrite-de-va-guides"
 
 #/ (personal) mas --------------------------------------------------------------
 
+# Identity
 mas "AusweisApp", id: 948660805
+
+# Office
 # mas "Keynote", id: 409183694
 # mas "Numbers", id: 409203825
 # mas "Pages", id: 409201541

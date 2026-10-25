@@ -10,31 +10,35 @@ cask_args appdir: "/Applications", require_sha: true
 
 #/ formulas --------------------------------------------------------------------
 
+# Shells and terminal
 brew "bash"
-brew "glow"
-
-brew "sevenzip"
-brew "gnu-tar"
-brew "gzip"
-brew "pigz"
-brew "uv"
-
-brew "container"
-brew "coreutils"
-brew "duti"
-brew "jq"
-brew "pv"
-# keg-only; conf.d/10-paths.fish adds it to PATH so the `rm` -> `trash` wrapper
-# resolves here rather than to an npm-installed trash-cli
-brew "macos-trash"
-brew "tree"
-brew "yq"
-
 brew "bat"
 brew "fd"
 brew "fish"
 brew "fzf"
+brew "glow"
+brew "rg"
+brew "tree"
 
+# Core CLI utilities
+brew "coreutils"
+brew "duti"
+brew "jq"
+# keg-only; conf.d/10-paths.fish adds it to PATH so the `rm` -> `trash` wrapper
+# resolves here rather than to an npm-installed trash-cli
+brew "macos-trash"
+brew "pv"
+brew "yq"
+
+# Archives and compression
+brew "gnu-tar"
+brew "gzip"
+brew "pigz"
+brew "sevenzip"
+brew "xz"
+brew "zstd"
+
+# Media and document conversion
 brew "exiftool"
 brew "ffmpeg"
 brew "ghostscript"
@@ -42,6 +46,7 @@ brew "imagemagick"
 brew "pandoc"
 brew "weasyprint"
 
+# Git and GitHub
 brew "gh"
 brew "git"
 brew "git-extras"
@@ -50,6 +55,7 @@ brew "git-lfs"
 brew "git-sizer"
 brew "gitmoji"
 
+# Security and encryption
 brew "gnupg"
 brew "openssh"
 brew "openssl@3"
@@ -57,81 +63,119 @@ brew "openssl@4"
 brew "pinentry-mac"
 brew "ykman"
 
+# AI tooling
 brew "apm"
 
+# Containers
+brew "container"
+
+# Go
 brew "go"
 brew "golangci-lint"
 brew "goreleaser"
 
+# Node.js
+brew "fnm"
 brew "node"
 # brew "nvm"
-brew "fnm"
 
-brew "rbenv"
-
-brew "pyenv"
+# Python
 brew "pipenv"
+brew "pyenv"
+brew "uv"
 # brew "virtualenv"
 
-brew "readline"
-brew "rg"
-brew "xz"
-brew "tcl-tk"
+# Ruby
+brew "rbenv"
+
+# Build libraries
 brew "libb2"
-brew "zstd"
+brew "readline"
+brew "tcl-tk"
 brew "zlib"
 
 #/ casks -----------------------------------------------------------------------
 
+# Security and privacy
 cask "1password"
 cask "1password-cli"
-cask "alfred"
-cask "apparency"
-cask "cleanmymac"
-cask "cleanshot"
-cask "copilot-cli@prerelease"
-cask "cyberduck"
-# cask "docker-desktop"
-# cask "elgato-camera-hub"
-cask "elgato-stream-deck"
-cask "github-copilot-app"
-cask "homebrew-app"
-cask "insomnia"
-cask "istat-menus", args: { require_sha: false }
-cask "kaleidoscope"
-# cask "kap"
 cask "micro-snitch"
-# cask "microsoft-auto-update"
-# cask "microsoft-edge"
-cask "mosaic"
-cask "muzzle"
-cask "rectangle-pro"
-cask "rocket"
-cask "spotify", args: { require_sha: false }
-cask "suspicious-package", args: { require_sha: false }
-cask "the-unarchiver"
+cask "yubico-authenticator"
+
+# AI assistants
+cask "copilot-cli@prerelease"
+cask "github-copilot-app"
+
+# Editors and Git clients
+cask "kaleidoscope"
 cask "tower"
-cask "ubersicht"
 cask "visual-studio-code"
 cask "visual-studio-code@insiders"
-cask "yubico-authenticator"
+
+# Developer tools
+cask "apparency"
+cask "cyberduck"
+# cask "docker-desktop"
+cask "homebrew-app"
+cask "insomnia"
+cask "suspicious-package", args: { require_sha: false }
+
+# Productivity and window management
+cask "alfred"
+cask "mosaic"
+cask "rectangle-pro"
+cask "rocket"
+
+# System utilities
+cask "cleanmymac"
+cask "istat-menus", args: { require_sha: false }
+cask "the-unarchiver"
+cask "ubersicht"
+
+# Screen capture and presenting
+cask "cleanshot"
+# cask "elgato-camera-hub"
+cask "elgato-stream-deck"
+# cask "kap"
+cask "muzzle"
+
+# Browsers and Microsoft
+# cask "microsoft-auto-update"
+# cask "microsoft-edge"
+
+# Music
+cask "spotify", args: { require_sha: false }
 
 #/ fonts -----------------------------------------------------------------------
 
-cask "font-fira-code-nerd-font"
+# Coding fonts
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-monaspace"
+
+# GitHub brand fonts
 cask "font-hubot-sans"
 cask "font-mona-sans"
-cask "font-monaspace"
 
 #/ mas -------------------------------------------------------------------------
 
 brew "mas"
 
+# Security and privacy
 mas "1Password for Safari", id: 1569813296
+
+# Productivity
 # mas "Bear", id: 1091189122
 mas "Dato", id: 1470584107
-mas "Denied", id: 909257784
-# mas "Gifski", id: 1351639930
+
+# System utilities
 mas "Speediness", id: 1596706466
+
+# Music
+mas "Denied", id: 909257784
+
+# Media
+# mas "Gifski", id: 1351639930
+
+# Developer tools
 # mas "Xcode", id: 497799835

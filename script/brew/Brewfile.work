@@ -4,32 +4,50 @@ tap "timrogers/tap", trusted: true
 
 #/ (work) formulas -------------------------------------------------------------
 
+# Linters
 brew "actionlint"
-brew "azure-cli"
-brew "formanator"
-brew "sf"
 brew "shellcheck"
 
+# Cloud and platform CLIs
+brew "azure-cli"
+brew "sf"
+
+# Infrastructure as code
 # brew "ansible"
 # brew "terraform"
 
+# Expenses and benefits
+brew "formanator"
+
 #/ (work) casks ----------------------------------------------------------------
 
+# Meetings and presenting
 cask "camo-studio"
 cask "deckset"
+cask "loom"
+
+# Productivity
+cask "microsoft-365-copilot"
+
+# Display and menu bar
 # cask "deskpad"
-# cask "energiza", args: { require_sha: false }
-# cask "java" unless system "/usr/libexec/java_home --failfast"
 # cask "jordanbaird-ice"
 # cask "jordanbaird-ice@beta"
-cask "loom"
 cask "lunar"
-cask "microsoft-365-copilot"
+
+# System utilities
+# cask "energiza", args: { require_sha: false }
+
+# Runtimes
+# cask "java" unless system "/usr/libexec/java_home --failfast"
 
 #/ (work) mas ------------------------------------------------------------------
 
+# Identity and access
 mas "Okta Extension App", id: 1439967473
 # mas "Okta Verify", id: 490179405
+
+# Remote access
 # mas "Windows App", id: 1295203466
 
 # Keep these apps out of brew bundle cleanup if present.

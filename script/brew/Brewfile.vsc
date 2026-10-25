@@ -1,13 +1,15 @@
 #/ -----------------------------------------------------------------------------
 #/ VS Code extensions
 
-# Themes
+# Themes and icons
 vscode "github.github-vscode-theme"
 vscode "pkief.material-icon-theme"
-vscode "ms-vscode.atom-keybindings"
-vscode "ms-ceintl.vscode-language-pack-de"
 
-# GitHub Copilot and related
+# Keybindings and localization
+vscode "ms-ceintl.vscode-language-pack-de"
+vscode "ms-vscode.atom-keybindings"
+
+# GitHub Copilot and AI
 # vscode "ms-windows-ai-studio.windows-ai-studio"
 vscode "ms-vscode.vscode-websearchforcopilot"
 
@@ -16,15 +18,17 @@ vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "jasonnutter.vscode-codeowners"
 
-# Containers and Docker
+# Git and diff
+vscode "kaleidoscope-app.vscode-ksdiff"
+
+# Remote development and containers
 # vscode "docker.docker"
 vscode "github.codespaces"
 # vscode "ms-azuretools.vscode-containers"
 # vscode "ms-azuretools.vscode-docker"
 # vscode "ms-vscode-remote.remote-containers"
 
-# Markdown extensions
-vscode "yzhang.markdown-all-in-one"
+# Markdown
 vscode "bierner.github-markdown-preview"
 vscode "bierner.markdown-checkbox"
 vscode "bierner.markdown-emoji"
@@ -33,33 +37,37 @@ vscode "bierner.markdown-mermaid"
 vscode "bierner.markdown-preview-github-styles"
 vscode "bierner.markdown-yaml-preamble"
 # vscode "davidanson.vscode-markdownlint"
+vscode "yzhang.markdown-all-in-one"
 
 # Linters and formatters
 vscode "dbaeumer.vscode-eslint"
 vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
-vscode "graphql.vscode-graphql-syntax"
-vscode "graphql.vscode-graphql"
 vscode "stylelint.vscode-stylelint"
 
-# Git and related
-vscode "kaleidoscope-app.vscode-ksdiff"
-
-# Ruby and related
+# Ruby
+vscode "misogi.ruby-rubocop"
 vscode "shopify.ruby-extensions-pack"
 vscode "shopify.ruby-lsp"
-vscode "misogi.ruby-rubocop"
 vscode "sorbet.sorbet-vscode-extension"
 
-# Languages and related
-vscode "redhat.vscode-yaml"
+# Other languages
 vscode "golang.go"
-
-# Other extensions
-vscode "1Password.op-vscode"
-vscode "adpyke.codesnap"
-vscode "humao.rest-client"
-vscode "mechatroner.rainbow-csv"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-syntax"
 vscode "ms-vscode.powershell"
+vscode "redhat.vscode-yaml"
+
+# API testing
+vscode "humao.rest-client"
+
+# File viewers
+vscode "mechatroner.rainbow-csv"
 vscode "tomoki1207.pdf"
+
+# Security
+vscode "1Password.op-vscode"
+
+# Sharing
+vscode "adpyke.codesnap"
