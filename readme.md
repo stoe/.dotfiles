@@ -81,6 +81,8 @@ The beauty of dotfiles is making them your own. Local/private overrides live out
 - **`script/brew/Brewfile.*`** for package management by context
 - **`script/brew/cleanup`** for removing packages not listed in the active Brewfiles
 
+  Run `script/brew/install` or `script/brew/cleanup` with `-n` (or `--dry-run`) to preview the changes without applying them.
+
 > [!IMPORTANT]
 > None of the `$DFH/.gitconfig.*.local`, `$DFH/.config.personal.local.fish` files are tracked by git — they're gitignored symlinks pointing outside the repo. Create the symlinks yourself, e.g.:
 >

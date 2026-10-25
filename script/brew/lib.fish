@@ -143,7 +143,9 @@ function _brew_category_heading
 end
 
 # Passes output through, printing a category heading whenever a
-# "Using/Installing/Upgrading/Tapping/Skipping <entry>" line starts a new one. Pass "--raw" while script(1) holds the terminal in raw
+# "Using/Installing/Upgrading/Tapping/Skipping <entry>" line, or a
+# `brew bundle check --verbose` "→ <Type> <entry> needs to be ..." line,
+# starts a new one. Pass "--raw" while script(1) holds the terminal in raw
 # mode: a bare \n then no longer returns to column 0, so lines end in \r\n.
 function _brew_annotate_categories
     set -l current
@@ -154,6 +156,7 @@ function _brew_annotate_categories
         set line (string replace -r '\r$' '' -- "$line")
         set -l plain (string replace -ra '\e\[[0-9;?]*[A-Za-z]|\r' '' -- "$line")
         set -l entry (string match -rg '^(?:Using|Installing|Upgrading|Tapping|Skipping)\s+(.+)$' -- "$plain")
+        or set entry (string match -rg '^→\s+\S+\s+(.+?)\s+needs to be\b' -- "$plain")
 
         if test -n "$entry"
             set -l label (_brew_category_label "$entry")

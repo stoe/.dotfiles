@@ -5,10 +5,10 @@
 #/   Removes packages, casks, and dependencies no longer needed.
 #/
 #/ USAGE:
-#/   cleanup [--dry-run]
+#/   cleanup [-n | --dry-run]
 #/
 #/ OPTIONS:
-#/   --dry-run    Show what would be removed without making changes
+#/   -n, --dry-run    Show what would be removed without making changes
 
 # Relies on fish's automatic conf.d/functions autoloading
 # (section/abort/ok/formatexec) plus the shared helpers in lib.fish.
@@ -35,6 +35,10 @@ function append_cleanup_ignored_apps
     end
 end
 
+# Parse command-line arguments
+argparse 'n/dry-run' -- $argv
+or exit 1
+
 # Machine hostnames come from 1Password when available. Environment variables
 # can provide them after bootstrap, without requiring desktop integration.
 _brew_resolve_machine_names
@@ -44,10 +48,6 @@ set -l BREWFILE_LOCAL Brewfile.local
 function _cleanup_brewfile --on-event fish_exit --on-signal SIGINT
     _brew_clean_local_brewfile Brewfile.local
 end
-
-# Parse command-line arguments
-argparse 'dry-run' -- $argv
-or exit 1
 
 set -l dry_run false
 if set -q _flag_dry_run

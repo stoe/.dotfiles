@@ -6,7 +6,11 @@
 #/   into a unified Brewfile.local based on the current machine hostname.
 #/
 #/ USAGE:
-#/   install
+#/   install [-n | --dry-run]
+#/
+#/ OPTIONS:
+#/   -n, --dry-run    Show what would be installed or updated without making
+#/                    changes
 
 # Relies on fish's automatic conf.d/functions autoloading
 # (section/abort/ok/formatexec) plus the shared helpers in lib.fish.
@@ -21,6 +25,7 @@ source lib.fish
 function sync_vscode_extensions
     set -l cli_name $argv[1]
     set -l editor_name $argv[2]
+    set -l dry_run $argv[3]
 
     if not command -sq $cli_name
         disabled
@@ -29,6 +34,28 @@ function sync_vscode_extensions
     end
 
     set -l desired_extensions (sed -nE 's/^[[:space:]]*vscode[[:space:]]+"([^"]+)".*/\1/p' Brewfile.vsc)
+
+    if test "$dry_run" = true
+        set -l installed (string lower -- ($cli_name --list-extensions 2>/dev/null))
+        set -l missing
+        for extension in $desired_extensions
+            contains -- (string lower -- $extension) $installed; or set -a missing $extension
+        end
+
+        printf '%s> %s --list-extensions%s\n' "$DIM" "$cli_name" "$NC"
+        set -l current_category
+        for extension in $missing
+            set -l category (_brew_category_label $extension)
+            if test -n "$category"; and test "$category" != "$current_category"
+                set current_category $category
+                _brew_category_heading $category
+            end
+            printf 'Would install %s\n' $extension
+        end
+        printf '%d of %d extensions already installed\n' \
+            (math (count $desired_extensions) - (count $missing)) (count $desired_extensions)
+        return 0
+    end
 
     set -l current_category
     for extension in $desired_extensions
@@ -44,6 +71,10 @@ function sync_vscode_extensions
     end
 end
 
+# Parse command-line arguments
+argparse 'n/dry-run' -- $argv
+or exit 1
+
 # Machine hostnames come from 1Password when available. Environment variables
 # can provide them after bootstrap, without requiring desktop integration.
 _brew_resolve_machine_names
@@ -54,7 +85,13 @@ function _cleanup_brewfile --on-event fish_exit --on-signal SIGINT
     _brew_clean_local_brewfile Brewfile.local
 end
 
-section "homebrew" "🍺 💻 install"
+set -l dry_run false
+if set -q _flag_dry_run
+    set dry_run true
+    section "dry run" "🍺 🙈 No changes will be made"
+else
+    section "homebrew" "🍺 💻 install"
+end
 
 # Verify required Brewfiles exist
 _brew_require_file Brewfile "Brewfile"
@@ -92,19 +129,23 @@ set -l fish_version_before (_brew_fish_version)
 _brew_require_file Brewfile.vsc "Brewfile.vsc"
 _brew_load_categories $BREWFILE_LOCAL Brewfile.vsc
 
-# Execute brew bundle install
-_brew_run_with_categories brew bundle --file $BREWFILE_LOCAL
-
-_brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
+if test "$dry_run" = true
+    # brew bundle has no install dry run; `check --verbose` lists every entry
+    # that would be installed or updated (and exits 1 when there are any).
+    _brew_run_with_categories brew bundle check --verbose --file $BREWFILE_LOCAL; or true
+else
+    _brew_run_with_categories brew bundle --file $BREWFILE_LOCAL
+    _brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
+end
 
 # Sync extension state in both VS Code Stable and Insiders.
 section "vscode" "🧩 insiders"
-if not sync_vscode_extensions code-insiders "VS Code Insiders"
+if not sync_vscode_extensions code-insiders "VS Code Insiders" $dry_run
     disabled
     printf '\033[38;5;244mVS Code Insiders extension sync reported errors; continuing\033[0m\n'
 end
 section "vscode" "🧩 stable"
-if not sync_vscode_extensions code "VS Code Stable"
+if not sync_vscode_extensions code "VS Code Stable" $dry_run
     disabled
     printf '\033[38;5;244mVS Code Stable extension sync reported errors; continuing\033[0m\n'
 end
