@@ -11,6 +11,7 @@ cask_args appdir: "/Applications", require_sha: true
 #/ formulas --------------------------------------------------------------------
 
 brew "bash"
+brew "glow"
 
 brew "sevenzip"
 brew "gnu-tar"
