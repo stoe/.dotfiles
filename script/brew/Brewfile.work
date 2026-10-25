@@ -9,7 +9,6 @@ brew "actionlint"
 brew "shellcheck"
 
 # Cloud and platform CLIs
-brew "azure-cli"
 brew "sf"
 
 # Infrastructure as code
@@ -20,6 +19,9 @@ brew "sf"
 brew "formanator"
 
 #/ (work) casks ----------------------------------------------------------------
+
+# Cloud and platform CLIs
+cask "azure-cli"
 
 # Meetings and presenting
 cask "camo-studio"
