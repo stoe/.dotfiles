@@ -68,3 +68,136 @@ function _brew_warn_if_fish_changed
             (string replace 'fish ' '' -- $before) (string replace 'fish ' '' -- $after)
     end
 end
+
+# Records the "section › category" label of every active Brewfile entry. The
+# section comes from `#/ section ---` lines; the category from a `# Category`
+# comment that directly follows a blank line, so inline notes and
+# commented-out entries are not mistaken for categories.
+function _brew_load_categories
+    set -g _brew_category_names
+    set -g _brew_category_keys
+    set -g _brew_category_labels
+
+    for brewfile in $argv
+        set -l section
+        set -l category
+        set -l previous ''
+
+        while read -l line
+            if string match -qr '^#/' -- "$line"
+                set -l title (string replace -r '^#/\s*' '' -- "$line" \
+                    | string replace -r '\s*-+$' '' \
+                    | string replace -r '^brew ' '' \
+                    | string replace -r '^\((\w+)\) ' '$1 ')
+                if test -n "$title"
+                    set section $title
+                    set category
+                end
+            else if string match -qr '^#' -- "$line"
+                if test -z "$previous"
+                    and not string match -qr '^#\s*(tap|brew|cask|mas|vscode|cleanup-ignore-app)\s' -- "$line"
+                    set category (string replace -r '^#\s*' '' -- "$line")
+                end
+            else
+                set -l name (string match -rg '^\s*(?:tap|brew|cask|mas|vscode)\s+"([^"]+)"' -- "$line")
+                if test -n "$name"
+                    set -a _brew_category_names $name
+                    set -a _brew_category_keys (string lower -- $name)
+                    set -a _brew_category_labels (string join ' › ' -- $section $category)
+                end
+            end
+            set previous $line
+        end <$brewfile
+    end
+end
+
+# Prints the category label of the entry that the given text starts with,
+# preferring the longest match so "1Password for Safari" beats "1password".
+function _brew_category_label
+    set -l text (string lower -- "$argv[1]")
+    set -l best 0
+    set -l best_length 0
+
+    for index in (seq (count $_brew_category_keys))
+        set -l key $_brew_category_keys[$index]
+        set -l key_length (string length -- "$key")
+        test $key_length -gt $best_length; or continue
+
+        if test "$text" = "$key"
+            or test (string sub -l (math $key_length + 1) -- "$text") = "$key "
+            set best $index
+            set best_length $key_length
+        end
+    end
+
+    test $best -gt 0; or return 1
+    printf '%s\n' $_brew_category_labels[$best]
+end
+
+# The optional second argument overrides the line ending (see
+# _brew_annotate_categories).
+function _brew_category_heading
+    set -l eol \n
+    set -q argv[2]; and set eol $argv[2]
+    printf '%s── %s%s%s' "$BLUE" "$argv[1]" "$NC" "$eol"
+end
+
+# Passes output through, printing a category heading whenever a
+# "Using/Installing/Upgrading/Tapping/Skipping <entry>" line starts a new one. Pass "--raw" while script(1) holds the terminal in raw
+# mode: a bare \n then no longer returns to column 0, so lines end in \r\n.
+function _brew_annotate_categories
+    set -l current
+    set -l eol \n
+    test "$argv[1]" = --raw; and set eol \r\n
+
+    while read -l line
+        set line (string replace -r '\r$' '' -- "$line")
+        set -l plain (string replace -ra '\e\[[0-9;?]*[A-Za-z]|\r' '' -- "$line")
+        set -l entry (string match -rg '^(?:Using|Installing|Upgrading|Tapping|Skipping)\s+(.+)$' -- "$plain")
+
+        if test -n "$entry"
+            set -l label (_brew_category_label "$entry")
+            if test -n "$label"; and test "$label" != "$current"
+                set current $label
+                _brew_category_heading $label $eol
+            end
+        end
+
+        printf '%s%s' "$line" "$eol"
+    end
+end
+
+# Runs a command with category headings added to its output. On a terminal
+# it runs under script(1): Homebrew only line-buffers piped output under CI,
+# and a pseudo-terminal also keeps its colors and progress output.
+function _brew_run_with_categories
+    printf '%s> %s%s\n' "$DIM" "$argv" "$NC"
+
+    set -l result
+    if test -t 0; and test -t 1
+        script -q /dev/null $argv | _brew_annotate_categories --raw
+        set result $pipestatus[1]
+    else
+        $argv 2>&1 | _brew_annotate_categories
+        set result $pipestatus[1]
+    end
+
+    return $result
+end
+
+# Prints every loaded entry grouped under its category heading.
+function _brew_print_category_overview
+    set -l total (count $_brew_category_names)
+    test $total -gt 0; or return 0
+
+    set -l start 1
+    for index in (seq $total)
+        set -l next (math $index + 1)
+        if test $index -eq $total
+            or test "$_brew_category_labels[$next]" != "$_brew_category_labels[$index]"
+            _brew_category_heading $_brew_category_labels[$index]
+            printf '   %s\n' (string join ', ' -- $_brew_category_names[$start..$index])
+            set start $next
+        end
+    end
+end

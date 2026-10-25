@@ -29,7 +29,7 @@ function append_cleanup_ignored_apps
         end
 
         if test -e "$app_path"
-            set -ag brewfile_all $bundle_entry
+            set -ag brewfile_all '' '# Cleanup-ignored apps' $bundle_entry
             section "homebrew" "🍺 🙅 Ignoring cleanup for $app_path"
         end
     end
@@ -96,6 +96,11 @@ set -ag brewfile_all '' (cat Brewfile.vsc)
 
 # Write unified Brewfile
 string join \n -- $brewfile_all > $BREWFILE_LOCAL
+
+# Show what the cleanup keeps, grouped by Brewfile category (see lib.fish).
+section "homebrew" "🍺 📋 Keeping"
+_brew_load_categories $BREWFILE_LOCAL
+_brew_print_category_overview
 
 set -l fish_version_before (_brew_fish_version)
 

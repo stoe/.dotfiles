@@ -30,7 +30,14 @@ function sync_vscode_extensions
 
     set -l desired_extensions (sed -nE 's/^[[:space:]]*vscode[[:space:]]+"([^"]+)".*/\1/p' Brewfile.vsc)
 
+    set -l current_category
     for extension in $desired_extensions
+        set -l category (_brew_category_label $extension)
+        if test -n "$category"; and test "$category" != "$current_category"
+            set current_category $category
+            _brew_category_heading $category
+        end
+
         # --force handles install and update with one command.
         # filter out deprecation warnings to avoid cluttering output
         formatexec "$cli_name --install-extension $extension --force" 2>&1 | grep -vE 'DeprecationWarning|--trace-deprecation'; or true
@@ -81,13 +88,16 @@ string join \n -- $brewfile_all > $BREWFILE_LOCAL
 
 set -l fish_version_before (_brew_fish_version)
 
+# Category headings come from the Brewfile comments (see lib.fish).
+_brew_require_file Brewfile.vsc "Brewfile.vsc"
+_brew_load_categories $BREWFILE_LOCAL Brewfile.vsc
+
 # Execute brew bundle install
-formatexec "brew bundle --file $BREWFILE_LOCAL"
+_brew_run_with_categories brew bundle --file $BREWFILE_LOCAL
 
 _brew_warn_if_fish_changed "$fish_version_before" (_brew_fish_version)
 
 # Sync extension state in both VS Code Stable and Insiders.
-_brew_require_file Brewfile.vsc "Brewfile.vsc"
 section "vscode" "🧩 insiders"
 if not sync_vscode_extensions code-insiders "VS Code Insiders"
     disabled
